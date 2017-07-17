@@ -1,0 +1,12 @@
+db.message.insert({
+message_id:"",
+con_memberid_id:"",
+sel_memberid_id:"",
+})
+
+db.mes_detail.insert({
+messageid_id:"",
+send_memberid_id:"",
+time:"",
+message:""
+)}
