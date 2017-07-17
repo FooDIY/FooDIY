@@ -1,0 +1,85 @@
+<!--5월 28일날 할 것 !-->
+<!--로그인 화면에 구글,페이스북 로그인 추가-->
+<!--로그인 화면 반응형으로 만들기-->
+<!--회원가입 전에 구글,페이스북,집밥 선택하는 창 만들기-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>foodiy</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/signUp.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+</head>
+<body>
+
+<div class="signupform container-fluid" id="pop-up-sign">
+
+    <div class="signup-content">
+
+        <form action="" class="form-horizontal">
+
+            <div class="form-group">
+                <div class="real_content">
+                    <div class="link_google_facebook">
+                        <button class="link_othersignup col-xs-6 col-sm-6 col-md-6 col-lg-6" id="signup-google">
+                            <span><img src="../img/google_logo.png" alt=""></span>google
+                        </button>
+
+                        <button class="link_othersignup col-xs-6 col-sm-6 col-md-6 col-lg-6" id="signup-facebook">
+                            <span><img src="../img/facebook_logo.png" alt=""></span>facebook
+                        </button>
+                    </div>
+
+                    <br><br><hr>
+
+                    <div class="input-group-s">
+                        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="email" class="form-control" id="email" placeholder="E-mail">
+                        <span class="input-group-addon login-button"><a href="" id="email_link">중복확인</a></span>
+                    </div>
+
+                    <div class="input-group-s">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input type="password" class="form-control" id="password" placeholder="Password">
+                        <input type="password" class="form-control" id="password2" placeholder="Confirm Password">
+                    </div>
+
+                    <div class="input-group-s">
+                        <span class="input-group-addon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></span>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="email" class="form-control" id="nick_name" placeholder="Nickname">
+                        <span class="input-group-addon login-button"><a href="" id="nickname_link">중복확인</a></span>
+                    </div>
+
+                    <input type="button" value="Sign Up" onclick="goPage()" class="signupzipbob form-control" id="signup-zipbob">
+
+                </div>
+
+            </div>
+        </form>
+
+    </div>
+
+</div>
+<script src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/bootstrap.js"></script>
+
+<script>
+    function goPage() {
+        location.href = "login_in.html";
+    }
+</script>
+
+</body>
+
+</html>

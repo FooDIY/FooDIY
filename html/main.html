@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>foodiy</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/main_css.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../js/jquery-ui-1.12.1/jquery-ui.css">
+    <link rel="stylesheet" href="../css/signUp.css">
+</head>
+<body>
+
+    <header>
+        <div class="container" id="header_container">
+
+            <form class="container-fluid" action="#">
+
+                    <input type="text" class="input-sm" placeholder="Where">
+                    <input type="text" class="datepicker input-sm" placeholder="날짜를 선택하세요">
+
+                    <select class="input-sm">
+                        <option value="korean">Korean</option>
+                        <option value="japanese">Japanese</option>
+                        <option value="chinese">Chinese</option>
+                        <option value="western">Western</option>
+                        <option value="apetiser">Apetiser</option>
+                        <option value="etc">Etc</option>
+                    </select>
+
+                    <select class="input-sm">
+                        <option value="">1 &nbsp;&nbsp;Guest</option>
+                        <option value="">2 &nbsp;&nbsp;Guest</option>
+                        <option value="">3 &nbsp;&nbsp;Guest</option>
+                        <option value="">4 &nbsp;&nbsp;Guest</option>
+                        <option value="">5 &nbsp;&nbsp;Guest</option>
+                        <option value="">6+ Guest</option>
+                    </select>
+
+                <div class="header_right">
+                    <span id="main_signup">Sign up</span>
+                    <span id="main_login">Login</span>
+                </div>
+
+            </form>
+
+        </div>
+    </header>
+
+    <articl>
+
+        <!--pop-up Signup-->
+
+        <div class="signupform container-fluid" id="pop-up-sign">
+
+            <div class="signup-content">
+
+                <form action class="form-horizontal">
+
+                    <div class="form-group">
+                        <div class="real_content">
+                            <div class="link_google_facebook">
+                                <button class="link_othersignup col-xs-6 col-sm-6 col-md-6 col-lg-6" id="signup-google-s">
+                                    <span><img src="../img/google_logo.png" alt=""></span>google
+                                </button>
+
+                                <button class="link_othersignup col-xs-6 col-sm-6 col-md-6 col-lg-6" id="signup-facebook-s">
+                                    <span><img src="../img/facebook_logo.png" alt=""></span>facebook
+                                </button>
+                            </div>
+
+                            <br><br><hr>
+
+                            <div class="input-group-s">
+                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                            </div>
+
+                            <div class="input-group">
+                                <input type="email" class="form-control" id="email-s" placeholder="E-mail">
+                                <span class="input-group-addon login-button"><a href="" id="email_link">중복확인</a></span>
+                            </div>
+
+                            <div class="input-group-s">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <input type="password" class="form-control" id="password-s" placeholder="Password">
+                                <input type="password" class="form-control" id="password2-s" placeholder="Confirm Password">
+                            </div>
+
+                            <div class="input-group-s">
+                                <span class="input-group-addon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></span>
+                            </div>
+
+                            <div class="input-group">
+                                <input type="email" class="form-control" id="nick_name" placeholder="Nickname">
+                                <span class="input-group-addon login-button"><a href="" id="nickname_link">중복확인</a></span>
+                            </div>
+
+                            <input type="button" value="Sign Up" onclick="goPage()" class="signupzipbob form-control" id="signup-zipbob">
+
+                        </div>
+
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+
+        <!--pop-up login-->
+
+        <div class="signupform container-fluid" id="pop-up-login">
+
+            <div class="signup-content" >
+
+                <form action="" class="form-horizontal">
+
+                    <div class="form-group">
+
+                        <div class="real_content">
+
+                            <button class="signupgoogle form-control" id="signup-google-l">
+                                <span><img src="../img/google_logo.png" alt=""></span>
+                                <p>Login with google</p>
+                            </button>
+
+                            <button class="signupfacebook form-control" id="signup-facebook-l">
+                                <span><img src="../img/facebook_logo.png" alt=""></span>
+                                <p>Login with facebook</p>
+                            </button>
+                            <hr>
+
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                <input type="email" class="form-control input-lg" id="email-l" placeholder="E-mail">
+                            </div>
+
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <input type="password" class="form-control input-lg" id="password-l" placeholder="Password">
+                            </div>
+
+                            <div class="login-set">
+                                <input type="checkbox">Save password
+                                <a href="">Forgot password ?</a>
+
+                                <button class="login-sign-in form-control" id="sign-in">Log in</button>
+                                <hr>
+                            </div>
+
+                            <button type="button" onclick="goPage()" class="login-sign-up form-control" id="sign-up">Sign up</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </articl>
+
+    <footer>
+    </footer>
+
+</body>
+<script src="../js/jquery.js"></script>
+<script src="../js/jquery-ui-1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="../js/bootstrap.js"></script>
+<script type="text/javascript" src="../js/main.js"></script>
+
+</html>

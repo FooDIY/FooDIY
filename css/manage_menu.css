@@ -1,0 +1,144 @@
+/*header{*/
+/*position: fixed;*/
+/*}*/
+
+.foodiy{
+    height:60px;
+    background-color: #007fff;
+    color: white;
+    text-align: center;
+    z-index: 1;
+    position: relative;
+}
+
+.foodiy a{
+    text-decoration: none;
+    color: white;
+}
+
+.foodiy h2{
+    margin-top:13px;
+}
+
+.user_button{
+    height:60px;
+    background-color: white;
+    /*z-index: 1;*/
+    position: relative;
+}
+
+.user_button button{
+    margin-top:13px;
+}
+
+.info_modify{
+    border-bottom: solid 1px black;
+    margin-top:10px;
+}
+
+.info_modify img{
+    width: 250px;
+    height: 140px;
+    margin-top: 5px;
+}
+/*first*/
+
+.sidenav {
+    position: fixed;
+    height:100%;
+    width:16%;
+    background-color: #007fff;
+    z-index: 2;
+    margin-top:61px;
+}
+
+.menu-list{
+    margin-top:50px;
+    margin-bottom:50px;
+}
+
+.menu-list button{
+    background-color: white;
+    border: white;
+    float: right;
+    margin-bottom: 10px;
+}
+
+article{
+    padding:0;
+    margin-top: 61px;
+}
+/*others*/
+
+.sidebar .nav > li > a {
+    display: block;
+    color: white;
+    padding: 5px 20px;
+    background-color: #007fff;
+}
+
+.sidebar .nav > li > a:hover {
+    text-decoration: none;
+    background-color: white;
+    color: black;
+    border-right: 1px solid #dbd8e0;
+}
+
+.sidebar .nav > li > a:focus {
+    text-decoration: none;
+    background-color: white;
+    border-right: 1px solid #dbd8e0;
+    color: black;
+}
+
+.sidebar .nav > .active > a {
+    font-weight: bold;
+    color: black;
+    /*background-color: deepskyblue;*/
+    border-right: 1px solid #563d7c;
+
+}
+
+.sidebar .nav > .active:hover > a {
+    font-weight: bold;
+    color: black;
+    /*background-color: deepskyblue;*/
+    border-right: 1px solid #563d7c;
+}
+
+.sidebar .nav > .active:focus > a {
+    font-weight: bold;
+    color: black;
+    /*background-color: deepskyblue;*/
+    border-right: 1px solid #563d7c;
+}
+
+/*.tap_menu a:hover{*/
+/*background-color: deepskyblue;*/
+/*}*/
+
+/*.tap_menu a:active{*/
+    /*background-color: deepskyblue;*/
+/*}*/
+
+/*.tap_menu a:visited{*/
+    /*background-color: deepskyblue;*/
+/*}*/
+
+/*.tap_menu a:link{*/
+    /*background-color: deepskyblue;*/
+/*}*/
+
+/* Nav: second level (shown on .active) */
+
+.sidebar .nav .nav {
+    display: none;
+    margin-bottom: 8px;
+}
+
+.sidebar .nav .nav > li > a {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 30px;
+    font-size: 90%;
+}
