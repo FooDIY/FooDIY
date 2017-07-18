@@ -1,0 +1,24 @@
+db.member.insert({
+member_id :"",
+id:"",
+pw:"",
+nick:"",
+sumnail:"",
+sellercheck:"",
+cellphone
+{
+tell1:"",
+tell2:"",
+tell3:""
+},
+address{
+post:"",
+add1:"",
+add2:""
+},
+mailing:"",
+text:"",
+submit_date:"",
+last_login:"",
+last_login_ip:""
+})

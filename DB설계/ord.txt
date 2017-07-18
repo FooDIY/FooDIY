@@ -1,8 +1,0 @@
-db.ord.insert({
-ord_id:"",
-menuid_id:"",
-ord_date_time:"",
-content:"",  //추가 요청사항
-total_price:"",
-date_time:"" //주문한 일시
-})
