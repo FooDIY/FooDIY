@@ -1,0 +1,44 @@
+DOCTYPE html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        title foodiy
+        link(rel="stylesheet" href="/css/bootstrap.css")
+        link(rel="stylesheet" href="/css/signUp.css")
+        link(rel="stylesheet" href="/css/font-awesome.min.css")
+    body
+        div(class="signupform container-fluid" id="pop-up-login")
+            div(class="signup-content")
+                form(action="" class="form-horizontal")
+                    div(class="form-group")
+                        div(class="real_content")
+                            button(class="signupgoogle form-control" id="signup-google-l")
+                                span
+                                    img(src="/img/google_logo.png" alt="")
+                                p Login with google
+                            button(class="signupfacebook form-control" id="signup-facebook-l")
+                                span
+                                    img(src="/img/facebook_logo.png" alt="")
+                                p Login with facebook
+                            hr
+                            div(class="input-group")
+                                span(class="input-group-addon")
+                                    i(class="fa fa-envelope")
+                                input(type="email" class="form-control input-lg" id="email-l" placeholder="E-mail")
+                            div(class="input-group")
+                                span(class="input-group-addon")
+                                    i(class="glyphicon glyphicon-lock")
+                                input(type="password" class="form-control input-lg" id="password-l" placeholder="Password")
+                            div(class="login-set")
+                                input(type="checkbox") Save password
+                                a(href="") Forgot password ?
+                                button(class="login-sign-in form-control" id="sign-in") Log in
+                                hr
+                            button(type="button" onclick="goPage()" class="login-sign-up form-control" id="sign-up") Sign up
+        script(src="/js/jquery.js")
+        script(type="text/javascript" src="/js/bootstrap.js")
+        script.
+            function goPage() {
+                 location.href="sign_up";
+            }

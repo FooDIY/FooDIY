@@ -1,0 +1,51 @@
+DOCTYPE html
+html(lang="en")
+    head
+        meta(charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1")
+        title foodiy
+        link(rel="stylesheet" href="/css/bootstrap.css")
+        link(rel="stylesheet" href="/css/signUp.css")
+        link(rel="stylesheet" href="/css/font-awesome.min.css")
+    body
+        div(class="signupform container-fluid" id="pop-up-sign")
+            div(class="signup-content")
+                form(action class="form-horizontal")
+                    div(class="form-group")
+                        div(class="real_content")
+                            div(class="link_google_facebook")
+                                button(class="link_othersignup col-xs-6 col-sm-6 col-md-6 col-lg-6" id="signup-google-s") google
+                                    span
+                                        img(src="/img/google_logo.png" alt="")
+                                button(class="link_othersignup col-xs-6 col-sm-6 col-md-6 col-lg-6" id="signup-facebook-s") facebook
+                                    span
+                                        img(src="/img/facebook_logo.png" alt="")
+                                br
+                                br
+                                hr
+                                div(class="input-group-s")
+                                    span(class="input-group-addon")
+                                        i(class="fa fa-envelope")
+                                div(class="input-group")
+                                    input(type="email" class="form-control" id="email-s" placeholder="E-mail")
+                                    span(class="input-group-addon login-button")
+                                        a(href="" id="email_link") 중복확인
+                                div(class="input-group-s")
+                                    span(class="input-group-addon")
+                                        i(class="glyphicon glyphicon-lock")
+                                    input(type="password" class="form-control" id="password-s" placeholder="Password")
+                                    input(type="password" class="form-control" id="password2-s" placeholder="Confirm Password")
+                                div(class="input-group-s")
+                                    span(class="input-group-addon")
+                                        i(class="fa fa-user-circle-o" aria-hidden="true")
+                                div(class="input-group")
+                                    input(type="email" class="form-control" id="nick_name" placeholder="Nickname")
+                                    span(class="input-group-addon login-button")
+                                        a(href="" id="nickname_link")
+                                input(type="button" value="Sign Up" onclick="goPage()" class="signupzipbob form-control" id="signup-zipbob")
+    script(src="/js/jquery.js")
+    script(type="text/javascript" src="/js/bootstrap.js")
+
+    script.
+        function goPage() {
+            location.href = "login_in";
+        }

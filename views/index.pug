@@ -6,10 +6,10 @@ html
     head
         meta(lang="en" charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1")
         title foodiy
-        link(rel='stylesheet', href='/stylesheets/main_css.css')
-        link(rel='stylesheet', href='/stylesheets/font-awesome.min.css')
-        link(rel='stylesheet', href='/javascripts/jquery-ui-1.12.1/jquery-ui.css')
-        link(rel='stylesheet', href='/stylesheets/signUp.css')
+        link(rel='stylesheet', href='/css/main_css.css')
+        link(rel='stylesheet', href='/css/font-awesome.min.css')
+        link(rel='stylesheet', href='/js/jquery-ui-1.12.1/jquery-ui.css')
+        link(rel='stylesheet', href='/css/signUp.css')
     body
         header
             div(class="container" id="header_container")
@@ -39,30 +39,71 @@ html
             div(class="signup-content")
                 form(action class="form-horizontal")
                     div(class="form-group")
-                    div(class="real_content")
-                    div(class="link_google_facebook")
-                        button(class="link_othersignup col-xs-6 col-sm-6 col-md-6 col-lg-6" id="signup-google-s") google
-                            span
-                                img(src="./img/google_logo.png" alt="")
-                        button(class="link_othersignup col-xs-6 col-sm-6 col-md-6 col-lg-6" id="signup-facebook-s") facebook
-                            span
-                                img(src="./img/facebook_logo.png" alt="")
-                        br
-                        br
-                        hr
-                        div(class="input-group-s")
-                            span(class="input-group-addon")
-                                i(class="fa fa-envelope")
-                        div(class="input-group")
-                            input(type="email" class="form-control" id="email-s" placeholder="E-mail")
-                            span(class="input-group-addon login-button")
-                                a(href="" id="email_link") 중복확인
-                        div(class="input-group-s")
-                            span(class="input-group-addon")
-                                i(class="glyphicon glyphicon-lock")
-                            input(type="password" class="form-control" id="password-s" placeholder="Password")
-                            input(type="password" class="form-control" id="password2-s" placeholder="Confirm Password")
-    script(src="/javascripts/jquery.js")
-    script(src="/javascripts/jquery-ui-1.12.1/jquery-ui.js")
-    script(type="text/javascript" src="/javascripts/bootstrap.js")
-    script(type="text/javascript" src="/javascripts/main.js")
+                        div(class="real_content")
+                            div(class="link_google_facebook")
+                                button(class="link_othersignup col-xs-6 col-sm-6 col-md-6 col-lg-6" id="signup-google-s") google
+                                    span
+                                        img(src="/img/google_logo.png" alt="")
+                                button(class="link_othersignup col-xs-6 col-sm-6 col-md-6 col-lg-6" id="signup-facebook-s") facebook
+                                    span
+                                        img(src="/img/facebook_logo.png" alt="")
+                                br
+                                br
+                                hr
+                                div(class="input-group-s")
+                                    span(class="input-group-addon")
+                                        i(class="fa fa-envelope")
+                                div(class="input-group")
+                                    input(type="email" class="form-control" id="email-s" placeholder="E-mail")
+                                    span(class="input-group-addon login-button")
+                                        a(href="" id="email_link") 중복확인
+                                div(class="input-group-s")
+                                    span(class="input-group-addon")
+                                        i(class="glyphicon glyphicon-lock")
+                                    input(type="password" class="form-control" id="password-s" placeholder="Password")
+                                    input(type="password" class="form-control" id="password2-s" placeholder="Confirm Password")
+                                div(class="input-group-s")
+                                    span(class="input-group-addon")
+                                        i(class="fa fa-user-circle-o" aria-hidden="true")
+                                div(class="input-group")
+                                    input(type="email" class="form-control" id="nick_name" placeholder="Nickname")
+                                    span(class="input-group-addon login-button")
+                                        a(href="" id="nickname_link")
+                                input(type="button" value="Sign Up" onclick="goPage()" class="signupzipbob form-control" id="signup-zipbob")
+
+        //pop-up Login
+        div(class="signupform container-fluid" id="pop-up-login")
+            div(class="signup-content")
+                form(action="" class="form-horizontal")
+                    div(class="form-group")
+                        div(class="real_content")
+                            button(class="signupgoogle form-control" id="signup-google-l")
+                                span
+                                    img(src="/img/google_logo.png" alt="")
+                                p Login with google
+                            button(class="signupfacebook form-control" id="signup-facebook-l")
+                                span
+                                    img(src="/img/facebook_logo.png" alt="")
+                                p Login with facebook
+                            hr
+                            div(class="input-group")
+                                span(class="input-group-addon")
+                                    i(class="fa fa-envelope")
+                                input(type="email" class="form-control input-lg" id="email-l" placeholder="E-mail")
+                            div(class="input-group")
+                                span(class="input-group-addon")
+                                    i(class="glyphicon glyphicon-lock")
+                                input(type="password" class="form-control input-lg" id="password-l" placeholder="Password")
+                            div(class="login-set")
+                                input(type="checkbox") Save password
+                                a(href="") Forgot password ?
+                            button(class="login-sign-in form-control" id="sign-in") Log in
+                            hr
+                            button(type="button" onclick="goPage()" class="login-sign-up form-control" id="sign-up") Sign up
+    footer
+    script(src="/js/jquery.js")
+    script(src="/js/jquery-ui-1.12.1/jquery-ui.js")
+    script(type="text/javascript" src="/js/bootstrap.js")
+    script(type="text/javascript" src="/js/main.js")
+
+
