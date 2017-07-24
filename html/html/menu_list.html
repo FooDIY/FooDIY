@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>foodiy</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/menu_list.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../js/jquery-ui-1.12.1/jquery-ui.css">
+    <link rel="stylesheet" href="../css/signUp.css">
+    <link rel="stylesheet" href="../css/main_css.css">
+</head>
+
+<body>
+
+<header>
+
+    <div class="container" id="header_container">
+
+        <form class="container-fluid" action="#" id="header_content">
+
+            <a href="#"><img src="../img/temp_logo.jpg" alt="" style="height: 50px; width: 70px;"></a>
+
+            <input type="text" class="input-sm" placeholder="Where" style="width: 250px;">
+            <input type="text" class="datepicker input-sm" placeholder="When">
+
+            <select class="input-sm">
+                <option value="korean">Korean</option>
+                <option value="japanese">Japanese</option>
+                <option value="chinese">Chinese</option>
+                <option value="western">Western</option>
+                <option value="apetiser">Apetiser</option>
+                <option value="etc">Etc</option>
+            </select>
+
+            <select class="input-sm">
+                <option value="">1 &nbsp;&nbsp;Guest</option>
+                <option value="">2 &nbsp;&nbsp;Guest</option>
+                <option value="">3 &nbsp;&nbsp;Guest</option>
+                <option value="">4 &nbsp;&nbsp;Guest</option>
+                <option value="">5 &nbsp;&nbsp;Guest</option>
+                <option value="">6+ Guest</option>
+            </select>
+
+            <div class="header_right">
+                <button id="main_qna">Q&A</button>
+                <button type="button" id="main_become">Be a foodiy</button>
+                <button id="main_signup">Sign up</button>
+                <button id="main_login">Login</button>
+            </div>
+
+        </form>
+
+    </div>
+
+</header>
+
+<article>
+    <div class="container-fluid">
+
+        <ul class="items">
+            <a href="menu_info.html">
+                <li class="items__item" data-lat="51.517429" data-lon="-0.009330">
+                    <img class="items__img" src="https://placem.at/places?w=400&h=200&random=1" alt="" />
+                    <h3 class="items__title">Place 1</h3>
+                </li>
+            </a>
+            <li class="items__item" data-lat="51.417419" data-lon="-0.202320">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=2" alt="" />
+                <h3 class="items__title">Place 2</h3>
+            </li>
+            <li class="items__item" data-lat="51.517439" data-lon="-0.101310">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=3" alt="" />
+                <h3 class="items__title">Place 3</h3>
+            </li>
+            <li class="items__item" data-lat="51.517419" data-lon="-0.209330">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=4" alt="" />
+                <h3 class="items__title">Place 4</h3>
+            </li>
+            <li class="items__item" data-lat="51.537429" data-lon="-0.009330">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=5" alt="" />
+                <h3 class="items__title">Place 5</h3>
+            </li>
+            <li class="items__item" data-lat="51.717819" data-lon="-0.106320">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=6" alt="" />
+                <h3 class="items__title">Place 6</h3>
+            </li>
+            <li class="items__item" data-lat="51.617439" data-lon="-0.1012350">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=7" alt="" />
+                <h3 class="items__title">Place 7</h3>
+            </li>
+            <li class="items__item" data-lat="51.412419" data-lon="-0.209330">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=8" alt="" />
+                <h3 class="items__title">Place 8</h3>
+            </li>
+            <li class="items__item" data-lat="51.412419" data-lon="-0.209330">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=8" alt="" />
+                <h3 class="items__title">Place 9</h3>
+            </li>
+
+
+
+            <li class="items__item" data-lat="51.517429" data-lon="-0.009330">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=1" alt="" />
+                <h3 class="items__title">Place 1</h3>
+            </li>
+            <li class="items__item" data-lat="51.417419" data-lon="-0.202320">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=2" alt="" />
+                <h3 class="items__title">Place 2</h3>
+            </li>
+            <li class="items__item" data-lat="51.517439" data-lon="-0.101310">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=3" alt="" />
+                <h3 class="items__title">Place 3</h3>
+            </li>
+            <li class="items__item" data-lat="51.517419" data-lon="-0.209330">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=4" alt="" />
+                <h3 class="items__title">Place 4</h3>
+            </li>
+            <li class="items__item" data-lat="51.537429" data-lon="-0.009330">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=5" alt="" />
+                <h3 class="items__title">Place 5</h3>
+            </li>
+            <li class="items__item" data-lat="51.717819" data-lon="-0.106320">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=6" alt="" />
+                <h3 class="items__title">Place 6</h3>
+            </li>
+            <li class="items__item" data-lat="51.617439" data-lon="-0.1012350">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=7" alt="" />
+                <h3 class="items__title">Place 7</h3>
+            </li>
+            <li class="items__item" data-lat="51.412419" data-lon="-0.209330">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=8" alt="" />
+                <h3 class="items__title">Place 8</h3>
+            </li>
+            <li class="items__item" data-lat="51.412419" data-lon="-0.209330">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=8" alt="" />
+                <h3 class="items__title">Place 9</h3>
+            </li>            <li class="items__item" data-lat="51.517429" data-lon="-0.009330">
+            <img class="items__img" src="https://placem.at/places?w=400&h=200&random=1" alt="" />
+            <h3 class="items__title">Place 1</h3>
+        </li>
+            <li class="items__item" data-lat="51.417419" data-lon="-0.202320">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=2" alt="" />
+                <h3 class="items__title">Place 2</h3>
+            </li>
+            <li class="items__item" data-lat="51.517439" data-lon="-0.101310">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=3" alt="" />
+                <h3 class="items__title">Place 3</h3>
+            </li>
+            <li class="items__item" data-lat="51.517419" data-lon="-0.209330">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=4" alt="" />
+                <h3 class="items__title">Place 4</h3>
+            </li>
+            <li class="items__item" data-lat="51.537429" data-lon="-0.009330">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=5" alt="" />
+                <h3 class="items__title">Place 5</h3>
+            </li>
+            <li class="items__item" data-lat="51.717819" data-lon="-0.106320">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=6" alt="" />
+                <h3 class="items__title">Place 6</h3>
+            </li>
+            <li class="items__item" data-lat="51.617439" data-lon="-0.1012350">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=7" alt="" />
+                <h3 class="items__title">Place 7</h3>
+            </li>
+            <li class="items__item" data-lat="51.412419" data-lon="-0.209330">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=8" alt="" />
+                <h3 class="items__title">Place 8</h3>
+            </li>
+            <li class="items__item" data-lat="51.412419" data-lon="-0.209330">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=8" alt="" />
+                <h3 class="items__title">Place 9</h3>
+            </li>            <li class="items__item" data-lat="51.517429" data-lon="-0.009330">
+            <img class="items__img" src="https://placem.at/places?w=400&h=200&random=1" alt="" />
+            <h3 class="items__title">Place 1</h3>
+        </li>
+            <li class="items__item" data-lat="51.417419" data-lon="-0.202320">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=2" alt="" />
+                <h3 class="items__title">Place 2</h3>
+            </li>
+            <li class="items__item" data-lat="51.517439" data-lon="-0.101310">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=3" alt="" />
+                <h3 class="items__title">Place 3</h3>
+            </li>
+            <li class="items__item" data-lat="51.517419" data-lon="-0.209330">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=4" alt="" />
+                <h3 class="items__title">Place 4</h3>
+            </li>
+            <li class="items__item" data-lat="51.537429" data-lon="-0.009330">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=5" alt="" />
+                <h3 class="items__title">Place 5</h3>
+            </li>
+            <li class="items__item" data-lat="51.717819" data-lon="-0.106320">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=6" alt="" />
+                <h3 class="items__title">Place 6</h3>
+            </li>
+            <li class="items__item" data-lat="51.617439" data-lon="-0.1012350">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=7" alt="" />
+                <h3 class="items__title">Place 7</h3>
+            </li>
+            <li class="items__item" data-lat="51.412419" data-lon="-0.209330">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=8" alt="" />
+                <h3 class="items__title">Place 8</h3>
+            </li>
+            <li class="items__item" data-lat="51.412419" data-lon="-0.209330">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=8" alt="" />
+                <h3 class="items__title">Place 9</h3>
+            </li>            <li class="items__item" data-lat="51.517429" data-lon="-0.009330">
+            <img class="items__img" src="https://placem.at/places?w=400&h=200&random=1" alt="" />
+            <h3 class="items__title">Place 1</h3>
+        </li>
+            <li class="items__item" data-lat="51.417419" data-lon="-0.202320">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=2" alt="" />
+                <h3 class="items__title">Place 2</h3>
+            </li>
+            <li class="items__item" data-lat="51.517439" data-lon="-0.101310">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=3" alt="" />
+                <h3 class="items__title">Place 3</h3>
+            </li>
+            <li class="items__item" data-lat="51.517419" data-lon="-0.209330">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=4" alt="" />
+                <h3 class="items__title">Place 4</h3>
+            </li>
+            <li class="items__item" data-lat="51.537429" data-lon="-0.009330">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=5" alt="" />
+                <h3 class="items__title">Place 5</h3>
+            </li>
+            <li class="items__item" data-lat="51.717819" data-lon="-0.106320">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=6" alt="" />
+                <h3 class="items__title">Place 6</h3>
+            </li>
+            <li class="items__item" data-lat="51.617439" data-lon="-0.1012350">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=7" alt="" />
+                <h3 class="items__title">Place 7</h3>
+            </li>
+            <li class="items__item" data-lat="51.412419" data-lon="-0.209330">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=8" alt="" />
+                <h3 class="items__title">Place 8</h3>
+            </li>
+            <li class="items__item" data-lat="51.412419" data-lon="-0.209330">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=8" alt="" />
+                <h3 class="items__title">Place 9</h3>
+            </li>            <li class="items__item" data-lat="51.517429" data-lon="-0.009330">
+            <img class="items__img" src="https://placem.at/places?w=400&h=200&random=1" alt="" />
+            <h3 class="items__title">Place 1</h3>
+        </li>
+            <li class="items__item" data-lat="51.417419" data-lon="-0.202320">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=2" alt="" />
+                <h3 class="items__title">Place 2</h3>
+            </li>
+            <li class="items__item" data-lat="51.517439" data-lon="-0.101310">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=3" alt="" />
+                <h3 class="items__title">Place 3</h3>
+            </li>
+            <li class="items__item" data-lat="51.517419" data-lon="-0.209330">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=4" alt="" />
+                <h3 class="items__title">Place 4</h3>
+            </li>
+            <li class="items__item" data-lat="51.537429" data-lon="-0.009330">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=5" alt="" />
+                <h3 class="items__title">Place 5</h3>
+            </li>
+            <li class="items__item" data-lat="51.717819" data-lon="-0.106320">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=6" alt="" />
+                <h3 class="items__title">Place 6</h3>
+            </li>
+            <li class="items__item" data-lat="51.617439" data-lon="-0.1012350">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=7" alt="" />
+                <h3 class="items__title">Place 7</h3>
+            </li>
+            <li class="items__item" data-lat="51.412419" data-lon="-0.209330">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=8" alt="" />
+                <h3 class="items__title">Place 8</h3>
+            </li>
+            <li class="items__item" data-lat="51.412419" data-lon="-0.209330">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=8" alt="" />
+                <h3 class="items__title">Place 9</h3>
+            </li>            <li class="items__item" data-lat="51.517429" data-lon="-0.009330">
+            <img class="items__img" src="https://placem.at/places?w=400&h=200&random=1" alt="" />
+            <h3 class="items__title">Place 1</h3>
+        </li>
+            <li class="items__item" data-lat="51.417419" data-lon="-0.202320">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=2" alt="" />
+                <h3 class="items__title">Place 2</h3>
+            </li>
+            <li class="items__item" data-lat="51.517439" data-lon="-0.101310">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=3" alt="" />
+                <h3 class="items__title">Place 3</h3>
+            </li>
+            <li class="items__item" data-lat="51.517419" data-lon="-0.209330">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=4" alt="" />
+                <h3 class="items__title">Place 4</h3>
+            </li>
+            <li class="items__item" data-lat="51.537429" data-lon="-0.009330">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=5" alt="" />
+                <h3 class="items__title">Place 5</h3>
+            </li>
+            <li class="items__item" data-lat="51.717819" data-lon="-0.106320">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=6" alt="" />
+                <h3 class="items__title">Place 6</h3>
+            </li>
+            <li class="items__item" data-lat="51.617439" data-lon="-0.1012350">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=7" alt="" />
+                <h3 class="items__title">Place 7</h3>
+            </li>
+            <li class="items__item" data-lat="51.412419" data-lon="-0.209330">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=8" alt="" />
+                <h3 class="items__title">Place 8</h3>
+            </li>
+            <li class="items__item" data-lat="51.412419" data-lon="-0.209330">
+                <img class="items__img" src="https://placem.at/places?w=400&h=200&random=8" alt="" />
+                <h3 class="items__title">Place 9</h3>
+            </li>
+        </ul>
+
+        <div class="map" id="map">
+            <div id="mapholder"></div>
+        </div>
+    </div>
+
+    <!--pop-up Signup-->
+    <div class="signupform container-fluid" id="pop-up-sign">
+
+        <div class="signup-content">
+
+            <form action="" class="form-horizontal" id="signup_form">
+
+                <div class="form-group">
+                    <span class="close">&times;</span>
+                    <div class="real_content">
+                        <div class="link_google_facebook">
+                            <button class="link_othersignup col-xs-6 col-sm-6 col-md-6 col-lg-6" id="signup-google-s">
+                                <span><img src="../img/google_logo.png" alt=""></span>google
+                            </button>
+
+                            <button class="link_othersignup col-xs-6 col-sm-6 col-md-6 col-lg-6" id="signup-facebook-s">
+                                <span><img src="../img/facebook_logo.png" alt=""></span>facebook
+                            </button>
+                        </div>
+
+                        <br><br><hr>
+
+                        <div class="input-group-s">
+                            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="email" class="form-control" id="email-s" placeholder="E-mail">
+                            <span class="input-group-addon login-button"><a href="" id="email_link">중복확인</a></span>
+                        </div>
+
+                        <div class="input-group-s">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <input type="password" class="form-control" id="password-s" placeholder="Password">
+                            <input type="password" class="form-control" id="password2-s" placeholder="Confirm Password">
+                        </div>
+
+                        <div class="input-group-s">
+                            <span class="input-group-addon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></span>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="email" class="form-control" id="nick_name" placeholder="Nickname">
+                            <span class="input-group-addon login-button"><a href="" id="nickname_link">중복확인</a></span>
+                        </div>
+
+                        <input type="button" value="Sign Up" class="signupzipbob form-control" id="signup-zipbob">
+
+                    </div>
+
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+
+    <!--pop-up login-->
+
+    <div class="signupform container-fluid" id="pop-up-login">
+
+        <div class="signup-content" >
+
+            <form action="" class="form-horizontal" id="login_form">
+
+                <div class="form-group">
+
+                    <div class="real_content">
+
+                        <button class="signupgoogle form-control" id="signup-google-l">
+                            <span><img src="../img/google_logo.png" alt=""></span>
+                            <p>Login with google</p>
+                        </button>
+
+                        <button class="signupfacebook form-control" id="signup-facebook-l">
+                            <span><img src="../img/facebook_logo.png" alt=""></span>
+                            <p>Login with facebook</p>
+                        </button>
+                        <hr>
+
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                            <input type="email" class="form-control input-lg" id="email-l" placeholder="E-mail">
+                        </div>
+
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <input type="password" class="form-control input-lg" id="password-l" placeholder="Password">
+                        </div>
+
+                        <div class="login-set">
+                            <input type="checkbox">Save password
+                            <a href="">Forgot password ?</a>
+
+                            <button class="login-sign-in form-control" id="sign-in">Log in</button>
+                            <hr>
+                        </div>
+
+                        <button type="button" class="login-sign-up form-control" id="sign-up">Sign up</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</article>
+
+</body>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/jquery-ui-1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="../js/bootstrap.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBb0qeAa_KvAKAeoWRC1xl4BCH-iPN5ztc"></script>
+<script type="text/javascript" src="../js/main.js"></script>
+<script type="text/javascript" src="../js/menu_list.js"></script>
+
+</html>
