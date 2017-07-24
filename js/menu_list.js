@@ -4,6 +4,12 @@
 
 var x = document.getElementById("demo");
 
+$(document).ready(function () {
+    $("#main_become").click(function () {
+        location.href = "become_foodiy.html";
+    })
+});
+
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition, showError);

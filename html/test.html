@@ -8,186 +8,590 @@
     <!--<link rel="stylesheet" href="../css/main_css.css">-->
     <link rel="stylesheet" href="../css/font-awesome.min.css">
     <link rel="stylesheet" href="../js/jquery-ui-1.12.1/jquery-ui.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"
-          integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ=="
-          crossorigin=""/>
     <link rel="stylesheet" href="../js/leaflet.css">
-    <!--<link rel="stylesheet" href="../css/manage_menu.css">-->
-    <!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
-    <!--<link rel="stylesheet" href="../css/test2.css">-->
 
-    <!--<style>-->
+    <style>
+        a {
+        cursor: pointer;
+        }
+        html, body {
+        margin: 0;
+        padding: 0;
+        }
+        fieldset, img {
+        border: 0;
+        }
+        li {
+        list-style: none;
+        }
 
-        <!--* {-->
-            <!--box-sizing: border-box;-->
-        <!--}-->
-        <!--.items {-->
-            <!--width: 60%;-->
-            <!--font-size: 0;-->
-        <!--}-->
-        <!--.items__item {-->
-            <!--display: inline-block;-->
-            <!--vertical-align: bottom;-->
-            <!--width: 40%;-->
-            <!--margin: 2rem 5%;-->
-            <!--text-align: center;-->
-            <!--padding: 2rem 1rem 1rem;-->
-            <!--cursor: pointer;-->
-            <!--color: #222;-->
-            <!--border-radius: 4px;-->
+        .pos{
+        position: relative;
+        top: -90px;
+        }
+        /*input[type="Submit"]{cursor:pointer;}*/
 
-        <!--img {-->
-            <!--width: 100%;-->
-            <!--height: auto;-->
-        <!--}-->
+        strong {
+        font-weight: bold;
+        }
+        body {
+        overflow: hidden;
+        font-family: 'Comfortaa', cursive;
+        font-size: 11px;
+        }
+        canvas {
+        background-image:url(https://i.stack.imgur.com/p9mUO.jpg);
+        background-position-x: initial;
+        background-position-y: initial;
+        background-size: cover;
+        background-repeat-x: initial;
+        background-repeat-y: initial;
+        background-attachment: initial;
+        background-origin: initial;
+        background-clip: initial;
+        background-position: center;
+        font-family: 'Comfortaa', cursive;
+        }
+        .ui {
+        border-radius: 50px 120px 120px;
+        font-family: 'Comfortaa', cursive;
+        font-size: 17px;
+        color: #fa3380;
+        background: linear-gradient(to right, rgba(2, 179, 228, 0.6) 0%, rgba(2, 204, 186,0.6) 100%);
+        position: absolute;
+        width: 70%;
 
-        <!--&.is-selected {-->
-             <!--background: #b00;-->
-             <!--color: white;-->
-         <!--}-->
-        <!--}-->
-        <!--.items__title {-->
-            <!--font-size: 14px;-->
-            <!--text-transform: uppercase;-->
-            <!--font-family: sans-serif;-->
-            <!--letter-spacing: .1em;-->
-            <!--padding-top: 1rem;-->
-        <!--}-->
 
-        <!--.map {-->
-            <!--position: fixed;-->
-            <!--top: 0;-->
-            <!--right: 0;-->
-            <!--width: 40%;-->
-            <!--height: 100%;-->
-        <!--}-->
+        }
 
-        <!--.map__icon {-->
-            <!--position: relative;-->
+        #message {
+        border-radius: 50px 120px 120px;
+        padding: 70px;
+        position: relative;
+        margin: 0 auto;
+        -webkit-animation:colorchange 50s infinite alternate;
+        }
+        #startButton {
+        margin-top: 50px;
+        }
+        #status {
+        width: 100%;
+        height: 15px;
+        padding: 8px;
+        display: none;
+        }
+        #status span {
+        color: #fff;
+        font-weight: bold;
+        margin-right: 20px;
 
-        <!--span {-->
-            <!--font-size: 10px;-->
-            <!--white-space: nowrap;-->
-            <!--background: #b00;-->
-            <!--color: white;-->
-            <!--display: block;-->
-            <!--padding: .5em;-->
-            <!--border-radius: 2px;-->
-            <!--position: absolute;-->
-            <!--top: 0;-->
-            <!--left: 50%;-->
-            <!--transform: translateX(-50%);-->
+        }
+        #title {
+        text-transform: uppercase;
+        text-align: center;
+        margin-top: 10px;
+        color: #fa3380;
+        -webkit-animation:colorchange 7s infinite alternate;
+        }
+        .ui a {
+        outline: none;
+        font-family: 'Comfortaa', cursive;
+        font-size: 38px;
+        width: 150px;
+        text-align: center;
+        margin: 0 auto;
+        text-decoration: none;
+        color: deepskyblue;
+        padding: 2px;
+        display: block;
+        -webkit-animation:colorchange 1s infinite alternate;
+        }
+        .ui a:hover {
+        font-weight: bold;
+        background: linear-gradient(to right, rgba(2, 179, 228, 0.9) 0%, rgba(2, 204, 186,0.9) 100%);
+        border-radius: 50px 120px 120px;
+        }
 
-        <!--&:before {-->
-             <!--content: "";-->
-             <!--width: 0;-->
-             <!--height: 0;-->
-             <!--border-style: solid;-->
-             <!--border-width: 8px 5px 0 5px;-->
-             <!--border-color: #b00 transparent transparent transparent;-->
-             <!--position: absolute;-->
-             <!--top: 100%;-->
-             <!--left: 50%;-->
-             <!--margin-left: -5px;-->
-         <!--}-->
-        <!--}-->
-        <!--}-->
-        <!--.popup {-->
 
-        <!--img {-->
-            <!--width: 100%;-->
-            <!--height: auto;-->
-        <!--}-->
 
-        <!--h3 {-->
-            <!--padding: 5px;-->
-            <!--font-size: 12px;-->
-        <!--}-->
-        <!--}-->
 
-        <!--.leaflet-popup-content-wrapper {-->
-            <!--border-radius: 4px;-->
-        <!--}-->
-        <!--.leaflet-popup-content {-->
-            <!--width: 240px;-->
-            <!--padding: 20px 5px 0;-->
-            <!--margin: 0;-->
-        <!--}-->
-    <!--</style>-->
+        @-webkit-keyframes colorchange {
+        0% {
+
+        color: darkviolet;
+        }
+
+        10% {
+
+        color: #fa3380;
+        }
+
+        20% {
+
+        color: rgba(2,179,228,0.8);
+        }
+
+        30% {
+
+        color: rgba(2,204,186,0.8);
+        }
+
+        40% {
+
+        color: rgba(169,81,237,0.8);
+        }
+
+        50% {
+
+        color: rgba(255,162,52,0.8);
+        }
+
+        60% {
+
+        color: rgba(255,84,131,0.8);
+        }
+
+        70% {
+
+        color: deepskyblue;
+        }
+        80% {
+
+        color: purple;
+        }
+
+        90% {
+
+        color: lightpink;
+        }
+
+        100% {
+
+        color: rgba(125,151,173,0.8);
+        }
+        }
+
+    </style>
 </head>
 
 <body>
 
+<canvas id='world'></canvas>
+<div id="status" class="ui"></div>
+<div class="pos">
+    <div id="message" class="ui">
+        <h2 id="title">Survival Game</h2>
+        <ul>
+            <li>1. Avoid white dots.</li>
+            <li>2. Touch the green dots for invulnerability.</li>
+            <li>3. Stay at the center, Don't touch the sides</li>
+            <li>4. Use invulnerability to destroy red dots.</li>
+            <li>5. Score extra points by moving around a lot.</li>
+            <li>6. Stay alive.</li>
+        </ul>
+        <a href="#" class="btn" id="startButton">Play</a>
+    </div>
+</div>
 
 <script>
-    var doc = document,
-    win = window,
-    body = doc.body;
 
-    var map = L.map('map').setView([51.505, -0.09], 13);
 
-    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw', {
-    maxZoom: 18,
-    attribution: '',
-    id: 'mapbox.streets'
-    }).addTo(map);
+    SinuousWorld = new function(){
 
-    var popup = L.popup();
+        var isMobile = (navigator.userAgent.toLowerCase().indexOf('android') != -1) || (navigator.userAgent.toLowerCase().indexOf('iphone') != -1);
 
-    var coords = [];
-    var markers = [];
+        var SCREEN_WIDTH = window.innerWidth;
+        var SCREEN_HEIGHT = window.innerHeight;
 
-    var items = doc.getElementsByClassName('items__item');
+        var canvas;
+        var context;
 
-    setMap();
+        var status;
+        var message;
+        var title;
+        var startButton;
 
-    function setMap(){
-    for (var i = 0; i < items.length; i++) {
-    (function(i){
-    var icon = L.divIcon({className: 'map__icon', html: '<span>'+items[i].getElementsByTagName('h3')[0].textContent+'</span>'});
+        var enemies = [];
+        var boosts = [];
+        var particles = [];
+        var player;
 
-    coords[i] = [items[i].getAttribute('data-lat'), items[i].getAttribute('data-lon')];
-    markers[i] = L.marker(coords[i], {icon: icon}).addTo(map);
+        var mouseX = (window.innerWidth - SCREEN_WIDTH);
+        var mouseY = (window.innerHeight - SCREEN_HEIGHT);
+        var mouseIsDown = false;
 
-    markers[i].on('click', function(e){
-    onMapClick(e, i);
-    });
-    items[i].setAttribute('data-id', i);
-    items[i].addEventListener('click', onItemClick, true);
-    })(i);
+        var playing = false;
+        var score = 0;
+        var time = 0;
+
+        var velocity = { x: -1.3, y: 1 };
+        var difficulty = 1;
+
+        this.init = function(){
+
+            canvas = document.getElementById('world');
+            status = document.getElementById('status');
+            message = document.getElementById('message');
+            title = document.getElementById('title');
+            startButton = document.getElementById('startButton');
+
+            if (canvas && canvas.getContext) {
+                context = canvas.getContext('2d');
+
+                // Register event listeners
+                document.addEventListener('mousemove', documentMouseMoveHandler, false);
+                document.addEventListener('mousedown', documentMouseDownHandler, false);
+                document.addEventListener('mouseup', documentMouseUpHandler, false);
+                canvas.addEventListener('touchstart', documentTouchStartHandler, false);
+                document.addEventListener('touchmove', documentTouchMoveHandler, false);
+                document.addEventListener('touchend', documentTouchEndHandler, false);
+                window.addEventListener('resize', windowResizeHandler, false);
+                startButton.addEventListener('click', startButtonClickHandler, false);
+
+                player = new Player();
+
+                windowResizeHandler();
+
+                setInterval(loop, 3000 / 100);
+            }
+        };
+
+        function startButtonClickHandler(event){
+            event.preventDefault();
+
+            if( playing == false ) {
+                playing = true;
+
+                enemies = [];
+                boosts = [];
+                score = 0;
+                difficulty = 1;
+
+                player.trail = [];
+                player.position.x = mouseX;
+                player.position.y = mouseY;
+                player.boost = 0;
+
+                message.style.display = 'none';
+                status.style.display = 'block';
+
+                time = new Date().getTime();
+            }
+        }
+
+        function gameOver() {
+            playing = false;
+
+            message.style.display = 'block';
+
+            title.innerHTML = 'You Lost( ' + Math.round (score ) + ' points)';
+        }
+
+        function documentMouseMoveHandler(event){
+            mouseX = event.clientX - (window.innerWidth - SCREEN_WIDTH) * .5 - 10;
+            mouseY = event.clientY - (window.innerHeight - SCREEN_HEIGHT) * .5 - 10;
+        }
+
+        function documentMouseDownHandler(event){
+            mouseIsDown = true;
+        }
+
+        function documentMouseUpHandler(event) {
+            mouseIsDown = false;
+        }
+
+        function documentTouchStartHandler(event) {
+            if(event.touches.length == 1) {
+                event.preventDefault();
+
+                mouseX = event.touches[0].pageX - (window.innerWidth - SCREEN_WIDTH) * .5;
+                mouseY = event.touches[0].pageY - (window.innerHeight - SCREEN_HEIGHT) * .5;
+
+                mouseIsDown = true;
+            }
+        }
+
+        function documentTouchMoveHandler(event) {
+            if(event.touches.length == 1) {
+                event.preventDefault();
+
+                mouseX = event.touches[0].pageX - (window.innerWidth - SCREEN_WIDTH) * .5;
+                mouseY = event.touches[0].pageY - (window.innerHeight - SCREEN_HEIGHT) * .5;
+            }
+        }
+
+        function documentTouchEndHandler(event) {
+            mouseIsDown = false;
+        }
+
+        function windowResizeHandler() {
+            SCREEN_WIDTH = window.innerWidth;
+            SCREEN_HEIGHT = window.innerHeight;
+
+            canvas.width = SCREEN_WIDTH;
+            canvas.height = SCREEN_HEIGHT;
+
+            var cvx = (window.innerWidth - SCREEN_WIDTH) * .5;
+            var cvy = (window.innerHeight - SCREEN_HEIGHT) * .5;
+
+            canvas.style.position = 'absolute';
+            canvas.style.left = cvx + 'px';
+            canvas.style.top = cvy + 'px';
+
+            message.style.left = cvx + 'px';
+            message.style.top = cvy + 200 + 'px';
+        }
+
+        function createParticles( position, spread, color ) {
+            var q = 10 + ( Math.random() * 15 );
+
+            while( --q >= 0 ) {
+                var p = new Particle();
+                p.position.x = position.x + ( Math.sin(q) * spread );
+                p.position.y = position.y + ( Math.cos(q) * spread );
+                p.velocity = { x: -4 + Math.random() * 8, y: - 4 + Math.random() * 8 };
+                p.alpha = 1;
+
+                particles.push( p );
+            }
+        }
+
+        function loop() {
+
+            context.clearRect(0,0,canvas.width,canvas.height);
+
+            var svelocity = { x: velocity.x * difficulty, y: velocity.y * difficulty };
+
+            var i, j, ilen, jlen;
+
+            if( playing ) {
+                difficulty += 0.0008;
+
+                pp = player.clonePosition();
+
+                player.position.x += ( mouseX - player.position.x ) * 0.13;
+                player.position.y += ( mouseY - player.position.y ) * 0.13;
+
+                score += 0.4 * difficulty;
+                score += player.distanceTo( pp ) * 0.1;
+
+                player.boost = Math.max( player.boost - 1, 0 );
+
+                if( player.boost > 0 && ( player.boost > 100 || player.boost % 2 != 0 ) ) {
+                    context.beginPath();
+                    context.fillStyle = '#000';
+                    context.strokeStyle = 'rgba(2,179,228,0.8)';
+                    context.arc(player.position.x, player.position.y, player.size*2, 0, Math.PI*2, true);
+                    context.fill();
+                    context.stroke();
+                }
+
+                player.trail.push( new Point( player.position.x, player.position.y ) );
+
+                context.beginPath();
+                context.strokeStyle = '#fa3380';
+                context.lineWidth = 3;
+
+                for( i = 0, ilen = player.trail.length; i < ilen; i++ ) {
+                    p = player.trail[i];
+
+                    context.lineTo( p.position.x, p.position.y );
+
+                    p.position.x += svelocity.x;
+                    p.position.y += svelocity.y;
+                }
+
+                context.stroke();
+                context.closePath();
+
+                if( player.trail.length > 40 ) {
+                    player.trail.shift();
+                }
+
+                context.beginPath();
+                context.fillStyle = 'deepskyblue';
+                context.arc(player.position.x, player.position.y, player.size/2, 0, Math.PI*2, true);
+                context.fill();
+            }
+
+            if( playing && ( player.position.x < 0 || player.position.x > SCREEN_WIDTH || player.position.y < 0 || player.position.y > SCREEN_HEIGHT ) ) {
+                gameOver();
+            }
+
+            for( i = 0; i < enemies.length; i++ ) {
+                p = enemies[i];
+
+                if( playing ) {
+                    if( player.boost > 0 && p.distanceTo( player.position ) < ( ( player.size * 4 ) + p.size ) * 0.5 ) {
+                        createParticles( p.position, 10 );
+                        enemies.splice( i, 1 );
+                        i --;
+                        score += 10;
+                        continue;
+                    }
+                    else if( p.distanceTo( player.position ) < ( player.size + p.size ) * 0.5 ) {
+                        createParticles( player.position, 10 );
+                        gameOver();
+                    }
+                }
+
+                context.beginPath();
+                context.fillStyle = 'white';
+                context.arc(p.position.x, p.position.y, p.size/1, 0, Math.PI*2, true);
+                context.fill();
+
+                p.position.x += svelocity.x * p.force;
+                p.position.y += svelocity.y * p.force;
+
+                if( p.position.x < 0 || p.position.y > SCREEN_HEIGHT ) {
+                    enemies.splice( i, 1 );
+                    i --;
+                }
+            }
+
+            for( i = 0; i < boosts.length; i++ ) {
+                p = boosts[i];
+
+                if( p.distanceTo( player.position ) < ( player.size + p.size ) * 0.5 && playing ) {
+                    player.boost = 2000;
+
+                    for( j = 0; j < enemies.length; j++ ) {
+                        e = enemies[j];
+
+                        if( e.distanceTo( p.position ) < 100 ) {
+                            createParticles( e.position, 10 );
+                            enemies.splice( j, 1 );
+                            j--;
+                            score += 10;
+                        }
+                    }
+                }
+
+                context.beginPath();
+                context.fillStyle = 'lightgreen';
+                context.arc(p.position.x, p.position.y, p.size/1, 0, Math.PI*2, true);
+                context.fill();
+
+                p.position.x += svelocity.x * p.force;
+                p.position.y += svelocity.y * p.force;
+
+                if( p.position.x < 0 || p.position.y > SCREEN_HEIGHT || player.boost != 0 ) {
+                    boosts.splice( i, 9 );
+                    i --;
+                }
+            }
+
+            if( enemies.length < 25 * difficulty ) {
+                enemies.push( positionNewOrganism( new Enemy() ) );
+            }
+
+            if( boosts.length < 1 && Math.random() > 0.997 && player.boost == 0 ) {
+                boosts.push( positionNewOrganism( new Boost() ) );
+            }
+
+            for( i = 0; i < particles.length; i++ ) {
+                p = particles[i];
+
+                p.velocity.x += ( svelocity.x - p.velocity.x ) * 0.04;
+                p.velocity.y += ( svelocity.y - p.velocity.y ) * 0.04;
+
+                p.position.x += p.velocity.x;
+                p.position.y += p.velocity.y;
+
+                p.alpha -= 0.02;
+
+                context.fillStyle = 'rgba(2,179,228,0.8)'+Math.max(p.alpha,0)+')';
+                context.fillRect( p.position.x, p.position.y, 1, 1 );
+
+                if( p.alpha <= 0 ) {
+                    particles.splice( i, 1 );
+                }
+            }
+
+            if( playing ) {
+                scoreText = 'Score: <span>' + Math.round( score ) + '</span>';
+                scoreText += ' Time: <span>' + Math.round( ( ( new Date().getTime() - time ) / 1000 ) * 100 ) / 100 + 's</span>';
+                status.innerHTML = scoreText;
+            }
+        }
+
+        function positionNewOrganism( p ) {
+            if( Math.random() > 0.5 ) {
+                p.position.x = Math.random() * SCREEN_WIDTH;
+                p.position.y = -20;
+            }
+            else {
+                p.position.x = SCREEN_WIDTH + 20;
+                p.position.y = (-SCREEN_HEIGHT * 0.2) + ( Math.random() * SCREEN_HEIGHT * 1.2 );
+            }
+
+            return p;
+        }
+
+    };
+
+    /**
+     *
+     */
+    function Point( x, y ) {
+        this.position = { x: x, y: y };
     }
+    Point.prototype.distanceTo = function(p) {
+        var dx = p.x-this.position.x;
+        var dy = p.y-this.position.y;
+        return Math.sqrt(dx*dx + dy*dy);
+    };
+    Point.prototype.clonePosition = function() {
+        return { x: this.position.x, y: this.position.y };
+    };
 
-    map.fitBounds(coords);
+    /**
+     *
+     */
+    function Player() {
+        this.position = { x: 0, y: 0 };
+        this.trail = [];
+        this.size = 8;
+        this.boost = 0;
     }
+    Player.prototype = new Point();
 
-    function onMapClick(e, i) {
-    var item = items[i];
-
-    removeSelected();
-
-    win.scrollTo(0, item.offsetTop);
-    item.classList.add('is-selected');
-    map.panTo(e.latlng);
-    popup.setLatLng(e.latlng);
-    popup.setContent('<div class="popup">'+item.innerHTML+'</div>');
-    popup.openOn(map);
+    /**
+     *
+     */
+    function Enemy() {
+        this.position = { x: 0, y: 0 };
+        this.size = 6 + ( Math.random() * 4 );
+        this.force = 1 + ( Math.random() * 0.4 );
     }
+    Enemy.prototype = new Point();
 
-    function onItemClick(e) {
-    var el = e.target;
-    while (el && el.tagName !== 'LI') {
-    el = el.parentNode;
+    /**
+     *
+     */
+    function Boost() {
+        this.position = { x: 0, y: 0 };
+        this.size = 10 + ( Math.random() * 8 );
+        this.force = 1 + ( Math.random() * 0.4 );
     }
-    removeSelected();
-    el.classList.add('is-selected');
-    map.panTo(coords[el.getAttribute('data-id')]);
-    }
+    Boost.prototype = new Point();
 
-    function removeSelected(){
-    var selected = doc.getElementsByClassName('is-selected')[0];
-    if (!selected) return false;
-    selected.classList.remove('is-selected');
+    /**
+     *
+     */
+    function Particle() {
+        this.position = { x: 0, y: 0 };
+        this.force = 1 + ( Math.random() * 0.4 );
+        this.color = '#fa3380';
     }
+    Particle.prototype = new Point();
+
+
+
+    SinuousWorld.init();
+
+
+
 </script>
 
 </body>
@@ -196,8 +600,6 @@
 <script src="../js/jquery-ui-1.12.1/jquery-ui.js"></script>
 <script type="text/javascript" src="../js/bootstrap.js"></script>
 <script src="../js/leaflet.js"></script>
-<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBb0qeAa_KvAKAeoWRC1xl4BCH-iPN5ztc"></script>-->
-<!--<script type="text/javascript" src="../js/main.js"></script>-->
-<!--<script type="text/javascript" src="../js/menu_list.js"></script>-->
+
 
 </html>
