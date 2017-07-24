@@ -1,109 +1,205 @@
 //
    Created by Sehyeon on 2017-07-18.
-
-DOCTYPE html
-html
+doctype html
+html(lang='en')
     head
-        meta(lang="en" charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1")
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
         title foodiy
-        link(rel='stylesheet', href='/css/main_css.css')
-        link(rel='stylesheet', href='/css/font-awesome.min.css')
-        link(rel='stylesheet', href='/js/jquery-ui-1.12.1/jquery-ui.css')
-        link(rel='stylesheet', href='/css/signUp.css')
+        link(rel='stylesheet', href='../css/bootstrap.css')
+        link(rel='stylesheet', href='../css/main_css.css')
+        link(rel='stylesheet', href='../css/font-awesome.min.css')
+        link(rel='stylesheet', href='../js/jquery-ui-1.12.1/jquery-ui.css')
+        link(rel='stylesheet', href='../css/signUp.css')
+        script.
+            function signup(val) {
+                var item = {email: val.email.value, password: val.pass.value, nick: val.nick.value};
+                $.ajax({
+                    method: "POST",
+                    type: "POST",
+                    url: "/signup",
+                    data: item,
+                    success: function (data) {
+                        if (data == "clear") {
+                            location.href = "/";
+                        }
+                        else {
+                            $("#signupfail").html(data);
+                            $("#signupfail").css("color", "red");
+                            return false;
+                        }
+                    }
+                });
+            }
+            function iddupcheck(val) {
+                var item = {id: val.email.value};
+                $.ajax({
+                    method: "POST",
+                    type: "POST",
+                    url: "/idcheck",
+                    data: item,
+                    success: function (data) {
+                        if (val.email.value == "" && data == 1) {
+                            $("#idcheck").html('');
+                            checked = 1;
+                        }
+                        else if (data == 1) {
+                            $("#idcheck").html('사용 가능한 이메일 입니다.');
+                            $("#idcheck").css("color", "black");
+                            checked = 1;
+                        } else {
+                            $("#idcheck").html('이미 가입된 이메일 입니다.');
+                            $("#idcheck").css("color", "red");
+                            checked = 0;
+                        }
+                    }
+                });
+            }
+            function nickcheck(val) {
+                var item = {id: val.nick.value};
+                $.ajax({
+                    method: "POST",
+                    type: "POST",
+                    url: "/nickcheck",
+                    data: item,
+                    success: function (data) {
+                        if (val.nick.value == "" && data == 1) {
+                            $("#nickcheck").html('');
+                            checked = 1;
+                        }
+                        else if (data == 1) {
+                            $("#nickcheck").html('사용 가능한 닉네임 입니다.');
+                            $("#nickcheck").css("color", "black");
+                            checked = 1;
+                        } else {
+                            $("#nickcheck").html('중복된 닉네임 입니다.');
+                            $("#nickcheck").css("color", "red");
+                            checked = 0;
+                        }
+                    }
+                });
+            }
+            function LoginCheck(val) {
+                //var snum=document.getElementsById("snum").value;
+                var item = {
+                    email: val.email.value,
+                    password: val.pass.value
+                };
+                $.ajax({
+                    method: "POST",
+                    type: "POST",
+                    url: "/login",
+                    data: item,
+                    success: function (data) {
+                        if (data == "clear") {
+                            location.href = "/";
+                        } else {
+                            $("#loginfail").html(data);
+                            $("#loginfail").css("color", "red");
+                        }
+                    }
+                });
+            }
     body
         header
-            div(class="container" id="header_container")
-                form(class="container-fluid" action="#")
-                    input(type="text" class="input-sm" placeholder="Where")
-                    input(type="text" class="datepicker input-sm" placeholder="날짜를 선택하세요")
-                    select(class="input-sm")
-                        option(value="korean") Korean
-                        option(value="japanese") Japanese
-                        option(value="chinese") Chinese
-                        option(value="western") Western
-                        option(value="apetiser") Apetiser
-                        option(value="etc") Etc
-                    select(class="input-sm")
-                        option(value="") 1
-                        option(value="") 2
-                        option(value="") 3
-                        option(value="") 4
-                        option(value="") 5
-                        option(value="") 6+
-                    div(class="header_right")
-                        span(id="main_signup") Sign up
-                        span(id="main_login") Login
-        article
-        //pop-up Signup
-        div(class="signupform container-fluid" id="pop-up-sign")
-            div(class="signup-content")
-                form(action class="form-horizontal")
-                    div(class="form-group")
-                        div(class="real_content")
-                            div(class="link_google_facebook")
-                                button(class="link_othersignup col-xs-6 col-sm-6 col-md-6 col-lg-6" id="signup-google-s") google
-                                    span
-                                        img(src="/img/google_logo.png" alt="")
-                                button(class="link_othersignup col-xs-6 col-sm-6 col-md-6 col-lg-6" id="signup-facebook-s") facebook
-                                    span
-                                        img(src="/img/facebook_logo.png" alt="")
+            #header_container.container
+                form.container-fluid(action='#')
+                    input.input-sm(type='text', placeholder='Where')
+                    input.datepicker.input-sm(type='text', placeholder='날짜를 선택하세요')
+                    select.input-sm
+                        option(value='korean') Korean
+                        option(value='japanese') Japanese
+                        option(value='chinese') Chinese
+                        option(value='western') Western
+                        option(value='apetiser') Apetiser
+                        option(value='etc') Etc
+                    select.input-sm
+                        option(value='') 1   Guest
+                        option(value='') 2   Guest
+                        option(value='') 3   Guest
+                        option(value='') 4   Guest
+                        option(value='') 5   Guest
+                        option(value='') 6+ Guest
+                    .header_right
+                        if(session)
+                            a(href="/logout") Logout
+                        else
+                            span#main_signup Sign up
+                            span#main_login Login
+        articl
+            // pop-up Signup
+            #pop-up-sign.signupform.container-fluid
+                .signup-content
+                    form.form-horizontal(action='')
+                        .form-group
+                            .real_content
+                                p#signupfail
+                                .link_google_facebook
+                                    button#signup-google-s.link_othersignup.col-xs-6.col-sm-6.col-md-6.col-lg-6
+                                        span
+                                            img(src='../img/google_logo.png', alt='')
+                                        | google
+                                    button#signup-facebook-s.link_othersignup.col-xs-6.col-sm-6.col-md-6.col-lg-6
+                                        span
+                                            img(src='../img/facebook_logo.png', alt='')
+                                        | facebook
                                 br
                                 br
                                 hr
-                                div(class="input-group-s")
-                                    span(class="input-group-addon")
-                                        i(class="fa fa-envelope")
-                                div(class="input-group")
-                                    input(type="email" class="form-control" id="email-s" placeholder="E-mail")
-                                    span(class="input-group-addon login-button")
-                                        a(href="" id="email_link") 중복확인
-                                div(class="input-group-s")
-                                    span(class="input-group-addon")
-                                        i(class="glyphicon glyphicon-lock")
-                                    input(type="password" class="form-control" id="password-s" placeholder="Password")
-                                    input(type="password" class="form-control" id="password2-s" placeholder="Confirm Password")
-                                div(class="input-group-s")
-                                    span(class="input-group-addon")
-                                        i(class="fa fa-user-circle-o" aria-hidden="true")
-                                div(class="input-group")
-                                    input(type="email" class="form-control" id="nick_name" placeholder="Nickname")
-                                    span(class="input-group-addon login-button")
-                                        a(href="" id="nickname_link")
-                                input(type="button" value="Sign Up" onclick="goPage()" class="signupzipbob form-control" id="signup-zipbob")
-
-        //pop-up Login
-        div(class="signupform container-fluid" id="pop-up-login")
-            div(class="signup-content")
-                form(action="" class="form-horizontal")
-                    div(class="form-group")
-                        div(class="real_content")
-                            button(class="signupgoogle form-control" id="signup-google-l")
-                                span
-                                    img(src="/img/google_logo.png" alt="")
-                                p Login with google
-                            button(class="signupfacebook form-control" id="signup-facebook-l")
-                                span
-                                    img(src="/img/facebook_logo.png" alt="")
-                                p Login with facebook
-                            hr
-                            div(class="input-group")
-                                span(class="input-group-addon")
-                                    i(class="fa fa-envelope")
-                                input(type="email" class="form-control input-lg" id="email-l" placeholder="E-mail")
-                            div(class="input-group")
-                                span(class="input-group-addon")
-                                    i(class="glyphicon glyphicon-lock")
-                                input(type="password" class="form-control input-lg" id="password-l" placeholder="Password")
-                            div(class="login-set")
-                                input(type="checkbox") Save password
-                                a(href="") Forgot password ?
-                            button(class="login-sign-in form-control" id="sign-in") Log in
-                            hr
-                            button(type="button" onclick="goPage()" class="login-sign-up form-control" id="sign-up") Sign up
-    footer
-    script(src="/js/jquery.js")
-    script(src="/js/jquery-ui-1.12.1/jquery-ui.js")
-    script(type="text/javascript" src="/js/bootstrap.js")
-    script(type="text/javascript" src="/js/main.js")
-
+                                .input-group-s
+                                    span.input-group-addon
+                                        i.fa.fa-envelope
+                                .input-group
+                                    input#email-s.form-control(type='email', placeholder='E-mail', oninput="iddupcheck(this.form)", name="email")
+                                    span.input-group-addon.login-button
+                                p#idcheck
+                                .input-group-s
+                                    span.input-group-addon
+                                        i.glyphicon.glyphicon-lock
+                                    input#password-s.form-control(type='password', placeholder='Password', name="pass")
+                                    input#password2-s.form-control(type='password', placeholder='Confirm Password', name="pass2")
+                                .input-group-s
+                                    span.input-group-addon
+                                        i.fa.fa-user-circle-o(aria-hidden='true')
+                                .input-group
+                                    input#nick_name.form-control(type='email', placeholder='Nickname' oninput="nickcheck(this.form)", name="nick")
+                                    span.input-group-addon.login-button
+                                p#nickcheck
+                                input#signup-zipbob.signupzipbob.form-control(type='button', value='Sign Up', onclick='signup(this.form)')
+            // pop-up login
+            #pop-up-login.signupform.container-fluid
+                .signup-content
+                    form.form-horizontal()
+                        .form-group
+                            .real_content
+                                button#signup-google-l.signupgoogle.form-control
+                                    span
+                                        img(src='../img/google_logo.png', alt='')
+                                    p Login with google
+                                button#signup-facebook-l.signupfacebook.form-control
+                                    span
+                                        img(src='../img/facebook_logo.png', alt='')
+                                    p Login with facebook
+                                hr
+                                p#loginfail
+                                .input-group
+                                    span.input-group-addon
+                                        i.fa.fa-envelope
+                                    input#email-l.form-control.input-lg(type='email', name="email", placeholder='E-mail')
+                                .input-group
+                                    span.input-group-addon
+                                        i.glyphicon.glyphicon-lock
+                                    input#password-l.form-control.input-lg(type='password', name="pass", placeholder='Password')
+                                .login-set
+                                    input(type='checkbox')
+                                    | Save password
+                                    a(href='') Forgot password ?
+                                    button#sign-in.login-sign-in.form-control(type='button' onclick="LoginCheck(this.form)") Log in
+                                    hr
+                                button#sign-up.login-sign-up.form-control(type='button', onclick="LoginCheck(this.form)") Sign up
+        footer
+    script(src='../js/jquery.js')
+    script(src='../js/jquery-ui-1.12.1/jquery-ui.js')
+    script(type='text/javascript', src='../js/bootstrap.js')
+    script(type='text/javascript', src='../js/main.js')
 

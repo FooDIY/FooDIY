@@ -1,0 +1,309 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        title foodiy
+        link(rel='stylesheet', href='../css/bootstrap.css')
+        link(rel='stylesheet', href='../css/menu_list.css')
+        link(rel='stylesheet', href='../css/font-awesome.min.css')
+        link(rel='stylesheet', href='../js/jquery-ui-1.12.1/jquery-ui.css')
+        link(rel='stylesheet', href='../css/signUp.css')
+        link(rel='stylesheet', href='../css/main_css.css')
+    body
+        header
+            #header_container.container
+                form#header_content.container-fluid(action='#')
+                    a(href='#')
+                        img(src='../img/temp_logo.jpg', alt='', style='height: 50px; width: 70px;')
+                    input.input-sm(type='text', placeholder='Where', style='width: 250px;')
+                    input.datepicker.input-sm(type='text', placeholder='When')
+                    select.input-sm
+                        option(value='korean') Korean
+                        option(value='japanese') Japanese
+                        option(value='chinese') Chinese
+                        option(value='western') Western
+                        option(value='apetiser') Apetiser
+                        option(value='etc') Etc
+                    select.input-sm
+                        option(value='') 1   Guest
+                        option(value='') 2   Guest
+                        option(value='') 3   Guest
+                        option(value='') 4   Guest
+                        option(value='') 5   Guest
+                        option(value='') 6+ Guest
+                    .header_right
+                        button#main_qna Q&A
+                        button#main_become Be a foodiy
+                        button#main_signup Sign up
+                        button#main_login Login
+        article
+            .container-fluid
+                ul.items
+                    a(href='menu_info.html')
+                        li.items__item(data-lat='51.517429', data-lon='-0.009330')
+                            img.items__img(src='https://placem.at/places?w=400&h=200&random=1', alt='')
+                            h3.items__title Place 1
+                    li.items__item(data-lat='51.417419', data-lon='-0.202320')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=2', alt='')
+                        h3.items__title Place 2
+                    li.items__item(data-lat='51.517439', data-lon='-0.101310')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=3', alt='')
+                        h3.items__title Place 3
+                    li.items__item(data-lat='51.517419', data-lon='-0.209330')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=4', alt='')
+                        h3.items__title Place 4
+                    li.items__item(data-lat='51.537429', data-lon='-0.009330')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=5', alt='')
+                        h3.items__title Place 5
+                    li.items__item(data-lat='51.717819', data-lon='-0.106320')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=6', alt='')
+                        h3.items__title Place 6
+                    li.items__item(data-lat='51.617439', data-lon='-0.1012350')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=7', alt='')
+                        h3.items__title Place 7
+                    li.items__item(data-lat='51.412419', data-lon='-0.209330')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=8', alt='')
+                        h3.items__title Place 8
+                    li.items__item(data-lat='51.412419', data-lon='-0.209330')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=8', alt='')
+                        h3.items__title Place 9
+                    li.items__item(data-lat='51.517429', data-lon='-0.009330')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=1', alt='')
+                        h3.items__title Place 1
+                    li.items__item(data-lat='51.417419', data-lon='-0.202320')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=2', alt='')
+                        h3.items__title Place 2
+                    li.items__item(data-lat='51.517439', data-lon='-0.101310')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=3', alt='')
+                        h3.items__title Place 3
+                    li.items__item(data-lat='51.517419', data-lon='-0.209330')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=4', alt='')
+                        h3.items__title Place 4
+                    li.items__item(data-lat='51.537429', data-lon='-0.009330')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=5', alt='')
+                        h3.items__title Place 5
+                    li.items__item(data-lat='51.717819', data-lon='-0.106320')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=6', alt='')
+                        h3.items__title Place 6
+                    li.items__item(data-lat='51.617439', data-lon='-0.1012350')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=7', alt='')
+                        h3.items__title Place 7
+                    li.items__item(data-lat='51.412419', data-lon='-0.209330')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=8', alt='')
+                        h3.items__title Place 8
+                    li.items__item(data-lat='51.412419', data-lon='-0.209330')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=8', alt='')
+                        h3.items__title Place 9
+                    li.items__item(data-lat='51.517429', data-lon='-0.009330')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=1', alt='')
+                        h3.items__title Place 1
+                    li.items__item(data-lat='51.417419', data-lon='-0.202320')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=2', alt='')
+                        h3.items__title Place 2
+                    li.items__item(data-lat='51.517439', data-lon='-0.101310')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=3', alt='')
+                        h3.items__title Place 3
+                    li.items__item(data-lat='51.517419', data-lon='-0.209330')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=4', alt='')
+                        h3.items__title Place 4
+                    li.items__item(data-lat='51.537429', data-lon='-0.009330')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=5', alt='')
+                        h3.items__title Place 5
+                    li.items__item(data-lat='51.717819', data-lon='-0.106320')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=6', alt='')
+                        h3.items__title Place 6
+                    li.items__item(data-lat='51.617439', data-lon='-0.1012350')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=7', alt='')
+                        h3.items__title Place 7
+                    li.items__item(data-lat='51.412419', data-lon='-0.209330')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=8', alt='')
+                        h3.items__title Place 8
+                    li.items__item(data-lat='51.412419', data-lon='-0.209330')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=8', alt='')
+                        h3.items__title Place 9
+                    li.items__item(data-lat='51.517429', data-lon='-0.009330')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=1', alt='')
+                        h3.items__title Place 1
+                    li.items__item(data-lat='51.417419', data-lon='-0.202320')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=2', alt='')
+                        h3.items__title Place 2
+                    li.items__item(data-lat='51.517439', data-lon='-0.101310')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=3', alt='')
+                        h3.items__title Place 3
+                    li.items__item(data-lat='51.517419', data-lon='-0.209330')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=4', alt='')
+                        h3.items__title Place 4
+                    li.items__item(data-lat='51.537429', data-lon='-0.009330')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=5', alt='')
+                        h3.items__title Place 5
+                    li.items__item(data-lat='51.717819', data-lon='-0.106320')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=6', alt='')
+                        h3.items__title Place 6
+                    li.items__item(data-lat='51.617439', data-lon='-0.1012350')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=7', alt='')
+                        h3.items__title Place 7
+                    li.items__item(data-lat='51.412419', data-lon='-0.209330')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=8', alt='')
+                        h3.items__title Place 8
+                    li.items__item(data-lat='51.412419', data-lon='-0.209330')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=8', alt='')
+                        h3.items__title Place 9
+                    li.items__item(data-lat='51.517429', data-lon='-0.009330')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=1', alt='')
+                        h3.items__title Place 1
+                    li.items__item(data-lat='51.417419', data-lon='-0.202320')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=2', alt='')
+                        h3.items__title Place 2
+                    li.items__item(data-lat='51.517439', data-lon='-0.101310')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=3', alt='')
+                        h3.items__title Place 3
+                    li.items__item(data-lat='51.517419', data-lon='-0.209330')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=4', alt='')
+                        h3.items__title Place 4
+                    li.items__item(data-lat='51.537429', data-lon='-0.009330')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=5', alt='')
+                        h3.items__title Place 5
+                    li.items__item(data-lat='51.717819', data-lon='-0.106320')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=6', alt='')
+                        h3.items__title Place 6
+                    li.items__item(data-lat='51.617439', data-lon='-0.1012350')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=7', alt='')
+                        h3.items__title Place 7
+                    li.items__item(data-lat='51.412419', data-lon='-0.209330')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=8', alt='')
+                        h3.items__title Place 8
+                    li.items__item(data-lat='51.412419', data-lon='-0.209330')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=8', alt='')
+                        h3.items__title Place 9
+                    li.items__item(data-lat='51.517429', data-lon='-0.009330')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=1', alt='')
+                        h3.items__title Place 1
+                    li.items__item(data-lat='51.417419', data-lon='-0.202320')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=2', alt='')
+                        h3.items__title Place 2
+                    li.items__item(data-lat='51.517439', data-lon='-0.101310')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=3', alt='')
+                        h3.items__title Place 3
+                    li.items__item(data-lat='51.517419', data-lon='-0.209330')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=4', alt='')
+                        h3.items__title Place 4
+                    li.items__item(data-lat='51.537429', data-lon='-0.009330')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=5', alt='')
+                        h3.items__title Place 5
+                    li.items__item(data-lat='51.717819', data-lon='-0.106320')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=6', alt='')
+                        h3.items__title Place 6
+                    li.items__item(data-lat='51.617439', data-lon='-0.1012350')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=7', alt='')
+                        h3.items__title Place 7
+                    li.items__item(data-lat='51.412419', data-lon='-0.209330')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=8', alt='')
+                        h3.items__title Place 8
+                    li.items__item(data-lat='51.412419', data-lon='-0.209330')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=8', alt='')
+                        h3.items__title Place 9
+                    li.items__item(data-lat='51.517429', data-lon='-0.009330')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=1', alt='')
+                        h3.items__title Place 1
+                    li.items__item(data-lat='51.417419', data-lon='-0.202320')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=2', alt='')
+                        h3.items__title Place 2
+                    li.items__item(data-lat='51.517439', data-lon='-0.101310')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=3', alt='')
+                        h3.items__title Place 3
+                    li.items__item(data-lat='51.517419', data-lon='-0.209330')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=4', alt='')
+                        h3.items__title Place 4
+                    li.items__item(data-lat='51.537429', data-lon='-0.009330')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=5', alt='')
+                        h3.items__title Place 5
+                    li.items__item(data-lat='51.717819', data-lon='-0.106320')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=6', alt='')
+                        h3.items__title Place 6
+                    li.items__item(data-lat='51.617439', data-lon='-0.1012350')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=7', alt='')
+                        h3.items__title Place 7
+                    li.items__item(data-lat='51.412419', data-lon='-0.209330')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=8', alt='')
+                        h3.items__title Place 8
+                    li.items__item(data-lat='51.412419', data-lon='-0.209330')
+                        img.items__img(src='https://placem.at/places?w=400&h=200&random=8', alt='')
+                        h3.items__title Place 9
+                #map.map
+                    #mapholder
+            // pop-up Signup
+            #pop-up-sign.signupform.container-fluid
+                .signup-content
+                    form#signup_form.form-horizontal(action='')
+                        .form-group
+                            span.close ×
+                            .real_content
+                                .link_google_facebook
+                                    button#signup-google-s.link_othersignup.col-xs-6.col-sm-6.col-md-6.col-lg-6
+                                        span
+                                            img(src='../img/google_logo.png', alt='')
+                                        | google
+                                    button#signup-facebook-s.link_othersignup.col-xs-6.col-sm-6.col-md-6.col-lg-6
+                                        span
+                                            img(src='../img/facebook_logo.png', alt='')
+                                        | facebook
+                                br
+                                br
+                                hr
+                                .input-group-s
+                                    span.input-group-addon
+                                        i.fa.fa-envelope
+                                .input-group
+                                    input#email-s.form-control(type='email', placeholder='E-mail')
+                                    span.input-group-addon.login-button
+                                        a#email_link(href='') 중복확인
+                                .input-group-s
+                                    span.input-group-addon
+                                        i.glyphicon.glyphicon-lock
+                                    input#password-s.form-control(type='password', placeholder='Password')
+                                    input#password2-s.form-control(type='password', placeholder='Confirm Password')
+                                .input-group-s
+                                    span.input-group-addon
+                                        i.fa.fa-user-circle-o(aria-hidden='true')
+                                .input-group
+                                    input#nick_name.form-control(type='email', placeholder='Nickname')
+                                    span.input-group-addon.login-button
+                                        a#nickname_link(href='') 중복확인
+                                input#signup-zipbob.signupzipbob.form-control(type='button', value='Sign Up')
+            // pop-up login
+            #pop-up-login.signupform.container-fluid
+                .signup-content
+                    form#login_form.form-horizontal(action='')
+                        .form-group
+                            .real_content
+                                button#signup-google-l.signupgoogle.form-control
+                                    span
+                                        img(src='../img/google_logo.png', alt='')
+                                    p Login with google
+                                button#signup-facebook-l.signupfacebook.form-control
+                                    span
+                                        img(src='../img/facebook_logo.png', alt='')
+                                    p Login with facebook
+                                hr
+                                .input-group
+                                    span.input-group-addon
+                                        i.fa.fa-envelope
+                                    input#email-l.form-control.input-lg(type='email', placeholder='E-mail')
+                                .input-group
+                                    span.input-group-addon
+                                        i.glyphicon.glyphicon-lock
+                                    input#password-l.form-control.input-lg(type='password', placeholder='Password')
+                                .login-set
+                                    input(type='checkbox')
+                                    | Save password
+                                    a(href='') Forgot password ?
+                                    button#sign-in.login-sign-in.form-control Log in
+                                    hr
+                                button#sign-up.login-sign-up.form-control(type='button') Sign up
+    script(src='../js/jquery.js')
+    script(src='../js/jquery-ui-1.12.1/jquery-ui.js')
+    script(type='text/javascript', src='../js/bootstrap.js')
+    script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBb0qeAa_KvAKAeoWRC1xl4BCH-iPN5ztc')
+    script(type='text/javascript', src='../js/main.js')
+    script(type='text/javascript', src='../js/menu_list.js')
