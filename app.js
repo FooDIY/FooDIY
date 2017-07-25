@@ -4,11 +4,18 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
-var index = require('./routes/index');
-var users = require('./routes/users');
-
 var app = express();
+var session=require('express-session');
+app.use(session({
+    secret: '123456789!@#$',
+    resave: false,
+    saveUninitialized: true
+}));
+
+//플래시메세지를 사용한다면
+var flash = require('connect-flash');
+app.use(flash());
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -22,8 +29,30 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+var mongoose=require('mongoose');
+mongoose.connect('mongodb://localhost/FooDIY');
+mongoose.Promise = global.Promise;
+
+var passport = require('passport');
+
+app.use(passport.initialize());
+app.use(passport.session()); //로그인 세션 유지
+
+var nev = require('email-verification')(mongoose);
+require('./config/email-verification')(nev);
+require('./config/passport')(passport,nev);
+
+var index = require('./routes/index');
+var users = require('./routes/users');
+var manage_menu = require('./routes/manage_menu');
+var seller = require('./routes/seller');
+
+
 app.use('/', index);
+app.use('/manage_menu', manage_menu);
 app.use('/users', users);
+app.use('/seller', seller);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

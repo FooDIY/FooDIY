@@ -1,0 +1,151 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        title foodiy
+        link(rel='stylesheet', href='../css/bootstrap.css')
+        // <link rel="stylesheet" href="../css/main_css.css">
+        link(rel='stylesheet', href='../css/font-awesome.min.css')
+        link(rel='stylesheet', href='../js/jquery-ui-1.12.1/jquery-ui.css')
+        link(rel='stylesheet', href='../css/manage_menu.css')
+        link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+        // <link rel="stylesheet" href="../css/test2.css">
+    body
+        nav.navbar.navbar-inverse.navbar-fixed-top
+            .foodiy.col-md-4
+                a(href='#')
+                    h2 FooDIY
+            .user_button.col-md-8.navbar-fixed-top
+                button.btn.btn-default.col-md-offset-8(type='button') 판매자 페이지
+                button.btn.btn-default(type='button')
+                    i.fa.fa-user-o
+                    |   내 정보
+                    i.fa.fa-angle-down
+        nav.col-md-2
+            .row
+                .sidebar
+                    ul.nav.sidenav
+                        h3(style='text-align: center; color: white; margin-bottom: 30px;') 판매자
+                        li(style='margin-top: 15px;')
+                            a(href='#')
+                                | 판매 관리
+                                i.fa.fa-chevron-down.pull-right
+                            ul.nav.nav-show
+                                li
+                                    a(href='#') 메뉴 관리
+                                li
+                                    a(href='#') 주문 관리
+                                li
+                                    a(href='#') 판매자 정보 수정
+                        li(style='margin-top: 15px;')
+                            a(href='#')
+                                | 메시지
+                                i.fa.fa-chevron-down.pull-right
+                            ul.nav.nav-show
+                                li
+                                    a(href='#') 메뉴 관리
+                                li
+                                    a(href='#') 주문 관리
+                                li
+                                    a(href='#') 판매자 정보 수정
+                        li(style='margin-top: 15px;')
+                            a(href='#')
+                                | 서비스
+                                i.fa.fa-chevron-down.pull-right
+                            ul.nav.nav-show
+                                li
+                                    a(href='#') 메뉴 관리
+                                li
+                                    a(href='#') 주문 관리
+                                li
+                                    a(href='#') 판매자 정보 수정
+                        li(style='margin-top: 15px;')
+                            a(href='#')
+                                | 고객지원
+                                i.fa.fa-chevron-down.pull-right
+                            ul.nav.nav-show
+                                li
+                                    a(href='#') 메뉴 관리
+                                li
+                                    a(href='#') 주문 관리
+                                li
+                                    a(href='#') 판매자 정보 수정
+        article.col-md-10
+            .col-md-12.info_modify
+                .col-md-2(style='padding:0')
+                    img(src='../img/temp_logo.jpg', alt='')
+                .col-md-offset-1.col-md-9
+                    h3 안녕하세요 뀩뀩뀩 입니다.
+                    br
+                    .col-md-5
+                        p
+                            | 위치 : 대한민국 충북 청주시
+                            small
+                                button 수정
+                    .col-md-offset-1.col-md-5
+                        p
+                            | 쉬는날 : 매주 수요일
+                            small
+                                button 수정
+                    br
+                    br
+                    .col-md-5
+                        p
+                            | 주 운영시간 : 14:00 ~ 18:00
+                            small
+                                button 수정
+                    .col-md-offset-1.col-md-5
+                        p
+                            | 최소 주문일 : 2일
+                            small
+                                button 수정
+                .col-md-12
+                    br
+            .col-md-12
+                h4(style='margin-top: 20px;') [ 메뉴 목록 ]
+                .menu-list.col-md-12
+                    .col-md-3
+                        a(href='')
+                            img(src='https://image.freepik.com/free-icon/plus-sign-in-a-square_318-53016.jpg', style='height: 170px; margin-left: 65px; margin-top: 25px;', alt='')
+                    .col-md-offset-1.col-md-3
+                        button(type='button')
+                            i.material-icons close
+                        img(src='../img/temp_logo.jpg', alt='')
+                    .col-md-offset-1.col-md-3
+                        button(type='button')
+                            i.material-icons close
+                        img(src='../img/temp_logo.jpg', alt='')
+                .menu-list.col-md-12
+                    .col-md-3
+                        button(type='button')
+                            i.material-icons close
+                        img(src='../img/temp_logo.jpg', alt='')
+                    .col-md-offset-1.col-md-3
+                        button(type='button')
+                            i.material-icons close
+                        img(src='../img/temp_logo.jpg', alt='')
+                    .col-md-offset-1.col-md-3
+                        button(type='button')
+                            i.material-icons close
+                        img(src='../img/temp_logo.jpg', alt='')
+                .menu-list.col-md-12
+                    .col-md-3
+                        button(type='button')
+                            i.material-icons close
+                        img(src='../img/temp_logo.jpg', alt='')
+                    .col-md-offset-1.col-md-3
+                        button(type='button')
+                            i.material-icons close
+                        img(src='../img/temp_logo.jpg', alt='')
+                    .col-md-offset-1.col-md-3
+                        button(type='button')
+                            i.material-icons close
+                        img(src='../img/temp_logo.jpg', alt='')
+    script(src='../js/jquery.js')
+    script(src='../js/jquery-ui-1.12.1/jquery-ui.js')
+    script(type='text/javascript', src='../js/bootstrap.js')
+    script(type='text/javascript', src='../js/manage_menu.js')
+    // <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBb0qeAa_KvAKAeoWRC1xl4BCH-iPN5ztc"></script>
+    // <script type="text/javascript" src="../js/main.js"></script>
+    // <script type="text/javascript" src="../js/menu_list.js"></script>

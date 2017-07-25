@@ -1,0 +1,104 @@
+//
+   Created by Sehyeon on 2017-07-24.
+doctype html
+html(lang='en')
+    header
+        #header_container.container
+            form#header_content.container-fluid(action='#')
+                a(href='#')
+                    img(src='../img/temp_logo.jpg', alt='', style='height: 50px; width: 70px;')
+                input.input-sm(type='text', placeholder='Where', style='width: 250px;')
+                input.datepicker.input-sm(type='text', placeholder='When')
+                select.input-sm
+                    option(value='korean') Korean
+                    option(value='japanese') Japanese
+                    option(value='chinese') Chinese
+                    option(value='western') Western
+                    option(value='apetiser') Apetiser
+                    option(value='etc') Etc
+                select.input-sm
+                    option(value='') 1   Guest
+                    option(value='') 2   Guest
+                    option(value='') 3   Guest
+                    option(value='') 4   Guest
+                    option(value='') 5   Guest
+                    option(value='') 6+ Guest
+                .header_right
+                    button#main_qna Q&A
+                    button#main_become Be a foodiy
+                    if(session)
+                        button(type="button", onclick="LogOut()") Logout
+                    else
+                        span#main_signup Sign up
+                        span#main_login Login
+    article
+        // pop-up Signup
+        #pop-up-sign.signupform.container-fluid
+            .signup-content
+                form.form-horizontal(action='')
+                    .form-group
+                        .real_content
+                            p#signupfail
+                            .link_google_facebook
+                                button#signup-google-s.link_othersignup.col-xs-6.col-sm-6.col-md-6.col-lg-6
+                                    span
+                                        img(src='../img/google_logo.png', alt='')
+                                    | google
+                                button#signup-facebook-s.link_othersignup.col-xs-6.col-sm-6.col-md-6.col-lg-6
+                                    span
+                                        img(src='../img/facebook_logo.png', alt='')
+                                    | facebook
+                            br
+                            br
+                            hr
+                            .input-group-s
+                                span.input-group-addon
+                                    i.fa.fa-envelope
+                            .input-group
+                                input#email-s.form-control(type='email', placeholder='E-mail', oninput="iddupcheck(this.form)", name="email")
+                                span.input-group-addon.login-button
+                            p#idcheck
+                            .input-group-s
+                                span.input-group-addon
+                                    i.glyphicon.glyphicon-lock
+                                input#password-s.form-control(type='password', placeholder='Password', name="pass")
+                                input#password2-s.form-control(type='password', placeholder='Confirm Password', name="pass2")
+                            .input-group-s
+                                span.input-group-addon
+                                    i.fa.fa-user-circle-o(aria-hidden='true')
+                            .input-group
+                                input#nick_name.form-control(type='email', placeholder='Nickname' oninput="nickcheck(this.form)", name="nick")
+                                span.input-group-addon.login-button
+                            p#nickcheck
+                            input#signup-zipbob.signupzipbob.form-control(type='button', value='Sign Up', onclick='signup(this.form)')
+        // pop-up login
+        #pop-up-login.signupform.container-fluid
+            .signup-content
+                form.form-horizontal()
+                    .form-group
+                        .real_content
+                            button#signup-google-l.signupgoogle.form-control
+                                span
+                                    img(src='../img/google_logo.png', alt='')
+                                p Login with google
+                            button#signup-facebook-l.signupfacebook.form-control
+                                span
+                                    img(src='../img/facebook_logo.png', alt='')
+                                p Login with facebook
+                            hr
+                            p#loginfail
+                            .input-group
+                                span.input-group-addon
+                                    i.fa.fa-envelope
+                                input#email-l.form-control.input-lg(type='email', name="email", placeholder='E-mail')
+                            .input-group
+                                span.input-group-addon
+                                    i.glyphicon.glyphicon-lock
+                                input#password-l.form-control.input-lg(type='password', name="pass", placeholder='Password')
+                            .login-set
+                                input(type='checkbox')
+                                | Save password
+                                a(href='') Forgot password ?
+                                button#sign-in.login-sign-in.form-control(type='button' onclick="LoginCheck(this.form)") Log in
+                                hr
+                            button#sign-up.login-sign-up.form-control(type='button', onclick="LoginCheck(this.form)") Sign up

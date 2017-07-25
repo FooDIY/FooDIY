@@ -1,0 +1,201 @@
+//
+   Created by Sehyeon on 2017-07-24.
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        title foodiy
+        link(rel='stylesheet', href='../css/bootstrap.css')
+        link(rel='stylesheet', href='../css/menu_list.css')
+        link(rel='stylesheet', href='../css/font-awesome.min.css')
+        link(rel='stylesheet', href='../js/jquery-ui-1.12.1/jquery-ui.css')
+        link(rel='stylesheet', href='../css/signUp.css')
+        link(rel='stylesheet', href='../css/menu_info.css')
+    body
+        header
+            #header_container.container
+                form#header_content.container-fluid(action='#')
+                    input.input-sm(type='text', placeholder='Where', style='width: 250px;')
+                    input.datepicker.input-sm(type='text', placeholder='When')
+                    select.input-sm
+                        option(value='korean') Korean
+                        option(value='japanese') Japanese
+                        option(value='chinese') Chinese
+                        option(value='western') Western
+                        option(value='apetiser') Apetiser
+                        option(value='etc') Etc
+                    select.input-sm
+                        option(value='') 1   Guest
+                        option(value='') 2   Guest
+                        option(value='') 3   Guest
+                        option(value='') 4   Guest
+                        option(value='') 5   Guest
+                        option(value='') 6+ Guest
+                    .header_right
+                        button#main_qna Q&A
+                        button#main_become Be a foodiy
+                        button#main_signup Sign up
+                        button#main_login Login
+        article.container-fluid
+            .myslide
+                #myCarousel.carousel.slide(data-ride='carousel')
+                    // Indicators
+                    ol.carousel-indicators
+                        li.active(data-target='#myCarousel', data-slide-to='0')
+                        li(data-target='#myCarousel', data-slide-to='1')
+                        li(data-target='#myCarousel', data-slide-to='2')
+                    // Wrapper for slides
+                    .carousel-inner(role='listbox')
+                        .item.active
+                            img(src='http://image.aafood.co.kr/image/upload/vs/vr7s5puv/04b31421292503578.jpg', alt='Image', style='height: 350px;')
+                            .carousel-caption
+                        .item
+                            img(src='http://cfile25.uf.tistory.com/image/2235F54E56DADD072070A3', alt='Image', style='height: 350px;')
+                            .carousel-caption
+                        .item
+                            img(src='http://cfile6.uf.tistory.com/image/2759574E56DADD0D0387EB', alt='Image', style='height: 350px;')
+                            .carousel-caption
+                        // Left and right controls
+                        a.left.carousel-control(href='#myCarousel', role='button', data-slide='prev')
+                            span.glyphicon.glyphicon-chevron-left(aria-hidden='true')
+                            span.sr-only Previous
+                        a.right.carousel-control(href='#myCarousel', role='button', data-slide='next')
+                            span.glyphicon.glyphicon-chevron-right(aria-hidden='true')
+                            span.sr-only Next
+            .container.menu_info
+                .foodiy_info.col-md-9
+                    .col-md-2
+                        img(src='https://thumb1.shutterstock.com/display_pic_with_logo/1699708/398677477/stock-vector-woman-user-smartphone-design-flat-computer-user-icon-social-media-web-user-phone-web-phone-398677477.jpg', alt='', style='width: 50px; height: 50px; display: block; margin: auto; border-radius: 50%')
+                        p(style='text-align: center') 권순우
+                    .col-md-10(style='margin-top: 8px;')
+                        p 백종원의 김치볶음밥
+                        small(style='color: grey;')
+                            p 청주시 흥덕구 사창동
+                        br
+                .detail_info.col-md-9(style='border: solid 1px black;')
+                    p
+                        | 상세 설명
+                        br
+                        |                 - 백종원의 김치볶음밥 레시피를 그대로 따서 만든 우리 집의 시그니처 메뉴
+                .detail_info.col-md-9(style='border: solid 1px black;')
+                    p
+                        | 재료 설명
+                        br
+                        |                 - 김치, 삼겹살, 밥
+                .detail_info.col-md-9(style='border: solid 1px black;')
+                    p
+                        | 식사 장소
+                        br
+                        |                 사진 사진 사진
+                .detail_info.col-md-9(style='border: solid 1px black;')
+                    p
+                        | 구글맵
+                .payment_box.col-md-3(style='height: 100%;')
+                    ol
+                        li
+                            input(type='text')
+                        li
+                            input(type='text')
+                        li
+                            input(type='text')
+                        li
+                            input(type='text')
+                // pop-up Signup
+                #pop-up-sign.signupform.container-fluid
+                    .signup-content
+                        form.form-horizontal(action='')
+                            .form-group
+                                span.close ×
+                                .real_content
+                                    .link_google_facebook
+                                        button#signup-google-s.link_othersignup.col-xs-6.col-sm-6.col-md-6.col-lg-6
+                                            span
+                                                img(src='../img/google_logo.png', alt='')
+                                            | google
+                                        button#signup-facebook-s.link_othersignup.col-xs-6.col-sm-6.col-md-6.col-lg-6
+                                            span
+                                                img(src='../img/facebook_logo.png', alt='')
+                                            | facebook
+                                    br
+                                    br
+                                    hr
+                                    .input-group-s
+                                        span.input-group-addon
+                                            i.fa.fa-envelope
+                                    .input-group
+                                        input#email-s.form-control(type='email', placeholder='E-mail')
+                                        span.input-group-addon.login-button
+                                            a#email_link(href='') 중복확인
+                                    .input-group-s
+                                        span.input-group-addon
+                                            i.glyphicon.glyphicon-lock
+                                        input#password-s.form-control(type='password', placeholder='Password')
+                                        input#password2-s.form-control(type='password', placeholder='Confirm Password')
+                                    .input-group-s
+                                        span.input-group-addon
+                                            i.fa.fa-user-circle-o(aria-hidden='true')
+                                    .input-group
+                                        input#nick_name.form-control(type='email', placeholder='Nickname')
+                                        span.input-group-addon.login-button
+                                            a#nickname_link(href='') 중복확인
+                                    input#signup-zipbob.signupzipbob.form-control(type='button', value='Sign Up')
+                // pop-up login
+                #pop-up-login.signupform.container-fluid
+                    .signup-content
+                        form.form-horizontal(action='')
+                            .form-group
+                                .real_content
+                                    button#signup-google-l.signupgoogle.form-control
+                                        span
+                                            img(src='../img/google_logo.png', alt='')
+                                        p Login with google
+                                    button#signup-facebook-l.signupfacebook.form-control
+                                        span
+                                            img(src='../img/facebook_logo.png', alt='')
+                                        p Login with facebook
+                                    hr
+                                    .input-group
+                                        span.input-group-addon
+                                            i.fa.fa-envelope
+                                        input#email-l.form-control.input-lg(type='email', placeholder='E-mail')
+                                    .input-group
+                                        span.input-group-addon
+                                            i.glyphicon.glyphicon-lock
+                                        input#password-l.form-control.input-lg(type='password', placeholder='Password')
+                                    .login-set
+                                        input(type='checkbox')
+                                        | Save password
+                                        a(href='') Forgot password ?
+                                        button#sign-in.login-sign-in.form-control Log in
+                                        hr
+                                    button#sign-up.login-sign-up.form-control(type='button') Sign up
+                #disqus_thread.col-md-9
+                script.
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://www-difdudn-com.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+                noscript
+                    | Please enable JavaScript to view the
+                    a(href='https://disqus.com/?ref_noscript') comments powered by Disqus.
+        // Start of Tawk.to Script
+        script(type='text/javascript').
+            var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+            (function(){
+                var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+                s1.async=true;
+                s1.src='https://embed.tawk.to/5967de6a6edc1c10b0345e4b/default';
+                s1.charset='UTF-8';
+                s1.setAttribute('crossorigin','*');
+                s0.parentNode.insertBefore(s1,s0);
+            })();
+        // End of Tawk.to Script
+        script#dsq-count-scr(src='//www-difdudn-com.disqus.com/count.js', async='')
+    script(src='../js/jquery.js')
+    script(src='../js/jquery-ui-1.12.1/jquery-ui.js')
+    script(type='text/javascript', src='../js/bootstrap.js')
+    script(type='text/javascript', src='../js/main.js')
+
