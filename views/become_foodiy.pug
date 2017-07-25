@@ -1,0 +1,181 @@
+//
+   Created by Sehyeon on 2017-07-24.
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        title foodiy
+        link(rel='stylesheet', href='../css/bootstrap.css')
+        link(rel='stylesheet', href='../css/font-awesome.min.css')
+        link(rel='stylesheet', href='../js/jquery-ui-1.12.1/jquery-ui.css')
+        link(rel='stylesheet', href='../css/manage_menu.css')
+        link(rel='stylesheet', href='../css/become_foodiy.css')
+        link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+        script(src='../js/jquery.js')
+        script(src='../js/jquery-ui-1.12.1/jquery-ui.js')
+        script(type='text/javascript', src='../js/bootstrap.js')
+        style.
+            footer .navbar {
+                overflow: hidden;
+                background-color: #333;
+                bottom: 0;
+                width: 100%;
+            }
+    body
+        nav.navbar.navbar-inverse(style='border: none; margin: 0;')
+            .col-md-4.col-xs-4.col-sm-4(style='background-color: #fefefe; height: 60px;')
+                // <a href="#"><h2 style="font-weight: bold;">FooDIY</h2></a>
+            .user_button.col-md-8.col-sm-8.col-xs-8
+                button.btn.btn-default.col-md-offset-8.col-sm-offset-8.col-xs-offset-8(type='button') 판매자 페이지
+                button.btn.btn-default(type='button')
+                    i.fa.fa-user-o
+                    |   내 정보
+                    i.fa.fa-angle-down
+        div(style='position: absolute; z-index: 1;')
+            img.img-responsive(src='../img/background_host.gif', alt='', style='height: 450px; width: 100%;')
+        div(style='background-color: #d6e9c6; height: 400px; color: #fefefe; width: 361px;float: right; z-index: 2; position: relative; margin-top: 25px;')
+            h2(style='text-align: center; font-weight: bold; line-height: 50px; margin-top: 40px; ')
+                p
+                    | 여러분이 직접
+                    br
+                    | FooDIY가 되어보세요
+            h4(style='font-weight: bold; padding: 10px 40px; line-height: 28px; margin-bottom: 20px;') 복잡하고 자금이 많이 필요한 요식업을 FooDIY와 함께 집에서 간단하게 ! 매일 매일 흥미로운 사람들에게 여러분의 음식을 대접해보세요
+            button.btn.btn-success(style='display: block; margin: auto;') 자세히 알아보기
+        form.col-md-12(action='', style='padding: 0 300px; margin-top: 75px; z-index: 3')
+            legend(style='font-weight: bold; margin-bottom: 40px;') Application
+            .col-md-7
+                div(style='float: right;')
+                    button.btn.btn-primary(type='button', style='height: 40px; margin-top: 37px;') 본인 인증
+                label(for='email-l', style='margin-bottom: 15px;') E-mail
+                .input-group.col-md-9
+                    span.input-group-addon
+                        i.fa.fa-envelope(style='font-size: 20px;')
+                    input#email-l.form-control.input-lg(type='email', placeholder='E-mail')
+                br
+                br
+                label(for='agree_checkbox')
+                    | E-mail 광고 수신하기 (
+                    small 다양한 이벤트와 할인 상품 정보를 제공합니다
+                    |  )
+                br
+                .checkbox.col-md-7(style='')
+                    input#agree_checkbox(type='radio', value='agree', name='choice_mail')
+                    |  동의       
+                    input(type='radio', value='disagree', name='choice_mail')
+                    |  동의 안함
+                br
+                br
+                br
+                div(style='float: right;')
+                    span
+                        button#phone_btn.btn.btn-primary(type='button', style='height: 40px; margin-top: 37px;') 본인 인증
+                label(for='phone_num', style='margin-bottom: 15px') Phone
+                .input-group.col-md-9
+                    span.input-group-addon
+                        i.material-icons(style='font-size:20px') phone_iphone
+                    input#phone_num.form-control.input-lg(type='tel', name='usertel', placeholder='Number')
+                br
+                .secret_num(style='display: none;')
+                    span(style='font-weight: bold;') 인증 번호 :
+                    input.input-sm(type='text', placeholder='6자리')
+                    button.btn.btn-primary(type='button', style='height: 30px;') 확인
+                    span#timing1 3
+                    |  :
+                    span#timing2 00
+                br
+                label(for='agree_checkbox2') SMS 수신하기
+                br
+                .checkbox.col-md-7(style='')
+                    input#agree_checkbox2(type='radio', value='agree', name='choice_sms')
+                    |  동의       
+                    input(type='radio', value='disagree', name='choice_sms')
+                    |  동의 안함
+            .img.col-md-5(style='margin-top: 20px;')
+                img.img-responsive(src='../img/cooking.PNG', alt='', style='height: 390px;')
+            br
+            br
+            br
+            br
+            br
+            br
+            br
+            br
+            br
+            br
+            br
+            br
+            br
+            br
+            br
+            br
+            br
+            br
+            br
+            br
+            br
+            br
+            hr
+            .address_div(style='padding: 0 70px; margin-top: 50px;')
+                label(for='address1', style='margin-bottom: 15px;') Address
+                .input-group
+                    span.input-group-addon
+                        i.fa.fa-home(style='font-size: 20px;')
+                    input#address1.form-control.input-lg(type='text', placeholder='Address')
+                .input-group
+                    span.input-group-addon
+                        i.fa.fa-search-plus(style='font-size: 20px;')
+                    input#address2.form-control.input-lg(type='text', placeholder='Detail')
+            div(style='padding: 0 70px; margin-top: 50px; margin-bottom: 50px;')
+                #map.form-control(style='height: 400px;')
+            div(style='margin-bottom: 30px;')
+                hr
+            div(style='margin-bottom: 100px;')
+                button.btn.btn-success.col-md-offset-2.col-md-3(type='submit') 저장
+                button#next_btn.btn.btn-success.col-md-offset-2.col-md-3(type='button') 다음 1/2
+        footer
+            .navbar
+                p(style='text-align: center; margin-top: 13px;') Temporary Footer
+        script.
+            $(document).ready(function () {
+                $("#next_btn").click(function () {
+                    location.href = "become_foodiy2.html";
+                })
+            });
+            $(document).ready(function () {
+                $("#phone_btn").click(function () {
+                    var min=2;
+                    var second=59;
+                    alert("입력하신 핸드폰 번호로 인증 번호를 보냈습니다");
+                    $(".secret_num").css("display", "block");
+                    $("#timing1").html(min);
+                    $("#timing2").html(second);
+                    var timer = setInterval(count_down,1000);
+                    function count_down(){
+                        if(second<1&&min<1){
+                            clearInterval(timer);
+                        }
+                        else if(min>=1&&second<1){
+                            min--;
+                            $("#timing1").text(min);
+                            second=59;
+                            $("#timing2").text(second);
+                        }
+                        else{
+                            $("#timing1").text(min);
+                            second--;
+                            $("#timing2").text(second);
+                        }
+                    }
+                })
+            });
+            function myMap() {
+                var mapOptions = {
+                    center: new google.maps.LatLng(51.5, -0.12),
+                    zoom: 10,
+                    mapTypeId: google.maps.MapTypeId.HYBRID
+                };
+                var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+            }
+        script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBb0qeAa_KvAKAeoWRC1xl4BCH-iPN5ztc&callback=myMap')
+

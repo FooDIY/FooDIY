@@ -2,136 +2,36 @@
    Created by Sehyeon on 2017-07-24.
 doctype html
 html(lang='en')
-    head
-        meta(charset='UTF-8')
-        meta(name='viewport', content='width=device-width, initial-scale=1')
-        title foodiy
-        link(rel='stylesheet', href='../css/bootstrap.css')
-        link(rel='stylesheet', href='../css/menu_list.css')
-        link(rel='stylesheet', href='../css/font-awesome.min.css')
-        link(rel='stylesheet', href='../js/jquery-ui-1.12.1/jquery-ui.css')
-        link(rel='stylesheet', href='../css/signUp.css')
-        link(rel='stylesheet', href='../css/main_css.css')
-        script.
-            function signup(val) {
-                var item = {email: val.email.value, password: val.pass.value, nick: val.nick.value};
-                $.ajax({
-                    method: "POST",
-                    type: "POST",
-                    url: "/signup",
-                    data: item,
-                    success: function (data) {
-                        if (data == "clear") {
-                            location.href = "/";
-                        }
-                        else {
-                            $("#signupfail").html(data);
-                            $("#signupfail").css("color", "red");
-                            return false;
-                        }
-                    }
-                });
-            }
-            function iddupcheck(val) {
-                var item = {id: val.email.value};
-                $.ajax({
-                    method: "POST",
-                    type: "POST",
-                    url: "/idcheck",
-                    data: item,
-                    success: function (data) {
-                        if (val.email.value == "" && data == 1) {
-                            $("#idcheck").html('');
-                            checked = 1;
-                        }
-                        else if (data == 1) {
-                            $("#idcheck").html('사용 가능한 이메일 입니다.');
-                            $("#idcheck").css("color", "black");
-                            checked = 1;
-                        } else {
-                            $("#idcheck").html('이미 가입된 이메일 입니다.');
-                            $("#idcheck").css("color", "red");
-                            checked = 0;
-                        }
-                    }
-                });
-            }
-            function nickcheck(val) {
-                var item = {id: val.nick.value};
-                $.ajax({
-                    method: "POST",
-                    type: "POST",
-                    url: "/nickcheck",
-                    data: item,
-                    success: function (data) {
-                        if (val.nick.value == "" && data == 1) {
-                            $("#nickcheck").html('');
-                            checked = 1;
-                        }
-                        else if (data == 1) {
-                            $("#nickcheck").html('사용 가능한 닉네임 입니다.');
-                            $("#nickcheck").css("color", "black");
-                            checked = 1;
-                        } else {
-                            $("#nickcheck").html('중복된 닉네임 입니다.');
-                            $("#nickcheck").css("color", "red");
-                            checked = 0;
-                        }
-                    }
-                });
-            }
-            function LoginCheck(val) {
-                //var snum=document.getElementsById("snum").value;
-                var item = {
-                    email: val.email.value,
-                    password: val.pass.value
-                };
-                $.ajax({
-                    method: "POST",
-                    type: "POST",
-                    url: "/login",
-                    data: item,
-                    success: function (data) {
-                        if (data == "clear") {
-                            location.href = "/";
-                        } else {
-                            $("#loginfail").html(data);
-                            $("#loginfail").css("color", "red");
-                        }
-                    }
-                });
-            }
-    body
-        header
-            #header_container.container
-                form#header_content.container-fluid(action='#')
-                    a(href='#')
-                        img(src='../img/temp_logo.jpg', alt='', style='height: 50px; width: 70px;')
-                    input.input-sm(type='text', placeholder='Where', style='width: 250px;')
-                    input.datepicker.input-sm(type='text', placeholder='When')
-                    select.input-sm
-                        option(value='korean') Korean
-                        option(value='japanese') Japanese
-                        option(value='chinese') Chinese
-                        option(value='western') Western
-                        option(value='apetiser') Apetiser
-                        option(value='etc') Etc
-                    select.input-sm
-                        option(value='') 1   Guest
-                        option(value='') 2   Guest
-                        option(value='') 3   Guest
-                        option(value='') 4   Guest
-                        option(value='') 5   Guest
-                        option(value='') 6+ Guest
-                    .header_right
-                        button#main_qna Q&A
-                        button#main_become Be a foodiy
-                        if(session)
-                            button#main_become Logout
-                        else
-                            span#main_signup Sign up
-                            span#main_login Login
-    articl
+    header
+        #header_container.container
+            form#header_content.container-fluid(action='#')
+                a(href='#')
+                    img(src='../img/temp_logo.jpg', alt='', style='height: 50px; width: 70px;')
+                input.input-sm(type='text', placeholder='Where', style='width: 250px;')
+                input.datepicker.input-sm(type='text', placeholder='When')
+                select.input-sm
+                    option(value='korean') Korean
+                    option(value='japanese') Japanese
+                    option(value='chinese') Chinese
+                    option(value='western') Western
+                    option(value='apetiser') Apetiser
+                    option(value='etc') Etc
+                select.input-sm
+                    option(value='') 1   Guest
+                    option(value='') 2   Guest
+                    option(value='') 3   Guest
+                    option(value='') 4   Guest
+                    option(value='') 5   Guest
+                    option(value='') 6+ Guest
+                .header_right
+                    button#main_qna Q&A
+                    button#main_become Be a foodiy
+                    if(session)
+                        button(type="button", onclick="LogOut()") Logout
+                    else
+                        span#main_signup Sign up
+                        span#main_login Login
+    article
         // pop-up Signup
         #pop-up-sign.signupform.container-fluid
             .signup-content
@@ -202,8 +102,3 @@ html(lang='en')
                                 button#sign-in.login-sign-in.form-control(type='button' onclick="LoginCheck(this.form)") Log in
                                 hr
                             button#sign-up.login-sign-up.form-control(type='button', onclick="LoginCheck(this.form)") Sign up
-    footer
-script(src='../js/jquery.js')
-script(src='../js/jquery-ui-1.12.1/jquery-ui.js')
-script(type='text/javascript', src='../js/bootstrap.js')
-script(type='text/javascript', src='../js/main.js')

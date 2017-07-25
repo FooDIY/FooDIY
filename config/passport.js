@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 var Member = require('../models/member');
 var passport = require('passport');
 
-module.exports = function(passport) {
+module.exports = function(passport,nev) {
     passport.serializeUser(function(user, done) {
         console.log("serializeUser");
         done(null, user.id);
@@ -42,7 +42,7 @@ module.exports = function(passport) {
                             user.nick = req.body.nick;
                             user.email = email;
                             user.pw = user.generateHash(password);
-                            user.submit_date = new Date();
+                            //user.submit_date = new Date();
                             user.save(function (err) {
                                 if (err)
                                     throw err;

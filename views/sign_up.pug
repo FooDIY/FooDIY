@@ -1,51 +1,57 @@
-DOCTYPE html
-html(lang="en")
+doctype html
+// 5월 28일날 할 것 !
+// 로그인 화면에 구글,페이스북 로그인 추가
+// 로그인 화면 반응형으로 만들기
+// 회원가입 전에 구글,페이스북,집밥 선택하는 창 만들기
+html(lang='en')
     head
-        meta(charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1")
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
         title foodiy
-        link(rel="stylesheet" href="/css/bootstrap.css")
-        link(rel="stylesheet" href="/css/signUp.css")
-        link(rel="stylesheet" href="/css/font-awesome.min.css")
+        link(rel='stylesheet', href='../css/bootstrap.css')
+        link(rel='stylesheet', href='../css/signUp.css')
+        link(rel='stylesheet', href='../css/font-awesome.min.css')
     body
-        div(class="signupform container-fluid" id="pop-up-sign")
-            div(class="signup-content")
-                form(action class="form-horizontal")
-                    div(class="form-group")
-                        div(class="real_content")
-                            div(class="link_google_facebook")
-                                button(class="link_othersignup col-xs-6 col-sm-6 col-md-6 col-lg-6" id="signup-google-s") google
+        #pop-up-sign.signupform.container-fluid
+            .signup-content
+                form.form-horizontal(action='')
+                    .form-group
+                        .real_content
+                            .link_google_facebook
+                                button#signup-google.link_othersignup.col-xs-6.col-sm-6.col-md-6.col-lg-6
                                     span
-                                        img(src="/img/google_logo.png" alt="")
-                                button(class="link_othersignup col-xs-6 col-sm-6 col-md-6 col-lg-6" id="signup-facebook-s") facebook
+                                        img(src='../img/google_logo.png', alt='')
+                                    | google
+                                button#signup-facebook.link_othersignup.col-xs-6.col-sm-6.col-md-6.col-lg-6
                                     span
-                                        img(src="/img/facebook_logo.png" alt="")
-                                br
-                                br
-                                hr
-                                div(class="input-group-s")
-                                    span(class="input-group-addon")
-                                        i(class="fa fa-envelope")
-                                div(class="input-group")
-                                    input(type="email" class="form-control" id="email-s" placeholder="E-mail")
-                                    span(class="input-group-addon login-button")
-                                        a(href="" id="email_link") 중복확인
-                                div(class="input-group-s")
-                                    span(class="input-group-addon")
-                                        i(class="glyphicon glyphicon-lock")
-                                    input(type="password" class="form-control" id="password-s" placeholder="Password")
-                                    input(type="password" class="form-control" id="password2-s" placeholder="Confirm Password")
-                                div(class="input-group-s")
-                                    span(class="input-group-addon")
-                                        i(class="fa fa-user-circle-o" aria-hidden="true")
-                                div(class="input-group")
-                                    input(type="email" class="form-control" id="nick_name" placeholder="Nickname")
-                                    span(class="input-group-addon login-button")
-                                        a(href="" id="nickname_link")
-                                input(type="button" value="Sign Up" onclick="goPage()" class="signupzipbob form-control" id="signup-zipbob")
-    script(src="/js/jquery.js")
-    script(type="text/javascript" src="/js/bootstrap.js")
-
-    script.
-        function goPage() {
-            location.href = "login_in";
-        }
+                                        img(src='../img/facebook_logo.png', alt='')
+                                    | facebook
+                            br
+                            br
+                            hr
+                            .input-group-s
+                                span.input-group-addon
+                                    i.fa.fa-envelope
+                            .input-group
+                                input#email.form-control(type='email', placeholder='E-mail')
+                                span.input-group-addon.login-button
+                                    a#email_link(href='') 중복확인
+                            .input-group-s
+                                span.input-group-addon
+                                    i.glyphicon.glyphicon-lock
+                                input#password.form-control(type='password', placeholder='Password')
+                                input#password2.form-control(type='password', placeholder='Confirm Password')
+                            .input-group-s
+                                span.input-group-addon
+                                    i.fa.fa-user-circle-o(aria-hidden='true')
+                            .input-group
+                                input#nick_name.form-control(type='email', placeholder='Nickname')
+                                span.input-group-addon.login-button
+                                    a#nickname_link(href='') 중복확인
+                            input#signup-zipbob.signupzipbob.form-control(type='button', value='Sign Up', onclick='goPage()')
+        script(src='../js/jquery.js')
+        script(type='text/javascript', src='../js/bootstrap.js')
+        script.
+            function goPage() {
+                location.href = "login_in.html";
+            }

@@ -7,11 +7,11 @@ var bcrypt = require('bcrypt-nodejs');
 var Schema = mongoose.Schema;
 
 var MemberSchema = new Schema({
-    email:String,
-    pw:String,
-    nick:String,
+    email:{type:String,required: true},
+    pw:{type:String,required: true},
+    nick:{type:String,required: true},
     sumnail:String,
-    sellercheck:Boolean,
+    sellercheck:{type:Boolean,default:false},
     cellphone:String,
     address:{
         post:String,
@@ -22,7 +22,8 @@ var MemberSchema = new Schema({
     text:Boolean,
     submit_date:{ type: Date, default: Date.now  },
     last_login:Date,
-    last_login_ip:String
+    last_login_ip:String,
+    is_certificate:{type:Boolean,default:false}
 });
 //password를 암호화
 MemberSchema.methods.generateHash = function(password) {

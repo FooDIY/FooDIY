@@ -1,0 +1,26 @@
+/*html{*/
+    /*position: relative;*/
+    /*padding:0;*/
+    /*margin:0;*/
+/*}*/
+
+footer{
+    background-color:#252525;
+    color:white;
+    padding:5px;
+    height:90px;
+    width:100%;
+    /*top:500px;*/
+    /*position: relative;*/
+}
+
+.footerimg{
+    width:30px;
+    height:30px;
+}
+
+.foot_line{
+    background-color: #86878A;
+    height: 20px;
+    margin-bottom: 15px;
+}

@@ -31,21 +31,28 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 var mongoose=require('mongoose');
 mongoose.connect('mongodb://localhost/FooDIY');
+mongoose.Promise = global.Promise;
 
 var passport = require('passport');
 
 app.use(passport.initialize());
 app.use(passport.session()); //로그인 세션 유지
-require('./config/passport')(passport);
+
+var nev = require('email-verification')(mongoose);
+require('./config/email-verification')(nev);
+require('./config/passport')(passport,nev);
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 var manage_menu = require('./routes/manage_menu');
+var seller = require('./routes/seller');
 
 
 app.use('/', index);
 app.use('/manage_menu', manage_menu);
 app.use('/users', users);
+app.use('/seller', seller);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
