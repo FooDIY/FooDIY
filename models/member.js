@@ -3,6 +3,7 @@
  */
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
+var moment = require('moment');
 
 var Schema = mongoose.Schema;
 
@@ -20,7 +21,7 @@ var MemberSchema = new Schema({
     },
     mailing:Boolean,
     text:Boolean,
-    submit_date:{ type: Date, default: Date.now  },
+    submit_date:{ type: Date, default: moment().format()  },
     last_login:Date,
     last_login_ip:String,
     is_certificate:{type:Boolean,default:false}
