@@ -8,7 +8,12 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 var Member = require('../models/member');
+var cert = require('../models/certificate');
 var passport = require('passport');
+var moment = require('moment');
+var mailer=require('./mailing');
+var crypto = require('crypto');
+
 
 module.exports = function(passport,nev) {
     passport.serializeUser(function(user, done) {
@@ -32,28 +37,32 @@ module.exports = function(passport,nev) {
                 if (member) {
                     return done(null, false, {error:'존재하는 이메일입니다.'});
                 } else {
-                    Member.findOne({ nick : req.body.nick }, function(err, membernick) {
-                        console.log(req.body.nick);
-                        if (err) return done(err);
-                        if (membernick) {
-                            return done(null, false, {error:'존재하는 닉네임입니다.'});
-                        }else{
-                            var user = new Member();
-                            user.nick = req.body.nick;
-                            user.email = email;
-                            user.pw = user.generateHash(password);
-                            //user.submit_date = new Date();
-                            user.save(function (err) {
-                                if (err)
-                                    throw err;
-                                return done(null, user);
-                            });
-                        }
+                    var user = new Member();
+                    user.nick = req.body.nick;
+                    user.email = email;
+                    user.pw = user.generateHash(password);
+                    //user.submit_date = new Date();
+                    var usercheck=new cert();
+                    usercheck.email=email;
+                    var key="SehyeonJJang";
+                    var cipher = crypto.createCipher('aes192', key);    // Cipher 객체 생성
+                    cipher.update(email, 'utf8', 'base64');             // 인코딩 방식에 따라 암호화
+                    usercheck.token = cipher.final('base64');
+                    usercheck.timer=moment().add('minutes',10).format();
+                    user.save(function (err) {
+                        if (err)
+                            throw err;
+                    });
+                    usercheck.save(function (err) {
+                        if (err)
+                            throw err;
+                        mailer(email,usercheck.token);
+                        return done(null, user);
                     });
                 }
             });
-        })
-    );
+        }
+    ));
     passport.use('login', new LocalStrategy({
             usernameField : 'email',
             passwordField : 'password',
@@ -68,6 +77,8 @@ module.exports = function(passport,nev) {
                     return done(null, false, {error:'이메일 에러'});
                 if (!user.validPassword(password))
                     return done(null, false, {error:'패스워드 에러'});
+                if (!user.is_certificate)
+                    return done(null, false, {error:'이메일 인증 에러'});
                 console.log("login");
                 return done(null, user);
             });
