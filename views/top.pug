@@ -1,8 +1,95 @@
 //
    Created by Sehyeon on 2017-07-24.
 doctype html
-html(lang='en')
+html(lang='en',ng-app="profile")
+    head
+        style.
+
+            input.ng-invalid {
+            border: 1px solid red;
+            }
+            input.ng-valid{
+            border-bottom-style:solid;
+            }
+            input.ng-pristine {border:1px solid gray}
+
+
+        script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js')
+        script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.js')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js')
+        script.
+
+            angular.module('profile', ['ngAnimate','ui.bootstrap']);
+            angular.module('profile').controller('ctrl', function ($scope,$http) {
+            $scope.accountOpen = true;
+            $scope.personalOpen = true;
+            $http.get("https://restcountries.eu/rest/v2/all?fields=name;alpha2Code;flag").then(function(response) {
+            // var firstchoice = {"flag":"","name":"Choose your country","alpha2Code":""}
+            // response.data.unshift(firstchoice);
+            $scope.countries = response.data;
+            });
+
+
+
+            });
+
+            angular.module('profile').directive('confirmPassword', function() {
+            return {
+            require: 'ngModel',
+            link: function(scope, element, attr, mCtrl) {
+            function confirmPassword(value) {
+            if (scope.formdata.password == value) {
+            mCtrl.$setValidity('passwordsIdentical', true);
+            } else {
+            mCtrl.$setValidity('passwordsIdentical', false);
+            }
+            return value;
+            }
+            mCtrl.$parsers.push(confirmPassword);
+            }
+            };
+            });
+
+
+            angular.module('profile').directive('validateEmailRemotely', function(AuthenticateService) {
+            return {
+            restrict: 'A',
+            scope: true,
+            require: 'ngModel',
+            link: function(scope, elem, attrs, ctrls) {
+            var ngModel = ctrls;
+            scope.$watch(attrs.ngModel, function(email) {
+            AuthenticateService.Email(email)
+            .then(function(result) {
+            if (result.email_exists) {
+            ngModel.$setValidity('validEmail', false);
+            } else {
+            ngModel.$setValidity('validEmail', true);
+            }
+            });
+            });
+            }
+            }
+            });
+            angular.module('profile').service('AuthenticateService', function($http) {
+            return {
+            Email: function(email) {
+            var url = '13.125.0.15/valid_email?email='+email;
+            return $http.get(url)
+            .then(function(response) {
+            return response.data;
+            }, function(error) {
+            return error.data;
+            });
+            }
+            };
+            });
+
+
+
+
     header
+
         #header_container.container
             form#header_content.container-fluid(action='#')
                 a(href='#')
@@ -35,7 +122,9 @@ html(lang='en')
         // pop-up Signup
         #pop-up-sign.signupform.container-fluid
             .signup-content
-                form.form-horizontal(action='')
+
+
+                form#signup_form.form-horizontal(name='signup', action='', role='form')
                     .form-group
                         .real_content
                             p#signupfail
@@ -55,22 +144,58 @@ html(lang='en')
                                 span.input-group-addon
                                     i.fa.fa-envelope
                             .input-group
-                                input#email-s.form-control(type='email', placeholder='E-mail', oninput="iddupcheck(this.form)", name="email")
+                                input#email-s.form-control(type='text', ng-required='true' , placeholder='E-mail', name="email",
+                                ng-model="user.email" , ng-pattern="/^[a-zA-Z0-9]+@[a-zA-Z0-9]+$/")
+
                                 span.input-group-addon.login-button
+                            .alert.alert-warning(ng-show='signup.email.$error.pattern', role='alert')
+                                | Invalid form
+
+
+
+
                             p#idcheck
                             .input-group-s
                                 span.input-group-addon
                                     i.glyphicon.glyphicon-lock
-                                input#password-s.form-control(type='password', placeholder='Password', name="pass")
-                                input#password2-s.form-control(type='password', placeholder='Confirm Password', name="pass2")
+                                input#password-s.form-control(type='password',  placeholder='Password', name="password" ,ng-required='true'
+                                ng-model='formdata.password' ,ng-pattern='/^(?=.*[0-9])(?=.*[a-zA-Z]).{8,20}$/')
+                                .alert.alert-warning(ng-show='signup.password.$error.pattern', role='alert')
+                                  | Input a combination of numbers and alphabet
+                                  | between 8 and 20
+                                input#password2-s.form-control(type='password', placeholder='Confirm Password', name="password2",
+                                ng-model='formdata.password2' confirm-password required/)
+                                .alert.alert-warning(ng-show='signup.password2.$error.passwordsIdentical', role='alert')
+                                  | Not Match.
+
+
+
                             .input-group-s
                                 span.input-group-addon
                                     i.fa.fa-user-circle-o(aria-hidden='true')
-                            .input-group
-                                input#nick_name.form-control(type='email', placeholder='Nickname' oninput="nickcheck(this.form)", name="nick")
-                                span.input-group-addon.login-button
+
+                            .row
+                                .col-md-5
+                                    input#firstName.form-control(type='text', placeholder='First Name' , name="firstName",
+                                    ng-model="user.firstName", ng-required='true', ng-maxlength="10",
+                                    ng-pattern='/^[a-zA-Z0-9가-힣]+$/')
+                                    .alert.alert-warning(ng-show='signup.firstName.$error.maxlength||signup.firstName.$error.pattern||signup.firstName.$error.required$$signup.firstName.$dirty', role='alert')
+                                      |Invalid Input
+                                .col-md-7
+                                    input#wtf.form-control(type='text', ng-required='true' , ng-maxlength='10',placeholder='Last Name',
+                                     name="wtf",
+                                    ng-model="user.wtf",ng-pattern='/^[a-zA-Z0-9가-힣]+$/' )
+                                    .alert.alert-warning(ng-show='signup.wtf.$error.maxlength||signup.wtf.$error.pattern||signup.wtf.$error.required&&signup.wtf.$dirty', role='alert')
+                                      |Invalid Input
+
+
+
+
                             p#nickcheck
-                            input#signup-zipbob.signupzipbob.form-control(type='button', value='Sign Up', onclick='signup(this.form)')
+                            input#signup-zipbob.signupzipbob.form-control(type='button', value='Sign Up', onclick='signup(this.form)'
+                            ng-disabled='signup.firstName.$invalid \
+                            || signup.lastName.$invalid ||signup.password.$invalid ||signup.password2.$invalid || \
+                            signup.email.$invalid  ')
         // pop-up login
         #pop-up-login.signupform.container-fluid
             .signup-content
