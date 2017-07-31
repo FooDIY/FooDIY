@@ -104,11 +104,11 @@ html(lang='en',ng-app="profile")
                     option(value='apetiser') Apetiser
                     option(value='etc') Etc
                 select.input-sm
-                    option(value='') 1   Guest
-                    option(value='') 2   Guest
-                    option(value='') 3   Guest
-                    option(value='') 4   Guest
-                    option(value='') 5   Guest
+                    option(value='') 1   Guest
+                    option(value='') 2   Guest
+                    option(value='') 3   Guest
+                    option(value='') 4   Guest
+                    option(value='') 5   Guest
                     option(value='') 6+ Guest
                 .header_right
                     button#main_qna Q&A
@@ -145,7 +145,7 @@ html(lang='en',ng-app="profile")
                                     i.fa.fa-envelope
                             .input-group
                                 input#email-s.form-control(type='text', ng-required='true' , placeholder='E-mail', name="email",
-                                ng-model="user.email" , ng-pattern="/^[a-zA-Z0-9]+@[a-zA-Z0-9]+$/")
+                                ng-model="user.email" , ng-pattern="/^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i")
 
                                 span.input-group-addon.login-button
                             .alert.alert-warning(ng-show='signup.email.$error.pattern', role='alert')
@@ -159,7 +159,7 @@ html(lang='en',ng-app="profile")
                                 span.input-group-addon
                                     i.glyphicon.glyphicon-lock
                                 input#password-s.form-control(type='password',  placeholder='Password', name="password" ,ng-required='true'
-                                ng-model='formdata.password' ,ng-pattern='/^(?=.*[0-9])(?=.*[a-zA-Z]).{8,20}$/')
+                                ng-model='formdata.password' ,ng-pattern='/^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[~!@#$%^*+=-]).{8,20}$/')
                                 .alert.alert-warning(ng-show='signup.password.$error.pattern', role='alert')
                                   | Input a combination of numbers and alphabet
                                   | between 8 and 20
@@ -179,13 +179,13 @@ html(lang='en',ng-app="profile")
                                     input#firstName.form-control(type='text', placeholder='First Name' , name="firstName",
                                     ng-model="user.firstName", ng-required='true', ng-maxlength="10",
                                     ng-pattern='/^[a-zA-Z0-9가-힣]+$/')
-                                    .alert.alert-warning(ng-show='signup.firstName.$error.maxlength||signup.firstName.$error.pattern||signup.firstName.$error.required$$signup.firstName.$dirty', role='alert')
+                                    .alert.alert-warning(ng-show='signup.firstName.$error.maxlength||signup.firstName.$error.pattern||signup.firstName.$error.required&&signup.firstName.$dirty', role='alert')
                                       |Invalid Input
                                 .col-md-7
-                                    input#wtf.form-control(type='text', ng-required='true' , ng-maxlength='10',placeholder='Last Name',
-                                     name="wtf",
-                                    ng-model="user.wtf",ng-pattern='/^[a-zA-Z0-9가-힣]+$/' )
-                                    .alert.alert-warning(ng-show='signup.wtf.$error.maxlength||signup.wtf.$error.pattern||signup.wtf.$error.required&&signup.wtf.$dirty', role='alert')
+                                    input#wtf.form-control(type='text', ng-required='true' , ng-maxlength='20',placeholder='Last Name',
+                                     name="lastName",
+                                    ng-model="user.lastName",ng-pattern='/^[a-zA-Z0-9가-힣]+$/' )
+                                    .alert.alert-warning(ng-show='signup.lastName.$error.maxlength||signup.lastName.$error.pattern||signup.lastName.$error.required&&signup.lastName.$dirty', role='alert')
                                       |Invalid Input
 
 
