@@ -1,0 +1,39 @@
+//
+   Created by Sehyeon on 2017-07-31.
+//
+   Created by Sehyeon on 2017-07-31.
+doctype html
+html
+    head
+        meta(http-equiv='Content-Type', content='text/html; charset=EUC-KR')
+        title Insert title here
+    script(language='javascript').
+        function init(){
+            var url = location.href;
+            var confmKey = "U01TX0FVVEgyMDE3MDczMTIxMDAwODIzNTI1";
+            var resultType = "4"; // 도로명주소 검색결과 화면 출력내용, 1 : 도로명, 2 : 도로명+지번, 3 : 도로명+상세건물명, 4 : 도로명+지번+상세건물명
+            // php.ini 에 short_open_tag 가 On 으로 설정되어 되어 있는 경우 아래 소스 코드 사용
+            var inputYn= !{JSON.stringify(inputYn)};
+            // php.ini 에 short_open_tag 가 Off 으로 설정되어 되어 있는 경우 아래 소스 코드 사용
+            // var inputYn= "<?php echo $ADDR['inputYn']; ?>";
+            if(inputYn != "Y"){
+                document.form.confmKey.value = confmKey;
+                document.form.returnUrl.value = url;
+                document.form.resultType.value = resultType;
+                document.form.action="http://www.juso.go.kr/addrlink/addrCoordUrl.do"; //인터넷망
+                document.form.submit();
+            }else{
+                opener.jusoCallBack(!{JSON.stringify(roadFullAddr)},!{JSON.stringify(roadAddrPart1)},!{JSON.stringify(addrDetail)},!{JSON.stringify(roadAddrPart2)},!{JSON.stringify(engAddr)},!{JSON.stringify(jibunAddr)},!{JSON.stringify(zipNo)}, !{JSON.stringify(admCd)}, !{JSON.stringify(rnMgtSn)}, !{JSON.stringify(bdMgtSn)}, !{JSON.stringify(detBdNmList)}, !{JSON.stringify(bdNm)}, !{JSON.stringify(bdKdcd)}, !{JSON.stringify(siNm)}, !{JSON.stringify(sggNm)}, !{JSON.stringify(emdNm)}, !{JSON.stringify(liNm)}, !{JSON.stringify(rn)}, !{JSON.stringify(udrtYn)}, !{JSON.stringify(buldMnnm)}, !{JSON.stringify(buldSlno)}, !{JSON.stringify(mtYn)}, !{JSON.stringify(lnbrMnnm)}, !{JSON.stringify(lnbrSlno)}, !{JSON.stringify(emdNo)}, !{JSON.stringify(entX)}, !{JSON.stringify(entY)});
+                window.close();
+            }
+        }
+    body(onload='init();')
+        form#form(name='form', method='post')
+            input#confmKey(type='hidden', name='confmKey', value='')
+            input#returnUrl(type='hidden', name='returnUrl', value='')
+            input#resultType(type='hidden', name='resultType', value='')
+            // 해당시스템의 인코딩타입이 EUC-KR일경우에만 추가 START
+            input#encodingType(type='hidden', name='encodingType', value='EUC-KR')
+            // 해당시스템의 인코딩타입이 EUC-KR일경우에만 추가 END
+
+
