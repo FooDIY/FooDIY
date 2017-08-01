@@ -45,10 +45,10 @@ html(lang='en')
         form.col-md-12(action='', style='padding: 0 300px; margin-top: 75px; z-index: 3')
             legend(style='font-weight: bold; margin-bottom: 40px;') Application
             .col-md-7
-                div(style='float: right;')
+                //div(style='float: right;')
                     button.btn.btn-primary(type='button', style='height: 40px; margin-top: 37px;') 본인 인증
-                label(for='email-l', style='margin-bottom: 15px;') E-mail
-                .input-group.col-md-9
+                //label(for='email-l', style='margin-bottom: 15px;') E-mail
+                //.input-group.col-md-9
                     span.input-group-addon
                         i.fa.fa-envelope(style='font-size: 20px;')
                     input#email-l.form-control.input-lg(type='email', placeholder='E-mail')
@@ -60,14 +60,14 @@ html(lang='en')
                     |  )
                 br
                 .checkbox.col-md-7(style='')
-                    input#agree_checkbox(type='radio', value='agree', name='choice_mail')
+                    input#agree_checkbox(type='radio', value='Y', name='choice_mail' checked)
                     |  동의       
-                    input(type='radio', value='disagree', name='choice_mail')
+                    input(type='radio', value='N', name='choice_mail')
                     |  동의 안함
                 br
                 br
                 br
-                div(style='float: right;')
+                //div(style='float: right;')
                     span
                         button#phone_btn.btn.btn-primary(type='button', style='height: 40px; margin-top: 37px;') 본인 인증
                 label(for='phone_num', style='margin-bottom: 15px') Phone
@@ -87,9 +87,9 @@ html(lang='en')
                 label(for='agree_checkbox2') SMS 수신하기
                 br
                 .checkbox.col-md-7(style='')
-                    input#agree_checkbox2(type='radio', value='agree', name='choice_sms')
+                    input#agree_checkbox2(type='radio', value='Y', name='choice_sms' checked)
                     |  동의       
-                    input(type='radio', value='disagree', name='choice_sms')
+                    input(type='radio', value='N', name='choice_sms')
                     |  동의 안함
             .img.col-md-5(style='margin-top: 20px;')
                 img.img-responsive(src='../img/cooking.PNG', alt='', style='height: 390px;')
@@ -116,7 +116,7 @@ html(lang='en')
             br
             br
             hr
-            .address_div(style='padding: 0 70px; margin-top: 50px;')
+            //.address_div(style='padding: 0 70px; margin-top: 50px;')
                 label(for='address1', style='margin-bottom: 15px;') Address
                 .input-group
                     span.input-group-addon
@@ -126,22 +126,50 @@ html(lang='en')
                     span.input-group-addon
                         i.fa.fa-search-plus(style='font-size: 20px;')
                     input#address2.form-control.input-lg(type='text', placeholder='Detail')
+            form#juso(name='form', method='post')
+                table
+                    colgroup
+                        col(style='width:20%')
+                        col
+                    tbody
+                        tr
+                            th 우편번호
+                            td
+                                input#confmKey(type='hidden', name='confmKey', value='')
+                                input#zipNo(type='text', name='zipNo', readonly='', style='width:100px')
+                                input(type='button', value='주소검색', onclick='goPopup();')
+                        tr
+                            th
+                                label 도로명주소
+                            td
+                                input#roadAddrPart1(type='text', style='width:85%' name="add1" readonly)
+                        tr
+                            th 상세주소
+                            td
+                                input#addrDetail(type='text', style='width:40%', value='' name="add21" readonly)
+                                input#roadAddrPart2(type='text', style='width:40%', value='' name="add22" readonly)
+                        tr
+                            th 좌표정보
+                            td
+                                input#entX(type='text', style='width:40%', value='' name="y" readonly)
+                                input#entY(type='text', style='width:40%', value='' name="x" readonly)
             div(style='padding: 0 70px; margin-top: 50px; margin-bottom: 50px;')
                 #map.form-control(style='height: 400px;')
             div(style='margin-bottom: 30px;')
                 hr
             div(style='margin-bottom: 100px;')
-                button.btn.btn-success.col-md-offset-2.col-md-3(type='submit') 저장
-                button#next_btn.btn.btn-success.col-md-offset-2.col-md-3(type='button') 다음 1/2
+                //button.btn.btn-success.col-md-offset-2.col-md-3(type='submit') 저장
+                button#next_btn.btn.btn-success.col-md-offset-2.col-md-3(type='button' onclick="submitseller()") 등록
+            p#signupfail
         footer
             .navbar
                 p(style='text-align: center; margin-top: 13px;') Temporary Footer
         script.
-            $(document).ready(function () {
+            /*$(document).ready(function () {
                 $("#next_btn").click(function () {
                     location.href = "become_foodiy2.html";
                 })
-            });
+            });*/
             $(document).ready(function () {
                 $("#phone_btn").click(function () {
                     var min=2;
@@ -169,14 +197,23 @@ html(lang='en')
                     }
                 })
             });
-            function myMap() {
-                var mapOptions = {
-                    center: new google.maps.LatLng(51.5, -0.12),
-                    zoom: 10,
-                    mapTypeId: google.maps.MapTypeId.HYBRID
-                };
+            function myMap(x,y) {
+                if(!x) {
+                    var mapOptions = {
+                        center: new google.maps.LatLng(37, 127),
+                        zoom: 10,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                    };
+                }
+                else {
+                    var mapOptions = {
+                        center: new google.maps.LatLng(x, y),
+                        zoom: 15,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                    };
+                }
                 var map = new google.maps.Map(document.getElementById("map"), mapOptions);
             }
         script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBb0qeAa_KvAKAeoWRC1xl4BCH-iPN5ztc&callback=myMap')
-        script(type='text/javascript', src='../js/juso.js')
-
+    script(src='../lib/proj4js-combined.js')
+    script(src='../js/juso.js')

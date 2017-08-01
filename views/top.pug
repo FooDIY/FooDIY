@@ -1,7 +1,19 @@
 //
    Created by Sehyeon on 2017-07-24.
 doctype html
-html(lang='en')
+html(lang='en',ng-app="profile")
+    head
+        style.
+            input.ng-invalid {
+                border: 1px solid red;
+            }
+            input.ng-valid{
+                border-bottom-style:solid;
+            }
+            input.ng-pristine {border:1px solid gray}
+        script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js')
+        script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.js')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js')
     header
         #header_container.container
             form#header_content.container-fluid(action='#')
@@ -26,7 +38,7 @@ html(lang='en')
                 .header_right
                     button#main_qna Q&A
                     button#main_become Be a foodiy
-                    if(session)
+                    if(session.user)
                         button(type="button", onclick="LogOut()") Logout
                     else
                         span#main_signup Sign up
@@ -35,7 +47,7 @@ html(lang='en')
         // pop-up Signup
         #pop-up-sign.signupform.container-fluid
             .signup-content
-                form.form-horizontal(action='')
+                form#signup_form.form-horizontal(name='signup', action='', role='form')
                     .form-group
                         .real_content
                             p#signupfail
@@ -55,22 +67,41 @@ html(lang='en')
                                 span.input-group-addon
                                     i.fa.fa-envelope
                             .input-group
-                                input#email-s.form-control(type='email', placeholder='E-mail', oninput="iddupcheck(this.form)", name="email")
+                                input#email-s.form-control(type='text', ng-required='true', placeholder='E-mail', oninput="iddupcheck(this.form)", name="email", ng-model="user.email", ng-pattern="/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*[.][a-zA-Z]{2,3}$/i")
                                 span.input-group-addon.login-button
+                            .alert.alert-warning(ng-show='signup.email.$error.pattern', role='alert')
+                                | Invalid form
                             p#idcheck
                             .input-group-s
                                 span.input-group-addon
                                     i.glyphicon.glyphicon-lock
-                                input#password-s.form-control(type='password', placeholder='Password', name="pass")
-                                input#password2-s.form-control(type='password', placeholder='Confirm Password', name="pass2")
+                                input#password-s.form-control(type='password', placeholder='Password', name="pass", ng-required='true',
+                                ng-model='formdata.password', ng-pattern='/^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[~!@#$%^*+=-]).{8,20}$/')
+                                .alert.alert-warning(ng-show='signup.password.$error.pattern', role='alert')
+                                    | Input a combination of numbers and alphabet
+                                    | between 8 and 20
+                                input#password2-s.form-control(type='password', placeholder='Confirm Password', name="pass2", ng-model='formdata.password2' confirm-password required/)
+                                .alert.alert-warning(ng-show='signup.password2.$error.passwordsIdentical', role='alert')
+                                    | Not Match.
                             .input-group-s
                                 span.input-group-addon
                                     i.fa.fa-user-circle-o(aria-hidden='true')
-                            .input-group
-                                input#nick_name.form-control(type='email', placeholder='Nickname' oninput="nickcheck(this.form)", name="nick")
-                                span.input-group-addon.login-button
-                            p#nickcheck
-                            input#signup-zipbob.signupzipbob.form-control(type='button', value='Sign Up', onclick='signup(this.form)')
+                            .row
+                                .col-md-5
+                                    input#firstName.form-control(type='text', placeholder='First Name' , name="firstName",
+                                    ng-model="user.firstName", ng-required='true', ng-maxlength="10",
+                                    ng-pattern='/^[a-zA-Z가-힣]+$/')
+                                    .alert.alert-warning(ng-show='signup.firstName.$error.maxlength||signup.firstName.$error.pattern||signup.firstName.$error.required$$signup.firstName.$dirty', role='alert')
+                                        | Invalid Input
+                                .col-md-7
+                                    input#wtf.form-control(type='text', ng-required='true' , ng-maxlength='10',placeholder='Last Name',
+                                    name="lastName",
+                                    ng-model="user.lastName",ng-pattern='/^[a-zA-Z가-힣]+$/' )
+                                    .alert.alert-warning(ng-show='signup.lastName.$error.maxlength||signup.lastName.$error.pattern||signup.lastName.$error.required&&signup.lastName.$dirty', role='alert')
+                                        | Invalid Input
+                            input#signup-zipbob.signupzipbob.form-control(type='button', value='Sign Up', onclick='signuppass(this.form)', ng-disabled='signup.firstName.$invalid \
+                                                        || signup.lastName.$invalid ||signup.password.$invalid ||signup.password2.$invalid || \
+                                                        signup.email.$invalid  ')
         // pop-up login
         #pop-up-login.signupform.container-fluid
             .signup-content

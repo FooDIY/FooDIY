@@ -10,14 +10,18 @@ var Schema = mongoose.Schema;
 var MemberSchema = new Schema({
     email:{type:String,required: true},
     pw:{type:String,required: true},
-    nick:{type:String,required: true},
+    //nick:{type:String,required: true},
+    firstname:{type:String,required: true},
+    lastname:{type:String,required: true},
     sumnail:String,
     sellercheck:{type:Boolean,default:false},
     cellphone:String,
     address:{
         post:String,
         add1:String,
-        add2:String
+        add2:String,
+        x:Number,
+        y:Number
     },
     mailing:Boolean,
     text:Boolean,

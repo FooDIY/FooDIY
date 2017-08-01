@@ -38,7 +38,9 @@ module.exports = function(passport,nev) {
                     return done(null, false, {error:'존재하는 이메일입니다.'});
                 } else {
                     var user = new Member();
-                    user.nick = req.body.nick;
+                    //user.nick = req.body.nick;
+                    user.firstname=req.body.firstname;
+                    user.lastname=req.body.lastname;
                     user.email = email;
                     user.pw = user.generateHash(password);
                     //user.submit_date = new Date();
@@ -79,7 +81,6 @@ module.exports = function(passport,nev) {
                     return done(null, false, {error:'패스워드 에러'});
                 if (!user.is_certificate)
                     return done(null, false, {error:'이메일 인증 에러'});
-                console.log("login");
                 return done(null, user);
             });
         })

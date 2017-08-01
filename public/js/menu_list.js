@@ -6,7 +6,7 @@ var x = document.getElementById("demo");
 
 $(document).ready(function () {
     $("#main_become").click(function () {
-        location.href = "become_foodiy.html";
+        location.href = "/seller/submit_seller";
     })
 });
 

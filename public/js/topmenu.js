@@ -1,8 +1,8 @@
 /**
  * Created by Sehyeon on 2017-07-25.
  */
-function signup(val) {
-    var item = {email: val.email.value, password: val.pass.value, nick: val.nick.value};
+function signuppass(val) {
+    var item = {email: val.email.value, password: val.pass.value,firstname:val.firstName.value,lastname:val.lastName.value};
     $.ajax({
         method: "POST",
         type: "POST",
@@ -21,7 +21,7 @@ function signup(val) {
     });
 }
 function iddupcheck(val) {
-    var item = {id: val.email.value};
+    var item = {id: val.email.value,pass:"김기영"};
     $.ajax({
         method: "POST",
         type: "POST",
@@ -102,3 +102,68 @@ function LogOut() {
         }
     });
 }
+angular.module('profile', ['ngAnimate','ui.bootstrap']);
+angular.module('profile').controller('ctrl', function ($scope,$http) {
+    $scope.accountOpen = true;
+    $scope.personalOpen = true;
+    $http.get("https://restcountries.eu/rest/v2/all?fields=name;alpha2Code;flag").then(function(response) {
+        // var firstchoice = {"flag":"","name":"Choose your country","alpha2Code":""}
+        // response.data.unshift(firstchoice);
+        $scope.countries = response.data;
+    });
+
+
+
+});
+
+angular.module('profile').directive('confirmPassword', function() {
+    return {
+        require: 'ngModel',
+        link: function(scope, element, attr, mCtrl) {
+            function confirmPassword(value) {
+                if (scope.formdata.password == value) {
+                    mCtrl.$setValidity('passwordsIdentical', true);
+                } else {
+                    mCtrl.$setValidity('passwordsIdentical', false);
+                }
+                return value;
+            }
+            mCtrl.$parsers.push(confirmPassword);
+        }
+    };
+});
+
+
+angular.module('profile').directive('validateEmailRemotely', function(AuthenticateService) {
+    return {
+        restrict: 'A',
+        scope: true,
+        require: 'ngModel',
+        link: function(scope, elem, attrs, ctrls) {
+            var ngModel = ctrls;
+            scope.$watch(attrs.ngModel, function(email) {
+                AuthenticateService.Email(email)
+                    .then(function(result) {
+                        if (result.email_exists) {
+                            ngModel.$setValidity('validEmail', false);
+                        } else {
+                            ngModel.$setValidity('validEmail', true);
+                        }
+                    });
+            });
+        }
+    }
+});
+angular.module('profile').service('AuthenticateService', function($http) {
+    return {
+        Email: function(email) {
+            var url = '13.125.0.15/valid_email?email='+email;
+            return $http.get(url)
+                .then(function(response) {
+                    return response.data;
+                }, function(error) {
+                    return error.data;
+                });
+        }
+    };
+});

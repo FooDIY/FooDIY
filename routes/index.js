@@ -27,7 +27,7 @@ db.once('open', function() {
 /* GET home page. */
 router.get(['/'], function (req, res, next) {
     //console.log(req.user);
-    res.render('menu_list',{session:req.session.user});
+    res.render('menu_list',{session:req.session});
 });
 router.get('/test', function (req, res, next) {
     res.render('sign_up');
@@ -74,8 +74,6 @@ router.post('/login', function(req, res, next) {
         else{
             req.session.user=user.email;
             req.session.seller=user.sellercheck;
-            console.log(req.session.user);
-            console.log(req.session.seller);
             res.send("clear");
         }
     })(req, res, next);
@@ -141,8 +139,11 @@ router.post("/nickcheck",function (req,res,next) {
 router.get("/menu_list",function (req,res,next) {
    res.render("menu_list");
 });
+router.get("/loging",function (req,res,next) {
+    res.render("login_in");
+});
 router.get("/menu_info",function (req,res,next) {
-    res.render("menu_info",{session:req.session.user});
+    res.render("menu_info",{session:req.session});
 });
 router.get("/become1",function (req,res,next) {
     res.render("become_foodiy");
