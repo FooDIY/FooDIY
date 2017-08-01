@@ -3,16 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="19b1ef4f-4864-4a31-963f-9b7d2376463e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/passport.js" afterPath="$PROJECT_DIR$/config/passport.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/member.js" afterPath="$PROJECT_DIR$/models/member.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/juso.js" afterPath="$PROJECT_DIR$/public/js/juso.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/menu_list.js" afterPath="$PROJECT_DIR$/public/js/menu_list.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/topmenu.js" afterPath="$PROJECT_DIR$/public/js/topmenu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/seller.js" afterPath="$PROJECT_DIR$/routes/seller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/become_foodiy.pug" afterPath="$PROJECT_DIR$/views/become_foodiy.pug" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/juso.pug" afterPath="$PROJECT_DIR$/views/juso.pug" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/top.pug" afterPath="$PROJECT_DIR$/views/top.pug" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -49,6 +39,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="top.pug" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/top.pug">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="119" column="39" lean-forward="true" selection-start-line="119" selection-start-column="39" selection-end-line="119" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="become_foodiy.pug" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/become_foodiy.pug">
           <provider selected="true" editor-type-id="text-editor">
@@ -62,8 +62,8 @@
       <file leaf-file-name="seller.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/seller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1064">
-              <caret line="58" column="13" lean-forward="true" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
+            <state relative-caret-position="513">
+              <caret line="95" column="40" lean-forward="true" selection-start-line="95" selection-start-column="40" selection-end-line="95" selection-end-column="40" />
               <folding>
                 <element signature="e#0#44#0" expanded="false" />
               </folding>
@@ -589,15 +589,15 @@
       <workItem from="1500519082920" duration="4007000" />
       <workItem from="1500523269698" duration="9402000" />
       <workItem from="1500601777095" duration="42102000" />
-      <workItem from="1500890354783" duration="61186000" />
+      <workItem from="1500890354783" duration="62096000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="130651000" />
+    <option name="totallyTimeSpent" value="131561000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1928" y="-7" width="1936" height="1056" extended-state="7" />
+    <frame x="-1928" y="-7" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12447917" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -960,14 +960,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/top.pug">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-598">
-          <caret line="26" column="51" lean-forward="false" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/topmenu.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
@@ -1050,10 +1042,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/top.pug">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="119" column="39" lean-forward="true" selection-start-line="119" selection-start-column="39" selection-end-line="119" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/seller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1064">
-          <caret line="58" column="13" lean-forward="true" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
+        <state relative-caret-position="513">
+          <caret line="95" column="40" lean-forward="true" selection-start-line="95" selection-start-column="40" selection-end-line="95" selection-end-column="40" />
           <folding>
             <element signature="e#0#44#0" expanded="false" />
           </folding>
