@@ -5,29 +5,41 @@ var bodyParser = require('body-parser');
 //var mongoose=require('mongoose');
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
+
+//DB 모델
 var Member = require('../models/member');
-var session=require('express-session');
-app.use(session({
-    secret: '123456789!@#$',
-    resave: false,
-    saveUninitialized: true
-}));
+var Menu = require('../models/menu');
+
+//패스포트 및 세션 유지
 var passport = require('passport');
 
 app.use(passport.initialize());
 app.use(passport.session()); //로그인 세션 유지
 require('../config/passport')(passport);
 
-/*var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-    // we're connected!
-});*/
-
 /* GET home page. */
 router.get(['/'], function (req, res, next) {
     //console.log(req.user);
-    res.render('menu_list',{session:req.session});
+    var x=[];
+    var y=[];
+    Menu.find({},function (err, menu) {
+        //이렇게 된이상 메뉴에 x,y 좌표 넣어버리자 시바 그리고 멤버 주소 바뀌면 모든 메뉴 x,y 다바꺼버려 ㅡㅡ
+        for(var i=0;i<menu.length;i++)
+        {
+            Member.findOne({email:menu[i].member_id},function(err,member)
+            {
+                if(err) return res.status(500).json({error: err});
+                x.push(member.address.x);
+                y.push(member.address.y);
+                console.log(member);
+            });
+        }
+        if(i===menu.length) {
+            console.log(x);
+            console.log(y);
+            res.render('menu_list', {session: req.session, menu: menu,x:x,y:y});
+        }
+    });
 });
 router.get('/test', function (req, res, next) {
     res.render('sign_up');

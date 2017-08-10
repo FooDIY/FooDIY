@@ -42,21 +42,21 @@ html(lang='en')
                     | FooDIY가 되어보세요
             h4(style='font-weight: bold; padding: 10px 40px; line-height: 28px; margin-bottom: 20px;') 복잡하고 자금이 많이 필요한 요식업을 FooDIY와 함께 집에서 간단하게 ! 매일 매일 흥미로운 사람들에게 여러분의 음식을 대접해보세요
             button.btn.btn-success(style='display: block; margin: auto;') 자세히 알아보기
-        form.col-md-12(action='', style='padding: 0 300px; margin-top: 75px; z-index: 3')
+        form.col-md-12(action='/seller/submit_menu', method="post", enctype="multipart/form-data", style='padding: 0 300px; margin-top: 75px; z-index: 3')
             legend(style='font-weight: bold; margin-bottom: 40px;') Register Menu
             // <div style="float: right;">
             // <button type="button" class="btn btn-primary" style="height: 40px; margin-top: 37px;">본인 인증</button>
             // </div>
             label(for='menu_name', style='margin-bottom: 15px;') 메뉴 이름
             .input-group.col-md-5
-                input#menu_name.form-control.input-lg(type='text')
+                input#menu_name.form-control.input-lg(type='text' name='menu_name')
             br
             br
             br
             br
             br
             label(for='menu_description', style='margin-bottom: 15px;') 메뉴 설명
-            textarea#menu_description.form-control(name='', cols='30', rows='10')
+            textarea#menu_description.form-control(name='content', cols='30', rows='10')
             // <div class="input-group col-md-10">
             // <input type="text" class="form-control input-lg" id="menu_description">
             // </div>
@@ -76,34 +76,40 @@ html(lang='en')
             #upload.row.m-b-1
                 .col-sm-6.offset-sm-3
                     .form-group.inputDnD
-                        input#inputImg1.form-control-file.text-success.font-weight-bold(type='file', accept='image/*', onchange='readUrl(this)', data-title='Click or Drag')
+                        input#inputImg1.form-control-file.text-success.font-weight-bold(type='file', accept='image/*', name="menu_pic", onchange='readUrl(this)', data-title='Click or Drag')
+                        img#blah1(src="#" alt="your image" height="150px")
                 .col-sm-6.offset-sm-3
                     .form-group.inputDnD
-                        input#inputImg2.form-control-file.text-success.font-weight-bold(type='file', accept='image/*', onchange='readUrl(this)', data-title='Click or Drag')
+                        input#inputImg2.form-control-file.text-success.font-weight-bold(type='file', accept='image/*', name="menu_pic", onchange='readUrl(this)', data-title='Click or Drag')
+                        img#blah2(src="#" alt="your image" height="150px")
                 .col-sm-6.offset-sm-3
                     .form-group.inputDnD
-                        input#inputImg3.form-control-file.text-success.font-weight-bold(type='file', accept='image/*', onchange='readUrl(this)', data-title='Click or Drag')
+                        input#inputImg3.form-control-file.text-success.font-weight-bold(type='file', accept='image/*', name="menu_pic", onchange='readUrl(this)', data-title='Click or Drag')
+                        img#blah3(src="#" alt="your image" height="150px")
                 .col-sm-6.offset-sm-3
                     .form-group.inputDnD
-                        input#inputImg4.form-control-file.text-success.font-weight-bold(type='file', accept='image/*', onchange='readUrl(this)', data-title='Click or Drag')
+                        input#inputImg4.form-control-file.text-success.font-weight-bold(type='file', accept='image/*', name="menu_pic", onchange='readUrl(this)', data-title='Click or Drag')
+                        img#blah4(src="#" alt="your image" height="150px")
             br
             br
             br
             br
             br
-            label(for='ingre_img', style='margin-bottom: 15px;') 재료
+            label(for='ingre_img0', style='margin-bottom: 15px;') 재료
             br
-            #ingre_img.col-sm-12(style='padding: 0; border: 2px solid black; height: 105px;')
+            #ingre_img0.col-sm-12(style='padding: 0; border: 2px solid black; height: 105px;')
                 .col-sm-3.offset-sm-3
                     .form-group.inputDnD
-                        input#inputIngre.form-control-file.text-warning.font-weight-bold(type='file', accept='image/*', onchange='readUrl(this)', style='position: absolute; z-index: 2;')
-                        div(style='margin-left: 50%;')
+                        input#inputIngre0.form-control-file.text-warning.font-weight-bold(type='file', accept='image/*', name="ingre_pic",  onchange='readUrl(this)', data-title='Click or Drag', style='position: absolute; z-index: 2;')
+                        img#ingreblah0(src="#" alt="your image" height="100px" style="display:none;")
+                        //div(style='margin-left: 50%;')
                             i.fa.fa-plus(style='font-size:45px; position: relative; z-index: 1; margin-top: 27px;')
                 .col-xs-offset-1.col-xs-5(style='margin-top: 11px;')
-                    input#ingre_name.text-primary.form-control(type='text', placeholder='재료 이름')
-                    input#ingre_from.text-primary.form-control(type='text', placeholder='원산지', style='margin-top: 10px;')
-                button.btn.btn-primary.col-xs-1(type='button', style='margin-top: 15px; height: 70px;') 등록
-                button.btn.btn-danger.col-xs-1(type='button', style='margin-top: 15px; height: 70px; margin-left: 15px;') 초기화
+                    input#ingre_name0.text-primary.form-control(type='text', name="ingre_name[]", placeholder='재료 이름')
+                    input#ingre_from0.text-primary.form-control(type='text', name="madeby[]", placeholder='원산지', style='margin-top: 10px;')
+                button#ingresubmit0.btn.btn-primary.col-xs-1(type='button', style='margin-top: 15px; height: 70px;', onclick='selectFile();') 등록
+                button#ingrereset0.btn.btn-danger.col-xs-1(type='button', style='margin-top: 15px; height: 70px; margin-left: 15px;') 초기화
+            span#ingre_fix
             br
             br
             br
@@ -119,11 +125,11 @@ html(lang='en')
             .form-control(style='height: 80px;')
                 label.col-xs-3(for='ingre_img')
                     | 판매 가격(원)
-                    input.text-primary.form-control(type='text', style='margin-top: 10px;')
+                    input.text-primary.form-control(type='text', name="price", style='margin-top: 10px;')
                 label.col-xs-offset-1.col-xs-3(for='ingre_img')
                     | 가용 수량 (개)
-                    input.text-primary.form-control(type='number', style='margin-top: 10px;')
-                label.col-xs-offset-1.col-xs-3(for='ingre_img')
+                    input.text-primary.form-control(type='number', name="amount", style='margin-top: 10px;')
+                //label.col-xs-offset-1.col-xs-3(for='ingre_img')
                     | 최소 주문일 (일)
                     input.text-primary.form-control(type='number', style='margin-top: 10px;')
             br
@@ -131,9 +137,9 @@ html(lang='en')
             br
             br
             br
-            label(for='place', style='margin-bottom: 15px;') 식사 장소
+            //label(for='place', style='margin-bottom: 15px;') 식사 장소
             br
-            #place.row.m-b-1
+            //#place.row.m-b-1
                 .col-sm-6.offset-sm-3
                     .form-group.inputDnD
                         input#inputFile1.form-control-file.text-primary.font-weight-bold(type='file', accept='image/*', onchange='readUrl(this)', data-title='Click or Drag')
@@ -161,8 +167,9 @@ html(lang='en')
             div(style='margin-bottom: 30px;')
                 hr
             div(style='margin-bottom: 100px;')
-                button#pre_btn.btn.btn-success.col-md-offset-2.col-md-3(type='button') 이전
+                //button#pre_btn.btn.btn-success.col-md-offset-2.col-md-3(type='button') 이전
                 button.btn.btn-success.col-md-offset-2.col-md-3(type='submit') 등록 완료
+            p#submitmenufail
         footer
             .navbar
                 p(style='text-align: center; margin-top: 13px;') Temporary Footer
@@ -184,4 +191,5 @@ html(lang='en')
                     reader.readAsDataURL(input.files[0]);
                 }
             }
+    script(src='../js/submit_menu.js')
 

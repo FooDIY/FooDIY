@@ -44,12 +44,12 @@ require('./config/passport')(passport,nev);
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-var manage_menu = require('./routes/manage_menu');
+var menu_info = require('./routes/menu');
 var seller = require('./routes/seller');
 
 
 app.use('/', index);
-app.use('/manage_menu', manage_menu);
+app.use('/menu_info', menu_info);
 app.use('/users', users);
 app.use('/seller', seller);
 
@@ -71,7 +71,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-var server = app.listen(80, function(){
+var server = app.listen(3001, function(){
     console.log("Express server has started on port 80")
 });
 module.exports = app;
