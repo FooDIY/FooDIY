@@ -213,7 +213,13 @@ html(lang='en')
                     };
                 }
                 var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+                var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(x, y)
+                });
+
+                marker.setMap(map);
             }
-        script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBb0qeAa_KvAKAeoWRC1xl4BCH-iPN5ztc&callback=myMap')
+        script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBb0qeAa_KvAKAeoWRC1xl4BCH-iPN5ztc')
     script(src='../lib/proj4js-combined.js')
     script(src='../js/juso.js')
+    script(src='../js/submit_seller.js')

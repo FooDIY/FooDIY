@@ -3,10 +3,10 @@
  */
 
 var x = document.getElementById("demo");
-
+var map;
 $(document).ready(function () {
     $("#main_become").click(function () {
-        location.href = "/seller/submit_seller";
+        location.replace("/seller/submit_seller");
     })
 });
 
@@ -34,7 +34,7 @@ function showPosition(position) {
         navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
     };
 
-    var map = new google.maps.Map(document.getElementById("mapholder"), myOptions);
+    map = new google.maps.Map(document.getElementById("mapholder"), myOptions);
     var marker = new google.maps.Marker({position:latlon,map:map,title:"You are here!"});
 }
 
@@ -55,4 +55,16 @@ function showError(error) {
     }
 }
 
+function addMarker(x,y){
+    var myCity = new google.maps.Marker({
+        center:center,
+        strokeColor:"#0000FF",
+        strokeOpacity:0.8,
+        strokeWeight:2,
+        fillColor:"#0000FF",
+        fillOpacity:0.1
+    });
+
+    myCity.setMap(map);
+}
 mapholder.innerHTML = getLocation();

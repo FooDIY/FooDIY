@@ -11,3 +11,18 @@ $("li:has(ul)").click(function(){
         $(this).addClass('open').find('ul').slideDown();
     }
 });
+function delmenu(val){
+    var item = {menuid:val.menuid.value};
+
+    $.ajax({
+        method: "POST",
+        type: "POST",
+        url: "/seller/del_menu",
+        data: item,
+        success: function (data) {
+            if(data=="clear")
+                location.reload();
+                alert("삭제되었습니다.")
+        }
+    });
+}

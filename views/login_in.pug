@@ -5,15 +5,16 @@ html(lang='en')
         meta(name='viewport', content='width=device-width, initial-scale=1')
         title foodiy
         link(rel='stylesheet', href='../css/bootstrap.css')
-        link(rel='stylesheet', href='../css/signUp.css')
+        link(rel='stylesheet', href='../css/login.css')
         link(rel='stylesheet', href='../css/font-awesome.min.css')
     body
-        #pop-up-login.signupform.container-fluid
+        #pop-up-login.container-fluid
             .signup-content
                 form.form-horizontal(action='')
                     .form-group
+                        img(src='../img/foodiylogo.gif', alt='', style='width: 300px; display: block; margin: auto;')
                         .real_content
-                            button#signup-google.signupgoogle.form-control
+                            button#signup-google.signupgoogle.form-control(style='margin-top: 30px;')
                                 span
                                     img(src='../img/google_logo.png', alt='')
                                 p Login with google
@@ -22,24 +23,31 @@ html(lang='en')
                                     img(src='../img/facebook_logo.png', alt='')
                                 p Login with facebook
                             hr
+                            p#loginfail
                             .input-group
                                 span.input-group-addon
                                     i.fa.fa-envelope
-                                input#email.form-control.input-lg(type='email', placeholder='E-mail')
+                                input#email.form-control.input-lg(type='email', name="email", placeholder='E-mail')
                             .input-group
                                 span.input-group-addon
                                     i.glyphicon.glyphicon-lock
-                                input#password.form-control.input-lg(type='password', placeholder='Password')
+                                input#password.form-control.input-lg(type='password', name="pass", placeholder='Password')
                             .login-set
                                 input(type='checkbox')
                                 | Save password
                                 a(href='') Forgot password ?
-                                button#sign-in.login-sign-in.form-control Log in
+                                button#sign-in.login-sign-in.form-control(type='button', onclick="LoginCheck(this.form)") Log in
                                 hr
                             button#sign-up.login-sign-up.form-control(type='button', onclick='goPage()') Sign up
+        // <footer style="margin-top: 50px;">
+        // <div class="navbar">
+        // <p style="text-align: center; margin-top: 13px;">Temporary Footer</p>
+        // </div>
+        // </footer>
         script(src='../js/jquery.js')
         script(type='text/javascript', src='../js/bootstrap.js')
         script.
             function goPage() {
                 location.href="sign_up.html";
             }
+    script(type='text/javascript', src='../js/topmenu.js')
