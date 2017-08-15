@@ -14,6 +14,7 @@ html(lang='en')
         include top
         article
             .container-fluid
+
                 ul.items
                     - for(var i=0;i<menu.length;i++)
                         a(href='/menu_info/'+menu[i]._id)
@@ -31,4 +32,3 @@ html(lang='en')
     script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBb0qeAa_KvAKAeoWRC1xl4BCH-iPN5ztc')
     script(type='text/javascript', src='../js/main.js')
     script(type='text/javascript', src='../js/menu_list.js')
-
