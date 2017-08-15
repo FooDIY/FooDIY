@@ -35,9 +35,43 @@ function showPosition(position) {
     };
 
     map = new google.maps.Map(document.getElementById("mapholder"), myOptions);
+    map.addListener('bounds_changed', function() {
+        // 3 seconds after the center of the map has changed, pan back to the
+        // marker.
+        var bounds = map.getBounds();
+        var southWest = bounds.getSouthWest();
+        var northEast = bounds.getNorthEast();
+        var item={bigx:northEast.lat(),smallx:southWest.lat(),bigy:northEast.lng(),smally:southWest.lng()};
+        mapchange(item);
+    });
+
     var marker = new google.maps.Marker({position:latlon,map:map,title:"You are here!"});
 }
+function mapchange(item) {
+    $.ajax({
+        method: "POST",
+        type: "POST",
+        url: "/map_change",
+        data: item,
+        success: function (data) {
+            if (data == "nothing")
+                alert("nothing");
+            else{
+                $("#items").empty();
+                for (var i in data) {
+                    tmpTag = '<a href="/menu_info/'+data[i]._id+'">\
+                        <li data-lat="' + data[i].address.x + '" data-lon="' + data[i].address.y + '" class="items__item">\
+                            <img src="'+data[i].image[0].image_url+'" alt="" class="items__img"/>\
+                            <h3 class="items__title">'+data[i].menu_name +'</h3>\
+                        </li>\
+                    </a>';
+                    $("#items").append(tmpTag);
+                }
 
+            }
+        }
+    });
+}
 function showError(error) {
     switch(error.code) {
         case error.PERMISSION_DENIED:

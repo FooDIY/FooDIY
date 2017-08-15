@@ -7,6 +7,7 @@ var flash = require('connect-flash');
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 app.use(flash());
+var async = require('async');
 
 //DB 모델
 var Member = require('../models/member');
@@ -21,9 +22,6 @@ require('../config/passport')(passport);
 
 /* GET home page. */
 router.get(['/'], function (req, res, next) {
-    //console.log(req.user);
-    console.log('Oh',req.session);
-    res.render('menu_list',{session:req.session});
     var x=[];
     var y=[];
     Menu.find({},function (err, menu) {
@@ -35,13 +33,29 @@ router.get(['/'], function (req, res, next) {
                 if(err) return res.status(500).json({error: err});
                 x.push(member.address.x);
                 y.push(member.address.y);
-                console.log(member);
+                //console.log(member);
             });
         }
         if(i===menu.length) {
-            console.log(x);
-            console.log(y);
+            //console.log(x);
+            //console.log(y);
             res.render('menu_list', {session: req.session, menu: menu,x:x,y:y});
+        }
+    });
+});
+router.post('/map_change', function (req, res, next) {
+    var smallx=req.body.smallx;
+    var smally=req.body.smally;
+    var bigx=req.body.bigx;
+    var bigy=req.body.bigy;
+    console.log(smallx);
+    Menu.where('address.x').gte(smallx).lte(bigx).where('address.y').gte(smally).lte(bigy).exec(function (err, menu) {
+        if(err) res.send(json(500));
+        if(menu) {
+            res.send(menu);
+        }
+        else {
+            res.send("nothing");
         }
     });
 });

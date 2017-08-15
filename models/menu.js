@@ -18,6 +18,13 @@ var MenuSchema = new Schema({
         image_url:{type:String,required: true},
         image_size:{type:String,required:true}
     }],
+    address:{
+        post:String,
+        add1:String,
+        add2:String,
+        x:Number,
+        y:Number
+    },
     ingre:[{
         ingre_name:String,
         madeby:String,

@@ -173,23 +173,31 @@ router.post('/submit_menu', uploadMenu.fields([{name:'menu_pic'},{name:'ingre_pi
     }
     var price=req.body.price;
     var amount=req.body.amount;
-    var newMenu=new Menu();
-    newMenu.member_id=req.session.email;
-    newMenu.menu_name=menu_name;
-    newMenu.content=content;
-    for(i=0;i<menu_pic.length;i++) {
-        newMenu.image.push({image_url:menu_pic[i],image_size:menu_pic_size[i], image_name:menu_pic_name[i]});
-    }
-    for(i=0;i<ingre_name.length;i++) {
-        newMenu.ingre.push({ingre_name: ingre_name[i], madeby: madeby[i], ingre_url: ingre_pic[i], ingre_size: ingre_pic_size[i], ingre_image_name:ingre_pic_name[i]});
-    }
-    newMenu.price=price;
-    newMenu.amount=amount;
-    newMenu.save(function (err) {
-        if (err)
-            throw err;
-        res.redirect("/seller/manage");
+    Member.findOne({email:req.session.email},function (err,member) {
+        var newMenu=new Menu();
+        newMenu.member_id=member.email;
+        newMenu.address.post=member.address.post;
+        newMenu.address.add1=member.address.add1;
+        newMenu.address.add2=member.address.add2;
+        newMenu.address.x=member.address.x;
+        newMenu.address.y=member.address.y;
+        newMenu.menu_name=menu_name;
+        newMenu.content=content;
+        for(i=0;i<menu_pic.length;i++) {
+            newMenu.image.push({image_url:menu_pic[i],image_size:menu_pic_size[i], image_name:menu_pic_name[i]});
+        }
+        for(i=0;i<ingre_name.length;i++) {
+            newMenu.ingre.push({ingre_name: ingre_name[i], madeby: madeby[i], ingre_url: ingre_pic[i], ingre_size: ingre_pic_size[i], ingre_image_name:ingre_pic_name[i]});
+        }
+        newMenu.price=price;
+        newMenu.amount=amount;
+        newMenu.save(function (err) {
+            if (err)
+                throw err;
+            res.redirect("/seller/manage");
+        });
     });
+
 });
 /*router.post('/submit_menu',uploadMenu.array('menu_pic'),uploadIngre.array('ingre_pic',maxIngreImageConut), function(req, res, next) {
     var menu_name = req.body.menu_name;
