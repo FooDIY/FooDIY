@@ -14,7 +14,7 @@ html(lang='en')
         include top
         article
             .container-fluid
-                ul.items
+                ul#items.items
                     - for(var i=0;i<menu.length;i++)
                         a(href='/menu_info/'+menu[i]._id)
                             li.items__item(data-lat=x[i], data-lon=y[i])
