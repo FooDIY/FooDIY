@@ -14,7 +14,6 @@ var Member = require('../models/member');
 var Menu = require('../models/menu');
 
 
-//패스포트 및 세션 유지
 var passport = require('passport');
 
 app.use(passport.initialize());
@@ -83,6 +82,8 @@ router.post('/signuptemp', function(req, res, next) {
             }
             req.logIn(user, function(err) {
                 if (err) { return next(err); }
+                req.session.email=user.email;
+                req.session.seller=user.sellercheck;
                 return res.send("clear");
             });
         })(req, res, next);
@@ -97,6 +98,8 @@ router.post('/signuptemp', function(req, res, next) {
             }
             req.logIn(user, function(err) {
                 if (err) { return next(err); }
+                req.session.email=user.email;
+                req.session.seller=user.sellercheck;
                 return res.send("clear");
             });
         })(req, res, next);
@@ -114,19 +117,6 @@ router.post('/login', function(req, res, next) {
         });
     })(req, res, next);
 });
-/*
- router.get('/signupnaver',function(req,res,next){
- console.log('call');
- passport.authenticate('signup_naver', function(err, user, info) {
- console.log('3');
- if (err) { return next(err); }
- if (!user) {res.send(info.error); }
- else{
- res.send("clear");
- }
- })(req, res, next);
- });
- */
 router.get('/signupnaver', function(req, res, next) {
     passport.authenticate('signupnaver')(req,res,next)});
 // creates an account if no account of the new user
@@ -141,7 +131,6 @@ router.get('/navupCallback',function(req, res, next) {
 
             req.logIn(user, function(err) {
                 //req.session.passport='';
-                req.session.passport='';
                 req.session.temp=user.naver.id;
                 var tempUser={
                     id:user.naver.id,
@@ -195,7 +184,6 @@ router.get('/gooupCallback', function(req, res, next) {
 
         req.logIn(user, function(err) {
             //req.session.passport='';
-            req.session.passport='';
             req.session.temp=user.google.id;
             var tempUser={
                 id:user.google.id,
@@ -237,7 +225,6 @@ router.post('/logout', function (req,res,next) {
     //req.session.passport='';
     req.session.email =null;
     req.session.seller =null;
-
     res.send('clear');
 });
 router.post('/tempout', function (req,res,next) {

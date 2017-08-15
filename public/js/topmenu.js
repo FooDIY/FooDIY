@@ -20,6 +20,25 @@ function signuppass(val) {
         }
     });
 }
+function signuptemp(val) {
+    var item = {email: val.email.value, id:val.id.value, firstname:val.firstName.value,lastname:val.lastName.value,provider:val.provider.value};
+    $.ajax({
+        method: "POST",
+        type: "POST",
+        url: "/signuptemp",
+        data: item,
+        success: function (data) {
+            if (data == "clear") {
+                location.href = "/";
+            }
+            else {
+                alert(data);
+                location.href = "/";
+            }
+        }
+    });
+}
+
 function iddupcheck(val) {
     var item = {id: val.email.value,pass:"김기영"};
     $.ajax({
