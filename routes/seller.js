@@ -11,6 +11,8 @@ app.use(bodyParser.json());
 //DB 모델
 var Member = require('../models/member');
 var Menu = require('../models/menu');
+var Conversation = require('../models/conversation');
+
 //세션
 var session=require('express-session');
 app.use(session({
@@ -54,7 +56,7 @@ var uploadMenu=multer({storage:Menu_storage});
 var fs = require('fs');
 
 function logincheck (req,res,next) {
-    if(!req.session.user)
+    if(!req.session.passport)
     {
         res.redirect('/seller');
     }
@@ -68,7 +70,7 @@ function logincheck (req,res,next) {
     }
 }
 function sellercheck (req,res,next) {
-    if(!req.session.user)
+    if(!req.session.passport)
     {
         res.redirect('/seller');
     }
@@ -92,8 +94,8 @@ router.get('/', function(req, res, next) {
     res.render('login_in');
 });
 router.get('/manage' ,logincheck,function(req, res, next) {
-    Member.findOne({ email : req.session.user }, function(err, member) {
-        Menu.find({member_id:req.session.user},function (err, menu) {
+    Member.findOne({ email : req.session.email }, function(err, member) {
+        Menu.find({member_id:req.session.email},function (err, menu) {
             res.render('manage_menu',{member:member,menu:menu});
         });
     });
@@ -172,7 +174,7 @@ router.post('/submit_menu', uploadMenu.fields([{name:'menu_pic'},{name:'ingre_pi
     var price=req.body.price;
     var amount=req.body.amount;
     var newMenu=new Menu();
-    newMenu.member_id=req.session.user;
+    newMenu.member_id=req.session.email;
     newMenu.menu_name=menu_name;
     newMenu.content=content;
     for(i=0;i<menu_pic.length;i++) {
@@ -252,7 +254,7 @@ router.post('/submit_seller', function(req, res, next) {
     var add2=req.body.add2;
     var pointx=req.body.pointx;
     var pointy=req.body.pointy;
-    Member.findOne({ email : req.session.user }, function(err, member) {
+    Member.findOne({ email : req.session.email }, function(err, member) {
         if (err) return res.status(500).json({error: err});
         if (!member) {
             return res.send('판매자 등록에 실패했습니다.');
@@ -311,5 +313,17 @@ router.post('/jusoPopup', function(req, res, next) {
 });
 router.get('/juso', function(req, res, next) {
     res.render('jusoindex');
+});
+router.get('/message_list', function(req, res, next) {
+    Conversation.find({to:req.session.email},function (err, conver) {
+        console.log(conver);
+        res.render('message_list',{conver:conver});
+    });
+});
+router.get('/message/:id', function(req, res, next) {
+    Conversation.find({to:req.session.email},function (err, conver) {
+        console.log(conver);
+        res.render('message_list',{conver:conver});
+    });
 });
 module.exports = router;

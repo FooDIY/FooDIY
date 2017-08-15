@@ -1,0 +1,72 @@
+//
+   Created by Sehyeon on 2017-08-11.
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        title Title
+        link(rel='stylesheet', href='../css/message.css')
+        link(rel='stylesheet', href='../css/bootstrap.css')
+        link(rel='stylesheet', href='../css/menu_list.css')
+        link(rel='stylesheet', href='../css/font-awesome.min.css')
+        link(rel='stylesheet', href='../js/jquery-ui-1.12.1/jquery-ui.css')
+        style.
+            .payment_box ul li{
+                margin-bottom:10px;
+            }
+    body
+        .payment_box.col-xs-3(style='height: 100%; border: 2px solid black; margin-top: 115px; padding: 0;')
+            img(src='../img/temp_logo.jpg', alt='', style='height: 180px; width: 180px; display: block; margin: auto; border-radius: 50%; margin-top: 40px;')
+            //div(style='background-color: darkorange; border-top: 2px solid black; border-bottom:2px solid black; height: 40px; text-align: center; margin-top: 30px;')
+                h4 메뉴세부정보
+            //ul(style='margin : 40px 0; list-style-type: none; text-align: center;')
+                li 메뉴 이름 : 카레라이스
+                li 가격: 5,500 x 3개
+                li 예약 일시: 2017년 06월 05일 18:00
+            //div(style='background-color: darkorange; border-top: 2px solid black; height: 40px; text-align: center; margin-top: 30px;')
+                h4 총 금액 : 16,500
+            //div(style='background-color: #2ECC71;; border-top: 2px solid black; height: 40px; text-align: center;')
+                h4 예약 승인 대기 중
+        section
+            .chat
+                ul
+                    li.other
+                        form()
+                            //textarea#content.message.col-md-12.col-sm-12.col-xs-12(name='content', rows='5', style='margin-right: 0; margin-bottom: 10px; ')
+                            //input#myname(type='hidden', value=session.email, name='myname')
+                            //input#connum(type='hidden', value=connum, name='connum')
+                            //button#message-button.btn.btn-primary(type='button',  style='float: right;') 전송
+                    br
+                    br
+                    br
+                    br
+                    br
+                    br
+                    br
+                    br
+                    br
+                    br
+                    br
+                    .j-message
+                        each item in conver
+                            li.other
+                                a.user(rel='nofollow', href='/message/'+item.id)
+                                    img(alt='', src='../img/google_logo.png')
+                                .date
+                                    =item.from
+                                .message
+                                    p
+                                        =item.to
+                        //li.other
+                            a.user(rel='nofollow', href='#')
+                                img(alt='', src='../img/google_logo.png')
+                            .date
+                                | 2 minutes ago
+                            .message
+                                p
+                                    | 좀 먹자능
+
+        script.
+    script(src='../js/jquery.js')
+    script(src='../js/jquery-ui-1.12.1/jquery-ui.js')

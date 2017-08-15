@@ -102,6 +102,14 @@ function LogOut() {
         }
     });
 }
+function TempDel() {
+    var item;
+    $.ajax({
+        method: "POST",
+        type: "POST",
+        url: "/tempout"
+    });
+}
 function submitseller() {
     location.replace("/seller/submit_seller");
 }
