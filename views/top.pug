@@ -38,12 +38,14 @@ html(lang='en',ng-app="profile")
                 .header_right
                     button#main_qna Q&A
                     button#main_become Be a foodiy
-                    if(session.user)
+                    if(session.passport)
                         button(type="button", onclick="LogOut()") Logout
                     else
                         span#main_signup Sign up
                         span#main_login Login
     article
+
+
         // pop-up Signup
         #pop-up-sign.signupform.container-fluid
             .signup-content
@@ -52,17 +54,20 @@ html(lang='en',ng-app="profile")
                         .real_content
                             p#signupfail
                             .link_google_facebook
-                                button#signup-google-s.link_othersignup.col-xs-6.col-sm-6.col-md-6.col-lg-6
+                                button#signup-google-s.link_othersignup.col-xs-6.col-sm-6.col-md-6.col-lg-6(type='button' onclick="location.href='/signupgoogle'" formnovalidate)
                                     span
                                         img(src='../img/google_logo.png', alt='')
                                     | google
-                                button#signup-facebook-s.link_othersignup.col-xs-6.col-sm-6.col-md-6.col-lg-6
+                                button#signup-facebook-s.link_othersignup.col-xs-6.col-sm-6.col-md-6.col-lg-6(type='button' onclick="location.href='/signupnaver'" formnovalidate)
                                     span
                                         img(src='../img/facebook_logo.png', alt='')
                                     | facebook
                             br
                             br
                             hr
+                            if(messageIn)
+                              #alert-messageIn.alert.alert-danger(role='alert')=messageIn
+                            
                             .input-group-s
                                 span.input-group-addon
                                     i.fa.fa-envelope
@@ -102,21 +107,64 @@ html(lang='en',ng-app="profile")
                             input#signup-zipbob.signupzipbob.form-control(type='button', value='Sign Up', onclick='signuppass(this.form)', ng-disabled='signup.firstName.$invalid \
                                                         || signup.lastName.$invalid ||signup.password.$invalid ||signup.password2.$invalid || \
                                                         signup.email.$invalid  ')
+
+
+        #pop-up-passport.signupform.container-fluid
+            .signup-content
+                form#passup_form.form-horizontal(name='passup', action='', role='form')
+                    .form-group
+                        .real_content
+                            .dialog
+                                a.close-thik(href='#')
+
+                            .input-group-s
+                                span.input-group-addon
+                                    i.fa.fa-envelope
+                            .input-group
+                                input#id-p(name='id', type='hidden')
+                                input#provider-p(name='provider', type='hidden')
+                                input#email-p.form-control(type='text',  placeholder='E-mail', name="email", ng-model="user.email", ng-pattern="/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*[.][a-zA-Z]{2,3}$/i")
+                                span.input-group-addon.login-button
+                            .alert.alert-warning(ng-show='passup.email.$error.pattern', role='alert')
+                                | Invalid form
+                            p
+                            p
+                            .input-group-s
+                                span.input-group-addon
+                                    i.fa.fa-user-circle-o(aria-hidden='true')
+                            .row
+                                .col-md-5
+                                    input#firstName-p.form-control(type='text', placeholder='First Name' , name="firstName",
+                                    ng-model="user.firstName", ng-required='true', ng-maxlength="10",
+                                    ng-pattern='/^[a-zA-Z가-힣]+$/')
+                                    .alert.alert-warning(ng-show='passup.firstName.$error.maxlength||passup.firstName.$error.pattern||passup.firstName.$error.required$$passup.firstName.$dirty', role='alert')
+                                        | Invalid Input
+                                .col-md-7
+                                    input#lastName-p.form-control(type='text', ng-required='true' , ng-maxlength='10',placeholder='Last Name',
+                                    name="lastName",
+                                    ng-model="user.lastName",ng-pattern='/^[a-zA-Z가-힣]+$/' )
+                                    .alert.alert-warning(ng-show='passup.lastName.$error.maxlength||passup.lastName.$error.pattern||passup.lastName.$error.required&&passup.lastName.$dirty', role='alert')
+                                        | Invalid Input
+                            input#passup-zipbob.signupzipbob.form-control(type='button', value='Sign Up', onclick='signuptemp(this.form)', ng-disabled='passup.firstName.$invalid \
+                                                        || passup.lastName.$invalid || passup.email.$invalid  ')
         // pop-up login
+
         #pop-up-login.signupform.container-fluid
             .signup-content
                 form.form-horizontal()
                     .form-group
                         .real_content
-                            button#signup-google-l.signupgoogle.form-control
+                            button#signup-google-l.signupgoogle.form-control(type=button,onclick="location.href='/logingoogle'")
                                 span
                                     img(src='../img/google_logo.png', alt='')
                                 p Login with google
-                            button#signup-facebook-l.signupfacebook.form-control
+                            button#signup-facebook-l.signupfacebook.form-control(type=button,onclick="location.href='/loginnaver'")
                                 span
                                     img(src='../img/facebook_logo.png', alt='')
                                 p Login with facebook
                             hr
+                            if(messageUp)
+                              #alert-messageUp.alert.alert-danger(role='alert')=messageUp
                             p#loginfail
                             .input-group
                                 span.input-group-addon
@@ -133,4 +181,36 @@ html(lang='en',ng-app="profile")
                                 button#sign-in.login-sign-in.form-control(type='button' onclick="LoginCheck(this.form)") Log in
                                 hr
                             button#sign-up.login-sign-up.form-control(type='button', onclick="LoginCheck(this.form)") Sign up
+    script(src='../js/jquery.js')
+    script(src='../js/jquery-ui-1.12.1/jquery-ui.js')
     script(type='text/javascript', src='../js/topmenu.js')
+    if(messageUp)
+        script.
+            var modal_login = document.getElementById("pop-up-login");
+            modal_login.style.display = "block";
+            window.setTimeout(function(){
+              $("#alert-messageUp").fadeTo(500,0).slideUp(500,function(){
+                $(this).remove();
+              });
+            },3000) ;
+    if(messageIn)
+        script.
+            var modal_sign = document.getElementById("pop-up-sign");
+            modal_sign.style.display = "block";
+            window.setTimeout(function(){
+              $("#alert-messageIn").fadeTo(500,0).slideUp(500,function(){
+                $(this).remove();
+              });
+            },3000) ;
+    if(session.temp)
+        script.
+            TempDel();
+            var user=!{JSON.stringify(users)};
+            $("#pop-up-passport").css({ display: "block" });
+            $(function () {
+            $('#id-p').val(user.id);
+            $('#email-p').val(user.email);
+            $('#provider-p').val(user.provider);
+            $("#email-p").prop("readonly", true);
+            });
+    

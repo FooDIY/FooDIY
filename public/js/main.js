@@ -4,9 +4,13 @@
 
 var modal_sign = document.getElementById("pop-up-sign");
 var modal_login = document.getElementById("pop-up-login");
+var modal_pass = document.getElementById("pop-up-passport");
 var main_sign_btn = document.getElementById("main_signup");
 var main_login_btn = document.getElementById("main_login");
 var span_close = document.getElementsByClassName("close")[0];
+
+
+// modal_pass.style.display="block";
 
 main_sign_btn.onclick = function(){
     modal_sign.style.display = "block";
@@ -20,16 +24,19 @@ window.onclick = function(event){
 };
 
 main_login_btn.onclick = function(){
+
         modal_login.style.display = "block";
 };
 
 window.onclick = function(event){
     if(event.target == modal_login){
+
         modal_login.style.display = "none";
     }
 };
 
 span_close.onclick = function () {
+
     modal_sign.style.display = "none";
 };
 
@@ -64,4 +71,3 @@ $(function () {
         dateFormat: "yy/mm/dd"
     });
 });
-

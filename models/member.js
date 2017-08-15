@@ -8,11 +8,11 @@ var moment = require('moment');
 var Schema = mongoose.Schema;
 
 var MemberSchema = new Schema({
-    email:{type:String,required: true},
-    pw:{type:String,required: true},
+    email:{type:String},
+    pw:{type:String},
     //nick:{type:String,required: true},
-    firstname:{type:String,required: true},
-    lastname:{type:String,required: true},
+    firstname:{type:String},
+    lastname:{type:String},
     sumnail:String,
     sellercheck:{type:Boolean,default:false},
     cellphone:String,
@@ -23,6 +23,19 @@ var MemberSchema = new Schema({
         x:Number,
         y:Number
     },
+    naver:{
+      id:String,
+      token:String,
+      name:String,
+      email:String,
+      username:String
+    },
+    google: {
+    id: String,
+    token: String,
+    email: String,
+    name: String,
+    },
     mailing:Boolean,
     text:Boolean,
     submit_date:{ type: Date, default: moment().format()  },
@@ -30,6 +43,8 @@ var MemberSchema = new Schema({
     last_login_ip:String,
     is_certificate:{type:Boolean,default:false}
 });
+
+
 //password를 암호화
 MemberSchema.methods.generateHash = function(password) {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
