@@ -26,7 +26,7 @@ router.get(['/'], function (req, res, next) {
     var y=[];
     Menu.find({},function (err, menu) {
         //이렇게 된이상 메뉴에 x,y 좌표 넣어버리자 시바 그리고 멤버 주소 바뀌면 모든 메뉴 x,y 다바꺼버려 ㅡㅡ
-        for(var i=0;i<menu.length;i++)
+        /*for(var i=0;i<menu.length;i++)
         {
             Member.findOne({email:menu[i].member_id},function(err,member)
             {
@@ -35,12 +35,12 @@ router.get(['/'], function (req, res, next) {
                 y.push(member.address.y);
                 //console.log(member);
             });
-        }
-        if(i===menu.length) {
-            //console.log(x);
-            //console.log(y);
-            res.render('menu_list', {session: req.session, menu: menu,x:x,y:y});
-        }
+        }*/
+        // if(i===menu.length) {
+        //     //console.log(x);
+        //     //console.log(y);
+            res.render('menu_list', {session: req.session, menu: menu});
+        // }
     });
 });
 router.post('/map_change', function (req, res, next) {
@@ -88,7 +88,7 @@ router.post('/signuptemp', function(req, res, next) {
             });
         })(req, res, next);
     }
-    else(req.body.provider==='naver')
+    else
     {
         passport.authenticate('navuptemp', function(err, user, info)
         {
@@ -160,6 +160,8 @@ router.get('/navinCallback', function(req, res, next) {
                 messageIn:info.error});
         }
         req.logIn(user, function(err) {
+          req.session.email=user.email;
+          req.session.seller=user.sellercheck;
             //req.session.passport='';
             if (err) { return next(err); }
             return res.redirect('/');
@@ -213,6 +215,8 @@ router.get('/gooinCallback', function(req, res, next) {
         }
         req.logIn(user, function(err) {
             //req.session.passport='';
+            req.session.email=user.email;
+            req.session.seller=user.sellercheck;
             if (err) { return next(err); }
             return res.redirect('/');
         });

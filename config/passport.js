@@ -136,6 +136,7 @@ module.exports = function(passport,nev) {
           user.lastname=req.body.lastname;
           user.google.id=temp.google.id;
           user.google.token=temp.google.token;
+          user.email=req.body.email;
           console.log(user);
           temp.remove();
           user.save(function(err) {
@@ -180,6 +181,7 @@ Member.findOne({ 'naver.id': password }, function (err, member) {
       user.lastname=req.body.lastname;
       user.naver.id=temp.naver.id;
       user.naver.token=temp.naver.token;
+      user.email=req.body.email;
       console.log(user);
       temp.remove();
       user.save(function(err) {

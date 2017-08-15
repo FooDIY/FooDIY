@@ -24,3 +24,34 @@ footer{
     height: 20px;
     margin-bottom: 15px;
 }
+#reg{
+ width:40px;
+ height: 45px;
+}
+#reg option{
+  width:40px;
+  height: 45px;
+}
+.wrap {
+    width: 1250px;
+    height: auto;
+    position: relative;
+    display: inline-block;
+}
+.wrap textarea {
+    width: 100%;
+    resize: none;
+    min-height: 4.5em;
+    line-height:1.6em;
+    max-height: 9em;
+}
+.wrap span {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}
+#counter {
+  background:rgba(100,100,100,0.30);
+  padding: 0 .5em 0 .5em;
+  font-size: 1em;
+}

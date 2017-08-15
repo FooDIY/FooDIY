@@ -166,37 +166,37 @@ angular.module('profile').directive('confirmPassword', function() {
     };
 });
 
-
-angular.module('profile').directive('validateEmailRemotely', function(AuthenticateService) {
-    return {
-        restrict: 'A',
-        scope: true,
-        require: 'ngModel',
-        link: function(scope, elem, attrs, ctrls) {
-            var ngModel = ctrls;
-            scope.$watch(attrs.ngModel, function(email) {
-                AuthenticateService.Email(email)
-                    .then(function(result) {
-                        if (result.email_exists) {
-                            ngModel.$setValidity('validEmail', false);
-                        } else {
-                            ngModel.$setValidity('validEmail', true);
-                        }
-                    });
-            });
-        }
-    }
-});
-angular.module('profile').service('AuthenticateService', function($http) {
-    return {
-        Email: function(email) {
-            var url = '13.125.0.15/valid_email?email='+email;
-            return $http.get(url)
-                .then(function(response) {
-                    return response.data;
-                }, function(error) {
-                    return error.data;
-                });
-        }
-    };
-});
+//
+// angular.module('profile').directive('validateEmailRemotely', function(AuthenticateService) {
+//     return {
+//         restrict: 'A',
+//         scope: true,
+//         require: 'ngModel',
+//         link: function(scope, elem, attrs, ctrls) {
+//             var ngModel = ctrls;
+//             scope.$watch(attrs.ngModel, function(email) {
+//                 AuthenticateService.Email(email)
+//                     .then(function(result) {
+//                         if (result.email_exists) {
+//                             ngModel.$setValidity('validEmail', false);
+//                         } else {
+//                             ngModel.$setValidity('validEmail', true);
+//                         }
+//                     });
+//             });
+//         }
+//     }
+// });
+// angular.module('profile').service('AuthenticateService', function($http) {
+//     return {
+//         Email: function(email) {
+//             var url = '13.125.0.15/valid_email?email='+email;
+//             return $http.get(url)
+//                 .then(function(response) {
+//                     return response.data;
+//                 }, function(error) {
+//                     return error.data;
+//                 });
+//         }
+//     };
+// });
