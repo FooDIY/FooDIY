@@ -93,16 +93,19 @@ html(lang='en')
                     p
                         | 위치
                     #map.form-control(style='height: 400px;')
-                .payment_box.col-md-3(style='height: 100%;')
-                    ol
-                        li
-                            input(type='text')
-                        li
-                            input(type='text')
-                        li
-                            input(type='text')
-                        li
-                            input(type='text')
+                form(action="/message", method="post")
+                    .payment_box.col-md-3(style='height: 100%;')
+                        ol
+                            li
+                                input(type='text')
+                            li
+                                input(type='text')
+                            li
+                                input(type='text')
+                            li
+                                input(type='text')
+                    input(type='hidden', name="member", value=member.email)
+                    input(type='button', value="button" onclick="submit()")
                 #disqus_thread.col-md-9
                 //script.
                     (function() { // DON'T EDIT BELOW THIS LINE

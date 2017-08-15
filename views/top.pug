@@ -41,7 +41,7 @@ html(lang='en',ng-app="profile")
                         button#main_become(type="button", onclick="manage()") Manage Menu
                     else
                         button#main_become(type="button", onclick="submitseller()") Be a foodiy
-                    if(session.user)
+                    if(session.email)
                         button(type="button", onclick="LogOut()") Logout
                     else
                         span#main_signup Sign up
