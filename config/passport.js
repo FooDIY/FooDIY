@@ -20,11 +20,9 @@ var crypto = require('crypto');
 
 module.exports = function(passport,nev) {
     passport.serializeUser(function(user, done) {
-        console.log("serializeUser");
         done(null, user.id);
     });
     passport.deserializeUser(function(id, done) {
-        console.log("deserializeUser");
         Member.findById(id, function(err, user) {
             done(err, user);
         });
@@ -61,7 +59,7 @@ module.exports = function(passport,nev) {
                     usercheck.save(function (err) {
                         if (err)
                             throw err;
-                        mailer(email,usercheck.token);
+                        mailer(email,usercheck.token,req.body.firstname);
                         return done(null, user);
                     });
                 }

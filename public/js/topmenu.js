@@ -126,9 +126,14 @@ function TempDel() {
     $.ajax({
         method: "POST",
         type: "POST",
-        url: "/tempout",
-
+        url: "/tempout"
     });
+}
+function submitseller() {
+    location.replace("/seller/submit_seller");
+}
+function manage() {
+    location.replace("/seller/manage");
 }
 angular.module('profile', ['ngAnimate','ui.bootstrap']);
 angular.module('profile').controller('ctrl', function ($scope,$http) {
