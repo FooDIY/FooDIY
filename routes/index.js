@@ -59,8 +59,9 @@ router.post('/map_change', function (req, res, next) {
         }
     });
 });
-router.get('/test', function (req, res, next) {
+router.get('/test' ,function(req, res, next) {
     res.render('sign_up');
+
 });
 router.post('/signup', function(req, res, next) {
     passport.authenticate('signup', function(err, user, info) {

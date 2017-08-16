@@ -135,6 +135,9 @@ function submitseller() {
 function manage() {
     location.replace("/seller/manage");
 }
+function gosign() {
+    location.replace("/test");
+}
 angular.module('profile', ['ngAnimate','ui.bootstrap']);
 angular.module('profile').controller('ctrl', function ($scope,$http) {
     $scope.accountOpen = true;
