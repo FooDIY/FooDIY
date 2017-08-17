@@ -34,7 +34,7 @@ var MemberSchema = new Schema({
     id: String,
     token: String,
     email: String,
-    name: String,
+    name: String
     },
     mailing:Boolean,
     text:Boolean,

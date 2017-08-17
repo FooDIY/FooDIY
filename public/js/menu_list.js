@@ -4,6 +4,8 @@
 
 var x = document.getElementById("demo");
 var map;
+var marker=[];
+var infowindow=[];
 $(document).ready(function () {
     $("#main_become").click(function () {
         location.replace("/seller/submit_seller");
@@ -19,8 +21,10 @@ function getLocation() {
 }
 
 function showPosition(position) {
-    lat = position.coords.latitude;
-    lon = position.coords.longitude;
+    //lat = position.coords.latitude;
+    //lon = position.coords.longitude;
+    var lat="36.174755";
+    var lon="127.841779";
     latlon = new google.maps.LatLng(lat, lon);
     mapholder = document.getElementById('mapholder');
     mapholder.style.marginTop = '85px';
@@ -28,7 +32,7 @@ function showPosition(position) {
     // mapholder.style.width = '465px';
 
     var myOptions = {
-        center:latlon,zoom:14,
+        center:latlon,zoom:8,
         mapTypeId:google.maps.MapTypeId.ROADMAP,
         mapTypeControl:false,
         navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
@@ -42,35 +46,60 @@ function showPosition(position) {
         var southWest = bounds.getSouthWest();
         var northEast = bounds.getNorthEast();
         var item={bigx:northEast.lat(),smallx:southWest.lat(),bigy:northEast.lng(),smally:southWest.lng()};
-        mapchange(item);
+        var data=mapchange(item);
+        $("#items").empty();
+        for(var j in marker)
+        {
+            marker[j].setMap(null);
+        }
+        for (var i in data) {
+
+            tmpTag = '<a href="/menu_info/' + data[i]._id + '">\
+                        <li data-lat="' + data[i].address.x + '" data-lon="' + data[i].address.y + '" class="items__item">\
+                            <img src="' + data[i].image[0].image_url + '" alt="" class="items__img"/>\
+                            <h3 class="items__title">' + data[i].menu_name + '</h3>\
+                        </li>\
+                    </a>';
+
+            $("#items").append(tmpTag);
+
+            var datalatlon = new google.maps.LatLng(data[i].address.x, data[i].address.y);
+
+            marker[i] = new google.maps.Marker({
+                position: datalatlon,
+                map: map,
+                title: data[i].menu_name,
+            });
+
+            infowindow[i] = new google.maps.InfoWindow({
+                content: data[i].menu_name,
+                maxWidth: 300
+            });
+
+            marker[i].addListener('click', function () {
+                infowindow[i].open(map, marker[i]);
+            });
+        }
     });
 
-    var marker = new google.maps.Marker({position:latlon,map:map,title:"You are here!"});
 }
 function mapchange(item) {
+    var savedata;
     $.ajax({
         method: "POST",
         type: "POST",
         url: "/map_change",
         data: item,
+        async:false,
         success: function (data) {
             if (data == "nothing")
                 alert("nothing");
             else{
-                $("#items").empty();
-                for (var i in data) {
-                    tmpTag = '<a href="/menu_info/'+data[i]._id+'">\
-                        <li data-lat="' + data[i].address.x + '" data-lon="' + data[i].address.y + '" class="items__item">\
-                            <img src="'+data[i].image[0].image_url+'" alt="" class="items__img"/>\
-                            <h3 class="items__title">'+data[i].menu_name +'</h3>\
-                        </li>\
-                    </a>';
-                    $("#items").append(tmpTag);
-                }
-
+                savedata=data;
             }
         }
     });
+    return savedata;
 }
 function showError(error) {
     switch(error.code) {
