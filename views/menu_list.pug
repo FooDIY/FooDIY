@@ -15,7 +15,7 @@ html(lang='en')
         article
             .container-fluid
                 ul#items.items
-                    - for(var i=0;i<menu.length;i++)
+                    //- for(var i=0;i<menu.length;i++)
                         a(href='/menu_info/'+menu[i]._id)
                             li.items__item(data-lat=x[i], data-lon=y[i])
                                 img.items__img(src=menu[i].image[0].image_url, alt='')

@@ -48,7 +48,6 @@ router.post('/map_change', function (req, res, next) {
     var smally=req.body.smally;
     var bigx=req.body.bigx;
     var bigy=req.body.bigy;
-    console.log(smallx);
     Menu.where('address.x').gte(smallx).lte(bigx).where('address.y').gte(smally).lte(bigy).exec(function (err, menu) {
         if(err) res.send(json(500));
         if(menu) {
