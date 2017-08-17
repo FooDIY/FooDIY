@@ -1,8 +1,16 @@
 //
    Created by Sehyeon on 2017-07-24.
 doctype html
-html(lang='en')
+html(lang='en',ng-app="seller")
     head
+        style.
+            input.ng-invalid {
+                border: 1px solid red;
+            }
+            input.ng-valid{
+                border-bottom-style:solid;
+            }
+            input.ng-pristine {border:1px solid gray}
         meta(charset='UTF-8')
         meta(name='viewport', content='width=device-width, initial-scale=1')
         title foodiy
@@ -15,6 +23,10 @@ html(lang='en')
         script(src='../js/jquery.js')
         script(src='../js/jquery-ui-1.12.1/jquery-ui.js')
         script(type='text/javascript', src='../js/bootstrap.js')
+        script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js')
+        script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.js')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js')
+        script(type='text/javascript', src='../js/become_foodiy.js')
         style.
             footer .navbar {
                 overflow: hidden;
@@ -42,7 +54,7 @@ html(lang='en')
                     | FooDIY가 되어보세요
             h4(style='font-weight: bold; padding: 10px 40px; line-height: 28px; margin-bottom: 20px;') 복잡하고 자금이 많이 필요한 요식업을 FooDIY와 함께 집에서 간단하게 ! 매일 매일 흥미로운 사람들에게 여러분의 음식을 대접해보세요
             button.btn.btn-success(style='display: block; margin: auto;') 자세히 알아보기
-        form.col-md-12(action='', style='padding: 0 300px; margin-top: 75px; z-index: 3')
+        form.col-md-12(name='seller',action='', style='padding: 0 300px; margin-top: 75px; z-index: 3',role='form')
             legend(style='font-weight: bold; margin-bottom: 40px;') Application
             .col-md-7
                 //div(style='float: right;')
@@ -74,8 +86,23 @@ html(lang='en')
                 .input-group.col-md-9
                     span.input-group-addon
                         i.material-icons(style='font-size:20px') phone_iphone
-                    input#phone_num.form-control.input-lg(type='tel', name='usertel', placeholder='Number')
+                    .row
+                        .col-md-2
+                          select(name='cars',id='reg', data-style="btn-primary")
+                              option(value='82') 82
+                                |   
+                                option(value='81') 81
+                                |   
+                                option(value='1') 1
+                                |   
+                                option(value='86') 86
+
+                        .col-md-7
+                          input#phone_num.form-control.input-lg(type='text', name='usertel', placeholder='Number',ng-model='usertel',ng-required='true',ng-pattern='/^01([0|1|6|7|8|9])-([0-9]{3,4})-([0-9]{4})$/')
+
                 br
+                .alert.alert-warning(ng-show='seller.usertel.$error.pattern', role='alert')
+                    | Type in this form xxx-xxxx-xxxx
                 .secret_num(style='display: none;')
                     span(style='font-weight: bold;') 인증 번호 :
                     input.input-sm(type='text', placeholder='6자리')
@@ -136,7 +163,7 @@ html(lang='en')
                             th 우편번호
                             td
                                 input#confmKey(type='hidden', name='confmKey', value='')
-                                input#zipNo(type='text', name='zipNo', readonly='', style='width:100px')
+                                input#zipNo(type='text', name='zipNo', readonly='', style='width:100px', ng-model='zipNo',ng-required='true')
                                 input(type='button', value='주소검색', onclick='goPopup();')
                         tr
                             th
@@ -146,20 +173,20 @@ html(lang='en')
                         tr
                             th 상세주소
                             td
-                                input#addrDetail(type='text', style='width:40%', value='' name="add21" readonly)
-                                input#roadAddrPart2(type='text', style='width:40%', value='' name="add22" readonly)
+                                input#addrDetail(type='text', style='width:40%', value='' name="add21" readonly, ng-model='add21', ng-required='true')
+                                input#roadAddrPart2(type='text', style='width:40%', value='' name="add22" readonly, ng-model='add22', ng-required='true')
                         tr
                             th 좌표정보
                             td
-                                input#entX(type='text', style='width:40%', value='' name="y" readonly)
-                                input#entY(type='text', style='width:40%', value='' name="x" readonly)
+                                input#entX(type='text', style='width:40%', value='' name="y" ,ng-model='y',ng-required='true', readonly)
+                                input#entY(type='text', style='width:40%', value='' name="x" ,ng-model='x',ng-required='true', readonly)
             div(style='padding: 0 70px; margin-top: 50px; margin-bottom: 50px;')
                 #map.form-control(style='height: 400px;')
             div(style='margin-bottom: 30px;')
                 hr
             div(style='margin-bottom: 100px;')
                 //button.btn.btn-success.col-md-offset-2.col-md-3(type='submit') 저장
-                button#next_btn.btn.btn-success.col-md-offset-2.col-md-3(type='button' onclick="submitseller()") 등록
+                button#next_btn.btn.btn-success.col-md-offset-2.col-md-3(type='button' onclick="submitseller()," ng-disabled='seller.usertel.$invalid||seller.y.$invalid||seller.x.$invalid||seller.zipNo.$invalid||seller.add21.$invalid||seller.add22.$invalid') 등록
             p#signupfail
         footer
             .navbar

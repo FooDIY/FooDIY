@@ -15,9 +15,12 @@ function jusoCallBack(roadFullAddr, roadAddrPart1, addrDetail, roadAddrPart2, en
      document.juso.zipNo.value = zipNo;
      document.juso.entX.value = entX;
      document.juso.entY.value = entY;*/
-    document.getElementById('roadAddrPart1').value = roadAddrPart1;
-    document.getElementById('addrDetail').value = addrDetail;
-    document.getElementById('roadAddrPart2').value = roadAddrPart2;
+    $("#roadAddrPart1").val(roadAddrPart1).change();
+    $("#addrDetail").val(addrDetail).change();
+    $("#roadAddrPart2").val(roadAddrPart2).change();
+    // document.getElementById('roadAddrPart1').value = roadAddrPart1;
+    // document.getElementById('addrDetail').value = addrDetail;
+    // document.getElementById('roadAddrPart2').value = roadAddrPart2;
     Proj4js.reportError = function (msg) {
         alert(msg);
     };
@@ -30,10 +33,8 @@ function jusoCallBack(roadFullAddr, roadAddrPart1, addrDetail, roadAddrPart2, en
     var p = new Proj4js.Point(entX, entY);
 
     Proj4js.transform(utmk, wg84, p);
-
-    document.getElementById('entX').value = p.x;
-    document.getElementById('entY').value = p.y;
-    document.getElementById('zipNo').value = zipNo;
+    $("#entX").val(p.x).change();
+    $("#entY").val(p.y).change();;
+    $("#zipNo").val(zipNo).change();;
     myMap(p.y,p.x);
 }
-
