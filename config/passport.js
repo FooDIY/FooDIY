@@ -16,6 +16,7 @@ var passport = require('passport');
 var moment = require('moment');
 var mailer=require('./mailing');
 var crypto = require('crypto');
+var randomstring = require("randomstring");
 
 
 module.exports = function(passport,nev) {
@@ -47,10 +48,10 @@ module.exports = function(passport,nev) {
                     //user.submit_date = new Date();
                     var usercheck=new cert();
                     usercheck.email=email;
-                    var key="SehyeonJJang";
+                    var key=randomstring.generate(10);
                     var cipher = crypto.createCipher('aes192', key);    // Cipher 객체 생성
-                    cipher.update(email, 'utf8', 'base64');             // 인코딩 방식에 따라 암호화
-                    usercheck.token = cipher.final('base64');
+                    cipher.update(email, 'utf8', 'hex');             // 인코딩 방식에 따라 암호화
+                    usercheck.token = cipher.final('hex');
                     usercheck.timer=moment().add('minutes',10).format();
                     user.save(function (err) {
                         if (err)
@@ -117,7 +118,7 @@ module.exports = function(passport,nev) {
   function(req,email,password, done) {
     console.log('ww');
     Member.findOne({ 'google.id': password }, function (err, member) {
-      console.log('weffff');
+      //console.log('weffff');
       if (err)
       {
           return done(err);
@@ -129,14 +130,14 @@ module.exports = function(passport,nev) {
         }
       else
       {
-          console.log('not error');
+          //console.log('not error');
           Temp.findOne({'google.id':password},function(err,temp){
           var user = new Member();
           user.firstname=req.body.firstname;
           user.lastname=req.body.lastname;
           user.google.id=temp.google.id;
           user.google.token=temp.google.token;
-          console.log(user);
+          //console.log(user);
           temp.remove();
           user.save(function(err) {
             if (err)
@@ -159,9 +160,9 @@ passport.use('navuptemp',new LocalStrategy(
           passReqToCallback : true
     },
 function(req,email,password, done) {
-console.log('ww');
+//console.log('ww');
 Member.findOne({ 'naver.id': password }, function (err, member) {
-  console.log('weffff');
+  //console.log('weffff');
   if (err)
   {
       return done(err);
@@ -173,14 +174,14 @@ Member.findOne({ 'naver.id': password }, function (err, member) {
     }
   else
   {
-      console.log('not error');
+      //console.log('not error');
       Temp.findOne({'naver.id':password},function(err,temp){
       var user = new Member();
       user.firstname=req.body.firstname;
       user.lastname=req.body.lastname;
       user.naver.id=temp.naver.id;
       user.naver.token=temp.naver.token;
-      console.log(user);
+      //console.log(user);
       temp.remove();
       user.save(function(err) {
         if (err)
@@ -211,7 +212,7 @@ Member.findOne({ 'naver.id': password }, function (err, member) {
                 if (!user.validPassword(password))
                     return done(null, false, {error:'패스워드 에러'});
                 if (!user.is_certificate)
-                    return done(null, false, {error:'이메일 인증 에러'});
+                    return done(null, false, {error:user.email});
                 return done(null, user);
             });
         })
@@ -220,7 +221,7 @@ Member.findOne({ 'naver.id': password }, function (err, member) {
     passport.use('signupnaver',new NaverStrategy({
             clientID: 'h_2lLJKUaqh6as1FYrpL',
             clientSecret: '7_PtqJ3R4o',
-            callbackURL: 'http://ec2-13-125-0-15.ap-northeast-2.compute.amazonaws.com:3000/navupCallback'
+            callbackURL: 'http://foodiy.net/navupCallback'
     	},
         function(accessToken, refreshToken, profile, done) {
           process.nextTick(function() {
@@ -261,7 +262,7 @@ Member.findOne({ 'naver.id': password }, function (err, member) {
     passport.use('loginnaver',new NaverStrategy({
         clientID: 'h_2lLJKUaqh6as1FYrpL',
         clientSecret: '7_PtqJ3R4o',
-        callbackURL: 'http://ec2-13-125-0-15.ap-northeast-2.compute.amazonaws.com:3000/navinCallback'
+        callbackURL: 'http://foodiy.net/:3000/navinCallback'
       },
         function(token, refreshToken, profile, done) {
           process.nextTick(function() {
@@ -286,7 +287,7 @@ Member.findOne({ 'naver.id': password }, function (err, member) {
     passport.use('signupgoogle',new GoogleStrategy({
         clientID: '284029061211-ebed54hk21ncv278oqod73b7hh9h2ueq.apps.googleusercontent.com',
         clientSecret: '_-uxloNCb8s8Or3RvUO8oC3o',
-        callbackURL: 'http://ec2-13-125-0-15.ap-northeast-2.compute.amazonaws.com:3000/gooupCallback',
+        callbackURL: 'http://foodiy.net/gooupCallback',
       },
         function(token, refreshToken, profile, done) {
           process.nextTick(function() {
@@ -326,7 +327,7 @@ Member.findOne({ 'naver.id': password }, function (err, member) {
         passport.use('logingoogle',new GoogleStrategy({
             clientID: '284029061211-ebed54hk21ncv278oqod73b7hh9h2ueq.apps.googleusercontent.com',
             clientSecret: '_-uxloNCb8s8Or3RvUO8oC3o',
-            callbackURL: 'http://ec2-13-125-0-15.ap-northeast-2.compute.amazonaws.com:3000/gooinCallback',
+            callbackURL: 'http://foodiy.net/gooinCallback',
           },
             function(token, refreshToken, profile, done) {
               process.nextTick(function() {

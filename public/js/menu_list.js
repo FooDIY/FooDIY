@@ -9,7 +9,7 @@ var infowindow=[];
 $(document).ready(function () {
     $("#main_become").click(function () {
         location.replace("/seller/submit_seller");
-    })
+    });
 });
 
 function getLocation() {
@@ -130,4 +130,5 @@ function addMarker(x,y){
 
     myCity.setMap(map);
 }
-mapholder.innerHTML = getLocation();
+//google.maps.event.addDomListener(window, 'load', initialize);
+//mapholder.innerHTML = showPosition();

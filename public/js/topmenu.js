@@ -1,6 +1,7 @@
 /**
  * Created by Sehyeon on 2017-07-25.
  */
+var email;
 function signuppass(val) {
     var item = {email: val.email.value, password: val.pass.value,firstname:val.firstName.value,lastname:val.lastName.value};
     $.ajax({
@@ -10,7 +11,13 @@ function signuppass(val) {
         data: item,
         success: function (data) {
             if (data == "clear") {
-                location.reload();
+                $("#reconfirmbutton").show();
+                $("#reconfirmtext").html("입력하신 메일 주소로 인증 메일을 보냈습니다. 인증 확인 후 최종 회원가입 처리가 완료됩니다.");
+                email=item.email;
+                $('#mail_confirm').modal('toggle');
+                $('#pop-up-sign').modal('toggle');
+                //$("#temp_email").val(item.email);
+                //location.reload();
             }
             else {
                 $("#signupfail").html(data);
@@ -40,7 +47,7 @@ function signuptemp(val) {
 }
 
 function iddupcheck(val) {
-    var item = {id: val.email.value,pass:"김기영"};
+    var item = {id: val.email.value};
     $.ajax({
         method: "POST",
         type: "POST",
@@ -63,7 +70,7 @@ function iddupcheck(val) {
         }
     });
 }
-function nickcheck(val) {
+/*function nickcheck(val) {
     var item = {id: val.nick.value};
     $.ajax({
         method: "POST",
@@ -86,7 +93,7 @@ function nickcheck(val) {
             }
         }
     });
-}
+}*/
 function LoginCheck(val) {
     //var snum=document.getElementsById("snum").value;
     var item = {
@@ -100,10 +107,19 @@ function LoginCheck(val) {
         data: item,
         success: function (data) {
             if (data == "clear") {
-                location.reload();
-            } else {
+                location.reload(true);
+            }
+            else if(data==="이메일 에러"||data==="패스워드 에러")
+            {
                 $("#loginfail").html(data);
                 $("#loginfail").css("color", "red");
+            }
+            else {
+                $("#reconfirmtext").html("미 인증된 메일입니다. 인증 확인 후 로그인 해 주세요.");
+                $("#reconfirmbutton").show();
+                email=item.email;
+                $('#mail_confirm').modal('toggle');
+                $('#pop-up-login').modal('toggle');
             }
         }
     });
@@ -130,10 +146,32 @@ function TempDel() {
     });
 }
 function submitseller() {
-    location.replace("/seller/submit_seller");
+    location.href="/seller/submit_seller";
 }
 function manage() {
-    location.replace("/seller/manage");
+    location.href="/seller/manage";
+}
+function tologin(){
+    $('#mail_confirm').modal('toggle');
+    $('#pop-up-login').modal('toggle');
+}
+function reconfirm(){
+    var item = {
+        email: email
+    };
+    $.ajax({
+        method: "POST",
+        type: "POST",
+        url: "/reconfirm",
+        data: item,
+        success: function (data) {
+            $("#reconfirmbutton").hide();
+            $("#reconfirmtext").html("입력하신 메일 주소로 새로운 인증 메일을 보냈습니다.");
+            //$('#mail_confirm').modal('show');
+            //$('#pop-up-login').modal('toggle');
+
+        }
+    });
 }
 angular.module('profile', ['ngAnimate','ui.bootstrap']);
 angular.module('profile').controller('ctrl', function ($scope,$http) {

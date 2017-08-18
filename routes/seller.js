@@ -279,6 +279,7 @@ router.post('/submit_seller', function(req, res, next) {
             member.save(function (err) {
                 if (err)
                     throw err;
+                req.session.seller=true;
                 res.send('clear');
             });
         }

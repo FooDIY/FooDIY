@@ -9,7 +9,8 @@ function submitseller(){
         url: "/seller/submit_seller",
         data: item,
         success: function (data) {
-            if (data == "clear") {
+            if (data === "clear") {
+                alert("판매자 등록을 축하합니다!");
                 location.replace("/seller/manage");
             }
             else {

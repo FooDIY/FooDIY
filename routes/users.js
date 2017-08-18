@@ -23,7 +23,7 @@ router.get('/confirm_certificate/:id',function (req,res,next) {
         cert.remove({email:member.email},function(err,output){
             if(err){ return next(err);}
         });
-        res.redirect('/');
+          res.render('completecert',{safe:false});
       }
       else{
         cert.remove({email:member.email},function(err,output){
@@ -34,7 +34,7 @@ router.get('/confirm_certificate/:id',function (req,res,next) {
           user.save(function (err) {
               if (err)
                   throw err;
-              res.send('인증 완료!');
+              res.render('completecert',{safe:true});
           });
         })
       }

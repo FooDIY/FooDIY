@@ -4,7 +4,7 @@
 
 .foodiy{
     height:60px;
-    background-color: rgb(241,89,42);
+    background-color: #007fff;
     color: white;
     text-align: center;
     z-index: 1;
@@ -47,7 +47,7 @@
     position: fixed;
     height:100%;
     width:16%;
-    background-color: rgb(241,89,42);
+    background-color: #007fff;
     z-index: 2;
     margin-top:61px;
 }
@@ -74,7 +74,7 @@ article{
     display: block;
     color: white;
     padding: 5px 20px;
-    background-color: rgb(241,89,42);
+    background-color: #007fff;
 }
 
 .sidebar .nav > li > a:hover {

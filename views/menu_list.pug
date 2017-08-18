@@ -10,7 +10,7 @@ html(lang='en')
         link(rel='stylesheet', href='../js/jquery-ui-1.12.1/jquery-ui.css')
         link(rel='stylesheet', href='../css/signUp.css')
         link(rel='stylesheet', href='../css/main_css.css')
-    body
+    body(onload="showPosition()")
         include top
         article
             .container-fluid
@@ -28,6 +28,6 @@ html(lang='en')
     script(src='../js/jquery.js')
     script(src='../js/jquery-ui-1.12.1/jquery-ui.js')
     script(type='text/javascript', src='../js/bootstrap.js')
-    script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBb0qeAa_KvAKAeoWRC1xl4BCH-iPN5ztc')
+    script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBb0qeAa_KvAKAeoWRC1xl4BCH-iPN5ztc&callback=showPosition')
     script(type='text/javascript', src='../js/main.js')
     script(type='text/javascript', src='../js/menu_list.js')

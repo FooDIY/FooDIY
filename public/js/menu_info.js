@@ -34,4 +34,12 @@ function myMap(x,y) {
     //google.maps.event.addDomListener(window, 'load', initialize);
 }
 
+function premessage(session){
+    if(!session)
+    {
+        alert(session)
+        return false;
+    }
+    return true;
+}
 //google.maps.event.addDomListener(window, 'load', initialize);
