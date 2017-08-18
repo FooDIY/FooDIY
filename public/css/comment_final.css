@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i");
+/** {*/
+  /*box-sizing: border-box; }*/
+
+a, a:hover {
+  transition: .25s color linear; }
+
+/*img {*/
+  /*filter: grayscale(100%); }*/
+
+article time, article:hover time,
+.icon-rocknroll{
+  transition: .25s opacity linear; }
+
+/*
+ |---------------------------------
+ |
+ | Project Start
+ |
+ |---------------------------------
+ */
+
+  html body .comments{
+    color: #444;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.65;
+    margin: 50px 0;
+    padding: 0 25px; }
+    html body .comments {
+      max-width: 775px;
+      margin: 100px auto; }
+      html body .comments article {
+        position: relative;
+        border-bottom: solid 1px rgba(178, 179, 153, 0.125);
+        margin: 0 auto 50px auto; }
+        html body .comments article:last-child {
+          border: none; }
+        html body .comments article:hover time {
+          opacity: 1; }
+        html body .comments article img {
+          position: absolute;
+          top: -10px;
+          left: -75px;
+          width: 50px;
+          height: 50px;
+          border-width: 0;
+          border-radius: 100%; }
+        html body .comments article h4 {
+          display: inline-block;
+          font-weight: 400;
+          margin-bottom: 25px; }
+          html body .comments article h4 a {
+            color: #404040;
+            text-transform: lowercase;
+            text-decoration: none; }
+            html body .comments article h4 a:hover {
+              color: #BFBFA8; }
+        html body .comments article time {
+          color: #545454;
+          margin-left: 1rem;
+          text-transform: uppercase; }
+        html body .comments article .icon-rocknroll {
+          color: #545454;
+          font-size: .85rem; }
+          html body .comments article .icon-rocknroll:hover {
+            opacity: .5; }
+        html body .comments article time,
+        html body .comments article .icon-rocknroll {
+          font-size: .75rem;
+          opacity: 0; }
+        html body .comments article time, html body .comments article {
+          font-weight: 300; }
+        html body .comments article p {
+          font-size:18px;
+          margin-bottom: 50px; }
+          html body .comments article p .reply {
+            color: #BFBFA8;
+            cursor: pointer; }
+        html body .comments article .active {
+          opacity: 1; }
+
+
+.icon-rocknroll {
+  background: none;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  margin: 0 .125rem 0 0;
+  padding: 0; }
+
+.comments article:hover .icon-rocknroll,
+.comments article:hover {
+  opacity: 1; }
+
+@media (max-width: 650px) {
+  .comments {
+    width: 100%;
+    padding: 0 1rem; }
+    .comments article {
+      width: 90%; }
+      .comments article #profile-photo {
+        position: relative;
+        left: -1rem;
+        display: inline-block;
+        vertical-align: middle; }
+      .comments article h4 {
+        display: inline-block;
+        vertical-align: middle; }
+        .comments article h4 time {
+          display: block;
+          margin-left: 0 !important;
+          opacity: .5 !important; } }
+
+/*# sourceMappingURL=comment_final.css.map */

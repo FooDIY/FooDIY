@@ -39,19 +39,19 @@ html(lang='en',ng-app="profile")
                     button#main_qna Q&A
 
                     if(session.seller)
-                        button#main_become(type="button", onclick="manage()") Manage Menu
+                        button#main_signup(type="button", onclick="manage()") Manage Menu&nbsp
                     else
-                        button#main_become(type="button", onclick="submitseller()") Be a foodiy
+                        button#main_signup(type="button", onclick="submitseller()") Be a foodiy&nbsp
                     if(session.email)
                         button(type="button", onclick="LogOut()") Logout
                     else
-                        span#main_signup Sign up
-                        span#main_login Login
+                        span#main_signup(type='button', data-toggle='modal', data-target='#pop-up-sign') Sign up
+                        span#main_login(type='button', data-toggle='modal', data-target='#pop-up-login') Login
     article
 
 
         // pop-up Signup
-        #pop-up-sign.signupform.container-fluid
+        #pop-up-sign.signupform.container-fluid.modal.fade
             .signup-content
                 form#signup_form.form-horizontal(name='signup', action='', role='form')
                     .form-group
@@ -113,7 +113,7 @@ html(lang='en',ng-app="profile")
                                                         signup.email.$invalid  ')
 
 
-        #pop-up-passport.signupform.container-fluid
+        #pop-up-passport.signupform.container-fluid(style="display:none;")
             .signup-content
                 form#passup_form.form-horizontal(name='passup', action='', role='form')
                     .form-group
@@ -153,7 +153,7 @@ html(lang='en',ng-app="profile")
                                                         || passup.lastName.$invalid || passup.email.$invalid  ')
         // pop-up login
 
-        #pop-up-login.signupform.container-fluid
+        //#pop-up-login.signupform.container-fluid.modal.fade
             .signup-content
                 form.form-horizontal()
                     .form-group
@@ -184,7 +184,54 @@ html(lang='en',ng-app="profile")
                                 a(href='') Forgot password ?
                                 button#sign-in.login-sign-in.form-control(type='button' onclick="LoginCheck(this.form)") Log in
                                 hr
-                            button#sign-up.login-sign-up.form-control(type='button', onclick="LoginCheck(this.form)") Sign up
+                            button#sign-up.login-sign-up.form-control(type='button', data-toggle='modal', data-target='#pop-up-sign', data-dismiss='modal') Sign up
+        #pop-up-login.signupform.container-fluid.modal.fade
+            .signup-content
+                form#login_form.form-horizontal(action='')
+                    .form-group
+                        .real_content
+                            button#signup-google-l.signupgoogle.form-control
+                                span
+                                    img(src='../img/google_logo.png', alt='')
+                                p Login with google
+                            button#signup-facebook-l.signupfacebook.form-control
+                                span
+                                    img(src='../img/facebook_logo.png', alt='')
+                                p Login with facebook
+                            hr
+                            if(messageUp)
+                                #alert-messageUp.alert.alert-danger(role='alert')=messageUp
+                            p#loginfail
+
+                            .input-group
+                                span.input-group-addon
+                                    i.fa.fa-envelope
+                                input#email-l.form-control.input-lg(type='email', name="email", placeholder='E-mail')
+                            .input-group
+                                span.input-group-addon
+                                    i.glyphicon.glyphicon-lock
+                                input#password-l.form-control.input-lg(type='password', name="pass", placeholder='Password')
+                            .login-set
+                                input(type='checkbox')
+                                | Save password
+                                a(href='') Forgot password ?
+                                button#sign-in.login-sign-in.form-control(type='button' onclick="LoginCheck(this.form)") Log in
+                                hr
+                            button#sign-up.login-sign-up.form-control(type='button', data-toggle='modal', data-target='#pop-up-sign', data-dismiss='modal') Sign up
+
+        #mail_confirm.signupform.container-fluid.modal.fade
+            .signup-content
+                form.form-horizontal(action='')
+                    .form-group
+                        .real_content
+                            .jumbotron
+                                p#reconfirmtext(style='text-align: center; font-size: 20px;') 입력하신 메일 주소로 인증 메일을 보냈습니다. 인증 확인 후 최종 회원가입 처리가 완료됩니다.
+                            button#reconfirmbutton.signupfacebook.form-control(type='button', onclick="reconfirm()")
+                                p 인증 메일 다시 보내기
+                            button#login.signupgoogle.form-control(type='button', onclick="tologin()")
+                                p 로그인
+                            //input#temp_email(type="hidden")
+
     script(src='../js/jquery.js')
     script(src='../js/jquery-ui-1.12.1/jquery-ui.js')
     script(type='text/javascript', src='../js/topmenu.js')

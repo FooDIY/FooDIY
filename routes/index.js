@@ -8,10 +8,15 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 app.use(flash());
 var async = require('async');
+var crypto = require('crypto');
+var moment = require('moment');
+var mailer=require('../config/mailing');
+var randomstring = require("randomstring");
 
 //DB 모델
 var Member = require('../models/member');
 var Menu = require('../models/menu');
+var cert = require('../models/certificate');
 
 
 var passport = require('passport');
@@ -22,26 +27,7 @@ require('../config/passport')(passport);
 
 /* GET home page. */
 router.get(['/'], function (req, res, next) {
-    var x=[];
-    var y=[];
-    Menu.find({},function (err, menu) {
-        //이렇게 된이상 메뉴에 x,y 좌표 넣어버리자 시바 그리고 멤버 주소 바뀌면 모든 메뉴 x,y 다바꺼버려 ㅡㅡ
-        for(var i=0;i<menu.length;i++)
-        {
-            Member.findOne({email:menu[i].member_id},function(err,member)
-            {
-                if(err) return res.status(500).json({error: err});
-                x.push(member.address.x);
-                y.push(member.address.y);
-                //console.log(member);
-            });
-        }
-        if(i===menu.length) {
-            //console.log(x);
-            //console.log(y);
-            res.render('menu_list', {session: req.session, menu: menu,x:x,y:y});
-        }
-    });
+    res.render('menu_list', {session: req.session});
 });
 router.post('/map_change', function (req, res, next) {
     var smallx=req.body.smallx;
@@ -87,7 +73,7 @@ router.post('/signuptemp', function(req, res, next) {
             });
         })(req, res, next);
     }
-    else(req.body.provider==='naver')
+    else if(req.body.provider==='naver')
     {
         passport.authenticate('navuptemp', function(err, user, info)
         {
@@ -115,6 +101,26 @@ router.post('/login', function(req, res, next) {
             return res.send("clear");
         });
     })(req, res, next);
+});
+router.post('/reconfirm', function (req,res,next) {
+    var email=req.body.email;
+    Member.findOne({email:email},function (err,member) {
+        cert.remove({email:email},function(err,result){
+            var usercheck=new cert();
+            usercheck.email=email;
+            var key=randomstring.generate(10);
+            var cipher = crypto.createCipher('aes192', key);    // Cipher 객체 생성
+            cipher.update(email, 'utf8', 'hex');             // 인코딩 방식에 따라 암호화
+            usercheck.token = cipher.final('hex');
+            usercheck.timer=moment().add('minutes',10).format();
+            usercheck.save(function (err) {
+                if (err)
+                    throw err;
+                mailer(email,usercheck.token,member.firstname);
+                res.send('clear');
+            });
+        })
+    });
 });
 router.get('/signupnaver', function(req, res, next) {
     passport.authenticate('signupnaver')(req,res,next)});
@@ -161,6 +167,8 @@ router.get('/navinCallback', function(req, res, next) {
         req.logIn(user, function(err) {
             //req.session.passport='';
             if (err) { return next(err); }
+            req.session.email=user.email;
+            req.session.seller=user.sellercheck;
             return res.redirect('/');
         });
     })(req, res, next);
@@ -213,6 +221,8 @@ router.get('/gooinCallback', function(req, res, next) {
         req.logIn(user, function(err) {
             //req.session.passport='';
             if (err) { return next(err); }
+            req.session.email=user.email;
+            req.session.seller=user.sellercheck;
             return res.redirect('/');
         });
     })(req, res, next);

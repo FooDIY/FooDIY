@@ -44,25 +44,14 @@ header{
 
 .myslide{
     margin-top:50px;
+    height: 400px;
 }
 
 .payment_box{
-    position: fixed;
+    /*position: fixed;*/
     right:0;
 }
 
 .menu_info{
     margin-top:30px;
-}
-
-.ingre-list{
-    margin-top:50px;
-    margin-bottom:50px;
-}
-
-.ingre-list button{
-    background-color: white;
-    border: white;
-    float: right;
-    margin-bottom: 10px;
 }
