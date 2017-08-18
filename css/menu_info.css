@@ -44,10 +44,11 @@ header{
 
 .myslide{
     margin-top:50px;
+    height: 400px;
 }
 
 .payment_box{
-    position: fixed;
+    /*position: fixed;*/
     right:0;
 }
 
