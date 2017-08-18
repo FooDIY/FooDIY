@@ -46,8 +46,8 @@
             <div class="header_right">
                 <button id="main_qna">Q&A</button>
                 <button type="button" id="main_become">Be a foodiy</button>
-                <button id="main_signup">Sign up</button>
-                <button id="main_login">Login</button>
+                <button type="button" id="main_signup" data-toggle="modal" data-target="#pop-up-sign">Sign up</button>
+                <button type="button" id="main_login" data-toggle="modal" data-target="#pop-up-login">Login</button>
             </div>
 
         </form>
@@ -320,14 +320,13 @@
     </div>
 
     <!--pop-up Signup-->
-    <div class="signupform container-fluid" id="pop-up-sign">
+    <div class="signupform container-fluid modal fade" id="pop-up-sign">
 
         <div class="signup-content">
 
             <form action="" class="form-horizontal" id="signup_form">
 
                 <div class="form-group">
-                    <span class="close">&times;</span>
                     <div class="real_content">
                         <div class="link_google_facebook">
                             <button class="link_othersignup col-xs-6 col-sm-6 col-md-6 col-lg-6" id="signup-google-s">
@@ -365,7 +364,12 @@
                             <span class="input-group-addon login-button"><a href="" id="nickname_link">중복확인</a></span>
                         </div>
 
-                        <input type="button" value="Sign Up" class="signupzipbob form-control" id="signup-zipbob">
+                        <input
+                                type="button" value="Sign Up"
+                                class="signupzipbob form-control"
+                                id="signup-zipbob" data-toggle="modal"
+                                data-target="#mail_confirm"
+                                data-dismiss="modal">
 
                     </div>
 
@@ -378,7 +382,7 @@
 
     <!--certificate-->
 
-    <div class="signupform container-fluid" id="mail_confirm">
+    <div class="signupform container-fluid modal fade" id="mail_confirm">
 
         <div class="signup-content" >
 
@@ -395,7 +399,7 @@
                         <button class="signupfacebook form-control">
                             <p>인증 메일 다시 보내기</p>
                         </button>
-                        <button class="signupgoogle form-control" id="login">
+                        <button class="signupgoogle form-control" id="login" data-toggle="modal" data-target="#pop-up-login" data-dismiss="modal">
                             <p>로그인</p>
                         </button>
 
@@ -408,7 +412,7 @@
 
     <!--pop-up login-->
 
-    <div class="signupform container-fluid" id="pop-up-login">
+    <div class="signupform container-fluid modal fade" id="pop-up-login">
 
         <div class="signup-content" >
 
@@ -447,7 +451,10 @@
                             <hr>
                         </div>
 
-                        <button type="button" class="login-sign-up form-control" id="sign-up">Sign up</button>
+                        <button
+                                type="button" class="login-sign-up form-control"
+                                id="sign-up" data-toggle="modal" data-target="#pop-up-sign"
+                                data-dismiss="modal">Sign up</button>
                     </div>
                 </div>
             </form>
