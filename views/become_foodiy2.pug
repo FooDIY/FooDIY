@@ -1,16 +1,8 @@
 //
    Created by Sehyeon on 2017-07-24.
 doctype html
-html(lang='en',ng-app="seller2")
+html(lang='en')
     head
-        style.
-            input.ng-invalid {
-                border: 1px solid red;
-            }
-            input.ng-valid{
-                border-bottom-style:solid;
-            }
-            input.ng-pristine {border:1px solid gray}
         meta(charset='UTF-8')
         meta(name='viewport', content='width=device-width, initial-scale=1')
         title foodiy
@@ -25,10 +17,13 @@ html(lang='en',ng-app="seller2")
         script(src='../js/jquery-ui-1.12.1/jquery-ui.js')
         script(type='text/javascript', src='../js/bootstrap.js')
         script(type='text/javascript', src='../js/topmenu.js')
-        script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js')
-        script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.js')
         script(src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js')
         script(type='text/javascript', src='../js/become_foodiy2.js')
+        script(src='https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js')
+        script(src='https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js')
+
+        //-formvalidator
+        
         style.
             footer .navbar {
                 overflow: hidden;
@@ -36,7 +31,6 @@ html(lang='en',ng-app="seller2")
                 bottom: 0;
                 width: 100%;
             }
-    body
         nav.navbar.navbar-inverse(style='border: none; margin: 0;')
             .col-md-4.col-xs-4.col-sm-4(style='background-color: #fefefe; height: 60px;')
             .user_button.col-md-8.col-sm-8.col-xs-8
@@ -55,17 +49,17 @@ html(lang='en',ng-app="seller2")
                     | FooDIY가 되어보세요
             h4(style='font-weight: bold; padding: 10px 40px; line-height: 28px; margin-bottom: 20px;') 복잡하고 자금이 많이 필요한 요식업을 FooDIY와 함께 집에서 간단하게 ! 매일 매일 흥미로운 사람들에게 여러분의 음식을 대접해보세요
             button.btn.btn-success(style='display: block; margin: auto;') 자세히 알아보기
-        form.col-md-12(name ='seller2', action='/seller/submit_menu', method="post", enctype="multipart/form-data", style='padding: 0 300px; margin-top: 75px; z-index: 3' ,role='alert')
+        form#nodap.col-md-12(name ='seller2', action='/seller/submit_menu', method="post", enctype="multipart/form-data", style='padding: 0 300px; margin-top: 75px; z-index: 3' ,role='alert')
             legend(style='font-weight: bold; margin-bottom: 40px;') Register Menu
             // <div style="float: right;">
             // <button type="button" class="btn btn-primary" style="height: 40px; margin-top: 37px;">본인 인증</button>
             // </div>
             label(for='menu_name', style='margin-bottom: 15px;') 메뉴 이름
             .input-group.col-md-5
-                input#menu_name.form-control.input-lg(type='text' name='menu_name' maxlength="30" , ng-model='menu_name',ng-required='true', ng-pattern='/^[가-힣a-zA-Z0-9]*$/')
+                input#menu_name.form-control.input-lg(type='text' name='menu_name' maxlength="30")
                 br
                 br
-                .alert.alert-warning(ng-show='seller2.menu_name.$error.pattern', role='alert')
+                #name_alert.alert.alert-warning(hidden, role='alert')
                     | form should not contain any special characters. (ex. !@#..)
             br
             br
@@ -74,7 +68,7 @@ html(lang='en',ng-app="seller2")
             br
             label(for='menu_description', style='margin-bottom: 15px;') 메뉴 설명
             .wrap
-              textarea#menu_description.form-control(name='content', cols='30', rows='10',maxlength="1000", ng-model='content',ng-required='true')
+              textarea#menu_description.form-control(name='content', cols='30', rows='10',maxlength="1000")
               |
               span#counter ###
             // <div class="input-group col-md-10">
@@ -125,9 +119,9 @@ html(lang='en',ng-app="seller2")
                         //div(style='margin-left: 50%;')
                             i.fa.fa-plus(style='font-size:45px; position: relative; z-index: 1; margin-top: 27px;')
                 .col-xs-offset-1.col-xs-5(style='margin-top: 11px;')
-                    input#ingre_name0.text-primary.form-control(type='text', name="ingre_name[]", placeholder='재료 이름' ,ng-model='ingre_name',ng-required='true',ng-pattern='/^[가-힣a-zA-Z0-9]*$/')
-                    input#ingre_from0.text-primary.form-control(type='text', name="madeby[]", placeholder='원산지', style='margin-top: 10px;' ,ng-model='madeby',ng-required='true',ng-pattern='/^[가-힣a-zA-Z0-9]*$/')
-                button#ingresubmit0.btn.btn-primary.col-xs-1(type='button', style='margin-top: 15px; height: 70px;', onclick='selectFile();') 등록
+                    input#ingre_name0.text-primary.form-control(type='text', name="ingre_name[]", placeholder='재료 이름' )
+                    input#ingre_from0.text-primary.form-control(type='text', name="madeby[]", placeholder='원산지', style='margin-top: 10px;')
+                button#ingresubmit0.btn.btn-primary.col-xs-1(type='button', title='올바른 재료이름과 원산지,이미지를 입력해주세요',style='margin-top: 15px; height: 70px;', onclick='selectFile();' ,disabled="disabled") 등록
                 button#ingrereset0.btn.btn-danger.col-xs-1(type='button', style='margin-top: 15px; height: 70px; margin-left: 15px;') 초기화
             span#ingre_fix
             br
@@ -147,10 +141,10 @@ html(lang='en',ng-app="seller2")
             .form-control(style='height: 80px;')
                 label.col-xs-3(for='ingre_img')
                     | 판매 가격(원)
-                    input.text-primary.form-control(type='text', name="price", style = "text-align:right;", ng-model='price', ng-required='true',ng-pattern='/^([1-9]+[0-9]*|[1-9]+)$/')
+                    input#price.text-primary.form-control(type='text', name="price", style = "text-align:right;")
                 label.col-xs-offset-1.col-xs-3(for='ingre_img')
                     | 가용 수량 (개)
-                    input.text-primary.form-control(type='number', name="amount", style = "text-align:right;" ,ng-model='amount',ng-required='true',ng-pattern='/^([1-9]|[1-9][0-9]|[1-9][0-9][0-9])$/')
+                    input#amount.text-primary.form-control(type='number', name="amount", style = "text-align:right;" )
                 //label.col-xs-offset-1.col-xs-3(for='ingre_img')
                     | 최소 주문일 (일)
                     input.text-primary.form-control(type='number', style='margin-top: 10px;')
@@ -190,7 +184,7 @@ html(lang='en',ng-app="seller2")
                 hr
             div(style='margin-bottom: 100px;')
                 //button#pre_btn.btn.btn-success.col-md-offset-2.col-md-3(type='button') 이전
-                button.btn.btn-success.col-md-offset-2.col-md-3(type='submit',ng-disabled='seller2.content.$invalid||seller2.menu_name.$invalid||seller2.price.$invalid||seller2.amount.$invalid||seller2.content.$invalid') 등록 완료
+                button#sub_res.btn.btn-success.col-md-offset-2.col-md-3(type='submit', disabled="disabled",title='올바른 메뉴 이름과 메뉴설명, 판매 가격,가용 수량을 입력하시고 하나이상의 재료를 입력해주세요.') 등록 완료
             p#submitmenufail
         footer
             .navbar
@@ -214,3 +208,4 @@ html(lang='en',ng-app="seller2")
                 }
             }
     script(src='../js/submit_menu.js')
+    script(src='../js/ingre_check.js')

@@ -288,7 +288,7 @@ Member.findOne({ 'naver.id': password }, function (err, member) {
     passport.use('signupgoogle',new GoogleStrategy({
         clientID: '284029061211-ebed54hk21ncv278oqod73b7hh9h2ueq.apps.googleusercontent.com',
         clientSecret: '_-uxloNCb8s8Or3RvUO8oC3o',
-        callbackURL: 'http://ec2-13-125-0-15.ap-northeast-2.compute.amazonaws.com:3000/gooupCallback',
+        callbackURL: 'http://foodiy.net/gooupCallback',
       },
         function(token, refreshToken, profile, done) {
           process.nextTick(function() {
@@ -328,7 +328,7 @@ Member.findOne({ 'naver.id': password }, function (err, member) {
         passport.use('logingoogle',new GoogleStrategy({
             clientID: '284029061211-ebed54hk21ncv278oqod73b7hh9h2ueq.apps.googleusercontent.com',
             clientSecret: '_-uxloNCb8s8Or3RvUO8oC3o',
-            callbackURL: 'http://ec2-13-125-0-15.ap-northeast-2.compute.amazonaws.com:3000/gooinCallback',
+            callbackURL: 'http://foodiy.net/gooinCallback',
           },
             function(token, refreshToken, profile, done) {
               process.nextTick(function() {
