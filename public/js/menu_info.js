@@ -37,9 +37,40 @@ function myMap(x,y) {
 function premessage(session){
     if(!session)
     {
-        alert(session)
+        //alert('로그인 해주세요');
+        $("#loginfail").html('로그인이 필요한 서비스입니다.');
+        $("#loginfail").css("color", "red");
+        $('#pop-up-login').modal('toggle');
         return false;
     }
     return true;
 }
 //google.maps.event.addDomListener(window, 'load', initialize);
+function comment(session){
+    if(session==='null')
+    {
+        $("#loginfail").html('로그인이 필요한 서비스입니다.');
+        $("#loginfail").css("color", "red");
+        $('#pop-up-login').modal('toggle');
+        return false;
+    }
+    var item = {
+        text: $("#comment").val(),
+        email: session,
+        menunum: $("#menunum").val()
+    };
+    $.ajax({
+        method: "POST",
+        type: "POST",
+        url: "/menu_info/comment",
+        data: item,
+        success: function (data) {
+            if (data == "clear") {
+                location.reload(true);
+            }
+            else {
+                alert(data);
+            }
+        }
+    });
+}

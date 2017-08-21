@@ -31,6 +31,10 @@ require('../config/passport')(passport);
 
 router.post('/',function (req, res, next) {
     var member=req.body.member;
+    if(!req.session.email)
+    {
+        return res.render('unusualroute',{error:"로그인이 필요합니다."});
+    }
     Conversation.findOne({from:req.session.email, to:member},function (err, conver) {
         if(!conver)
         {
@@ -67,7 +71,19 @@ router.get('/:id', function (req, res, next) {
     var connum=req.params.id;
     var memberemail;
     var i=0;
+    if(!req.session.email)
+    {
+        return res.render('unusualroute',{error:"로그인이 필요합니다."});
+    }
+    if(!connum)
+    {
+        return res.render('unusualroute',{error:"잘못된 경로입니다."});
+    }
     Conversation.findOne({_id:connum},function (err, conver) {
+        if(!conver)
+        {
+            return res.render('unusualroute',{error:"잘못된 경로입니다."});
+        }
         if (conver.to === req.session.email) {
             memberemail = conver.from;
             i = 1;
