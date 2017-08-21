@@ -262,7 +262,7 @@ Member.findOne({ 'naver.id': password }, function (err, member) {
     passport.use('loginnaver',new NaverStrategy({
         clientID: 'h_2lLJKUaqh6as1FYrpL',
         clientSecret: '7_PtqJ3R4o',
-        callbackURL: 'http://foodiy.net/:3000/navinCallback'
+        callbackURL: 'http://foodiy.net/navinCallback'
       },
         function(token, refreshToken, profile, done) {
           process.nextTick(function() {

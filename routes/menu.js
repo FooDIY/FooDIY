@@ -15,6 +15,7 @@ var async = require('async');
 //DB 모델
 var Member = require('../models/member');
 var Menu = require('../models/menu');
+var Comment = require('../models/comment');
 
 //패스포트 및 세션 유지
 var passport = require('passport');
@@ -24,14 +25,31 @@ app.use(passport.session()); //로그인 세션 유지
 require('../config/passport')(passport);
 
 router.get('/:id', function (req, res, next) {
-    Menu.findOne({_id:req.params.id},function (err, menu) {
+    var menunum=req.params.id;
+    Menu.findOne({_id:menunum},function (err, menu) {
         if(err) console.log(err);
         if(!menu) res.redirect("/");
         Member.findOne({email:menu.member_id},function (err, member) {
             if(err) console.log(err);
             if(!member) res.redirect("/");
-            res.render('menu_info',{session:req.session,menu:menu,member:member});
+            Comment.find({menu_id:menunum},function (err,comment) {
+                if(err) console.log(err);
+                res.render('menu_info',{session:req.session,menu:menu,member:member,number:menunum,comment:comment});
+            })
         })
+    });
+});
+router.post('/comment', function (req, res, next) {
+    var menu_id=req.body.menunum;
+    var email=req.body.email;
+    var text=req.body.text;
+    var newComment=new Comment;
+    newComment.menu_id=menu_id;
+    newComment.email=email;
+    newComment.text=text;
+    newComment.save(function (err) {
+        if(err) res.send('comment submit error!');
+        res.send('clear');
     });
 });
 /*router.get('/:id', function (req, res, next) {
