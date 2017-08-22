@@ -139,6 +139,7 @@ module.exports = function(passport,nev) {
           user.google.id=temp.google.id;
           user.google.token=temp.google.token;
           user.email=req.body.email;
+          user.provider='google';
           //console.log(user);
           temp.remove();
           user.save(function(err) {
@@ -184,6 +185,7 @@ Member.findOne({ 'naver.id': password }, function (err, member) {
       user.naver.id=temp.naver.id;
       user.naver.token=temp.naver.token;
       user.email=req.body.email;
+      user.provider='naver';
       //console.log(user);
       temp.remove();
       user.save(function(err) {
@@ -250,7 +252,6 @@ Member.findOne({ 'naver.id': password }, function (err, member) {
                 user.naver.token = accessToken;
                 user.naver.name = profile.displayName;
                 user.naver.email = profile.emails[0].value;
-                user.provider='naver';
                 user.save(function(err) {
                   if (err)
                     throw err;
@@ -317,7 +318,6 @@ Member.findOne({ 'naver.id': password }, function (err, member) {
                 user.google.token = token;
                 user.google.name = profile.displayName;
                 user.google.email = profile.emails[0].value;
-                user.provider='google';
                 user.save(function(err) {
                   if (err)
                     throw err;
