@@ -86,11 +86,11 @@ html(lang='en',ng-app="profile")
                                     i.glyphicon.glyphicon-lock
                                 input#password-s.form-control(type='password', placeholder='Password', name="pass", ng-required='true',
                                 ng-model='formdata.password', ng-pattern='/^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[~!@#$%^*+=-]).{8,20}$/')
-                                .alert.alert-warning(ng-show='signup.password.$error.pattern', role='alert')
+                                .alert.alert-warning(ng-show='signup.pass.$error.pattern', role='alert')
                                     | Input a combination of numbers and alphabet
                                     | between 8 and 20
                                 input#password2-s.form-control(type='password', placeholder='Confirm Password', name="pass2", ng-model='formdata.password2' confirm-password required/)
-                                .alert.alert-warning(ng-show='signup.password2.$error.passwordsIdentical', role='alert')
+                                .alert.alert-warning(ng-show='signup.pass2.$error.passwordsIdentical', role='alert')
                                     | Not Match.
                             .input-group-s
                                 span.input-group-addon
@@ -190,11 +190,11 @@ html(lang='en',ng-app="profile")
                 form#login_form.form-horizontal(action='')
                     .form-group
                         .real_content
-                            button#signup-google-l.signupgoogle.form-control
+                            button#signup-google-l.signupgoogle.form-control(type="button",onclick="location.href='/logingoogle'" formnovalidate)
                                 span
                                     img(src='../img/google_logo.png', alt='')
                                 p Login with google
-                            button#signup-facebook-l.signupfacebook.form-control
+                            button#signup-facebook-l.signupfacebook.form-control(type="button",onclick="location.href='/loginnaver'" formnovalidate)
                                 span
                                     img(src='../img/facebook_logo.png', alt='')
                                 p Login with facebook
@@ -237,17 +237,22 @@ html(lang='en',ng-app="profile")
     script(type='text/javascript', src='../js/topmenu.js')
     if(messageUp)
         script.
-            var modal_login = document.getElementById("pop-up-login");
-            modal_login.style.display = "block";
+            $('#pop-up-login').modal('show');
+            $('#pop-up-login').on('hide.bs.modal', function (e) {
+              location.replace('/');
+            });
             window.setTimeout(function(){
               $("#alert-messageUp").fadeTo(500,0).slideUp(500,function(){
                 $(this).remove();
               });
-            },3000) ;
+            },3000);
+            flag=0;
     if(messageIn)
         script.
-            var modal_sign = document.getElementById("pop-up-sign");
-            modal_sign.style.display = "block";
+            $('#modal_sign').modal('show'); 
+            $('#pop-up-sign').on('hide.bs.modal', function (e) {
+              location.replace('/');
+            });
             window.setTimeout(function(){
               $("#alert-messageIn").fadeTo(500,0).slideUp(500,function(){
                 $(this).remove();
@@ -257,7 +262,10 @@ html(lang='en',ng-app="profile")
         script.
             TempDel();
             var user=!{JSON.stringify(users)};
-            $("#pop-up-passport").css({ display: "block" });
+            $('#pop-up-passport').modal('show'); 
+            $('#pop-up-passport').on('hide.bs.modal', function (e) {
+              location.replace('/');
+            });
             $(function () {
             $('#id-p').val(user.id);
             $('#email-p').val(user.email);
