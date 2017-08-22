@@ -16,6 +16,14 @@ html(lang='en')
         script(src='../js/jquery.js')
         script(src='../js/jquery-ui-1.12.1/jquery-ui.js')
         script(type='text/javascript', src='../js/bootstrap.js')
+        script(type='text/javascript', src='../js/topmenu.js')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js')
+        script(type='text/javascript', src='../js/become_foodiy2.js')
+        script(src='https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js')
+        script(src='https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js')
+
+        //-formvalidator
+        
         style.
             footer .navbar {
                 overflow: hidden;
@@ -23,7 +31,6 @@ html(lang='en')
                 bottom: 0;
                 width: 100%;
             }
-    body
         nav.navbar.navbar-inverse(style='border: none; margin: 0;')
             .col-md-4.col-xs-4.col-sm-4(style='background-color: #fefefe; height: 60px;')
             .user_button.col-md-8.col-sm-8.col-xs-8
@@ -42,21 +49,28 @@ html(lang='en')
                     | FooDIY가 되어보세요
             h4(style='font-weight: bold; padding: 10px 40px; line-height: 28px; margin-bottom: 20px;') 복잡하고 자금이 많이 필요한 요식업을 FooDIY와 함께 집에서 간단하게 ! 매일 매일 흥미로운 사람들에게 여러분의 음식을 대접해보세요
             button.btn.btn-success(style='display: block; margin: auto;') 자세히 알아보기
-        form.col-md-12(action='/seller/submit_menu', method="post", enctype="multipart/form-data", style='padding: 0 300px; margin-top: 75px; z-index: 3')
+        form#nodap.col-md-12(name ='seller2', action='/seller/submit_menu', method="post", enctype="multipart/form-data", style='padding: 0 300px; margin-top: 75px; z-index: 3' ,role='alert')
             legend(style='font-weight: bold; margin-bottom: 40px;') Register Menu
             // <div style="float: right;">
             // <button type="button" class="btn btn-primary" style="height: 40px; margin-top: 37px;">본인 인증</button>
             // </div>
             label(for='menu_name', style='margin-bottom: 15px;') 메뉴 이름
             .input-group.col-md-5
-                input#menu_name.form-control.input-lg(type='text' name='menu_name')
+                input#menu_name.form-control.input-lg(type='text' name='menu_name' maxlength="30")
+                br
+                br
+                #name_alert.alert.alert-warning(hidden, role='alert')
+                    | form should not contain any special characters. (ex. !@#..)
             br
             br
             br
             br
             br
             label(for='menu_description', style='margin-bottom: 15px;') 메뉴 설명
-            textarea#menu_description.form-control(name='content', cols='30', rows='10')
+            .wrap
+              textarea#menu_description.form-control(name='content', cols='30', rows='10',maxlength="1000")
+              |
+              span#counter ###
             // <div class="input-group col-md-10">
             // <input type="text" class="form-control input-lg" id="menu_description">
             // </div>
@@ -74,22 +88,26 @@ html(lang='en')
             // </div>
             label(for='upload', style='margin-bottom: 15px') 메뉴 이미지
             #upload.row.m-b-1
-                .col-sm-6.offset-sm-3
+                .col-sm-3.offset-sm-3
                     .form-group.inputDnD
                         input#inputImg1.form-control-file.text-success.font-weight-bold(type='file', accept='image/*', name="menu_pic", onchange='readUrl(this)', data-title='Click or Drag')
-                        img#blah1(src="#" alt="your image" height="150px")
-                .col-sm-6.offset-sm-3
+                        button#buttonImg1(style="display: none;" onclick='imgClick1()' type='button')
+                            img#blah1(src="#" alt="your image" height="100px" style="display:none;")
+                .col-sm-3.offset-sm-3
                     .form-group.inputDnD
                         input#inputImg2.form-control-file.text-success.font-weight-bold(type='file', accept='image/*', name="menu_pic", onchange='readUrl(this)', data-title='Click or Drag')
-                        img#blah2(src="#" alt="your image" height="150px")
-                .col-sm-6.offset-sm-3
+                        button#buttonImg2(style="display: none;" onclick='imgClick2()' type='button')
+                            img#blah2(src="#" alt="your image" height="100px" style="display:none;")
+                .col-sm-3.offset-sm-3
                     .form-group.inputDnD
                         input#inputImg3.form-control-file.text-success.font-weight-bold(type='file', accept='image/*', name="menu_pic", onchange='readUrl(this)', data-title='Click or Drag')
-                        img#blah3(src="#" alt="your image" height="150px")
-                .col-sm-6.offset-sm-3
+                        button#buttonImg3(style="display: none;" onclick='imgClick3()' type='button')
+                            img#blah3(src="#" alt="your image" height="100px" style="display:none;")
+                .col-sm-3.offset-sm-3
                     .form-group.inputDnD
                         input#inputImg4.form-control-file.text-success.font-weight-bold(type='file', accept='image/*', name="menu_pic", onchange='readUrl(this)', data-title='Click or Drag')
-                        img#blah4(src="#" alt="your image" height="150px")
+                        button#buttonImg4(style="display: none;" onclick='imgClick4()' type='button')
+                            img#blah4(src="#" alt="your image" height="100px" style="display:none;")
             br
             br
             br
@@ -105,9 +123,9 @@ html(lang='en')
                         //div(style='margin-left: 50%;')
                             i.fa.fa-plus(style='font-size:45px; position: relative; z-index: 1; margin-top: 27px;')
                 .col-xs-offset-1.col-xs-5(style='margin-top: 11px;')
-                    input#ingre_name0.text-primary.form-control(type='text', name="ingre_name[]", placeholder='재료 이름')
+                    input#ingre_name0.text-primary.form-control(type='text', name="ingre_name[]", placeholder='재료 이름' )
                     input#ingre_from0.text-primary.form-control(type='text', name="madeby[]", placeholder='원산지', style='margin-top: 10px;')
-                button#ingresubmit0.btn.btn-primary.col-xs-1(type='button', style='margin-top: 15px; height: 70px;', onclick='selectFile();') 등록
+                button#ingresubmit0.btn.btn-primary.col-xs-1(type='button', title='올바른 재료이름과 원산지,이미지를 입력해주세요',style='margin-top: 15px; height: 70px;', onclick='selectFile();' ,disabled="disabled") 등록
                 button#ingrereset0.btn.btn-danger.col-xs-1(type='button', style='margin-top: 15px; height: 70px; margin-left: 15px;') 초기화
             span#ingre_fix
             br
@@ -118,6 +136,8 @@ html(lang='en')
             br
             br
             br
+            //- .alert.alert-warning(ng-show='seller2.ingre_name.$error.pattern', role='alert')
+            //-     | form should not contain any special characters. (ex. !@#..)
             br
             br
             label(for='ingre_img', style='margin-bottom: 15px;') 가격 및 설정
@@ -125,10 +145,10 @@ html(lang='en')
             .form-control(style='height: 80px;')
                 label.col-xs-3(for='ingre_img')
                     | 판매 가격(원)
-                    input.text-primary.form-control(type='text', name="price", style='margin-top: 10px;')
+                    input#price.text-primary.form-control(type='text', name="price", style = "text-align:right;")
                 label.col-xs-offset-1.col-xs-3(for='ingre_img')
                     | 가용 수량 (개)
-                    input.text-primary.form-control(type='number', name="amount", style='margin-top: 10px;')
+                    input#amount.text-primary.form-control(type='number', name="amount", style = "text-align:right;" )
                 //label.col-xs-offset-1.col-xs-3(for='ingre_img')
                     | 최소 주문일 (일)
                     input.text-primary.form-control(type='number', style='margin-top: 10px;')
@@ -168,7 +188,7 @@ html(lang='en')
                 hr
             div(style='margin-bottom: 100px;')
                 //button#pre_btn.btn.btn-success.col-md-offset-2.col-md-3(type='button') 이전
-                button.btn.btn-success.col-md-offset-2.col-md-3(type='submit') 등록 완료
+                button#sub_res.btn.btn-success.col-md-offset-2.col-md-3(type='submit', disabled="disabled",title='올바른 메뉴 이름과 메뉴설명, 판매 가격,가용 수량을 입력하시고 하나이상의 재료를 입력해주세요.') 등록 완료
             p#submitmenufail
         footer
             .navbar
@@ -192,4 +212,4 @@ html(lang='en')
                 }
             }
     script(src='../js/submit_menu.js')
-
+    script(src='../js/ingre_check.js')
