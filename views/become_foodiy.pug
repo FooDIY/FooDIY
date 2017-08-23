@@ -173,8 +173,8 @@ html(lang='en',ng-app="seller")
                         tr
                             th 상세주소
                             td
-                                input#addrDetail(type='text', style='width:40%', value='' name="add21" readonly, ng-model='add21', ng-required='true',ng-pattern='/^[가-힣a-zA-Z0-9]*$/')
-                                input#roadAddrPart2(type='text', style='width:40%', value='' name="add22" readonly, ng-model='add22', ng-required='true')
+                                input#addrDetail(type='text', style='width:40%', value='' name="add21" readonly, ng-model='add21', ng-required='true',ng-pattern='/^[가-힣a-zA-Z0-9]+[가-힣a-zA-Z0-9 ]*[가-힣a-zA-Z0-9]+$/',ng-maxlength=30)
+                                input#roadAddrPart2(type='text', style='width:40%', value='' name="add22" readonly, ng-model='add22')
                         .alert.alert-warning(ng-show='seller.add21.$error.pattern', role='alert')
                             | 잘못된 상세주소입니다
                         tr

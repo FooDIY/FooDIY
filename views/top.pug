@@ -39,11 +39,11 @@ html(lang='en',ng-app="profile")
                     button#main_qna Q&A
 
                     if(session.seller)
-                        button#main_signup(type="button", onclick="manage()") Manage Menu&nbsp
+                        button#main_signup(type="button", onclick="manage()") Manage Menu&nbsp&nbsp
                     else
                         button#main_signup(type="button", onclick="submitseller()") Be a foodiy&nbsp
                     if(session.email)
-                        button(type="button", onclick="LogOut()") Logout
+                        button(type="button", onclick="LogOut()") &nbsp&nbsp&nbsp&nbsp&nbsp&nbspLogout
                     else
                         span#main_signup(type='button', data-toggle='modal', data-target='#pop-up-sign') Sign up
                         span#main_login(type='button', data-toggle='modal', data-target='#pop-up-login') Login

@@ -123,14 +123,14 @@ html(lang='en')
                         ul(style='list-style-type: none ;')
                             li
                                 input(type='text', value=menu.price + '원 / 1회', readonly='')
-                            li
-                                input.datepicker(type='text', placeholder='년/월/일')
-                            li
-                                input(type='time', value='HH:mm')
-                            li
-                                span(style='margin-right: 4px;') 가능한 수량 #{menu.amount}개
-                                input(style='width: 50px;', type='text', value='수량', readonly='')
-                                input(style='width: 50px;', type='number')
+                            //- li
+                            //-     input.datepicker(type='text', placeholder='년/월/일')
+                            //- li
+                            //-     input(type='time', value='HH:mm')
+                            //- li
+                            //-     span(style='margin-right: 4px;') 가능한 수량 #{menu.amount}개
+                            //-     input(style='width: 50px;', type='text', value='수량', readonly='')
+                            //-     input(style='width: 50px;', type='number')
                             li
                                 button#message_btn.btn.btn-danger(type='submit', onclick="return premessage("+ session.email +")", style='width: 200px; margin-left: 12px;', data-toggle='modal', data-target='#pop-up-message', data-dismiss='modal') 메시지 보내기
                             li
@@ -221,4 +221,3 @@ html(lang='en')
     script(type='text/javascript', src='../js/main.js')
     script(type='text/javascript', src='../js/menu_info.js')
     script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBb0qeAa_KvAKAeoWRC1xl4BCH-iPN5ztc')
-
