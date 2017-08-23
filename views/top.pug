@@ -45,8 +45,8 @@ html(lang='en',ng-app="profile")
                     if(session.email)
                         button(type="button", onclick="LogOut()") &nbsp&nbsp&nbsp&nbsp&nbsp&nbspLogout
                     else
-                        span#main_signup(type='button', data-toggle='modal', data-target='#pop-up-sign') Sign up
-                        span#main_login(type='button', data-toggle='modal', data-target='#pop-up-login') Login
+                        button#main_signup(type='button', data-toggle='modal', data-target='#pop-up-sign') Sign up
+                        button#main_login(type='button', data-toggle='modal', data-target='#pop-up-login') Login
     article
 
 
@@ -57,15 +57,15 @@ html(lang='en',ng-app="profile")
                     .form-group
                         .real_content
                             p#signupfail
-                            .link_google_facebook
+                            .link_google_naver
                                 button#signup-google-s.link_othersignup.col-xs-6.col-sm-6.col-md-6.col-lg-6(type='button' onclick="location.href='/signupgoogle'" formnovalidate)
                                     span
                                         img(src='../img/google_logo.png', alt='')
                                     | google
-                                button#signup-facebook-s.link_othersignup.col-xs-6.col-sm-6.col-md-6.col-lg-6(type='button' onclick="location.href='/signupnaver'" formnovalidate)
+                                button#signup-naver-s.link_othersignup.col-xs-6.col-sm-6.col-md-6.col-lg-6(type='button' onclick="location.href='/signupnaver'" formnovalidate)
                                     span
-                                        img(src='../img/facebook_logo.png', alt='')
-                                    | facebook
+                                        img(src='../img/naver.png', alt='')
+                                    | naver
                             br
                             br
                             hr
@@ -164,8 +164,8 @@ html(lang='en',ng-app="profile")
                                 p Login with google
                             button#signup-facebook-l.signupfacebook.form-control(type=button,onclick="location.href='/loginnaver'")
                                 span
-                                    img(src='../img/facebook_logo.png', alt='')
-                                p Login with facebook
+                                    img(src='../img/naver.png', alt='')
+                                p Login with naver
                             hr
                             if(messageUp)
                               #alert-messageUp.alert.alert-danger(role='alert')=messageUp
@@ -194,10 +194,10 @@ html(lang='en',ng-app="profile")
                                 span
                                     img(src='../img/google_logo.png', alt='')
                                 p Login with google
-                            button#signup-facebook-l.signupfacebook.form-control(type="button",onclick="location.href='/loginnaver'" formnovalidate)
+                            button#signup-naver-l.signupnaver.form-control(type="button",onclick="location.href='/loginnaver'" formnovalidate)
                                 span
-                                    img(src='../img/facebook_logo.png', alt='')
-                                p Login with facebook
+                                    img(src='../img/naver_logo.png', alt='')
+                                p Login with naver
                             hr
                             if(messageUp)
                                 #alert-messageUp.alert.alert-danger(role='alert')=messageUp

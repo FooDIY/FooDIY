@@ -33,6 +33,19 @@ html(lang='en',ng-app="seller")
                 background-color: #333;
                 bottom: 0;
                 width: 100%;
+                color: #fefefe;
+            }
+
+            .col-xs-12 {
+                padding: 0 0 20px 0;
+            }
+
+            .col-xs-3 {
+                padding: 0;
+            }
+
+            .col-xs-2 {
+                padding: 4px 0;
             }
     body
         nav.navbar.navbar-inverse(style='border: none; margin: 0;')
@@ -119,11 +132,7 @@ html(lang='en',ng-app="seller")
                     input(type='radio', value='N', name='choice_sms')
                     |  동의 안함
             .img.col-md-5(style='margin-top: 20px;')
-                img.img-responsive(src='../img/cooking.PNG', alt='', style='height: 390px;')
-            br
-            br
-            br
-            br
+                img.img-responsive(src='../img/cooking.PNG', alt='', style='height: 290px;')
             br
             br
             br
@@ -154,41 +163,45 @@ html(lang='en',ng-app="seller")
                         i.fa.fa-search-plus(style='font-size: 20px;')
                     input#address2.form-control.input-lg(type='text', placeholder='Detail')
             form#juso(name='form', method='post')
-                table
-                    colgroup
-                        col(style='width:20%')
-                        col
-                    tbody
-                        tr
-                            th 우편번호
-                            td
-                                input#confmKey(type='hidden', name='confmKey', value='')
-                                input#zipNo(type='text', name='zipNo', readonly='', style='width:100px', ng-model='zipNo',ng-required='true')
-                                input(type='button', value='주소검색', onclick='goPopup();')
-                        tr
-                            th
-                                label 도로명주소
-                            td
-                                input#roadAddrPart1(type='text', style='width:85%' name="add1" readonly)
-                        tr
-                            th 상세주소
-                            td
-                                input#addrDetail(type='text', style='width:40%', value='' name="add21" readonly, ng-model='add21', ng-required='true',ng-pattern='/^[가-힣a-zA-Z0-9]+[가-힣a-zA-Z0-9 ]*[가-힣a-zA-Z0-9]+$/',ng-maxlength=30)
-                                input#roadAddrPart2(type='text', style='width:40%', value='' name="add22" readonly, ng-model='add22')
-                        .alert.alert-warning(ng-show='seller.add21.$error.pattern', role='alert')
-                            | 잘못된 상세주소입니다
-                        tr
-                            th 좌표정보
-                            td
-                                input#entX(type='text', style='width:40%', value='' name="y" ,ng-model='y',ng-required='true', readonly)
-                                input#entY(type='text', style='width:40%', value='' name="x" ,ng-model='x',ng-required='true', readonly)
-            div(style='padding: 0 70px; margin-top: 50px; margin-bottom: 50px;')
-                #map.form-control(style='height: 400px;')
-            div(style='margin-bottom: 30px;')
+                .col-xs-6(style='padding: 80px 20px;')
+                    .col-xs-12
+                        .col-xs-3(style='font-weight: bold;') 우편 번호
+                        input#confmKey(type='hidden', name='confmKey', value='')
+                        input#zipNo.input-sm.col-xs-6(type='text', name='zipNo', readonly='')
+                        input.btn.btn-primary.col-xs-2.col-xs-offset-1(type='button', value='검색', onclick='goPopup();',ng-model='zipNo',ng-required='true')
+                    .col-xs-12
+                        .col-xs-3(style='font-weight: bold;') 도로명 주소
+                        input#roadAddrPart1.input-sm.col-xs-9(type='text', name='add1', readonly='readonly')
+                    .col-xs-12
+                        .col-xs-3(style='font-weight: bold;') 상세 주소
+                        input#addrDetail.input-sm.col-xs-4(type='text', name='add21', readonly='readonly',ng-required='true',ng-pattern='/^[가-힣a-zA-Z0-9]+[가-힣a-zA-Z0-9 ]*[가-힣a-zA-Z0-9]+$/',ng-maxlength=30)
+                        input#roadAddrPart2.input-sm.col-xs-4.col-xs-offset-1(type='text', name='add22', readonly='readonly')
+                    .col-xs-12
+                        .col-xs-3(style='font-weight: bold;') 좌표 정보
+                        input#entX.input-sm.col-xs-4(type='text', value='', name='y', readonly='readonly')
+                        input#entY.input-sm.col-xs-4.col-xs-offset-1(type='text', value='', name='x', readonly='readonly')
+                #map.col-xs-6(style='height: 350px;')
+                br
+                br
+                br
+                br
+                br
+                br
+                br
+                br
+                br
+                br
+                br
+                br
+                br
+                br
+                br
+                br
+                br
+                br
                 hr
-            div(style='margin-bottom: 100px;')
-                //button.btn.btn-success.col-md-offset-2.col-md-3(type='submit') 저장
-                button#next_btn.btn.btn-success.col-md-offset-2.col-md-3(type='button', onclick="submitseller()", ng-disabled='seller.usertel.$invalid||seller.y.$invalid||seller.x.$invalid||seller.zipNo.$invalid||seller.add21.$invalid||seller.add22.$invalid') 등록
+            .col-xs-offset-4.col-xs-4(style='margin-top: 30px; margin-bottom: 30px;')
+                button#next_btn.btn.btn-success.col-md-12(type='button', style='height: 40px;', onclick='submitseller()', ng-disabled='seller.usertel.$invalid||seller.y.$invalid||seller.x.$invalid||seller.zipNo.$invalid||seller.add21.$invalid||seller.add22.$invalid') 판매자 신청하기
             p#signupfail
         footer
             .navbar
