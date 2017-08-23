@@ -56,7 +56,7 @@ var uploadMenu=multer({storage:Menu_storage});
 var fs = require('fs');
 
 function logincheck (req,res,next) {
-    if(!req.session.passport)
+    if(!req.session.email)
     {
         res.redirect('/seller');
     }
@@ -70,7 +70,7 @@ function logincheck (req,res,next) {
     }
 }
 function sellercheck (req,res,next) {
-    if(!req.session.passport)
+    if(!req.session.email)
     {
         res.redirect('/seller');
     }
@@ -92,6 +92,9 @@ router.get('/', function(req, res, next) {
      res.redirect('/');
      }*/
     res.render('login_in');
+});
+router.get('/sign_up', function(req, res, next) {
+    res.render('sign_up');
 });
 router.get('/manage' ,logincheck,function(req, res, next) {
     Member.findOne({ email : req.session.email }, function(err, member) {
@@ -253,6 +256,7 @@ router.post('/submit_menu', uploadMenu.fields([{name:'menu_pic'},{name:'ingre_pi
 router.get('/submit_seller', sellercheck, function(req, res, next) {
     res.render('become_foodiy');
 });
+
 router.post('/submit_seller', function(req, res, next) {
     var choice_mail=req.body.choice_mail;
     var tell=req.body.tell;

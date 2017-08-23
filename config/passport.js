@@ -44,6 +44,7 @@ module.exports = function(passport,nev) {
                     user.firstname=req.body.firstname;
                     user.lastname=req.body.lastname;
                     user.email = email;
+                    user.provider='local';
                     user.pw = user.generateHash(password);
                     //user.submit_date = new Date();
                     var usercheck=new cert();
@@ -137,6 +138,8 @@ module.exports = function(passport,nev) {
           user.lastname=req.body.lastname;
           user.google.id=temp.google.id;
           user.google.token=temp.google.token;
+          user.email=req.body.email;
+          user.provider='google';
           //console.log(user);
           temp.remove();
           user.save(function(err) {
@@ -181,6 +184,8 @@ Member.findOne({ 'naver.id': password }, function (err, member) {
       user.lastname=req.body.lastname;
       user.naver.id=temp.naver.id;
       user.naver.token=temp.naver.token;
+      user.email=req.body.email;
+      user.provider='naver';
       //console.log(user);
       temp.remove();
       user.save(function(err) {
@@ -209,6 +214,8 @@ Member.findOne({ 'naver.id': password }, function (err, member) {
                     return done(err);
                 if (!user)
                     return done(null, false, {error:'이메일 에러'});
+                if (!(user.provider==='local'))
+                    return done(null, false, {error:'타사연동으로 가입된 회원입니다. 위 버튼을 이용해서 로그인해주세요'});
                 if (!user.validPassword(password))
                     return done(null, false, {error:'패스워드 에러'});
                 if (!user.is_certificate)

@@ -41,7 +41,8 @@ var MemberSchema = new Schema({
     submit_date:{ type: Date, default: moment().format()  },
     last_login:Date,
     last_login_ip:String,
-    is_certificate:{type:Boolean,default:false}
+    is_certificate:{type:Boolean,default:false},
+    provider:String
 });
 
 

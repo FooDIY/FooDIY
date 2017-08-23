@@ -39,7 +39,6 @@ function signuptemp(val) {
                 location.href = "/";
             }
             else {
-                alert(data);
                 location.href = "/";
             }
         }
@@ -109,7 +108,37 @@ function LoginCheck(val) {
             if (data == "clear") {
                 location.reload(true);
             }
-            else if(data==="이메일 에러"||data==="패스워드 에러")
+            else if(data==="이메일 에러"||data==="패스워드 에러"||data==="타사연동으로 가입된 회원입니다. 위 버튼을 이용해서 로그인해주세요")
+            {
+                $("#loginfail").html(data);
+                $("#loginfail").css("color", "red");
+            }
+            else {
+                $("#reconfirmtext").html("미 인증된 메일입니다. 인증 확인 후 로그인 해 주세요.");
+                $("#reconfirmbutton").show();
+                email=item.email;
+                $('#mail_confirm').modal('toggle');
+                $('#pop-up-login').modal('toggle');
+            }
+        }
+    });
+}
+function SubLoginCheck(val) {
+    //var snum=document.getElementsById("snum").value;
+    var item = {
+        email: val.email.value,
+        password: val.pass.value
+    };
+    $.ajax({
+        method: "POST",
+        type: "POST",
+        url: "/login",
+        data: item,
+        success: function (data) {
+            if (data == "clear") {
+                location.replace('/seller/submit_seller');
+            }
+            else if(data==="이메일 에러"||data==="패스워드 에러"||data==="타사연동으로 가입된 회원입니다. 위 버튼을 이용해서 로그인해주세요")
             {
                 $("#loginfail").html(data);
                 $("#loginfail").css("color", "red");
@@ -150,6 +179,9 @@ function submitseller() {
 }
 function manage() {
     location.href="/seller/manage";
+}
+function seller_signup() {
+    location.href="/seller/sign_up";
 }
 function tologin(){
     $('#mail_confirm').modal('toggle');
