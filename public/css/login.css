@@ -110,28 +110,27 @@
 .signupgoogle p{
     margin-top:3px;
 }
-.signupfacebook{
-    background-color: #3C5A99;
+.signupnaver{
+    background-color: #1DC800;
     color: white;
     height: 45px;
     font-size: 18px;
     border-radius: 8px;
+    border-color: #1DC800;
 }
 
-.signupfacebook img{
-    width: 30px;
-    height:30px;
+.signupnaver img{
+    width: 35px;
+    height:35px;
     float: left;
+    margin-left: 3px;
 }
 
-.signupfacebook p{
+.signupnaver p{
     margin-top:4px;
 }
 .form-group{
     border-radius: 50px;
-}
-.link_google_facebook{
-    /*margin-bottom:40px;*/
 }
 /* signup-form */
 
