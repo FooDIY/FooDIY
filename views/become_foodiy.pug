@@ -168,13 +168,13 @@ html(lang='en',ng-app="seller")
                         .col-xs-3(style='font-weight: bold;') 우편 번호
                         input#confmKey(type='hidden', name='confmKey', value='')
                         input#zipNo.input-sm.col-xs-6(type='text', name='zipNo', readonly='')
-                        input.btn.btn-primary.col-xs-2.col-xs-offset-1(type='button', value='검색', onclick='goPopup();')
+                        input.btn.btn-primary.col-xs-2.col-xs-offset-1(type='button', value='검색', onclick='goPopup();',ng-model='zipNo',ng-required='true')
                     .col-xs-12
                         .col-xs-3(style='font-weight: bold;') 도로명 주소
                         input#roadAddrPart1.input-sm.col-xs-9(type='text', name='add1', readonly='readonly')
                     .col-xs-12
                         .col-xs-3(style='font-weight: bold;') 상세 주소
-                        input#addrDetail.input-sm.col-xs-4(type='text', name='add21', readonly='readonly')
+                        input#addrDetail.input-sm.col-xs-4(type='text', name='add21', readonly='readonly',ng-required='true',ng-pattern='/^[가-힣a-zA-Z0-9]+[가-힣a-zA-Z0-9 ]*[가-힣a-zA-Z0-9]+$/',ng-maxlength=30)
                         input#roadAddrPart2.input-sm.col-xs-4.col-xs-offset-1(type='text', name='add22', readonly='readonly')
                     .col-xs-12
                         .col-xs-3(style='font-weight: bold;') 좌표 정보

@@ -43,6 +43,7 @@ function imgClick1(){
   $("#inputImg1").show();
   $("#inputImg1").attr('data-title', 'Click or Drag');
   $("#inputImg1").val('');
+  alert('선택하신 이미지가 취소됐습니다.')
 }
 function imgClick2(){
   $("#buttonImg2").css('display','none')
@@ -51,6 +52,7 @@ function imgClick2(){
   $("#inputImg2").show();
   $("#inputImg2").attr('data-title', 'Click or Drag');
   $("#inputImg2").val('');
+  alert('선택하신 이미지가 취소됐습니다.')
 }
 function imgClick3(){
   $("#buttonImg3").css('display','none')
@@ -59,6 +61,7 @@ function imgClick3(){
   $("#inputImg3").show();
   $("#inputImg3").attr('data-title', 'Click or Drag');
   $("#inputImg3").val('');
+  alert('선택하신 이미지가 취소됐습니다.')
 }
 function imgClick4(){
   $("#buttonImg4").css('display','none')
@@ -67,6 +70,7 @@ function imgClick4(){
   $("#inputImg4").show();
   $("#inputImg4").attr('data-title', 'Click or Drag');
   $("#inputImg4").val('');
+  alert('선택하신 이미지가 취소됐습니다.')
 
 }
 function readURL1(input) {
@@ -148,14 +152,15 @@ $(document).ready(function() {
       var mdes_flag;
       var mprice_flag;
       var mamount_flag;
-      var mname_pattern=/^[가-힣a-zA-Z0-9]*$/;
+      // (([가-힣a-zA-Z0-9]+[가-힣a-zA-Z0-9 ]*[가-힣a-zA-Z0-9]+)|([가-힣a-zA-Z0-9]))
+      var mname_pattern=/^(([가-힣a-zA-Z0-9]+[가-힣a-zA-Z0-9 ]*[가-힣a-zA-Z0-9]+)|([가-힣a-zA-Z0-9]+))$/;
       var mprice_pattern=/^([1-9]+[0-9]*|[1-9]+)$/;
       var mamount_pattern=/^([1-9]|[1-9][0-9]|[1-9][0-9][0-9])$/;
 
 
       $('#menu_name').on('keyup', function () {
-      var value=$.trim($('#menu_name').val());
-      if(mname_pattern.test(value) && value.length>0)
+      var value=$('#menu_name').val();
+      if(mname_pattern.test(value) && value.length>0 && value.length<30)
       {
         $('#menu_name').css('border', 'solid 1px green');
         mname_flag=1;
@@ -183,7 +188,7 @@ $(document).ready(function() {
 
       $('#price').on('keyup', function () {
       var value=$.trim($('#price').val());
-      if(mprice_pattern.test(value) && value.length>0)
+      if(mprice_pattern.test(value) && value.length>0 && value.length<8)
       {
         $('#price').css('border', 'solid 1px green');
         mprice_flag=1;
@@ -196,7 +201,7 @@ $(document).ready(function() {
 
     $('#amount').on('keyup', function () {
     var value=$.trim($('#amount').val());
-    if(mamount_pattern.test(value) && value.length>0)
+    if(mamount_pattern.test(value) && value.length>0 && value.length<4)
     {
       $('#amount').css('border', 'solid 1px green');
       mamount_flag=1;
