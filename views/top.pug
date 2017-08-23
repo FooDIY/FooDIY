@@ -113,7 +113,7 @@ html(lang='en',ng-app="profile")
                                                         signup.email.$invalid  ')
 
 
-        #pop-up-passport.signupform.container-fluid(style="display:none;")
+        #pop-up-passport.signupform.container-fluid.modal.fade
             .signup-content
                 form#passup_form.form-horizontal(name='passup', action='', role='form')
                     .form-group
@@ -237,6 +237,7 @@ html(lang='en',ng-app="profile")
     script(type='text/javascript', src='../js/topmenu.js')
     if(messageUp)
         script.
+            $(document).ready(function(){
             $('#pop-up-login').modal('show');
             $('#pop-up-login').on('hide.bs.modal', function (e) {
               location.replace('/');
@@ -246,10 +247,11 @@ html(lang='en',ng-app="profile")
                 $(this).remove();
               });
             },3000);
-            flag=0;
+            });
     if(messageIn)
         script.
-            $('#modal_sign').modal('show'); 
+            $(document).ready(function(){
+            $('#pop-up-sign').modal('show'); 
             $('#pop-up-sign').on('hide.bs.modal', function (e) {
               location.replace('/');
             });
@@ -258,8 +260,10 @@ html(lang='en',ng-app="profile")
                 $(this).remove();
               });
             },3000) ;
+            });
     if(session.temp)
         script.
+            $(document).ready(function(){
             TempDel();
             var user=!{JSON.stringify(users)};
             $('#pop-up-passport').modal('show'); 
@@ -272,4 +276,4 @@ html(lang='en',ng-app="profile")
             $('#provider-p').val(user.provider);
             $("#email-p").prop("readonly", true);
             });
-    
+            });
