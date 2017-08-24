@@ -11,13 +11,43 @@ html(lang='en')
         link(rel='stylesheet', href='../css/menu_list.css')
         link(rel='stylesheet', href='../css/font-awesome.min.css')
         link(rel='stylesheet', href='../js/jquery-ui-1.12.1/jquery-ui.css')
+        link(rel='stylesheet', href='../css/manage_menu.css')
+        link(rel='stylesheet', href='../css/manage_msg.css')
+        link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
         style.
             .payment_box ul li{
                 margin-bottom:10px;
             }
     body
-        .payment_box.col-xs-3(style='height: 100%; border: 2px solid black; margin-top: 115px; padding: 0;')
-            img(src='../img/temp_logo.jpg', alt='', style='height: 180px; width: 180px; display: block; margin: auto; border-radius: 50%; margin-top: 40px;')
+        include seller_top
+        article.col-md-10
+          .message_table
+            .header Message
+            table(cellspacing='0')
+                tr
+                  th(width='150') 구매자
+                  th(width='150') 메뉴
+                  th(width='300') 내용
+                  th(width='150') 보낸 시간
+                  //원래는 식사일시
+                  th(width='150') 금액/상태
+                each item in conver
+                    tr(style = 'cursor:pointer;', onclick="location.href='/message/"+item.id+"';")
+                      td
+                        img(src='http://lorempixel.com/100/100/people/1', alt='')
+                        br
+                        span=item.from
+                      td 생일상
+                      td=item.top_message
+                      td
+                        time=item.msg_priority
+                      td
+                    
+                        
+
+
+        //- .payment_box.col-xs-3(style='height: 100%; border: 2px solid black; margin-top: 115px; padding: 0;')
+        //-     img(src='../img/temp_logo.jpg', alt='', style='height: 180px; width: 180px; display: block; margin: auto; border-radius: 50%; margin-top: 40px;')
             //div(style='background-color: darkorange; border-top: 2px solid black; border-bottom:2px solid black; height: 40px; text-align: center; margin-top: 30px;')
                 h4 메뉴세부정보
             //ul(style='margin : 40px 0; list-style-type: none; text-align: center;')
@@ -28,36 +58,36 @@ html(lang='en')
                 h4 총 금액 : 16,500
             //div(style='background-color: #2ECC71;; border-top: 2px solid black; height: 40px; text-align: center;')
                 h4 예약 승인 대기 중
-        section
-            .chat
-                ul
-                    li.other
-                        form()
-                            //textarea#content.message.col-md-12.col-sm-12.col-xs-12(name='content', rows='5', style='margin-right: 0; margin-bottom: 10px; ')
-                            //input#myname(type='hidden', value=session.email, name='myname')
-                            //input#connum(type='hidden', value=connum, name='connum')
-                            //button#message-button.btn.btn-primary(type='button',  style='float: right;') 전송
-                    br
-                    br
-                    br
-                    br
-                    br
-                    br
-                    br
-                    br
-                    br
-                    br
-                    br
-                    .j-message
-                        each item in conver
-                            li.other
-                                a.user(rel='nofollow', href='/message/'+item.id)
-                                    img(alt='', src='../img/google_logo.png')
-                                .date
-                                    =item.from
-                                .message
-                                    p
-                                        =item.to
+        //- section
+        //-     .chat
+        //-         ul
+        //-             li.other
+        //-                 form()
+        //-                     //textarea#content.message.col-md-12.col-sm-12.col-xs-12(name='content', rows='5', style='margin-right: 0; margin-bottom: 10px; ')
+        //-                     //input#myname(type='hidden', value=session.email, name='myname')
+        //-                     //input#connum(type='hidden', value=connum, name='connum')
+        //-                     //button#message-button.btn.btn-primary(type='button',  style='float: right;') 전송
+        //-             br
+        //-             br
+        //-             br
+        //-             br
+        //-             br
+        //-             br
+        //-             br
+        //-             br
+        //-             br
+        //-             br
+        //-             br
+        //-             .j-message
+        //-                 each item in conver
+        //-                     li.other
+        //-                         a.user(rel='nofollow', href='/message/'+item.id)
+        //-                             img(alt='', src='../img/google_logo.png')
+        //-                         .date
+        //-                             =item.from
+        //-                         .message
+        //-                             p
+        //-                                 =item.to
                         //li.other
                             a.user(rel='nofollow', href='#')
                                 img(alt='', src='../img/google_logo.png')

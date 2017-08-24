@@ -14,7 +14,7 @@ function postit(val) {
         }
     });
 }
-var serverURL = '210.125.146.143:3001';
+var serverURL = '192.168.0.5:3001';
 var session  = $('#myname').val();
 var connum = $('#connum').val();
 $(document).ready(function()
@@ -63,4 +63,3 @@ $(document).ready(function()
         $(html).appendTo('.j-message');
     }
 });
-
