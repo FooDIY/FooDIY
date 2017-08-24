@@ -20,6 +20,11 @@ html(lang='en')
                 margin-bottom: 10px;
             }
 
+            p{
+                margin:0;
+                padding:10px 0;
+            }
+
             .messageform {
                 padding-top: 150px;
             }
@@ -62,62 +67,66 @@ html(lang='en')
                             span.sr-only Next
             .container.menu_info
                 .col-xs-9
-                    .col-xs-12
-                        .foodiy_info
-                            .col-xs-2
-                                img(src='https://thumb1.shutterstock.com/display_pic_with_logo/1699708/398677477/stock-vector-woman-user-smartphone-design-flat-computer-user-icon-social-media-web-user-phone-web-phone-398677477.jpg', alt='', style='width: 50px; height: 50px; display: block; margin: auto; border-radius: 50%')
-                                p(style='text-align: center')=member.firstname+" "+member.lastname
-                            div(style='margin-top: 8px;')
-                                p=member.firstname+"의 "+menu.menu_name
-                                small(style='color: grey;')
-                                    p= member.address.add1
-                                br
-                    .col-xs-12
-                        .detail_info(style='border: solid 1px black;')
-                            p
-                            | 상세 설명
+                    .col-xs-12(style='margin-bottom:50px;')
+                        .col-xs-2
+                            img(src='https://thumb1.shutterstock.com/display_pic_with_logo/1699708/398677477/stock-vector-woman-user-smartphone-design-flat-computer-user-icon-social-media-web-user-phone-web-phone-398677477.jpg', alt='', style='width: 70px; height: 70px; display: block; margin: auto; border-radius: 50%')
+                            p(style='text-align: center')=member.firstname+" "+member.lastname
+                        div.col-xs-10(style='margin-top: 8px;')
+                            p(style='font-size:20px;')=member.firstname+"의 "+menu.menu_name
+                            small(style='color: grey;')
+                                =member.address.add1
                             br
-                            |                 -&nbsp
+                            hr
+                    .col-xs-12
+                        p.title_name
+                            | 상세 설명
+                        p(style='padding:10px 30px;')
                             =menu.content
-                        .detail_info(style='border: solid 1px black;')
-                            p
-                                | 재료 설명
-                                br
-                                - for (var i=0;i<menu.ingre.length;i++)
-                                    .ingre-list.col-md-12
-                                        - var k=i
-                                        - for (var j=k;j<=k+2;j++)
-                                            if(j === menu.ingre.length)
-                                                - i=menu.ingre.length
-                                                - break
-                                            if(j === k)
-                                                .col-md-3
-                                                    img(src=menu.ingre[j].ingre_url, alt='', width=100, height=60)
-                                                    p
-                                                        |원산지 :&nbsp
-                                                        =menu.ingre[j].madeby
-                                                    p
-                                                        |재료명 :&nbsp
-                                                        =menu.ingre[j].ingre_name
-                                            else
-                                                .col-md-offset-1.col-md-3
-                                                    img(src=menu.ingre[j].ingre_url, alt='', width=100, height=60)
-                                                    p
-                                                        | 원산지 :&nbsp
-                                                        =menu.ingre[j].madeby
-                                                    p
-                                                        | 재료명 :&nbsp
-                                                        =menu.ingre[j].ingre_name
-                                            - i=j
-                        //.detail_info(style='border: solid 1px black;')
-                            p
-                                | 식사 장소
-                                br
-                                |                 사진 사진 사진
-                        .detail_info(style='border: solid 1px black;')
-                            p
-                                | 위치
-                            #map.form-control(style='height: 400px;')
+                        hr
+                        p.title_name
+                            | 재료 설명
+                            - for (var i=0;i<menu.ingre.length;i++)
+                                .ingre-list.col-md-12
+                                    - var k=i
+                                    - for (var j=k;j<=k+2;j++)
+                                        if(j === menu.ingre.length)
+                                            - i=menu.ingre.length
+                                            - break
+                                        if(j === k)
+                                            .col-md-3
+                                                img(src=menu.ingre[j].ingre_url, alt='', width=100, height=60)
+                                                p.first
+                                                    | 재료명 :&nbsp
+                                                    =menu.ingre[j].ingre_name
+                                                p
+                                                    | 원산지 :&nbsp
+                                                    =menu.ingre[j].madeby
+                                        else
+                                            .col-md-offset-1.col-md-3
+                                                img(src=menu.ingre[j].ingre_url, alt='', width=100, height=60)
+                                                p.first
+                                                    | 재료명 :&nbsp
+                                                    =menu.ingre[j].ingre_name
+                                                p
+                                                    | 원산지 :&nbsp
+                                                    =menu.ingre[j].madeby
+                                        - i=j
+                        br
+                        br
+                        br
+                        br
+                        br
+                        br
+                        hr
+                        p.title_name
+                            | 위치
+                        #map.form-control(style='height: 400px;')
+
+                        //p.title_name
+                            | 식사 장소
+                            br
+                            |                 사진 사진 사진
+
                 .payment_box.col-xs-3
                     form(action="/message", method="post")
                         ul(style='list-style-type: none ;')
@@ -191,30 +200,7 @@ html(lang='en')
                             a(href='#') 길세현
                         time 5 minutes ago
                         p 아.. 진짜 여기 맛있었는데 또 가고 싶은데 코딩하느라 바빠서 시간이 없네요ㅠㅠ 김기영 ㄳㄲ..
-                #disqus_thread.col-md-9
-                //script.
-                    (function() { // DON'T EDIT BELOW THIS LINE
-                        var d = document, s = d.createElement('script');
-                        s.src = 'https://www-difdudn-com.disqus.com/embed.js';
-                        s.setAttribute('data-timestamp', +new Date());
-                        (d.head || d.body).appendChild(s);
-                    })();
-                noscript
-                    | Please enable JavaScript to view the
-                    a(href='https://disqus.com/?ref_noscript') comments powered by Disqus.
-        // Start of Tawk.to Script
-        script(type='text/javascript').
-            var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-            (function(){
-                var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-                s1.async=true;
-                s1.src='https://embed.tawk.to/5967de6a6edc1c10b0345e4b/default';
-                s1.charset='UTF-8';
-                s1.setAttribute('crossorigin','*');
-                s0.parentNode.insertBefore(s1,s0);
-            })();
-        // End of Tawk.to Script
-        script#dsq-count-scr(src='//www-difdudn-com.disqus.com/count.js', async='')
+
     script(src='../js/jquery.js')
     script(src='../js/jquery-ui-1.12.1/jquery-ui.js')
     script(type='text/javascript', src='../js/bootstrap.js')

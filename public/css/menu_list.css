@@ -45,6 +45,7 @@ img {
     right: 0;
     width: 34%;
     height: 100%;
+    z-index: 99;
 }
 
 /*#mapholder{*/

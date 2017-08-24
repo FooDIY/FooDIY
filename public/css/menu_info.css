@@ -53,5 +53,14 @@ header{
 }
 
 .menu_info{
-    margin-top:30px;
+    margin-top:220px;
+}
+
+.title_name{
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.first{
+    padding-bottom:0;
 }

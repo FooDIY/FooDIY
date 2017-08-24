@@ -18,7 +18,7 @@ html(lang='en',ng-app="profile")
         #header_container.container
             form#header_content.container-fluid(action='#')
                 a(href='/')
-                    img(src='../img/temp_logo.jpg', alt='', style='height: 50px; width: 70px;')
+                    img(src='../img/foodiylogo.gif', alt='', style='height: 50px; width: 200px; margin-right: 30px;')
                 input.input-sm(type='text', placeholder='Where', style='width: 250px;')
                 input.datepicker.input-sm(type='text', placeholder='When')
                 select.input-sm
@@ -36,17 +36,33 @@ html(lang='en',ng-app="profile")
                     option(value='') 5   Guest
                     option(value='') 6+ Guest
                 .header_right
-                    button#main_qna Q&A
+
+                    button.btn.btn-default(type='button') 도움말
 
                     if(session.seller)
-                        button#main_signup(type="button", onclick="manage()") Manage Menu&nbsp&nbsp
+                        button.btn.btn-default(type="button", onclick="manage()") 메뉴 관리&nbsp&nbsp
                     else
-                        button#main_signup(type="button", onclick="submitseller()") Be a foodiy&nbsp
+                        button.btn.btn-default(type="button", onclick="submitseller()") 판매자 신청&nbsp
                     if(session.email)
-                        button(type="button", onclick="LogOut()") &nbsp&nbsp&nbsp&nbsp&nbsp&nbspLogout
+                        span.dropdown
+                            button.btn.btn-default.dropdown-toggle(type='button' data-toggle='dropdown')
+                                i.fa.fa-user-o
+                                |   내 정보&nbsp
+                                span.caret
+                            ul.dropdown-menu
+                                li
+                                    button.btn.btn-default(type="button", onclick="", style="margin-top:14px;") Profile
+                                hr
+                                li
+                                    button.btn.btn-default(type="button", onclick="") Message
+                                hr
+                                li
+                                    button.btn.btn-default(type="button", onclick="LogOut()") Logout
+                            //i.fa.fa-angle-down
+                        //button.btn.btn-default(type="button", onclick="LogOut()") Logout
                     else
-                        button#main_signup(type='button', data-toggle='modal', data-target='#pop-up-sign') Sign up
-                        button#main_login(type='button', data-toggle='modal', data-target='#pop-up-login') Login
+                        button#main_signup(type='button', data-toggle='modal', data-target='#pop-up-sign') 회원 가입
+                        button#main_login(type='button', data-toggle='modal', data-target='#pop-up-login') 로그인
     article
 
 
