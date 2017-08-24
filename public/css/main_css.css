@@ -12,6 +12,13 @@ header{
 .header_right button{
     background-color: white;
     border:solid 0 white;
+    font-size: 18px;
+    padding:0;
+    margin: 6px 20px;
+}
+
+.header_right button:hover{
+    background-color: white;
 }
 
 #header_content .input-sm{
@@ -39,4 +46,19 @@ header{
 
 #main_login, #main_signup, #main_become{
     margin-left:40px;
+}
+
+.dropdown-menu{
+    z-index: 100;
+    width:12%;
+    height: 238px;
+    position: fixed;
+    overflow: hidden;
+    top:81px;
+    left:88%;
+}
+
+.dropdown-menu button{
+    margin:0;
+    padding: 6px 60% 6px 20%;
 }
