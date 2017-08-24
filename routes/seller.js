@@ -12,6 +12,7 @@ app.use(bodyParser.json());
 var Member = require('../models/member');
 var Menu = require('../models/menu');
 var Conversation = require('../models/conversation');
+var Message = require('../models/message');
 
 //세션
 var session=require('express-session');
@@ -329,10 +330,41 @@ router.get('/juso', function(req, res, next) {
 });
 router.get('/message_list', function(req, res, next) {
     Conversation.find({to:req.session.email},function (err, conver) {
-        console.log(conver);
-        res.render('message_list',{conver:conver});
+      var temp_arr=new Array();
+      var i=0;
+      make_Marray(conver,i,temp_arr,function(temp_arr){
+          res.render('message_list',{conver:temp_arr});
+      });
     });
 });
+//대화검색
+//찾은 대화 기반으로 make_Marray 이용해서 가장 최근에 온 메세지를 찾음.
+//콜백때문에 재귀적으로 구현했고 대화별로 최근에 도착한 메세지 객체 구열하고 배열에 푸시한뒤에
+//정렬한 뒤에 전달해줌. (가장 최근 대화가 이뤄진 대화가 가장 맨위에 위치할수있도록)
+//비효율적임,그러나 디비무결성때문에 고민하는중 토의필요
+function make_Marray(conver,i,temp_arr,callback){
+  if(i<conver.length)
+  {
+    Message.findOne({from:conver[i].from}).sort('-time_created').exec(function(err,msg){
+      var temp={
+        id:conver[i]._id,
+        to:conver[i].to,
+        from:conver[i].from,
+        top_message:msg.content,
+        msg_priority:msg.time_created
+      };
+      temp_arr.push(temp);
+      i++
+      make_Marray(conver,i,temp_arr,callback);
+    });
+  }
+  else {
+    temp_arr.sort(function(a,b){
+      return a.msg_priority>b.msg_priority?-1:a.msg_priority<b.msg_priority?1:0;
+    });
+    callback(temp_arr);
+  }
+}
 router.get('/message/:id', function(req, res, next) {
     Conversation.find({to:req.session.email},function (err, conver) {
         console.log(conver);
