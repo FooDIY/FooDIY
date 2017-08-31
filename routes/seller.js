@@ -328,7 +328,7 @@ router.post('/jusoPopup', function(req, res, next) {
 router.get('/juso', function(req, res, next) {
     res.render('jusoindex');
 });
-router.get('/message_list', function(req, res, next) {
+router.get('/message_list',logincheck, function(req, res, next) {
     Conversation.find({to:req.session.email},function (err, conver) {
       var temp_arr=new Array();
       var i=0;
@@ -345,7 +345,13 @@ router.get('/message_list', function(req, res, next) {
 function make_Marray(conver,i,temp_arr,callback){
   if(i<conver.length)
   {
-    Message.findOne({from:conver[i].from}).sort('-time_created').exec(function(err,msg){
+    Message.findOne({conver_id:conver[i]._id}).sort('-time_created').exec(function(err,msg){
+      if(!msg)
+      {
+        i++;
+        make_Marray(conver,i,temp_arr,callback);
+      }
+      else{
       var temp={
         id:conver[i]._id,
         to:conver[i].to,
@@ -356,6 +362,7 @@ function make_Marray(conver,i,temp_arr,callback){
       temp_arr.push(temp);
       i++
       make_Marray(conver,i,temp_arr,callback);
+    }
     });
   }
   else {
