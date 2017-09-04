@@ -17,7 +17,8 @@ var randomstring = require("randomstring");
 var Member = require('../models/member');
 var Menu = require('../models/menu');
 var cert = require('../models/certificate');
-
+var Message = require('../models/message')
+var Conversation = require('../models/conversation');
 
 var passport = require('passport');
 
@@ -290,4 +291,58 @@ router.get('/email-verification/:URL', function(req, res){
         }
     });
 });
+router.post("/msg_check",function (req,res,next) {
+  if(req.session.email)
+  {
+  Message.find({$and:[{to:req.session.email},{checked:false}]},function(err,msg){
+    if(err)
+      return res.send('error');
+    if(msg.length<=0){
+      console.log('nomessage');
+      return res.send('nomessage');
+    }
+    else {
+      console.log(msg);
+      console.log(msg.length);
+      return res.send((msg.length).toString());
+    }
+
+  });
+}
+});
+// router.post("/msg_check",function (req,res,next) {
+//   var i=0;
+//   var sum=0;
+//   var j;
+//   var membermail;
+//   Conversation.find({to:req.session.email},function(err,msg){
+//     console.log(msg);
+//     msg_Count(msg,i,sum,function(count){
+//       console.log(count);
+//       n=count.toString();
+//       res.send(n);
+//     });
+//   });
+// });
+// function msg_Count(msg,i,count,callback){
+//   if(i<msg.length) {
+//     Message.find({checked:false}).exec(function (err, results) {
+//       if(!results)
+//       {
+//         i++;
+//         msg_Count(msg,i,count,callback);
+//       }
+//       else {
+//         count=results.length;
+//         i++
+//         msg_Count(msg,i,count,callback);
+//       }
+//
+//     });
+//   }
+//   else {
+//     callback(count);
+//   }
+// }
+
 module.exports = router;

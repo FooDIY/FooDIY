@@ -45,30 +45,31 @@ function signuptemp(val) {
     });
 }
 
-function iddupcheck(val) {
-    var item = {id: val.email.value};
-    $.ajax({
-        method: "POST",
-        type: "POST",
-        url: "/idcheck",
-        data: item,
-        success: function (data) {
-            if (val.email.value == "" && data == 1) {
-                $("#idcheck").html('');
-                checked = 1;
-            }
-            else if (data == 1) {
-                $("#idcheck").html('사용 가능한 이메일 입니다.');
-                $("#idcheck").css("color", "black");
-                checked = 1;
-            } else {
-                $("#idcheck").html('이미 가입된 이메일 입니다.');
-                $("#idcheck").css("color", "red");
-                checked = 0;
-            }
-        }
-    });
-}
+// function iddupcheck(val) {
+//     var item = {id: val.email.value};
+//     $.ajax({
+//         method: "POST",
+//         type: "POST",
+//         url: "/idcheck",
+//         data: item,
+//         success: function (data) {
+//             if (val.email.value == "" && data == 1) {
+//                 $("#idcheck").html('');
+//                 checked = 1;
+//             }
+//             else if (data == 1) {
+//                 $("#idcheck").html('사용 가능한 이메일 입니다.');
+//                 $("#idcheck").css("color", "black");
+//                 checked = 1;
+//             } else {
+//                 $("#idcheck").html('이미 가입된 이메일 입니다.');
+//                 $("#idcheck").css("color", "red");
+//                 checked = 0;
+//             }
+//         }
+//     });
+// }
+
 /*function nickcheck(val) {
     var item = {id: val.nick.value};
     $.ajax({
@@ -205,68 +206,3 @@ function reconfirm(){
         }
     });
 }
-angular.module('profile', ['ngAnimate','ui.bootstrap']);
-angular.module('profile').controller('ctrl', function ($scope,$http) {
-    $scope.accountOpen = true;
-    $scope.personalOpen = true;
-    $http.get("https://restcountries.eu/rest/v2/all?fields=name;alpha2Code;flag").then(function(response) {
-        // var firstchoice = {"flag":"","name":"Choose your country","alpha2Code":""}
-        // response.data.unshift(firstchoice);
-        $scope.countries = response.data;
-    });
-
-
-
-});
-
-angular.module('profile').directive('confirmPassword', function() {
-    return {
-        require: 'ngModel',
-        link: function(scope, element, attr, mCtrl) {
-            function confirmPassword(value) {
-                if (scope.formdata.password == value) {
-                    mCtrl.$setValidity('passwordsIdentical', true);
-                } else {
-                    mCtrl.$setValidity('passwordsIdentical', false);
-                }
-                return value;
-            }
-            mCtrl.$parsers.push(confirmPassword);
-        }
-    };
-});
-
-
-angular.module('profile').directive('validateEmailRemotely', function(AuthenticateService) {
-    return {
-        restrict: 'A',
-        scope: true,
-        require: 'ngModel',
-        link: function(scope, elem, attrs, ctrls) {
-            var ngModel = ctrls;
-            scope.$watch(attrs.ngModel, function(email) {
-                AuthenticateService.Email(email)
-                    .then(function(result) {
-                        if (result.email_exists) {
-                            ngModel.$setValidity('validEmail', false);
-                        } else {
-                            ngModel.$setValidity('validEmail', true);
-                        }
-                    });
-            });
-        }
-    }
-});
-angular.module('profile').service('AuthenticateService', function($http) {
-    return {
-        Email: function(email) {
-            var url = '13.125.0.15/valid_email?email='+email;
-            return $http.get(url)
-                .then(function(response) {
-                    return response.data;
-                }, function(error) {
-                    return error.data;
-                });
-        }
-    };
-});

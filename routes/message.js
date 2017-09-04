@@ -35,6 +35,15 @@ router.post('/',function (req, res, next) {
     {
         return res.render('unusualroute',{error:"로그인이 필요합니다."});
     }
+    else if(req.session.email==member){
+        return res.send('<script type="text/javascript">alert("자기 자신에게는 메세지를 보낼 수 없습니다.");\
+        if (document.referrer.indexOf("/") > 0 )\
+         history.back();\
+        else\
+          document.location.href = "/";</script>');
+          //자기 자신에게 메세지를 보내고자 할때 히스토리 back 하도록
+    }
+    else{
     Conversation.findOne({from:req.session.email, to:member},function (err, conver) {
         if(!conver)
         {
@@ -52,6 +61,22 @@ router.post('/',function (req, res, next) {
             res.redirect('/message/'+conver.id);
         }
     })
+  }
+});
+router.post('/msg_check',function(req,res,next){
+    Message.find({$and:[{from:req.body.msg_to},{conver_id:req.body.connum}]},function(err,msg){
+      for(var i=0;i<msg.length;i++){
+        if(!msg[i].checked){
+          msg[i].checked=true;
+          msg[i].save(function(err){
+            if(err)
+              return res.send('error');
+          });
+        }
+      }
+      return res.send('clear');
+
+    });
 });
 /*router.post('/submit',function (req, res, next) {
     var content=req.body.content;
@@ -95,17 +120,20 @@ router.get('/:id', function (req, res, next) {
         if (i === 1)
         {
             Member.findOne({email:memberemail},function(err,member) {
-                Message.find({conver_id: connum}, {
-                        /*skip:0, // Starting Row
-                         limit:10, // Ending Row
-                         sort:{
-                         time_created: -1 //Sort by Date Added DESC
-                         }*/
-                    },
-                    function (err, message) {
-                        //console.log(message);
-                        res.render("message", {session: req.session, member: member, message: message, connum: connum});
-                    });
+                  Message.find({conver_id: connum}).sort('-time_created').exec(function(err,message){
+                      res.render("message", {session: req.session, member: member, message: message, connum: connum});
+                  });
+                // Message.find({conver_id: connum}, {
+                //         /*skip:0, // Starting Row
+                //          limit:10, // Ending Row
+                //          sort:{
+                //          time_created: -1 //Sort by Date Added DESC
+                //          }*/
+                //     },
+                //     function (err, message) {
+                //         //console.log(message);
+                //         res.render("message", {session: req.session, member: member, message: message, connum: connum});
+                //     });
             });
         }
     });
