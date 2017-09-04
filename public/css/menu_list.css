@@ -4,14 +4,14 @@
     padding: 0;
 }
 .items {
-    width: 70%;
+    width: 66%;
     font-size: 0;
     margin-top:15px;
 }
 .items__item {
     display: inline-block;
     vertical-align: bottom;
-    width: 31%;
+    width: 33.3%;
     /*margin: 2rem 1%;*/
     text-align: center;
     padding: 2rem 1rem 1rem;
@@ -39,6 +39,7 @@ img {
 }
 
 .map {
+    display: block;
     overflow: hidden;
     position: fixed;
     top: 0;
@@ -92,3 +93,40 @@ img {
     padding: 20px 5px 0;
     margin: 0;
 }
+
+@media only screen and (max-width: 1435px) {
+
+    .items__item {
+        width: 50%;
+    }
+    .items {
+        width: 60%;
+    }
+    .map {
+        width: 40%;
+    }
+
+}
+
+@media only screen and (max-width: 910px) {
+
+    .items__item {
+        width: 100%;
+    }
+
+}
+
+/*@media only screen and (max-width: 480px) {*/
+
+    /*.items__item {*/
+        /*width: 100%;*/
+    /*}*/
+
+    /*.items {*/
+        /*width: 70%;*/
+    /*}*/
+    /*.map {*/
+        /*width: 30%;*/
+    /*}*/
+
+/*}*/

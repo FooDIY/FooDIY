@@ -183,6 +183,9 @@ function manage() {
 function seller_signup() {
     location.href="/seller/sign_up";
 }
+function gotomsg() {
+    location.href="/seller/msg_user";
+}
 function tologin(){
     $('#mail_confirm').modal('toggle');
     $('#pop-up-login').modal('toggle');
@@ -270,3 +273,4 @@ angular.module('profile').service('AuthenticateService', function($http) {
         }
     };
 });
+

@@ -130,5 +130,11 @@ function addMarker(x,y){
 
     myCity.setMap(map);
 }
+
+// if (window.matchMedia("(max-width: 910px)").matches){
+//     $("#gohome").addClass("col-xs-3");
+//     $("#home_logo").addClass("img-responsive");
+//     $(".hamburger").addClass("col-xs-2");
+// }
 //google.maps.event.addDomListener(window, 'load', initialize);
 //mapholder.innerHTML = showPosition();
