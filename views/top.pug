@@ -44,7 +44,7 @@ html(lang='en',ng-app="profile")
 
                     if(session.seller)
                         button.btn.btn-default.main_btn(type="button", onclick="manage()") 판매 관리&nbsp&nbsp
-                        div.dropdown.main_btn
+                        .dropdown.main_btn
                             button.btn.btn-default.dropdown-toggle(type='button' data-toggle='dropdown')
                                 i.fa.fa-user-o
                                 |   내 정보&nbsp
@@ -59,7 +59,7 @@ html(lang='en',ng-app="profile")
                                 li
                                     button.btn.btn-default(type="button", onclick="LogOut()") 로그아웃
                         .hamburger
-                            div.dropdown
+                            .dropdown
                                 button#hamburger.btn.btn-default.dropdown-toggle(type='button' data-toggle='dropdown')
                                     i.material-icons menu
                                 ul.dropdown-menu-right.dropdown-menu
@@ -79,7 +79,7 @@ html(lang='en',ng-app="profile")
                                         button.btn.btn-default.last_btn(type="button", onclick="", style="background-color: rgb(241,89,42); color: #fefefe;") 구매자로 전환
                     else if(session.email)
                         button.btn.btn-default.main_btn(type="button", onclick="submitseller()") 판매자 신청&nbsp
-                        div.dropdown.main_btn
+                        .dropdown.main_btn
                             button.btn.btn-default.dropdown-toggle(type='button' data-toggle='dropdown')
                                 i.fa.fa-user-o
                                 |   내 정보&nbsp
@@ -94,7 +94,7 @@ html(lang='en',ng-app="profile")
                                 li
                                     button.btn.btn-default(type="button", onclick="LogOut()") 로그아웃
                         .hamburger
-                            div.dropdown
+                            .dropdown
                                 button#hamburger.btn.btn-default.dropdown-toggle(type='button' data-toggle='dropdown')
                                     i.material-icons menu
                                 ul.dropdown-menu-right.dropdown-menu
@@ -117,7 +117,7 @@ html(lang='en',ng-app="profile")
                         button.btn.btn-default.main_btn(type='button', data-toggle='modal', data-target='#pop-up-sign') 회원 가입
                         button.btn.btn-default.main_btn(type='button', data-toggle='modal', data-target='#pop-up-login') 로그인
                         .hamburger
-                            div.dropdown
+                            .dropdown
                                 button#hamburger.btn.btn-default.dropdown-toggle(type='button' data-toggle='dropdown')
                                     i.material-icons menu
                                 ul.dropdown-menu-right.dropdown-menu
