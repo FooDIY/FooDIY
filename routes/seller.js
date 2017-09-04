@@ -131,7 +131,7 @@ router.post('/del_menu',logincheck,function (req,res,next) {
         res.send('clear');
     })
 });
-router.get('/submit_menu',/*logincheck,*/function(req, res, next) {
+router.get('/submit_menu',logincheck,function(req, res, next) {
     res.render('become_foodiy2');
 });
 router.post('/submit_menu', uploadMenu.fields([{name:'menu_pic'},{name:'ingre_pic'}]),function(req, res, next) {
@@ -177,6 +177,11 @@ router.post('/submit_menu', uploadMenu.fields([{name:'menu_pic'},{name:'ingre_pi
     }
     var price=req.body.price;
     var amount=req.body.amount;
+    if(!req.session.email)
+    {
+      res.redirect('/seller');
+    }
+    else{
     Member.findOne({email:req.session.email},function (err,member) {
         var newMenu=new Menu();
         newMenu.member_id=member.email;
@@ -201,6 +206,7 @@ router.post('/submit_menu', uploadMenu.fields([{name:'menu_pic'},{name:'ingre_pi
             res.redirect("/seller/manage");
         });
     });
+  }
 
 });
 /*router.post('/submit_menu',uploadMenu.array('menu_pic'),uploadIngre.array('ingre_pic',maxIngreImageConut), function(req, res, next) {
@@ -345,7 +351,8 @@ router.get('/message_list',logincheck, function(req, res, next) {
 function make_Marray(conver,i,temp_arr,callback){
   if(i<conver.length)
   {
-    Message.findOne({conver_id:conver[i]._id}).sort('-time_created').exec(function(err,msg){
+    Message.findOne({$and:[{conver_id:conver[i]._id},{from:conver[i].from}]}).sort('-time_created').exec(function(err,msg){
+    // Message.findOne({conver_id:conver[i]._id}).sort('-time_created').exec(function(err,msg){
       if(!msg)
       {
         i++;

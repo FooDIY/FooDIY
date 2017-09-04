@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var app = express();
+var moment = require('moment');
 var session=require('express-session');
 app.use(session({
     secret: '123456789!@#$',
@@ -108,10 +109,14 @@ io.sockets.on('connection', function(socket) {
         var content=data.content;
         var myname=data.myname;
         var connum=data.connum;
+        var msg_to=data.msg_to;
         var newMessage=new Message;
         newMessage.content=content;
         newMessage.from=myname;
         newMessage.conver_id=connum;
+        newMessage.to=msg_to;
+        newMessage.checked=false;
+        newMessage.time_created=moment().format();
         newMessage.save(function (err) {
             //res.send('clear');
         });
