@@ -236,7 +236,7 @@ $(document).ready(function() {
         reader.readAsDataURL(this.files[0]);
     }
   });
-  $('#nodap').on('input', function () {
+  $('#nodap').on('input change', function () {
       var value=$('#ingre_name0').val();
       var value2=$('#ingre_from0').val();
       var pattern = /[^가-힣a-zA-Z0-9]/gi;
@@ -330,15 +330,14 @@ function selectFile() {
     //등록되지않은 입력 제출막기위해서 이름을 바꿨음
 
     $(document).ready(function() {
-      var temp=cntm+1
+      var temp=cntm+1;
       var flag1=0;
       var flag2=0;
-      $('#nodap').on('input', function () {
+      $('#ingre_img'+temp).on('input change', function () {
           var value=$('#ingre_name'+temp).val();
           var value2=$('#ingre_from'+temp).val();
           var pattern = /[^가-힣a-zA-Z0-9]/gi;
           var pattern2 = /[^가-힣a-zA-Z0-9]/gi;
-
           if(!pattern.test(value)) {
             $('#ingre_name'+temp).css('border', 'solid 1px green');
             flag1=1;
