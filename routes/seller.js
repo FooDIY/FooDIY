@@ -97,6 +97,11 @@ router.get('/', function(req, res, next) {
 router.get('/sign_up', function(req, res, next) {
     res.render('sign_up');
 });
+
+router.get('/msg_user', function(req, res, next) {
+    res.render('msg_user');
+});
+
 router.get('/manage' ,logincheck,function(req, res, next) {
     Member.findOne({ email : req.session.email }, function(err, member) {
         Menu.find({member_id:req.session.email},function (err, menu) {
@@ -134,6 +139,7 @@ router.post('/del_menu',logincheck,function (req,res,next) {
 router.get('/submit_menu',logincheck,function(req, res, next) {
     res.render('become_foodiy2');
 });
+
 router.post('/submit_menu', uploadMenu.fields([{name:'menu_pic'},{name:'ingre_pic'}]),function(req, res, next) {
     var menu_name = req.body.menu_name;
     var content = req.body.content;
