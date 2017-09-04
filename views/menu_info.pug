@@ -158,23 +158,24 @@ html(lang='en')
                             li
                                 input(type='text')
                     //input(type='button', value="button" onclick="submit()")
-            .container
-                section#app.comments.col-xs-9(style='margin: 0 76px;')
-                    article(style='margin: 100px 0;')
-                        img.profile-photo(src='https://en.gravatar.com/userimage/18343163/3fd908393aedf6423ec12cacec9a1f50.jpg?size=200')
-                        // <h4><a href="#">chrisburton</a></h4>
-                        textarea#comment.img-responsive(name='', cols='88', rows='4', placeholder=' Add your comment..', style='font-size: 20px;')
-                        input#menunum(type='hidden', value=number)
-                        input.btn.btn-primary(type='button', value='Add Comment', style='float: right; margin-top: 5px;', onclick="comment('"+ session.email +"')")
-                    // <h2 style="margin-bottom: 70px;">Comments</h2>
-
-                    each item in comment
-                        article
-                            img.profile-photo(src='https://25.media.tumblr.com/avatar_c5eeb4b2e95b_128.png')
-                            h4
-                                a(href='#')=item.email
-                            time=item.submit_date
-                            p= item.text
+            //160-177줄까지 댓글다는거 막아둠. 9.3
+            //- .container
+            //-     section#app.comments.col-xs-9(style='margin: 0 76px;')
+            //-         article(style='margin: 100px 0;')
+            //-             img.profile-photo(src='https://en.gravatar.com/userimage/18343163/3fd908393aedf6423ec12cacec9a1f50.jpg?size=200')
+            //-             // <h4><a href="#">chrisburton</a></h4>
+            //-             textarea#comment.img-responsive(name='', cols='88', rows='4', placeholder=' Add your comment..', style='font-size: 20px;')
+            //-             input#menunum(type='hidden', value=number)
+            //-             input.btn.btn-primary(type='button', value='Add Comment', style='float: right; margin-top: 5px;', onclick="comment('"+ session.email +"')")
+            //-         // <h2 style="margin-bottom: 70px;">Comments</h2>
+            //- 
+            //-         each item in comment
+            //-             article
+            //-                 img.profile-photo(src='https://25.media.tumblr.com/avatar_c5eeb4b2e95b_128.png')
+            //-                 h4
+            //-                     a(href='#')=item.email
+            //-                 time=item.submit_date
+            //-                 p= item.text
                                 //| 와..진짜 백종원이 와서 만들어준줄.. 이 분 생긴 것도 백종원이랑 똑같이 생겼음 ! 진짜 맛있었어요 . 담에 여자친구로 다시 오겠습니다 제발....
 
                     //article
