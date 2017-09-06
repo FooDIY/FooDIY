@@ -1,3 +1,4 @@
+<<<<<<< HEAD:public/css/menu_list.css
 * {
     box-sizing: border-box;
     margin: 0;
@@ -130,3 +131,93 @@ img {
     /*}*/
 
 /*}*/
+=======
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.items {
+    width: 70%;
+    font-size: 0;
+    margin-top:15px;
+}
+.items__item {
+    display: inline-block;
+    vertical-align: bottom;
+    width: 31%;
+    /*margin: 2rem 1%;*/
+    text-align: center;
+    padding: 2rem 1rem 1rem;
+    cursor: pointer;
+    color: #222;
+    border-radius: 4px;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.is-selected {
+     background: #b00;
+     color: white;
+ }
+
+.items__title {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    letter-spacing: .1em;
+    padding-top: 1rem;
+}
+
+.map {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 34%;
+    height: 100%;
+}
+
+/*#mapholder{*/
+    /*margin-top:1000px;*/
+/*}*/
+
+.map__icon {
+    position: relative;
+}
+
+.before {
+     content: "";
+     width: 0;
+     height: 0;
+     border-style: solid;
+     border-width: 8px 5px 0 5px;
+     border-color: #b00 transparent transparent transparent;
+     position: absolute;
+     top: 100%;
+     left: 50%;
+     margin-left: -5px;
+ }
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+h3 {
+    padding: 5px;
+    font-size: 12px;
+}
+
+.leaflet-popup-content-wrapper {
+    border-radius: 4px;
+}
+.leaflet-popup-content {
+    width: 240px;
+    padding: 20px 5px 0;
+    margin: 0;
+}
+>>>>>>> aaf87419461d38107f8ff5691cb527c23cfe45c2:css/menu_list.css
