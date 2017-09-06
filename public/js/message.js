@@ -19,7 +19,17 @@ var session  = $('#myname').val();
 var connum = $('#connum').val();
 $(document).ready(function()
 {
-
+    var item={msg_to:$('#msg_to').val(), connum:$('#connum').val()};
+    $.ajax({
+        method: "POST",
+        type: "POST",
+        url: "/message/msg_check",
+        data: item,
+        success: function (data) {
+            if (data == "error")
+                alert('메세지를 읽어오는 도중 오류가 발생했습니다.');
+        }
+    });
     var socket = io.connect(serverURL);
     socket.on('connection', function(data)
     {
@@ -40,8 +50,9 @@ $(document).ready(function()
     $('#message-button').click(function()
     {
         var msg = $('#content').val();
-        socket.emit('chat', { content:msg, myname:$('#myname').val(), connum:$('#connum').val()});
+        socket.emit('chat', { content:msg, myname:$('#myname').val(), connum:$('#connum').val(),msg_to:$('#msg_to').val()});
         writeMessage('me', session, msg);
+        $('#content').val('');
     });
     function writeMessage(type, name, message)
     {
@@ -60,6 +71,6 @@ $(document).ready(function()
                 '</div>' +
                 '</li>';
         }
-        $(html).appendTo('.j-message');
+        $(html).prependTo('.j-message');
     }
 });

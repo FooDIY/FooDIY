@@ -76,13 +76,11 @@ function imgClick4(){
 function readURL1(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
-
         reader.onload = function (e) {
             $("#buttonImg1").css('display','block')
             $('#blah1').attr('src', e.target.result);
             $("#blah1").css('display','inline')
             $("#inputImg1").hide();
-
             // $('#inputImg1').css('background-image', 'url('+e.target.result+')');
         };
 
@@ -134,19 +132,18 @@ function readURL4(input) {
 
 var fileCnt = 1;
 var tmpTag = '';
-
-function ingreURL(input,count) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-
-        reader.onload = function (e) {
-            $('#ingreblah'+count).attr('src', e.target.result);
-        };
-        document.getElementById('ingreblah'+(fileCnt-1)).style="display:inline";
-        reader.readAsDataURL(input.files[0]);
-    }
-}
-
+var ingreCount=0;
+// function ingreURL(input,count) {
+//     if (input.files && input.files[0]) {
+//         var reader = new FileReader();
+//
+//         reader.onload = function (e) {
+//             $('#ingreblah'+count).attr('src', e.target.result);
+//         };
+//         document.getElementById('ingreblah'+(fileCnt-1)).style="display:inline";
+//         reader.readAsDataURL(input.files[0]);
+//     }
+// }
 $(document).ready(function() {
       var mname_flag;
       var mdes_flag;
@@ -158,7 +155,7 @@ $(document).ready(function() {
       var mamount_pattern=/^([1-9]|[1-9][0-9]|[1-9][0-9][0-9])$/;
 
 
-      $('#menu_name').on('keyup', function () {
+      $('#menu_name').on('input', function () {
       var value=$('#menu_name').val();
       if(mname_pattern.test(value) && value.length>0 && value.length<30)
       {
@@ -173,7 +170,7 @@ $(document).ready(function() {
       }
     });
 
-    $('#menu_description').on('keyup', function () {
+    $('#menu_description').on('input', function () {
     var value=$.trim($('#menu_description').val());
       if(value.length>0)
       {
@@ -186,8 +183,8 @@ $(document).ready(function() {
       }
     });
 
-      $('#price').on('keyup', function () {
-      var value=$.trim($('#price').val());
+      $('#price').on('input', function () {
+      var value=$('#price').val();
       if(mprice_pattern.test(value) && value.length>0 && value.length<8)
       {
         $('#price').css('border', 'solid 1px green');
@@ -199,8 +196,8 @@ $(document).ready(function() {
       }
     });
 
-    $('#amount').on('keyup', function () {
-    var value=$.trim($('#amount').val());
+    $('#amount').on('input', function () {
+    var value=$('#amount').val();
     if(mamount_pattern.test(value) && value.length>0 && value.length<4)
     {
       $('#amount').css('border', 'solid 1px green');
@@ -227,9 +224,21 @@ $(document).ready(function() {
 $(document).ready(function() {
   var flag1=0;
   var flag2=0;
-  $('#nodap').on('keyup change', function () {
-      var value=$.trim($('#ingre_name0').val());
-      var value2=$.trim($('#ingre_from0').val());
+  $('#inputIngre0').on('change',function(){
+
+    if (this.files && this.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#ingreblah0').attr('src', e.target.result);
+        };
+        $('#inputIngre0').hide();
+        document.getElementById('ingreblah0').style="display:inline";
+        reader.readAsDataURL(this.files[0]);
+    }
+  });
+  $('#nodap').on('input change', function () {
+      var value=$('#ingre_name0').val();
+      var value2=$('#ingre_from0').val();
       var pattern = /[^가-힣a-zA-Z0-9]/gi;
       var pattern2 = /[^가-힣a-zA-Z0-9]/gi;
 
@@ -261,15 +270,21 @@ $(document).ready(function() {
     $('#ingre_name0').val('');
     $('#ingre_from0').val('');
     $('#inputIngre0').val('');
+    $('#inputIngre0').show();
+    $('#ingreblah0').hide();
     $('#inputIngre0').attr('data-title', 'Click or Drag');
   });
 
 });
 
 function selectFile() {
-    if(fileCnt==10)
+    if(fileCnt==100)
     {
-      alert('너무 많이 등록됐습니다!');
+      alert('너무 많은 요청이 시도됐습니다.');
+    }
+    else if(ingreCount==10)
+    {
+        alert('너무 많이 등록됐습니다!');
     }
     else{
     var cntm=fileCnt-1;
@@ -286,7 +301,14 @@ function selectFile() {
     //ingre_reset.width="0px";
     $('#ingresubmit'+cntm).hide();
     $('#ingrereset'+cntm).hide();
-    ingreURL(ingre_img,cntm);
+    $('#ingredelete'+cntm).show();
+
+
+    $('#ingre_name'+cntm).attr('name', 'ingre_name[]');
+    $('#ingre_from'+cntm).attr('name', 'madeby[]');
+    //추가부분
+
+    // ingreURL(ingre_img,cntm);
     ingre_thisname.readOnly="readonly";
     ingre_madeby.readOnly="readonly";
     tmpTag='<div id="ingre_img'+fileCnt+'" style="padding: 0; border: 2px solid black; height: 105px;" class="col-sm-12"><div class="col-sm-3 offset-sm-3"> \
@@ -295,23 +317,27 @@ function selectFile() {
         </div>\
         </div>\
         <div style="margin-top: 11px;" class="col-xs-offset-1 col-xs-5">\
-        <input id="ingre_name'+fileCnt+'" type="text" name="ingre_name[]" placeholder="재료 이름" class="text-primary form-control">\
-        <input id="ingre_from'+fileCnt+'" type="text" name="madeby[]" placeholder="원산지" style="margin-top: 10px;" class="text-primary form-control">\
+        <input id="ingre_name'+fileCnt+'" type="text" name="ingre" placeholder="재료 이름" class="text-primary form-control">\
+        <input id="ingre_from'+fileCnt+'" type="text" name="made" placeholder="원산지" style="margin-top: 10px;" class="text-primary form-control">\
         </div>\
         <button id="ingresubmit'+fileCnt+'"  type="button" style="margin-top: 15px; height: 70px;" class="btn btn-primary col-xs-1" onclick="selectFile();" disabled="disabled" title="올바른 재료이름과 원산지,이미지를 입력해주세요">등록</button>\
-        <button id="ingrereset'+fileCnt+'" type="button" style="margin-top: 15px; height: 70px; margin-left: 15px;" class="btn btn-danger col-xs-1" >초기화</button></div>';
+        <button id="ingrereset'+fileCnt+'" type="button" style="margin-top: 15px; height: 70px; margin-left: 15px;" class="btn btn-danger col-xs-1" >초기화</button>\
+        <button id="ingredelete'+fileCnt+'" type="button" style="margin-top: 15px; height: 70px; margin-left: 15px; display: none;" class="btn btn-danger col-xs-1" >삭제</button></div>';
     $("#ingre_fix").append(tmpTag);
 
+    // <input id="ingre_name'+fileCnt+'" type="text" name="ingre_name[]" placeholder="재료 이름" class="text-primary form-control">\
+    // <input id="ingre_from'+fileCnt+'" type="text" name="madeby[]" placeholder="원산지" style="margin-top: 10px;" class="text-primary form-control">
+    //등록되지않은 입력 제출막기위해서 이름을 바꿨음
+
     $(document).ready(function() {
-      var temp=cntm+1
+      var temp=cntm+1;
       var flag1=0;
       var flag2=0;
-      $('#nodap').on('keyup change', function () {
-          var value=$.trim($('#ingre_name'+temp).val());
-          var value2=$.trim($('#ingre_from'+temp).val());
+      $('#ingre_img'+temp).on('input change', function () {
+          var value=$('#ingre_name'+temp).val();
+          var value2=$('#ingre_from'+temp).val();
           var pattern = /[^가-힣a-zA-Z0-9]/gi;
           var pattern2 = /[^가-힣a-zA-Z0-9]/gi;
-
           if(!pattern.test(value)) {
             $('#ingre_name'+temp).css('border', 'solid 1px green');
             flag1=1;
@@ -336,14 +362,34 @@ function selectFile() {
               $('#ingresubmit'+temp).attr('title', '올바른 재료이름과 원산지,이미지를 입력해주세요');
           }
       });
+      $('#ingredelete'+cntm).on('click',function(){
+        ingreCount--;
+        alert('등록한 재료가 삭제됐습니다.');
+        $('#ingre_img'+cntm).remove();
+      });
       $('#ingrereset'+temp).on('click',function(){
         $('#ingre_name'+temp).val('');
         $('#ingre_from'+temp).val('');
         $('#inputIngre'+temp).val('');
+        $('#inputIngre'+temp).show();
+        $('#ingreblah'+temp).hide();
         $('#inputIngre'+temp).attr('data-title', 'Click or Drag');
+      });
+      $('#inputIngre'+temp).on('change',function(){
+
+        if (this.files && this.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#ingreblah'+temp).attr('src', e.target.result);
+            };
+            $('#inputIngre'+temp).hide();
+            document.getElementById('ingreblah'+temp).style="display:inline";
+            reader.readAsDataURL(this.files[0]);
+        }
       });
     });
     fileCnt++;
+    ingreCount++;
   }
 
 }
