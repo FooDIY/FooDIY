@@ -86,8 +86,8 @@ var http = require('http').Server(app); // 추가
 
 //소켓 모듈
 var io = require('socket.io')(http);
-http.listen('3001', function(){
-    console.log("Express server listening on port " + '3001');
+http.listen('3002', function(){
+    console.log("Express server listening on port " + '3002');
 });
 
 io.sockets.on('connection', function(socket) {

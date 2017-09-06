@@ -1,3 +1,4 @@
+<<<<<<< HEAD:views/login_in.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,4 +73,80 @@
     }
 </script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>foodiy</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+</head>
+
+<body>
+
+<div class="container-fluid" id="pop-up-login">
+
+    <div class="signup-content" >
+        <form action="" class="form-horizontal">
+
+            <div class="form-group">
+                <img src="../img/foodiylogo.gif" alt="" style="width: 300px; display: block; margin: auto;">
+                <div class="real_content">
+
+                    <button class="signupgoogle form-control" id="signup-google" style="margin-top: 30px;">
+                        <span><img src="../img/google_logo.png" alt=""></span>
+                        <p>Login with google</p>
+                    </button>
+
+                    <button class="signupfacebook form-control" id="signup-facebook">
+                        <span><img src="../img/facebook_logo.png" alt=""></span>
+                        <p>Login with facebook</p>
+                    </button>
+                    <hr>
+
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                        <input type="email" class="form-control input-lg" id="email" placeholder="E-mail">
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input type="password" class="form-control input-lg" id="password" placeholder="Password">
+                    </div>
+
+                    <div class="login-set">
+                        <input type="checkbox">Save password
+                        <a href="">Forgot password ?</a>
+
+                        <button class="login-sign-in form-control" id="sign-in">Log in</button>
+                        <hr>
+                    </div>
+
+                    <button type="button" onclick="goPage()" class="login-sign-up form-control" id="sign-up">Sign up</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<!--<footer style="margin-top: 50px;">-->
+    <!--<div class="navbar">-->
+        <!--<p style="text-align: center; margin-top: 13px;">Temporary Footer</p>-->
+    <!--</div>-->
+<!--</footer>-->
+
+<script src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/bootstrap.js"></script>
+
+<script>
+    function goPage() {
+        location.href="sign_up.html";
+    }
+</script>
+</body>
+>>>>>>> aaf87419461d38107f8ff5691cb527c23cfe45c2:html/login_in.html
 </html>
