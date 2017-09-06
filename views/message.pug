@@ -21,9 +21,9 @@ html(lang='en')
             .container-fluid
                 nav.navbar(style='border: none; margin: 0;')
                     div(style='background-color: white; height: 20px;')
-                    .col-md-4.col-xs-4.col-sm-4(style='background-color: #fefefe; height: 60px;')
-                        a(href='/')
-                            img(src='../img/foodiylogo.gif', alt='', style='width: 200px; height: 60px; margin-left: 50px;')
+                    .col-md-2.col-xs-12(style='background-color: #fefefe; height: 60px;')
+                        a(href='/', style='width: 200px; padding:0')
+                            img(src='../img/foodiylogo.gif', alt='', style='width: 200px; height: 60px; margin:auto; display:block;')
                     //- .user_button(style='float: right; margin-right: 50px; margin-top: 10px;')
                     //-     button.btn.btn-default(type='button') 판매자 페이지
                     //-     button.btn.btn-default(type='button')
@@ -33,8 +33,8 @@ html(lang='en')
                     //-         i.fa.fa-user-o
                     //-         |   내 정보
                     //-         i.fa.fa-angle-down
-        .payment_box.col-xs-3(style='height: 100%; border: 2px solid black; margin-top: 115px; padding: 0;')
-            img(src='../img/temp_logo.jpg', alt='', style='height: 180px; width: 180px; display: block; margin: auto; border-radius: 50%; margin-top: 40px;')
+        .payment_box.col-md-4.col-xs-10.col-xs-offset-1.col-md-offset-0
+            img(src='../img/temp_logo.jpg', alt='')
             div(style='margin-top: 20px; line-height: 20px;')
                 p(style='text-align: center;')
                     strong(style='font-size: 17px;')=member.firstname + " " + member.lastname
@@ -52,48 +52,47 @@ html(lang='en')
                 h4 총 금액 : 16,500
             //div(style='background-color: #2ECC71;; border-top: 2px solid black; height: 40px; text-align: center;')
                 h4 예약 승인 대기 중
-        section
-            .chat
-                ul
-                    li.other
-                        form()
-                            textarea#content.message.col-md-12.col-sm-12.col-xs-12(name='content', rows='5', style='margin-right: 0; margin-bottom: 10px; ')
-                            input#myname(type='hidden', value=session.email, name='myname')
-                            input#connum(type='hidden', value=connum, name='connum')
-                            input#msg_to(type='hidden', value=member.email, name='msg_to')
-                            button#message-button.btn.btn-primary(type='button',  style='float: right;') 전송
-                    br
-                    br
-                    br
-                    br
-                    br
-                    br
-                    br
-                    br
-                    br
-                    br
-                    br
-                    .j-message
-                        if(message)
-                            each item in message
-                                if(item.from===session.email)
-                                    li.other
-                                        a.user(rel='nofollow', href='#')
-                                            img(alt='', src='../img/google_logo.png')
-                                        .date
-                                            =item.time_created
-                                        .message
-                                            p
-                                                =item.content
-                                else
-                                    li.you
-                                        a.user(rel='nofollow', href='#')
-                                            img(alt='', src='../img/facebook_logo.png')
-                                        .date
-                                            =item.time_created
-                                        .message
-                                            p
-                                                =item.content
+
+        .chat.col-xs-10.col-xs-offset-1.col-md-5
+            ul
+                li.other
+                    form()
+                        textarea#content.message.col-md-12.col-sm-12.col-xs-12(name='content', rows='5', style='margin-right: 0; margin-bottom: 10px; ')
+                        input#myname(type='hidden', value=session.email, name='myname')
+                        input#connum(type='hidden', value=connum, name='connum')
+                        button#message-button.btn.btn-primary(type='button',  style='float: right;') 전송
+                br
+                br
+                br
+                br
+                br
+                br
+                br
+                br
+                br
+                br
+                br
+                .j-message
+                    if(message)
+                        each item in message
+                            if(item.from===session.email)
+                                li.other
+                                    a.user(rel='nofollow', href='#')
+                                        img(alt='', src='../img/google_logo.png')
+                                    .date
+                                        =item.time_created
+                                    .message
+                                        p
+                                            =item.content
+                            else
+                                li.you
+                                    a.user(rel='nofollow', href='#')
+                                        img(alt='', src='../img/facebook_logo.png')
+                                    .date
+                                        =item.time_created
+                                    .message
+                                        p
+                                            =item.content
                         //li.other
                             a.user(rel='nofollow', href='#')
                                 img(alt='', src='../img/google_logo.png')
