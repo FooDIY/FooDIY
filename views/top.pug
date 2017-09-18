@@ -15,6 +15,8 @@ html(lang='en',ng-app="profile")
         script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.js')
         script(src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js')
         link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+        script(src='../socket.io/socket.io.js')
+        script(src='https://cdn.socket.io/socket.io-1.3.7.js')
     header
         #header_container.container
             form#header_content.container-fluid(action='#')
@@ -184,41 +186,35 @@ html(lang='en',ng-app="profile")
                                 span.input-group-addon
                                     i.fa.fa-envelope
                             .input-group
-                                input#email-s.form-control(type='text', ng-required='true', placeholder='E-mail', oninput="iddupcheck(this.form)", name="email", ng-model="user.email", ng-pattern="/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*[.][a-zA-Z]{2,3}$/i")
+                                input#email-s.form-control(type='text', placeholder='E-mail', oninput="iddupcheck(this.form)", name="email")
                                 span.input-group-addon.login-button
-                            .alert.alert-warning(ng-show='signup.email.$error.pattern', role='alert')
-                                | Invalid form
+                            #sign-email-alert.alert.alert-warning(hidden, role='alert')
+                                | 잘못된 이메일 형식입니다.
                             p#idcheck
                             .input-group-s
                                 span.input-group-addon
                                     i.glyphicon.glyphicon-lock
-                                input#password-s.form-control(type='password', placeholder='Password', name="pass", ng-required='true',
-                                ng-model='formdata.password', ng-pattern='/^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[~!@#$%^*+=-]).{8,20}$/')
-                                .alert.alert-warning(ng-show='signup.pass.$error.pattern', role='alert')
-                                    | Input a combination of numbers and alphabet
-                                    | between 8 and 20
-                                input#password2-s.form-control(type='password', placeholder='Confirm Password', name="pass2", ng-model='formdata.password2' confirm-password required/)
-                                .alert.alert-warning(ng-show='signup.pass2.$error.passwordsIdentical', role='alert')
-                                    | Not Match.
+                                input#password-s.form-control(type='password', placeholder='Password', name="pass")
+                                #sign-password-alert.alert.alert-warning(hidden)
+                                    | 영어와 숫자, 특수문자를 혼합하여 8글자이상 20글자 
+                                    | 이하의 비밀번호를 작성해주세요.
+                                input#password2-s.form-control(type='password', placeholder='Confirm Password', name="pass2")
+                                #sign-confirm-alert.alert.alert-warning(hidden, role='alert')
+                                    | 비밀번호가 일치하지 않습니다.
                             .input-group-s
                                 span.input-group-addon
                                     i.fa.fa-user-circle-o(aria-hidden='true')
                             .row
                                 .col-md-5
-                                    input#firstName.form-control(type='text', placeholder='First Name' , name="firstName",
-                                    ng-model="user.firstName", ng-required='true', ng-maxlength="10",
-                                    ng-pattern='/^[a-zA-Z가-힣]+$/')
-                                    .alert.alert-warning(ng-show='signup.firstName.$error.maxlength||signup.firstName.$error.pattern||signup.firstName.$error.required$$signup.firstName.$dirty', role='alert')
-                                        | Invalid Input
+                                    input#firstName.form-control(type='text', placeholder='First Name' , name="firstName")
+                                    #sign-first-alert.alert.alert-warning(hidden, role='alert')
+                                        | 잘못된 입력입니다.
                                 .col-md-7
-                                    input#wtf.form-control(type='text', ng-required='true' , ng-maxlength='10',placeholder='Last Name',
-                                    name="lastName",
-                                    ng-model="user.lastName",ng-pattern='/^[a-zA-Z가-힣]+$/' )
-                                    .alert.alert-warning(ng-show='signup.lastName.$error.maxlength||signup.lastName.$error.pattern||signup.lastName.$error.required&&signup.lastName.$dirty', role='alert')
-                                        | Invalid Input
-                            input#signup-zipbob.signupzipbob.form-control(type='button', value='Sign Up', onclick='signuppass(this.form)', ng-disabled='signup.firstName.$invalid \
-                                                        || signup.lastName.$invalid ||signup.password.$invalid ||signup.password2.$invalid || \
-                                                        signup.email.$invalid  ')
+                                    input#lastName.form-control(type='text',placeholder='Last Name', 
+                                    name="lastName")
+                                    #sign-last-alert.alert.alert-warning(hidden, role='alert')
+                                         | 잘못된 입력입니다.
+                            input#signup-zipbob.signupzipbob.form-control(type='button', value='Sign Up', onclick='signuppass(this.form)',disabled="disabled")
 
 
         #pop-up-passport.signupform.container-fluid.modal.fade
@@ -235,7 +231,7 @@ html(lang='en',ng-app="profile")
                             .input-group
                                 input#id-p(name='id', type='hidden')
                                 input#provider-p(name='provider', type='hidden')
-                                input#email-p.form-control(type='text',  placeholder='E-mail', name="email", ng-model="user.email", ng-pattern="/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*[.][a-zA-Z]{2,3}$/i")
+                                input#email-p.form-control(type='text',  placeholder='E-mail', name="email")
                                 span.input-group-addon.login-button
                             p
                             p
@@ -244,21 +240,15 @@ html(lang='en',ng-app="profile")
                                     i.fa.fa-user-circle-o(aria-hidden='true')
                             .row
                                 .col-md-5
-                                    input#firstName-p.form-control(type='text', placeholder='First Name' , name="firstName",
-                                    ng-model="user.firstName", ng-required='true', ng-maxlength="10",
-                                    ng-pattern='/^[a-zA-Z가-힣]+$/')
-                                    .alert.alert-warning(ng-show='passup.firstName.$error.maxlength||passup.firstName.$error.pattern||passup.firstName.$error.required$$passup.firstName.$dirty', role='alert')
-                                        | Invalid Input
+                                    input#firstName-p.form-control(type='text', placeholder='First Name' , name="firstName")
+                                    #pass-first-alert.alert.alert-warning(hidden, role='alert')
+                                        | 잘못된 입력입니다.
                                 .col-md-7
-                                    input#lastName-p.form-control(type='text', ng-required='true' , ng-maxlength='10',placeholder='Last Name',
-                                    name="lastName",
-                                    ng-model="user.lastName",ng-pattern='/^[a-zA-Z가-힣]+$/' )
-                                    .alert.alert-warning(ng-show='passup.lastName.$error.maxlength||passup.lastName.$error.pattern||passup.lastName.$error.required&&passup.lastName.$dirty', role='alert')
-                                        | Invalid Input
-                            input#passup-zipbob.signupzipbob.form-control(type='button', value='Sign Up', onclick='signuptemp(this.form)', ng-disabled='passup.firstName.$invalid \
-                                                        || passup.lastName.$invalid || passup.email.$invalid  ')
+                                    input#lastName-p.form-control(type='text',placeholder='Last Name',name="lastName", )
+                                    #pass-last-alert.alert.alert-warning(hidden, role='alert')
+                                        | 잘못된 입력입니다.
+                            input#passup-zipbob.signupzipbob.form-control(type='button', value='Sign Up', onclick='signuptemp(this.form)', disabled="disabled")
         // pop-up login
-
         //#pop-up-login.signupform.container-fluid.modal.fade
             .signup-content
                 form.form-horizontal()
@@ -341,6 +331,8 @@ html(lang='en',ng-app="profile")
     script(src='../js/jquery.js')
     script(src='../js/jquery-ui-1.12.1/jquery-ui.js')
     script(type='text/javascript', src='../js/topmenu.js')
+    script(type='text/javascript', src='../js/top_alarm.js')
+    script(type='text/javascript', src='../js/top_formcheck.js')
     if(messageUp)
         script.
             $(document).ready(function(){
