@@ -237,8 +237,6 @@ html(lang='en',ng-app="profile")
                                 input#provider-p(name='provider', type='hidden')
                                 input#email-p.form-control(type='text',  placeholder='E-mail', name="email", ng-model="user.email", ng-pattern="/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*[.][a-zA-Z]{2,3}$/i")
                                 span.input-group-addon.login-button
-                            .alert.alert-warning(ng-show='passup.email.$error.pattern', role='alert')
-                                | Invalid form
                             p
                             p
                             .input-group-s
