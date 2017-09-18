@@ -1,4 +1,3 @@
-
 //
    Created by Sehyeon on 2017-07-24.
 doctype html
@@ -15,7 +14,6 @@ html(lang='en',ng-app="profile")
         script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js')
         script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.js')
         script(src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js')
-        
         link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
         script(src='../socket.io/socket.io.js')
         script(src='https://cdn.socket.io/socket.io-1.3.7.js')
@@ -199,7 +197,7 @@ html(lang='en',ng-app="profile")
                                 input#password-s.form-control(type='password', placeholder='Password', name="pass")
                                 #sign-password-alert.alert.alert-warning(hidden)
                                     | 영어와 숫자,특수문자를 혼합하여 8글자이상 20글자 
-                                      | 이하의 비밀번호를 작성해주세요.
+                                    | 이하의 비밀번호를 작성해주세요.
                                 input#password2-s.form-control(type='password', placeholder='Confirm Password', name="pass2")
                                 #sign-confirm-alert.alert.alert-warning(hidden, role='alert')
                                     | 비밀번호가 일치하지 않습니다.
@@ -212,10 +210,10 @@ html(lang='en',ng-app="profile")
                                     #sign-first-alert.alert.alert-warning(hidden, role='alert')
                                         | 잘못된 입력입니다.
                                 .col-md-7
-                                    input#lastName.form-control(type='text',placeholder='Last Name',
+                                    input#lastName.form-control(type='text',placeholder='Last Name', 
                                     name="lastName")
                                     #sign-last-alert.alert.alert-warning(hidden, role='alert')
-                                        | 잘못된 입력입니다.
+                                         | 잘못된 입력입니다.
                             input#signup-zipbob.signupzipbob.form-control(type='button', value='Sign Up', onclick='signuppass(this.form)',disabled="disabled")
 
 
@@ -336,7 +334,6 @@ html(lang='en',ng-app="profile")
     script(type='text/javascript', src='../js/topmenu.js')
     script(type='text/javascript', src='../js/top_alarm.js')
     script(type='text/javascript', src='../js/top_formcheck.js')
-
     if(messageUp)
         script.
             $(document).ready(function(){
