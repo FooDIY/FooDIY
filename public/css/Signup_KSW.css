@@ -1,0 +1,24 @@
+#nickname{
+    margin-bottom:30px;
+}
+
+.input-group a{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.input-group a:visited{
+    color: black;
+}
+
+.input-group a:link{
+    color: black;
+}
+
+.form-group{
+    border-radius: 50px;
+}
+
+.input-group-s{
+    margin-top: 25px;
+}

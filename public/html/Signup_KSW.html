@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>foodiy</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/Signup_KSW.css">
+    <link rel="stylesheet" href="../css/Login_KSW.css">
+</head>
+<body>
+
+<div class="signupform container-fluid">
+
+    <div class="signup-content">
+
+        <form action="" class="form-horizontal">
+
+            <div class="form-group">
+                <img src="../img/foodiy_logo.gif" alt="" style="width: 250px; display: block; margin: auto;">
+                <div class="real_content">
+
+                    <button class="signupgoogle form-control" id="signup-google" style="margin-top: 60px;">
+                        <span><img src="../img/google_logo.png" alt=""></span>
+                        <p>Signup with Google</p>
+                    </button>
+
+                    <button class="signupnaver form-control" id="signup-naver">
+                        <span><img src="../img/naver_logo.png" alt=""></span>
+                        <p>Signup with Naver</p>
+                    </button>
+
+                    <br><hr>
+
+                    <div class="input-group-s">
+                        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="email" class="form-control" id="email" placeholder="E-mail">
+                        <span class="input-group-addon login-button"><a href="" id="email_link">중복확인</a></span>
+                    </div>
+
+                    <div class="input-group-s">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input type="password" class="form-control" id="password" placeholder="Password">
+                        <input type="password" class="form-control" id="password2" placeholder="Confirm Password">
+                    </div>
+
+                    <div class="input-group-s">
+                        <span class="input-group-addon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></span>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="nick_name" placeholder="Nickname">
+                        <span class="input-group-addon login-button"><a href="" id="nickname_link">중복확인</a></span>
+                    </div>
+
+                    <input type="button" value="Sign Up" onclick="goPage()" class="signupfoodiy form-control">
+
+                </div>
+
+            </div>
+        </form>
+
+    </div>
+
+</div>
+
+<script>
+    function goPage() {
+        location.href = "login_in.html";
+    }
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>
