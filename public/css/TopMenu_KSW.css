@@ -1,0 +1,119 @@
+/*TopMenu arrow css Start*/
+.arrow_wrapper {
+    -webkit-transition: 0.15s ease;
+    transition: 0.15s ease;
+}
+.arrow_wrapper.active .arrow {
+    -webkit-transform: rotate(45deg) translate(-5px, -5px);
+    transform: rotate(45deg) translate(-5px, -5px);
+}
+.arrow_wrapper.active .arrow:before {
+    -webkit-transform: translate(10px, 0);
+    transform: translate(10px, 0);
+}
+.arrow_wrapper.active .arrow:after {
+    -webkit-transform: rotate(90deg) translate(10px, 0);
+    transform: rotate(90deg) translate(10px, 0);
+}
+.arrow_wrapper.active ul {
+    opacity: 0.3;
+    height: 108px;
+}
+
+#arrow{
+    margin-top:15px;
+}
+
+.arrow {
+    width: 13px;
+    height: 13px;
+    display: inline-block;
+    position: relative;
+    bottom: -5px;
+    left: -10px;
+    -webkit-transition: 0.4s ease;
+    transition: 0.4s ease;
+    margin-top: 2px;
+    text-align: left;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    float: right;
+}
+.arrow:before, .arrow:after {
+    position: absolute;
+    content: "";
+    display: inline-block;
+    width: 12px;
+    height: 3px;
+    background-color: darkgray;
+    -webkit-transition: 0.4s ease;
+    transition: 0.4s ease;
+}
+.arrow:after {
+    position: absolute;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    top: -5px;
+    left: 5px;
+}
+/*TopMenu arrow css End*/
+
+
+/*TopMenu sidebar css start*/
+
+#mySidebar{
+    display:none;
+    z-index:2;
+    width:40%;
+    min-width:300px;
+    margin-top: 93px;
+}
+#mySidebar a{
+    text-align: center;
+}
+#mySidebar hr{
+    margin:0;
+    border-width: 2px;
+}
+#submitBtn{
+    bottom: 84px;
+    position: absolute;
+}
+.w3-sidebar a:hover{
+    text-decoration-line: none;
+}
+.w3-bar-block .w3-bar-item{
+    padding:20px;
+}
+
+/*TopMenu sidebar css end*/
+
+/*TopMenu css start*/
+
+#topMenu{
+    width:100%;
+    margin:auto;
+}
+#topMenuDropdown{
+    margin: 12px 0 12px 0;
+    padding: 6px 0 18px 0;
+}
+#searchBar{
+    margin-bottom: 5px;
+}
+
+#mapBtn{
+    margin: 13px 0 12px 0;
+    padding: 12px 0;
+}
+
+#map{
+    height: 100%;
+    right: 0;
+}
+
+#foodiyicon{
+    width:40px;
+    height:40px;
+}
+/*TopMenu css end*/
