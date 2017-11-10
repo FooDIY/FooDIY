@@ -1,8 +1,0 @@
-db.comment.insert({
-comment_id:"",
-memberid_id:"",
-menuid_id:"",
-content:"",
-star:"",
-date_time:""
-})
