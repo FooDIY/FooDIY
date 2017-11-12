@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">gi
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/TopMenu_KSW.css">
+    <link rel="stylesheet" href="../css/MenuManagement_KSW.css">
+
+</head>
+<body>
+
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left" id="mySidebar">
+    <a href="/" class="w3-bar-item w3-button" id="goHome">홈</a>
+    <hr>
+    <a href="/" class="w3-bar-item w3-button">로그인</a>
+    <a href="/" class="w3-bar-item w3-button">회원가입</a>
+    <a href="/" class="w3-bar-item w3-button">도움말</a>
+    <a href="/" class="w3-red w3-bar-item" id="submitBtn">판매자 신청하기</a>
+</nav>
+
+<!-- Top menu -->
+<div class="w3-top">
+    <div class="w3-white w3-xlarge w3-row-padding" id="topMenu">
+        <div class="w3-button w3-left col-xs-3 col-sm-1 col-md-1 col-lg-1 arrow_wrapper" id="topMenuDropdown">
+            <div class="w3-col s10">
+                <img src="../img/foodiy_icon.png" id="foodiyicon" alt="">
+            </div>
+            <div class="w3-col s2 arrow" id="arrow">
+            </div>
+        </div>
+        <div class="w3-button w3-right col-sm-offset-2 col-md-offset-2 col-xs-2 col-sm-1 col-md-1 col-lg-1" id="mapBtn" >MAP</div>
+        <div class="form-group has-success has-feedback w3-center w3-padding-16 col-sm-offset-2 col-md-offset-2 col-xs-7 col-sm-6 col-md-6">
+            <div class="col-sm-12">
+                <input type="text" class="form-control input-lg" id="inputSuccess" placeholder="Search">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-4 col-md-4">
+    <div class="widget">
+        <div class="cover">
+            <img class="img-responsive" src="http://c.boylett.uk/images/wallpapers/005.jpg" />
+        </div>
+        <img src="../img/steak.jpg" class="photo" />
+        <h1>Steak</h1>
+        <h2>Pizza</h2>
+        <h3>Pasta</h3>
+    </div>
+
+    <div class="col-xs-12" id="res_info">
+        <p><span class="mytitle w3-col s6 m6 l6">매장명</span> <span class="myinfo w3-rest">호호식당</span></p>
+        <p><span class="mytitle w3-col s6 m6 l6">평점</span>
+            <span class="myinfo w3-rest">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <span>&nbsp;4.1</span>
+            </span>
+        </p>
+        <p><span class="mytitle w3-col s6 m6 l6">후기</span> <span class="w3-rest myinfo"><a href="" class="">501개 <small>보러 가기</small></a></span></p>
+        <p><span class="mytitle w3-col s6 m6 l6">운영 시간</span> <span class="w3-rest myinfo">12:00 ~ 21:00</span></p>
+        <p><span class="mytitle w3-col s6 m6 l6">휴식 시간</span> <span class="w3-rest myinfo">15:00 ~ 17:00</span></p>
+        <p><span class="mytitle w3-col s6 m6 l6">최소 주문일</span> <span class="w3-rest myinfo">3 일</span></p>
+        <p><span class="mytitle w3-col s6 m6 l6">휴일</span> <span class="w3-rest myinfo"><i class="fa fa-calendar"></i></span></p>
+
+        <hr>
+
+        <h1> 메뉴 관리 </h1>
+
+        <button type="button" class="btn btn-info menu-btn">
+            <span class="fa fa-plus-square-o"></span> <span class="menu-btn-span"> &nbsp;새 메뉴 등록</span>
+        </button>
+
+        <button type="button" class="btn btn-basic">
+            <span class="fa fa-trash"></span> <span class="menu-btn-span"> &nbsp;메뉴 삭제</span>
+        </button>
+
+        <div>
+            <br>
+        </div>
+
+
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 menu-container">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 menu-container">
+                <label class="container">
+                    <input type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 menu-container1">
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 menu-container1 img-container">
+                <img src="../img/pasta.jpg" class="menu-img" alt="">
+
+                <div class="first-span">
+                    <span>판매중지</span>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 menu-container1">
+                <h4>이태리 파스타</h4>
+                <h4>5000원</h4>
+                <h4>
+                    <span class="myinfo w3-rest">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span>4.1</span>
+                    </span><br>
+                </h4>
+                <a href="">후기 50개 <small>보러 가기</small></a>
+
+            </div>
+
+        </div>
+
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 menu-container">
+
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 menu-container2">
+                <label class="container">
+                    <input type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 menu-container">
+                <label class="switch second-switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 menu-container2 img-container">
+                <img src="../img/bibimbap.jpeg"  class="menu-img" alt="">
+
+                <div class="second-span">
+                    <span>판매중</span>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 menu-container2">
+                <h4>전주 비빔밥</h4>
+                <h4>25000원</h4>
+                <h4>
+                    <span class="myinfo w3-rest">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span>4.1</span>
+                    </span><br>
+                </h4>
+                <a href="">후기 501개 <small>보러 가기</small></a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!--<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">-->
+    <!--<hr>-->
+<!--</div>-->
+<div class="icon-bar col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="w3-col s4 m4 l4">
+        <a href="#"><i class="fa fa-comments-o"></i>
+            <p class="icon-description">메시지</p>
+        </a>
+    </div>
+
+    <div class="w3-col s4 m4 l4">
+        <a href=""><i class="fa fa-calendar-check-o"></i>
+            <p class="icon-description">주문</p>
+        </a>
+    </div>
+
+    <div class="w3-col s4 m4 l4">
+        <a href=""><i class="material-icons" id="restaurant-menu">restaurant_menu</i>
+            <p class="icon-description">메뉴</p>
+        </a>
+    </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="../Js/TopMenu.js"></script>
+</body>
+</html>
