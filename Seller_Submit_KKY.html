@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="Seller_Submit.css">
+
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="js/bootstrap.min.js"></script>
+
+
+		<!-- Website Font style -->
+
+<title>판매자 신청 페이지</title>
+	</head>
+	<body>
+		<div class="container col-md-5 col-md-offset-3">
+			<div class="row main">
+				<div class="panel-heading">
+	        		<h1 class="title">판매자 신청</h1>
+	      </div>
+              <div class="line">
+                <div class="col-xs-offset-1">
+                  <p class="auth">본인 인증</p>
+                </div>
+              </div>
+				<div class="main-login main-center">
+					<form class="form" method="post" action="#">
+
+
+
+              <div class="col-xs-12">
+  							<div class="col-xs-4 col-xs-offset-1">
+                    <p class=phoneText>전화번호</p>
+  							</div>
+                <div class="col-xs-5 col-md-7">
+                    <button type="button" class="btn btn-default btn-block" >본인인증하기</button>
+                </div>
+  						</div>
+
+              <div class="col-xs-12">
+                  <hr class="articleLine">
+              </div>
+
+              <div class="col-xs-12">
+                  <h2 class="addressTitle">매장주소</h2>
+              </div>
+
+              <div class="col-xs-12">
+                  <p class="explanation">(판매하실 주소를 입력해 주세요)</p>
+              </div>
+
+
+              <div class="col-xs-12">
+  							<div class="col-xs-3 col-md-offset-1 col-md-2">
+                    <p class=phoneText>우편번호</p>
+  							</div>
+                <div class="col-xs-5 divMargin">
+                    <input type="text" style='width:100%' readonly='readonly'>
+                </div>
+                <div class="col-xs-4" >
+                    <button type="button" class="btn btn-default btn-block">주소검색</button>
+                </div>
+  						</div>
+
+              <div class="col-xs-12" id="address">
+  							<div class="col-xs-3 col-md-offset-1 col-md-2">
+                    <p class=phoneText>도로명주소</p>
+  							</div>
+                <div class="col-xs-9 divMargin">
+                    <input type="text" style='width:100%' readonly='readonly'>
+                </div>
+  						</div>
+
+              <div class="col-xs-12">
+  							<div class="col-xs-3 col-md-offset-1 col-md-2">
+                    <p class=phoneText>상세주소</p>
+  							</div>
+                <div class="col-xs-9 divMargin">
+                    <input type="text" style='width:100%' readonly='readonly'>
+                </div>
+  						</div>
+
+              <div class="btn-group btn-group-justified submit" role="group">
+                <div class="btn-group" role="group" id="cancleButton">
+                  <button type="button" class="btn">취소</button>
+                </div>
+                <div class="btn-group" role="group" id="submitButton">
+                  <button type="button" class="btn">판매자 신청하기</button>
+                </div>
+              </div>
+
+					</form>
+				</div>
+			</div>
+		</div>
+
+
+	</body>
+</html>
