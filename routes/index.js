@@ -5,13 +5,13 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('Home', { title: 'Express' });
 });
-router.get('/login', function(req, res, next) {
-    res.render('Login', { title: 'Express' });
+router.get('/Login', function(req, res, next) {
+    res.render('Login');
 });
-router.get('/menulist', function(req, res, next) {
-    res.render('MenuList', { title: 'Express' });
+router.get('/MenuList', function(req, res, next) {
+    res.render('MenuList');
 });
-router.get('/s', function(req, res, next) {
-    res.render('SignUp', { title: 'Express' });
+router.get('/SignUp', function(req, res, next) {
+    res.render('SignUp');
 });
 module.exports = router;

@@ -14,10 +14,10 @@ html(lang='en')
         nav#mySidebar.w3-sidebar.w3-bar-block.w3-card.w3-top.w3-xlarge.w3-animate-left
             a#goHome.w3-bar-item.w3-button(href='/') 홈
             hr
-            a.w3-bar-item.w3-button(href='/') 로그인
-            a.w3-bar-item.w3-button(href='/') 회원가입
-            a.w3-bar-item.w3-button(href='/') 도움말
-            a#submitBtn.w3-red.w3-bar-item(href='/') 판매자 신청하기
+            a.w3-bar-item.w3-button(href='/Login') 로그인
+            a.w3-bar-item.w3-button(href='/Submit') 회원가입
+            a.w3-bar-item.w3-button(href='/Help') 도움말
+            a#submitBtn.w3-red.w3-bar-item(href='/Seller_submit') 판매자 신청하기
         // Top menu
         .w3-top
             #topMenu.w3-white.w3-xlarge.w3-row-padding
@@ -25,7 +25,7 @@ html(lang='en')
                     .w3-col.s10
                         img#foodiyicon(src='../../img/foodiy_icon.png', alt='')
                     .w3-col.s2.arrow#arrow
-                #mapBtn.w3-button.w3-right.col-sm-offset-2.col-md-offset-2.col-xs-2.col-sm-1.col-md-1.col-lg-1 MAP
+                a#mapBtn.w3-button.w3-right.col-sm-offset-2.col-md-offset-2.col-xs-2.col-sm-1.col-md-1.col-lg-1(href='/Menulist') MAP
                 .form-group.has-success.has-feedback.w3-center.w3-padding-16.col-sm-offset-2.col-md-offset-2.col-xs-7.col-sm-6.col-md-6
                     .col-sm-12
                         input#inputSuccess.form-control.input-lg(type='text', placeholder='Search')
