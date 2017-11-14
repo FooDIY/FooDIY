@@ -18,6 +18,8 @@
     "mongoose": "^4.13.2",
     "morgan": "~1.8.1",
     "passport": "^0.4.0",
+    "passport-google-oauth": "^1.0.0",
+    "passport-naver": "^1.0.6",
     "pug": "^2.0.0-rc.4",
     "randomstring": "^1.1.5",
     "serve-favicon": "~2.4.2",

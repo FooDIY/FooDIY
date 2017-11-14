@@ -2,15 +2,10 @@
  * Created by 순우 on 2017-07-10.
  */
 
-var x = document.getElementById("demo");
+//var x = document.getElementById("demo");
 var map;
 var marker=[];
 var infowindow=[];
-$(document).ready(function () {
-    $("#main_become").click(function () {
-        location.replace("/seller/submit_seller");
-    });
-});
 
 function getLocation() {
     if (navigator.geolocation) {
@@ -39,7 +34,7 @@ function showPosition(position) {
     };
 
     map = new google.maps.Map(document.getElementById("mapholder"), myOptions);
-    map.addListener('bounds_changed', function() {
+    /*map.addListener('bounds_changed', function() {
         // 3 seconds after the center of the map has changed, pan back to the
         // marker.
         var bounds = map.getBounds();
@@ -47,7 +42,7 @@ function showPosition(position) {
         var northEast = bounds.getNorthEast();
         var item={bigx:northEast.lat(),smallx:southWest.lat(),bigy:northEast.lng(),smally:southWest.lng()};
         var data=mapchange(item);
-        $("#items").empty();
+        //$("#items").empty();
         for(var j in marker)
         {
             marker[j].setMap(null);
@@ -61,7 +56,7 @@ function showPosition(position) {
                         </li>\
                     </a>';
 
-            $("#items").append(tmpTag);
+            //$("#items").append(tmpTag);
 
             var datalatlon = new google.maps.LatLng(data[i].address.x, data[i].address.y);
 
@@ -80,7 +75,7 @@ function showPosition(position) {
                 infowindow[i].open(map, marker[i]);
             });
         }
-    });
+    });*/
 }
 function mapchange(item) {
     var savedata;
