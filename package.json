@@ -10,8 +10,13 @@
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
     "express": "~4.15.2",
+    "express-session": "^1.15.6",
     "jade": "~1.11.0",
+    "moment": "^2.19.2",
+    "mongoose": "^4.13.2",
     "morgan": "~1.8.1",
+    "passport": "^0.4.0",
+    "pug": "^2.0.0-rc.4",
     "serve-favicon": "~2.4.2"
   }
 }
