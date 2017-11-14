@@ -12,6 +12,7 @@ function myMap() {
     };
     var map = new google.maps.Map(mapCanvas, mapOptions);
     marker.setMap(map);
+
     google.maps.event.addListener(marker,'click',function() {
         map.setZoom(17);
         map.setCenter(marker.getPosition());

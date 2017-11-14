@@ -67,7 +67,7 @@
     margin-top:10px;
 }
 
-#res_info{
+.res_info{
     line-height: 35px;
 }
 .widget > h3 { font-size: 12px }
@@ -173,7 +173,7 @@ input:checked + .slider:before {
 
 /*checkbox*/
 /* Customize the label (the container) */
-.container {
+.my-container {
     display: block;
     position: relative;
     padding-left: 35px;
@@ -187,7 +187,7 @@ input:checked + .slider:before {
 }
 
 /* Hide the browser's default checkbox */
-.container input {
+.my-container input {
     position: absolute;
     opacity: 0;
 }
@@ -203,12 +203,12 @@ input:checked + .slider:before {
 }
 
 /* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
+.my-container:hover input ~ .checkmark {
     background-color: #ccc;
 }
 
 /* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
+.my-container input:checked ~ .checkmark {
     background-color: #2196F3;
 }
 
@@ -220,12 +220,17 @@ input:checked + .slider:before {
 }
 
 /* Show the checkmark when checked */
-.container input:checked ~ .checkmark:after {
+.my-container input:checked ~ .checkmark:after {
     display: block;
 }
 
+.my-container input {
+    position: absolute;
+    opacity: 0;
+}
+
 /* Style the checkmark/indicator */
-.container .checkmark:after {
+.my-container .checkmark:after {
     left: 9px;
     top: 5px;
     width: 5px;
@@ -263,7 +268,7 @@ input:checked + .slider:before {
 }
 
 .menu-img{
-    height: 150px;
+    height: 103px;
     width: 100%;
 }
 
@@ -280,6 +285,7 @@ input:checked + .slider:before {
 }
 
 .img-container span{
+
     color: #fefefe;
 }
 
@@ -297,4 +303,8 @@ input:checked + .slider:before {
 
 .second-switch{
     float: right;
+}
+
+.myhr{
+    padding:0;
 }
