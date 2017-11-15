@@ -5,7 +5,7 @@ function reconfirm(){
     $.ajax({
         method: "POST",
         type: "POST",
-        url: "/reconfirm",
+        url: "/users/reconfirm",
         data: item,
         success: function (data) {
             $("#reconfirmbutton").hide();

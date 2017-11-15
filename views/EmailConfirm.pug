@@ -1,0 +1,17 @@
+//
+   Created by 순우 on 2017-11-15.
+
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        title Title
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css')
+    body
+        .col-xs-offset-1.col-xs-10.col-sm-offset-2.col-sm-8.col-md-offset-3.col-md-6.col-lg-offset-3.col-lg-6(style='top: 230px; position: absolute;')
+            if(safe)
+                p.col-xs-offset-1.col-xs-10.col-sm-offset-2.col-sm-8.col-md-offset-3.col-md-6.col-lg-offset-3.col-lg-6(style='text-align: center;') 이메일 인증이 완료되었습니다.
+            else
+                p.col-xs-offset-1.col-xs-10.col-sm-offset-2.col-sm-8.col-md-offset-3.col-md-6.col-lg-offset-3.col-lg-6(style='text-align: center;') 인증에 실패했습니다. 로그인 후 인증메일을 다시 받아주세요.
+            button.btn.btn-primary.col-xs-offset-1.col-xs-10.col-sm-offset-2.col-sm-8.col-md-offset-3.col-md-6.col-lg-offset-3.col-lg-6(onclick="location.href='/Login'") 확인

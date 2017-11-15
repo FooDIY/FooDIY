@@ -22,10 +22,10 @@ head
       |
       .col-xs-12
         .col-xs-8.col-md-offset-3.col-md-3
-          button#reconfirmbutton.btn-block(onclick='reConfirm()') 인증 메일 다시 보내기;
+          button#reconfirmbutton.btn-block(onclick='reconfirm()') 인증 메일 다시 보내기;
         |
         .col-xs-4.col-md-3
-          button#login.btn-block(onclick='toLogin()') 로그인;
+          button#login.btn-block(onclick="location.href='/Login'") 로그인;
 
           script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
           script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')

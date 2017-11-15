@@ -39,9 +39,10 @@ html(lang='en')
                                 input(type='checkbox')
                                 | Save password
                                 a(href='') Forgot password ?
-                                button#sign-in.login-sign-in.form-control Log in
+                                button#sign-in.login-sign-in.form-control(type='button', onclick='LoginCheck(this.form)') Log in
                                 hr
                             button#sign-up.login-sign-up.form-control(type='button', onclick='goToSignup()') Sign up
 
         script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
         script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+        script(src='../Js/Login.js')

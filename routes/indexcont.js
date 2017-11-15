@@ -25,13 +25,3 @@ exports.menulist=function(req, res){
 exports.signup=function(req, res){
     res.render('SignUp');
 };
-
-exports.normalsignup= function(req, res, next) {
-    passport.authenticate('signup', function(err, user, info) {
-        if (err) { return next(err); }
-        if (!user) {res.send(info.error); }
-        else{
-            res.send("clear");
-        }
-    })(req, res, next);
-};

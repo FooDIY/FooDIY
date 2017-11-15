@@ -5,6 +5,9 @@ var passport = require('passport');
 var async = require('async');
 var crypto = require('crypto');
 var randomstring = require("randomstring");
+var bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json());
 
 require('../../config/passport')(passport);
 exports.normalsignup= function(req, res, next) {
