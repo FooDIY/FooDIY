@@ -77,7 +77,7 @@ function showPosition(position) {
         }
     });*/
 }
-function mapchange(item) {
+/*function mapchange(item) {
     var savedata;
     $.ajax({
         method: "POST",
@@ -123,7 +123,7 @@ function addMarker(x,y){
     });
 
     myCity.setMap(map);
-}
+}*/
 
 // if (window.matchMedia("(max-width: 910px)").matches){
 //     $("#gohome").addClass("col-xs-3");
