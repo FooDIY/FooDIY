@@ -1,0 +1,179 @@
+#commentTitle{
+  padding:15px;
+}
+#commentTitle .label{
+  padding-bottom:1px;
+}
+
+#commentTitle .badge{
+  display:inline-block;
+  background-color:#FAFAFA;
+  color:#FF0000;
+  padding-bottom:4px;
+  height:17px;
+  vertical-align:middle;
+}
+
+.commentList{
+  padding-left:10px;
+  list-style-type: none;
+}
+.commentUser{
+  font-weight:800;
+}
+.comment{
+  padding:5px;
+}
+
+.articleLine{
+  border: 0;
+  margin-top:7px;
+  height: 1px;
+  background: #ccc;
+  margin-bottom:7px;
+}
+
+.btn.btnStyle {
+  background-color: #D8D8D8;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-right-color: #BDBDBD;
+  box-shadow: 0 4px 3px -2px grey;
+
+}
+.btn.btnStyle:hover{
+  background-color: #e7e7e7;
+  border:none;
+  box-shadow: 0 2px 1px -2px gray;
+}
+.messageHead{
+  padding-top:30px;
+  padding-bottom:30px;
+}
+.messageList img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+
+  display: inline-block;
+}
+
+
+.col-xs-12.msgPadding{
+  padding-top:25px;
+  padding-bottom:25px;
+  padding-left:0px;
+}
+.col-xs-2.msgPadding{
+  padding-left:0px;
+}
+
+.userName{
+  font-weight:bold;
+  font-size:15px;
+}
+.msgDate{
+  font-weight:700;
+  font-size:15px;
+  color:#BDBDBD;
+}
+.completePayment{
+  display:inline-block;
+  padding-right:15px;
+  font-size:7px;
+}
+.placeName{
+  font-weight:500;
+  font-size:15px;
+}
+.name a{
+    text-decoration: none;
+    display: inline-block;
+    color: black;
+    background-color: white;
+}
+
+.name a:link{
+    text-decoration: none;
+    display: inline-block;
+    color: black;
+    background-color: white;
+}
+.name a:visited {
+    text-decoration: none;
+    display: inline-block;
+    color: black;
+    background-color: white;
+}
+.name a:hover{
+    text-decoration: none;
+    display: inline-block;
+    color: black;
+    background-color: white;
+}
+.name a:focus{
+    text-decoration: none;
+    display: inline-block;
+    color: black;
+    background-color: white;
+}
+.name a:active{
+    text-decoration: none;
+    display: inline-block;
+    color: black;
+    background-color: white;
+}
+
+.placeName a{
+    text-decoration: none;
+    display: inline-block;
+    color: #A4A4A4;
+    background-color: white;
+}
+
+.placeName a:link{
+    text-decoration: none;
+    display: inline-block;
+    color: #A4A4A4;
+    background-color: white;
+}
+.placeName a:visited {
+    text-decoration: none;
+    display: inline-block;
+    color: #A4A4A4;
+    background-color: white;
+}
+.placeName a:hover{
+    text-decoration: none;
+    display: inline-block;
+    color: #A4A4A4;
+    background-color: white;
+}
+.placeName a:focus{
+    text-decoration: none;
+    display: inline-block;
+    color: #A4A4A4;
+    background-color: white;
+}
+.placeName a:active{
+    text-decoration: none;
+    display: inline-block;
+    color: #A4A4A4;
+    background-color: white;
+}
+.notify-badge{
+    position: absolute;
+    left:45px;
+    top:40px;
+    background:red;
+    text-align: center;
+    border-radius: 30px 30px 30px 30px;
+    color:white;
+    padding:3px 6px;
+    font-size:7px;
+    font-weight:700;
+}

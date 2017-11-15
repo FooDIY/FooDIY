@@ -25,16 +25,11 @@ var MemberSchema = new Schema({
     },
     naver:{
       id:String,
-      token:String,
       name:String,
-      email:String,
-      username:String
+      validation:{type:Boolean,default:false}
     },
     google: {
-    id: String,
-    token: String,
-    email: String,
-    name: String
+      id: String
     },
     mailing:Boolean,
     text:Boolean,

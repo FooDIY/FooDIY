@@ -1,0 +1,61 @@
+//   Created by 순우 on 2017-11-07.
+
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        title SignUp
+        link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+        link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Karma')
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css')
+        link(rel='stylesheet', href='../css/Signup_KSW.css')
+        link(rel='stylesheet', href='../css/Login_KSW.css')
+        link(rel='stylesheet', href='../css/SignUp_KKY.css')  
+    body
+        .signupform.container-fluid
+            .signup-content
+                form.form-horizontal(action='')
+                    .form-group
+                        img#foodiylogo(src='../img/foodiy_logo.gif', alt='')
+                        .real_content
+                            button#signup-google.signupgoogle.form-control(type='button' onclick="location.href='/SignUpGoogle'" formnovalidate)
+                                span
+                                    img(src='../img/google_logo.png', alt='')
+                                p Signup with Google
+                            button#signup-naver.signupnaver.form-control(type='button' onclick="location.href='/SignUpNaver'" formnovalidate)
+                                span
+                                    img(src='../img/naver_logo.png', alt='')
+                                p Signup with Naver
+                            br
+                            hr
+                            #alert-messageIn.alert.alert-danger(role='alert')
+                            .input-group-s
+                                span.input-group-addon
+                                    i.fa.fa-envelope
+                                input#email.form-control(type='email', placeholder='E-mail')
+                            .input-group-s
+                                span.input-group-addon
+                                    i.glyphicon.glyphicon-lock
+                                input#password.form-control(type='password', placeholder='Password')
+                                input#password2.form-control(type='password', placeholder='Confirm Password')
+                            .input-group-s
+                                span.input-group-addon
+                                    i.fa.fa-user-circle-o(aria-hidden='true')
+                            .row
+                                .col-md-7
+                                    input#firstName.form-control(type='text', placeholder='First Name' , name="firstName")
+                                    #sign-first-alert.alert.alert-warning(hidden, role='alert')
+                                        | 잘못된 입력입니다.
+                                .col-md-offset-1.col-md-4
+                                    input#lastName.form-control(type='text',placeholder='Last Name', 
+                                    name="lastName")
+                            input#signup.signupfoodiy.form-control(type='button', value='Sign Up', onclick='signuppass(this.form)')
+                            //input#signup.signupfoodiy.form-control(type='button', value='Sign Up', onclick='signuppass(this.form)',disabled="disabled")
+
+                            
+
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+        script(type='text/javascript', src='../Js/SignUp_KKY.js')

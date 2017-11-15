@@ -1,0 +1,32 @@
+doctype html(lang='en')
+head
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+    |     
+    meta(charset='utf-8')
+    |     
+    link(rel='stylesheet', type='text/css', href='../public/css/email-verification_KKY.css')
+    // 합쳐지고 최소화된 최신 CSS
+    link(rel='stylesheet', href='../public/css/bootstrap.min.css')
+    // 부가적인 테마
+    link(rel='stylesheet', href='../public/css/bootstrap-theme.min.css')
+    // 합쳐지고 최소화된 최신 자바스크립트
+    script(src='js/bootstrap.min.js')
+    // Website Font style
+    .jumbotron.jumboPadding
+      .col-xs-12
+        .col-md-offset-3.col-md-6
+          .boxline
+            p 입력하신 메일 주소로 인증 메일을 보냈습니다.;.
+            |           
+            p 인증 확인 후 최종 회원가입 처리가 완료됩니다.;.
+        |     
+        .col-xs-12
+          .col-xs-8.col-md-offset-3.col-md-3
+            button#reconfirmbutton.btn-block(onclick='reConfirm()') 인증 메일 다시 보내기;
+          |       
+          .col-xs-4.col-md-3
+            button#login.btn-block(onclick='toLogin()') 로그인;
+            
+            script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+            script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+            script(type='text/javascript', src='../Js/EmailVerification_KKY.js')
