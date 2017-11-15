@@ -1,0 +1,310 @@
+.widget
+{
+    position: relative;
+    height: 350px;
+    margin: 50px 0;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, .1);
+}
+
+.widget > .cover
+{
+    height: 160px;
+    overflow: hidden;
+}
+
+.widget > .cover > img
+{
+    width: 100%;
+    height: auto;
+    min-height: 160px;
+    border-radius: 4px 4px 0 0;
+}
+
+.widget > .photo
+{
+    position: absolute;
+    top: 85px;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    margin: 0 0 0 -49px;
+    border: 5px solid #FFF;
+    border-radius: 50%;
+}
+
+.widget > h1, .widget > h2, .widget > h3
+{
+    display: block;
+    margin: 10px 0;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: #999;
+}
+
+.widget > h1
+{
+    margin: 60px 0 20px;
+    font-size: 26px;
+    color: #000;
+}
+
+.mytitle{
+    font-size: 19px;
+    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
+    color: #000;
+    /*margin-right:10px;*/
+}
+
+.myinfo{
+    font-size: 17px;
+    font-weight: 100;
+    font-family: 'Open Sans', sans-serif;
+    color: #000;
+    margin-right:10px;
+    margin-top:10px;
+}
+
+.res_info{
+    line-height: 35px;
+}
+.widget > h3 { font-size: 12px }
+
+
+.icon-bar {
+    width: 100%;
+    background-color: #fefefe;
+    overflow: auto;
+    border-top:1px solid black;
+}
+
+.icon-bar a {
+    float: left;
+    width: 100%;
+    text-align: center;
+    padding: 5px 0;
+    transition: all 0.3s ease;
+    color: black;
+    font-size: 36px;
+}
+
+.icon-bar p {
+    margin:0;
+}
+
+.icon-bar a:hover {
+    background-color: rgba(0,0,0,0.2);
+}
+
+.icon-description {
+    font-size: 18px;
+}
+
+#restaurant-menu{
+    font-size: 37px;
+    margin-top: 6px;
+}
+
+
+/*toggle switch*/
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 52px;
+    height: 26px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 5px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+
+
+/*checkbox*/
+/* Customize the label (the container) */
+.my-container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.my-container input {
+    position: absolute;
+    opacity: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.my-container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.my-container input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.my-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.my-container input {
+    position: absolute;
+    opacity: 0;
+}
+
+/* Style the checkmark/indicator */
+.my-container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.menu-btn{
+    font-size: 18px;
+    padding-top: 3px;
+}
+
+.menu-btn-span{
+    font-size: 15px;
+}
+
+.menu-container{
+    padding:0;
+}
+
+.menu-container1{
+    padding: 0 10px 0 0;
+}
+
+.menu-container1 > label{
+    float: right;
+}
+
+.img-container{
+    position: relative;
+}
+
+.menu-img{
+    height: 103px;
+    width: 100%;
+}
+
+.first-span{
+    background-color: orangered;
+    position: absolute;
+    bottom: -5px;
+}
+
+.second-span{
+    background-color: #00C73C;
+    position: absolute;
+    bottom: -5px;
+}
+
+.img-container span{
+
+    color: #fefefe;
+}
+
+.menu-container1 > h4{
+    margin-bottom:0;
+}
+
+.menu-container2 > h4{
+    margin-bottom:0;
+}
+
+.menu-container2{
+    padding: 0 0 0 10px;
+}
+
+.second-switch{
+    float: right;
+}
+
+.myhr{
+    padding:0;
+}

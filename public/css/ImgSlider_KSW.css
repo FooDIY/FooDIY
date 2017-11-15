@@ -1,0 +1,130 @@
+.horiz-scroll {
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    overflow: visible;
+    position: relative;
+}
+.horiz-scroll h2 {
+    font-weight: 600;
+}
+.horiz-scroll .scroller {
+    max-height: 30vw;
+    position: relative;
+    display: flex;
+    display: -webkit-flex;
+    flex: 1;
+    -webkit-flex: 1;
+    background-color: white;
+}
+.horiz-scroll .scroller .left-scroll {
+    left: 0;
+}
+.horiz-scroll .scroller .right-scroll {
+    right: 0;
+}
+.horiz-scroll .scroller .left-scroll,
+.horiz-scroll .scroller .right-scroll {
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    padding: 0 2vw;
+    overflow-x: hidden;
+    z-index: 1;
+    justify-content: center;
+    -webkit-justify-content: center;
+    position: absolute;
+    height: 100%;
+}
+.horiz-scroll .scroller .left-scroll p,
+.horiz-scroll .scroller .right-scroll p {
+    font-size: 3em;
+    color: white;
+    text-shadow: 0 0 10px #333;
+    margin: 0;
+}
+@media only screen and (max-width: 480px) {
+    .horiz-scroll .scroller .left-scroll p,
+    .horiz-scroll .scroller .right-scroll p {
+        color: black;
+    }
+}
+.horiz-scroll .scroller .scrollable-x {
+    white-space: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+.horiz-scroll .scroller .scrollable-x::-webkit-scrollbar {
+    display: none;
+}
+.horiz-scroll .scroller .scrollable-x::-webkit-scrollbar {
+    width: .375em;
+    max-width: 12px;
+}
+.horiz-scroll .scroller .scrollable-x::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+.horiz-scroll .scroller .scrollable-x::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 1em;
+}
+.horiz-scroll .scroller .scroll-images {
+    position: relative;
+    flex: 8;
+    -webkit-flex: 8;
+    display: flex;
+    align-items: center;
+    order: 2;
+    -webkit-order: 2;
+    z-index: 0;
+    font-size: 0;
+    overflow-y: visible;
+    padding: 10% 0;
+    margin: -10% 0;
+    text-align: center;
+}
+.horiz-scroll .scroller .scroll-images img {
+    width: 25%;
+    top: 0;
+    z-index: 0;
+    -webkit-transition: all 100ms;
+    transition: all 100ms;
+    position: relative;
+}
+.horiz-scroll .scroller .scroll-images img.focused {
+    width: 30%;
+}
+@media only screen and (max-width: 960px) {
+    .horiz-scroll .scroller .scroll-images img {
+        width: 33.333%;
+    }
+    .horiz-scroll .scroller .scroll-images img.focused {
+        width: 38.3%;
+    }
+}
+@media only screen and (max-width: 720px) {
+    .horiz-scroll .scroller .scroll-images img {
+        width: 50%;
+    }
+    .horiz-scroll .scroller .scroll-images img.focused {
+        width: 55%;
+    }
+}
+@media only screen and (max-width: 480px) {
+    .horiz-scroll .scroller .scroll-images img {
+        width: 50%;
+        margin: 0 10%;
+    }
+}
+.horiz-scroll .scroller .scroll-images img.focused {
+    z-index: 2;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+    transition: all 250ms ease-in-out, drop-shadow .5s;
+}
+
+.invisible {
+    opacity: 0;
+    transition: .5s ease-in-out;
+}

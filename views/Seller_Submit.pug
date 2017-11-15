@@ -1,0 +1,60 @@
+//
+   Created by Sehyeon on 2017-11-15.
+doctype html
+html(lang="en")
+    head
+        meta(name="viewport", content="width=device-width, initial-scale=1")
+        meta(charset="utf-8")
+        link(rel="stylesheet", type="text/css", href="../css/Seller_Submit_KKY.css")
+        // 합쳐지고 최소화된 최신 CSS
+        link(rel="stylesheet", href="../../css/bootstrap.min.css")
+        // 부가적인 테마
+        link(rel="stylesheet", href="../../css/bootstrap-theme.min.css")
+        // 합쳐지고 최소화된 최신 자바스크립트
+        script(src="../../js/bootstrap.min.js")
+        // Website Font style
+        title 판매자 신청 페이지
+    body
+        .container.col-md-5.col-md-offset-3
+            .row.main
+                .panel-heading
+                    h1.title 판매자 신청
+                .line
+                    .col-xs-offset-1
+                        p.auth 본인 인증
+                .main-login.main-center
+                    form.form(method="post", action="#")
+                        .col-xs-12
+                            .col-xs-4.col-xs-offset-1
+                                p.phoneText 전화번호
+                            .col-xs-5.col-md-7
+                                button.btn.btn-default.btn-block(type="button") 본인인증하기
+                        .col-xs-12
+                            hr.articleLine
+                        .col-xs-12
+                            h2.addressTitle 매장주소
+                        .col-xs-12
+                            p.explanation (판매하실 주소를 입력해 주세요)
+                        .col-xs-12
+                            .col-xs-3.col-md-offset-1.col-md-2
+                                p.phoneText 우편번호
+                            .col-xs-5.divMargin
+                                input(type="text", style="width:100%", readonly="readonly")
+                            .col-xs-4
+                                button.btn.btn-default.btn-block(type="button") 주소검색
+                        #address.col-xs-12
+                            .col-xs-3.col-md-offset-1.col-md-2
+                                p.phoneText 도로명주소
+                            .col-xs-9.divMargin
+                                input(type="text", style="width:100%", readonly="readonly")
+                        .col-xs-12
+                            .col-xs-3.col-md-offset-1.col-md-2
+                                p.phoneText 상세주소
+                            .col-xs-9.divMargin
+                                input(type="text", style="width:100%", readonly="readonly")
+                        .btn-group.btn-group-justified.submit(role="group")
+                            #cancleButton.btn-group(role="group")
+                                button.btn(type="button") 취소
+                            #submitButton.btn-group(role="group")
+                                button.btn(type="button") 판매자 신청하기
+

@@ -11,6 +11,7 @@ var passport = require('passport');
 
 var index = require('./routes/index');
 var users = require('./routes/users/index');
+var seller = require('./routes/seller/index');
 
 var app = express();
 
@@ -38,7 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
-
+app.use('/seller', seller);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

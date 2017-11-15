@@ -1,0 +1,120 @@
+//
+   Created by 순우 on 2017-11-14.
+
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        title foodiy
+        link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+        link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Karma')
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css')
+        link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+        link(rel='stylesheet', href='../css/UploadFile_KSW.css')
+        link(rel='stylesheet', href='../css/MenuSumit_KSW.css')
+        link(rel='stylesheet', href='../css/MenuManagement_KSW.css')
+    body
+        .container
+            div
+                .container-fluid
+                    .row
+                        .col-md-offset-1.col-md-10.col-sm-12.col-xs-12.col-lg-offset-2.col-lg-8
+                            legend 메뉴 등록
+                            form(name='formcheck', onsubmit='return formCheck(this);', method='post')
+                                .form-group.col-xs-12
+                                    label.control-label.requiredField.label-title
+                                        | 메뉴 이름
+                                    input.form-control.input-lg(name='name', type='text')
+                                .form-group.col-xs-12
+                                    label.control-label.requiredField.label-title(for='price')
+                                        | 가격
+                                    input#price.form-control.input-lg(name='price', type='text')
+                                .form-group.col-xs-12
+                                    label.control-label.requiredField.col-xs-12.label-title(for='time1', style='padding:0')
+                                        | 메뉴 판매 시간
+                                    input#time1.input-lg.col-xs-5(name='time1', type='time')
+                                    p.col-xs-2(style='text-align: center; font-size: 20px; margin-top: 7px;') ~
+                                    input#time2.input-lg.col-xs-5(name='time2', type='time')
+                                .form-group.col-xs-12
+                                    label.control-label.label-title(for='description')
+                                        | 상세 설명
+                                    textarea#description.form-control(name='description', placeholder='Please Explain Everything in Detail', rows='8')
+                                .form-group.col-xs-12
+                                    label.control-label.label-title(for='tag')
+                                        | 검색어 (해시 태그) 
+                                        span.asteriskField
+                                            | * 
+                                            small 최대 10개
+                                    textarea#tag.form-control(name='tag', placeholder='ex) #자장면 #포항', rows='4')
+                                    p
+                                        small 검색창에 노출되어질 검색어를 입력해주세요
+                                .form-group.col-xs-12
+                                    label.control-label.requiredField.label-title
+                                        | 메뉴 이미지
+                                    .page(style='margin-top: 10px;')
+                                        // Our File Inputs
+                                        .wrap-custom-file
+                                            input.image1(type='file', name='image1', accept='.gif, .jpg, .png')
+                                            label
+                                                span Select Image
+                                                i.fa.fa-plus-circle
+                                        .wrap-custom-file
+                                            input.image2(type='file', name='image2', accept='.gif, .jpg, .png, .jpeg')
+                                            label
+                                                span Select Image
+                                                i.fa.fa-plus-circle
+                                        .wrap-custom-file
+                                            input.image3(type='file', name='image3', accept='.gif, .jpg, .png, .jpeg')
+                                            label
+                                                span Select Image
+                                                i.fa.fa-plus-circle
+                                        .wrap-custom-file
+                                            input.image4(type='file', name='image4', accept='.gif, .jpg, .png, .jpeg')
+                                            label
+                                                span Select Image
+                                                i.fa.fa-plus-circle
+                                        // End Page Wrap
+                                .col-xs-12.col-sm-12.col-md-12.col-lg-12.myhr
+                                    hr
+                                .form-group.col-xs-12
+                                    label.control-label.requiredField.label-title
+                                        | 재료
+                                    .page
+                                        .wrap-custom-file.col-xs-4.col-sm-3.col-md-3.col-lg-3(style='margin: 0; padding: 0;')
+                                            input(type='file', name='image1', accept='.gif, .jpg, .png, .jpeg')
+                                            label(style='width: 100px; height: 100px; margin-top: 25px; margin-left: 25px;')
+                                                span Select Image
+                                                i.fa.fa-plus-circle
+                                        .col-xs-5.col-sm-9.col-md-9.col-lg-9(style='padding: 0;')
+                                            .form-group.col-xs-12
+                                                label.control-label
+                                                    | 재료명
+                                                button(style='background-color: white; border: none; float: right;')
+                                                    i.fa.fa-minus-circle(style='font-size: 18px;')
+                                                input#ingredent-name.form-control.input-md(name='ingredent-name', type='text')
+                                            .form-group.col-xs-12
+                                                label.control-label(for='price')
+                                                    | 원산지
+                                                input#from.form-control.input-md(name='from', type='text')
+                                button.btn.btn-primary.col-xs-offset-1.col-xs-10.col-sm-offset-1.col-sm-10.col-md-offset-1.col-md-10.col-lg-offset-1.col-lg-10(type='submit') 등록 완료
+                                .col-xs-12
+                                    p(style='text-align: center;')
+                                        small * 메뉴 관리 페이지에서 메뉴 판매 활성화를 시켜주세요.
+            .icon-bar.col-xs-12.col-sm-12.col-md-12.col-lg-12
+                .w3-col.s4.m4.l4
+                    a(href='#')
+                        i.fa.fa-comments-o
+                        p.icon-description 메시지
+                .w3-col.s4.m4.l4
+                    a(href='')
+                        i.fa.fa-calendar-check-o
+                        p.icon-description 주문
+                .w3-col.s4.m4.l4
+                    a(href='')
+                        i#restaurant-menu.material-icons restaurant_menu
+                        p.icon-description 메뉴
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+        script(src='../Js/UploadFile_KSW.js')
