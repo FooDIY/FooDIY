@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8bc66988-3b67-48dc-954a-6b40ab60eca6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/Seller_Submit.pug" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Js/Map.js" afterPath="$PROJECT_DIR$/public/Js/Map.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/components/TopMenu_Component_KSW.html" afterPath="$PROJECT_DIR$/public/html/components/TopMenu_Component_KSW.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/seller/index.js" afterPath="$PROJECT_DIR$/routes/seller/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/EmailVerification.pug" afterPath="$PROJECT_DIR$/views/EmailVerification.pug" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/EmailVerification_KKY.pug" afterPath="$PROJECT_DIR$/views/EmailVerification_KKY.pug" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -28,16 +24,19 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="347">
               <caret line="35" column="37" lean-forward="false" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
-              <folding />
+              <folding>
+                <marker date="1510756776318" expanded="true" signature="1319:1391" ph="{...}" />
+                <marker date="1510756776318" expanded="true" signature="1450:1696" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EmailVerification_KKY.pug" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EmailVerification_KKY.pug" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/EmailVerification_KKY.pug">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="10" column="72" lean-forward="true" selection-start-line="10" selection-start-column="72" selection-end-line="10" selection-end-column="72" />
+            <state relative-caret-position="114">
+              <caret line="6" column="78" lean-forward="false" selection-start-line="6" selection-start-column="57" selection-end-line="6" selection-end-column="78" />
               <folding />
             </state>
           </provider>
@@ -46,28 +45,18 @@
       <file leaf-file-name="EmailVerification.pug" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/EmailVerification.pug">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" column="67" lean-forward="true" selection-start-line="2" selection-start-column="67" selection-end-line="2" selection-end-column="67" />
+            <state relative-caret-position="456">
+              <caret line="24" column="79" lean-forward="true" selection-start-line="24" selection-start-column="79" selection-end-line="24" selection-end-column="79" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EmailVerification_KKY.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="EmailVerification_KKY.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/Js/EmailVerification_KKY.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="228">
-              <caret line="12" column="47" lean-forward="true" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/seller/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="22" column="39" lean-forward="true" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
+              <caret line="12" column="47" lean-forward="false" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -78,26 +67,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="395">
               <caret line="95" column="22" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Seller_Submit.pug" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/Seller_Submit.pug">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="19" column="30" lean-forward="true" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/users/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" column="45" lean-forward="false" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -140,10 +109,11 @@
         <option value="$PROJECT_DIR$/routes/users/userController.js" />
         <option value="$PROJECT_DIR$/routes/users/index.js" />
         <option value="$PROJECT_DIR$/routes/index_.js" />
-        <option value="$PROJECT_DIR$/views/EmailVerification.pug" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/routes/seller/index.js" />
         <option value="$PROJECT_DIR$/views/Seller_Submit.pug" />
+        <option value="$PROJECT_DIR$/views/EmailVerification_KKY.pug" />
+        <option value="$PROJECT_DIR$/views/EmailVerification.pug" />
       </list>
     </option>
   </component>
@@ -237,42 +207,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="routes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FooDIY-11-10" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FooDIY-11-10" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="routes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="users" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FooDIY-11-10" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FooDIY-11-10" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="routes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="seller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -448,7 +382,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22085000" />
+    <option name="totallyTimeSpent" value="22239000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-7" width="1874" height="1096" extended-state="6" />
@@ -534,7 +468,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
           <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1510756776318" expanded="true" signature="1319:1391" ph="{...}" />
+            <marker date="1510756776318" expanded="true" signature="1450:1696" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -542,7 +479,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1510756776318" expanded="true" signature="1319:1391" ph="{...}" />
+            <marker date="1510756776318" expanded="true" signature="1450:1696" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -656,9 +596,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="53" lean-forward="false" selection-start-line="19" selection-start-column="53" selection-end-line="19" selection-end-column="53" />
-          <folding>
-            <element signature="e#0#39#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -789,27 +726,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/EmailVerification.pug">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="67" lean-forward="true" selection-start-line="2" selection-start-column="67" selection-end-line="2" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Js/EmailVerification_KKY.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="47" lean-forward="true" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/users/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
           <caret line="5" column="45" lean-forward="false" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -825,7 +745,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="347">
           <caret line="35" column="37" lean-forward="false" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
-          <folding />
+          <folding>
+            <marker date="1510756776318" expanded="true" signature="1319:1391" ph="{...}" />
+            <marker date="1510756776318" expanded="true" signature="1450:1696" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -833,7 +756,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
           <caret line="22" column="39" lean-forward="true" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -841,14 +763,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
           <caret line="19" column="30" lean-forward="true" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/EmailVerification_KKY.pug">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="72" lean-forward="true" selection-start-line="10" selection-start-column="72" selection-end-line="10" selection-end-column="72" />
+        <state relative-caret-position="114">
+          <caret line="6" column="78" lean-forward="false" selection-start-line="6" selection-start-column="57" selection-end-line="6" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/EmailVerification.pug">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="24" column="79" lean-forward="true" selection-start-line="24" selection-start-column="79" selection-end-line="24" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Js/EmailVerification_KKY.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="47" lean-forward="false" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
           <folding />
         </state>
       </provider>
