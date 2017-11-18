@@ -7,14 +7,30 @@ var async = require('async');
 var crypto = require('crypto');
 var randomstring = require("randomstring");
 var bodyParser = require('body-parser');
+var moment = require('moment');
+var multer=require('multer');
+
 var app = express();
 
 require('../../config/passport')(passport);
 
 var Member = require('../../models/member');
+var Menu = require('../../models/menu');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+var Menu_storage=multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null,'./public/'+file.fieldname);
+    },
+    filename: function (req, file, cb) {
+        cb(null,Date.now()+"!"+file.originalname);
+    }
+});
+var uploadMenu=multer({storage:Menu_storage});
+var fs = require('fs');
+
 exports.seller_submit= function(req, res, next) {
     res.render('Seller_Submit');
 };
@@ -86,4 +102,85 @@ exports.juso_popup_post= function(req, res, next) {
     var entY  = req.body.entY;
     res.render('juso',{inputYn:inputYn,roadFullAddr:roadFullAddr,roadAddrPart1:roadAddrPart1,roadAddrPart2:roadAddrPart2,engAddr:engAddr,jibunAddr:jibunAddr,zipNo:zipNo,addrDetail:addrDetail,admCd:admCd,rnMgtSn:rnMgtSn,
         bdMgtSn:bdMgtSn,detBdNmList:detBdNmList,bdNm:bdNm,bdKdcd:bdKdcd,siNm:siNm,sggNm:sggNm,emdNm:emdNm,liNm:liNm,rn:rn,udrtYn:udrtYn,buldMnnm:buldMnnm,buldSlno:buldSlno,mtYn:mtYn,lnbrMnnm:lnbrMnnm,lnbrSlno:lnbrSlno,emdNo:emdNo,entX:entX,entY:entY});
+};
+exports.submit_menu= function(req, res, next) {
+    res.render('MenuSubmit');
+};
+exports.uploadMenu= function(req, res, next) {
+    next();
+};
+exports.submit_menu_post= function(req, res, next) {
+    uploadMenu.fields([{name:'menu_pic'},{name:'ingre_pic'}]);
+    var menu_name = req.body.menu_name;
+    var content = req.body.content;
+    var minTime=req.body.minTime;
+    var maxTime=req.body.maxTime;
+    var menu_pic = [];
+    var menu_pic_name = [];
+    var menu_pic_size=[];
+    var ingre_pic = [];
+    var ingre_pic_name = [];
+    var ingre_pic_size = [];
+    var upFile = req.files;
+    for (var i = 0; i < upFile['menu_pic'].length; i++) {
+        if (upFile['menu_pic'][i].fieldname === "menu_pic") {
+            menu_pic.push("../img/menu_pic/" + upFile['menu_pic'][i].filename);
+            menu_pic_name.push(upFile['menu_pic'][i].filename);
+            menu_pic_size.push(upFile['menu_pic'][i].size);
+        }
+    }
+    for (i = 0; i < upFile['ingre_pic'].length; i++) {
+        if (upFile['ingre_pic'][i].fieldname === "ingre_pic") {
+            if(upFile['ingre_pic'][i].filename) {
+                ingre_pic.push("../img/ingre_pic/" + upFile['ingre_pic'][i].filename);
+                ingre_pic_name.push(upFile['ingre_pic'][i].filename);
+                ingre_pic_size.push(upFile['ingre_pic'][i].size);
+            }
+        }
+    }
+    var ingreName = req.body.ingre_name;
+    var madeBy = req.body.madeby;
+    var ingre_name=[];
+    var madeby=[];
+    for (i = 0; i < ingreName.length; i++)
+    {
+        if(ingreName[i])
+        {
+            if(madeBy[i])
+            {
+                ingre_name.push(ingreName[i]);
+                madeby.push(madeBy[i]);
+            }
+        }
+    }
+    var price=req.body.price;
+    if(!req.session.email)
+    {
+        res.redirect('/seller');
+    }
+    else{
+        Member.findOne({email:req.session.email},function (err,member) {
+            var newMenu=new Menu();
+            newMenu.member_id=member.email;
+            newMenu.address.post=member.address.post;
+            newMenu.address.add1=member.address.add1;
+            newMenu.address.add2=member.address.add2;
+            newMenu.address.x=member.address.x;
+            newMenu.address.y=member.address.y;
+            newMenu.menu_name=menu_name;
+            newMenu.content=content;
+            for(i=0;i<menu_pic.length;i++) {
+                newMenu.image.push({image_url:menu_pic[i],image_size:menu_pic_size[i], image_name:menu_pic_name[i]});
+            }
+            for(i=0;i<ingre_name.length;i++) {
+                newMenu.ingre.push({ingre_name: ingre_name[i], madeby: madeby[i], ingre_url: ingre_pic[i], ingre_size: ingre_pic_size[i], ingre_image_name:ingre_pic_name[i]});
+            }
+            newMenu.price=price;
+            newMenu.save(function (err) {
+                if (err)
+                    throw err;
+                res.redirect("/seller/manage");
+            });
+        });
+    }
 };
