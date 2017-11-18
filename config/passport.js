@@ -23,6 +23,7 @@ module.exports = function(passport,nev) {
         done(null, {email:user.email,seller:user.sellercheck});
     });
     passport.deserializeUser(function(id, done) {
+
         Member.findById(id, function(err, user) {
             done(err, user);
         });
