@@ -133,9 +133,11 @@ module.exports = function(passport,nev) {
       function(username, password, done) {
         Member.findOne({ 'naver.id' : req.body.id }, function(err, member) {
             if (err) return done(err);
+                var user=new Member();
+                user=member;
                 member.firstname=req.body.firstName;
                 member.lastName=req.body.lastName;
-                member.naver.validation=1;
+                member.naver.validation=true;
                 user.save(function(err){
                   if(err)
                     throw err;

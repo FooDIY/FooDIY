@@ -7,7 +7,7 @@ router.get('/Validation',controller.emailValidation);
 router.get('/confirm_certificate/:id',controller.emailConfirm);
 router.get('/GoogleSignUpCallback',controller.googleSignupCallback);
 router.get('/NaverSignUpCallback',controller.naverSignupCallback);
-router.get('/signupNaverTemp',controller.additionCheck,controller.naverSignupTemp);
+router.get('/NaverSignUpTemp',controller.additionCheck,controller.naverSignupTemp);
 router.get('/LoginNaver', controller.loginNaver);
 router.get('/NaverSignInCallback', controller.naverSigninCallback);
 router.get('/LoginGoogle', controller.loginGoogle);
@@ -19,6 +19,7 @@ router.get('/SignUpNaver',controller.signupNaver);
 router.post('/SignUp',controller.normalsignup);
 router.post('/login', controller.loginAttemp);
 router.post('/reconfirm',controller.reconfirm);
+router.post('/NaverSignUpTemp',controller.postSignupTemp);
 
 
 module.exports = router;

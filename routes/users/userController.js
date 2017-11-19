@@ -119,7 +119,7 @@ exports.naverSignupCallback=function(req, res, next) {
             }
             else{
               req.session.additionTemp=info;
-              res.redirect('/users/signupNaverTemp');
+              res.redirect('/users/SignUpNaverTemp');
 
             }
               //콜백URL에서 URL수정없이 바로 렌더링하기때문에 새로고침시에는 오류가뜰수밖에없음 ,
@@ -180,4 +180,16 @@ exports.googleSigninCallback=function(req, res, next) {
         });
     })(req, res, next);
     // console.log(req.session);
+};
+exports.postSignupTemp=function(req, res, next) {
+        passport.authenticate('NaverSignUpTemp', function(err, user, info)
+        {
+            if (err) { return next(err); }
+            req.logIn(user, function(err) {
+                if (err) { return next(err); }
+                req.session.additionTemp=0;
+                return res.send("clear");
+            });
+        })(req, res, next);
+
 };
