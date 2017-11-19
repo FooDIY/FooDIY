@@ -93,7 +93,7 @@ module.exports = function(passport,nev) {
     passport.use('SignUpNaver',new NaverStrategy({
             clientID: 'h_2lLJKUaqh6as1FYrpL',
             clientSecret: '7_PtqJ3R4o',
-            callbackURL: 'http://foodiy.net/NaverSignUpCallback'
+            callbackURL: 'http://foodiy.net/uesrs/NaverSignUpCallback'
     	},
         function(accessToken, refreshToken, profile, done) {
           process.nextTick(function() {
@@ -148,7 +148,7 @@ module.exports = function(passport,nev) {
     passport.use('LoginNaver',new NaverStrategy({
         clientID: 'h_2lLJKUaqh6as1FYrpL',
         clientSecret: '7_PtqJ3R4o',
-        callbackURL: 'http://foodiy.net/NaverSignInCallback'
+        callbackURL: 'http://foodiy.net/uesrs/NaverSignInCallback'
       },
         function(token, refreshToken, profile, done) {
           process.nextTick(function() {
@@ -170,7 +170,7 @@ module.exports = function(passport,nev) {
     passport.use('SignUpGoogle',new GoogleStrategy({
         clientID: '284029061211-ebed54hk21ncv278oqod73b7hh9h2ueq.apps.googleusercontent.com',
         clientSecret: '_-uxloNCb8s8Or3RvUO8oC3o',
-        callbackURL: 'http://foodiy.net/GoogleSignUpCallback',
+        callbackURL: 'http://foodiy.net/users/GoogleSignUpCallback',
       },
         function(token, refreshToken, profile, done) {
           process.nextTick(function() {
@@ -204,7 +204,7 @@ module.exports = function(passport,nev) {
         passport.use('LoginGoogle',new GoogleStrategy({
             clientID: '284029061211-ebed54hk21ncv278oqod73b7hh9h2ueq.apps.googleusercontent.com',
             clientSecret: '_-uxloNCb8s8Or3RvUO8oC3o',
-            callbackURL: 'http://foodiy.net/GoogleSignInCallback',
+            callbackURL: 'http://foodiy.net/users/GoogleSignInCallback',
           },
             function(token, refreshToken, profile, done) {
               process.nextTick(function() {
