@@ -33,9 +33,12 @@ var MenuSchema = new Schema({
         ingre_size:String
     }],
     price:{type:Number,required: true},
-    amount:{type:Number,required: true},
+    amount:{type:Number},
     submit_date:{ type: Date, default: moment().format()  },
-    hit:{ type: Number, default: 0}
+    hit:{ type: Number, default: 0},
+    star:{type: Number, default: 0},
+    comment:{type:Number, default: 0},
+    is_selling:{type:Boolean, default: false}
 });
 
 module.exports = mongoose.model('menu', MenuSchema);

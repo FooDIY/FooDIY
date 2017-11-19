@@ -1,0 +1,156 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        title Title
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+        link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Karma')
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+        link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css')
+        link(rel='stylesheet', href='../css/TopMenu_KSW.css')
+        link(rel='stylesheet', href='../css/MenuManagement_KSW.css')
+    body
+        // Sidebar
+        include components/TopMenu_Component
+        .col-xs-12.col-sm-offset-2.col-sm-8.col-md-offset-4.col-md-4
+            .widget
+                .cover
+                    img.img-responsive(src='http://c.boylett.uk/images/wallpapers/005.jpg')
+                img.photo(src='../img/steak.jpg')
+                h1= member.firstname
+                h2 Pizza
+                h3 Pasta
+            .col-xs-12.res_info
+                p
+                    span.mytitle.w3-col.s6.m6.l6 매장명
+                    span.myinfo.w3-rest 호호식당
+                p
+                    span.mytitle.w3-col.s6.m6.l6 평점
+                    span.myinfo.w3-rest
+                        span.fa.fa-star.checked
+                        span.fa.fa-star.checked
+                        span.fa.fa-star.checked
+                        span.fa.fa-star
+                        span.fa.fa-star
+                        span  4.1
+                p
+                    span.mytitle.w3-col.s6.m6.l6 후기
+                    span.w3-rest.myinfo
+                        a(href='')
+                            | 501개
+                            small 보러 가기
+                p
+                    span.mytitle.w3-col.s6.m6.l6 운영 시간
+                    span.w3-rest.myinfo 12:00 ~ 21:00
+                p
+                    span.mytitle.w3-col.s6.m6.l6 휴식 시간
+                    span.w3-rest.myinfo 15:00 ~ 17:00
+                p
+                    span.mytitle.w3-col.s6.m6.l6 최소 주문일
+                    span.w3-rest.myinfo 3 일
+                p
+                    span.mytitle.w3-col.s6.m6.l6 휴일
+                    span.w3-rest.myinfo
+                        i.fa.fa-calendar
+                hr
+                h1  메뉴 관리
+                button.btn.btn-info.menu-btn(type='button', onclick="location.href='/seller/submit_menu'")
+                    span.fa.fa-plus-square-o
+                    span.menu-btn-span   새 메뉴 등록
+                //button.btn.btn-basic(type='button')
+                    span.fa.fa-trash
+                    span.menu-btn-span   메뉴 삭제
+                div
+                    br
+                - for (var i=0;i<menu.length;i++)
+                    form(name= 'menu'+(i))
+                        .col-xs-6.col-sm-6.col-md-6.col-lg-6.menu-container
+                            .col-xs-6.col-sm-6.col-md-6.col-lg-6.menu-container
+                                label.my-container
+                                    input(type='button', onclick='delmenu(this.form)')
+                                    span.checkmark
+                            .col-xs-6.col-sm-6.col-md-6.col-lg-6.menu-container1
+                                label.switch
+                                    if(menu[i].is_selling)
+                                        input(type='checkbox', name='is_sell', checked="checked" onclick='is_selling(this.form)')
+                                    else
+                                        input(type='checkbox', name='is_sell', onclick='is_selling(this.form)')
+                                    span.slider.round
+                            .col-xs-12.col-sm-12.col-md-12.col-lg-12.menu-container1.img-container
+                                img.menu-img(src=menu[i].image[0].image_url, alt='')
+                                if(menu[i].is_selling)
+                                    .first-span
+                                        input(type="text", name="selling", readonly="readonly", value="판매중")
+                                else
+                                    .first-span
+                                        input(type="text", name="selling", readonly="readonly", value="판매중지")
+                            .col-xs-12.col-sm-12.col-md-12.col-lg-12.menu-container1
+                                input(type='hidden', value=(menu[i]._id), name='menuid')
+                                h4= menu[i].menu_name
+                                h4= menu[i].price
+                                h4
+                                    span.myinfo.w3-rest
+                                        - for (var j=1;j<6;j++)
+                                            if(menu[i].star>j)
+                                                span.fa.fa-star.checked
+                                            else
+                                                span.fa.fa-star
+                                        span
+                                            | &nbsp
+                                            = menu[i].star
+                                    br
+                                a(href='')
+                                    | 후기&nbsp
+                                    = menu[i].comment
+                                    | 개
+                                    small 보러 가기
+                //.col-xs-6.col-sm-6.col-md-6.col-lg-6.menu-container
+                    .col-xs-6.col-sm-6.col-md-6.col-lg-6.menu-container2
+                        label.my-container
+                            input(type='checkbox', checked='checked')
+                            span.checkmark
+                    .col-xs-6.col-sm-6.col-md-6.col-lg-6.menu-container
+                        label.switch.second-switch
+                            input(type='checkbox')
+                            span.slider.round
+                    .col-xs-12.col-sm-12.col-md-12.col-lg-12.menu-container2.img-container
+                        img.menu-img(src='../img/bibimbap.jpeg', alt='')
+                        .second-span
+                            span 판매중
+                    .col-xs-12.col-sm-12.col-md-12.col-lg-12.menu-container2
+                        h4 전주 비빔밥
+                        h4 25000원
+                        h4
+                            span.myinfo.w3-rest
+                                span.fa.fa-star.checked
+                                span.fa.fa-star.checked
+                                span.fa.fa-star.checked
+                                span.fa.fa-star
+                                span.fa.fa-star
+                                span 4.1
+                            br
+                        a(href='')
+                            | 후기 501개
+                            small 보러 가기
+        // <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        // <hr>
+        // </div>
+        .icon-bar.col-xs-12.col-sm-12.col-md-12.col-lg-12
+            .w3-col.s4.m4.l4
+                a(href='#')
+                    i.fa.fa-comments-o
+                    p.icon-description 메시지
+            .w3-col.s4.m4.l4
+                a(href='')
+                    i.fa.fa-calendar-check-o
+                    p.icon-description 주문
+            .w3-col.s4.m4.l4
+                a(href='')
+                    i#restaurant-menu.material-icons restaurant_menu
+                    p.icon-description 메뉴
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+        script(src='../Js/TopMenu.js')
+        script(src='../Js/MenuManagement.js')

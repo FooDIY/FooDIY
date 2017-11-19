@@ -6,6 +6,6 @@ router.get('/', controller.home);
 router.get('/Login', controller.login);
 router.get('/MenuList', controller.menulist);
 router.get('/SignUp', controller.signup);
-
+router.post('/logout', controller.logout);
 
 module.exports = router;

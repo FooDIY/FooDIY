@@ -11,6 +11,7 @@ var Member = require('../../models/member');
 var cert = require('../../models/certificate');
 
 require('../../config/passport')(passport);
+
 exports.normalsignup= function(req, res, next) {
     passport.authenticate('signup', function(err, user, info) {
         if (err) { return next(err); }
@@ -21,7 +22,7 @@ exports.normalsignup= function(req, res, next) {
     })(req, res, next);
 };
 exports.emailValidation= function(req,res,next){
-    res.render('EmailVerification'); //자기파일에맞게수정하도록
+    res.render('EmailVerification',{passport:req.session.passport}); //자기파일에맞게수정하도록
     //URL 접근제어 필요 임시세션의발급?
 };
 exports.emailConfirm= function (req,res,next) {
@@ -39,7 +40,7 @@ exports.emailConfirm= function (req,res,next) {
                 cert.remove({email:member.email},function(err,output){
                     if(err){ return next(err);}
                 });
-                res.render('EmailConfirm',{safe:false});
+                res.render('EmailConfirm',{safe:false},{passport:req.session.passport});
             }
             else{
                 cert.remove({email:member.email},function(err,output){
@@ -50,7 +51,7 @@ exports.emailConfirm= function (req,res,next) {
                     user.save(function (err) {
                         if (err)
                             throw err;
-                        res.render('EmailConfirm',{safe:true});
+                        res.render('EmailConfirm',{safe:true},{passport:req.session.passport});
                     });
                 })
             }
