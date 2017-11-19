@@ -38,7 +38,7 @@ exports.signup=function(req, res){
       var LoginError=req.session.AlreadyErr;
       req.session.AlreadyErr="";
       req.session.save(function(){
-      res.render('Login',{error:LoginError});
+      res.render('SignUp',{error:LoginError});
       });
     }
     else{
