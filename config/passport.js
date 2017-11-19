@@ -93,7 +93,7 @@ module.exports = function(passport,nev) {
     passport.use('SignUpNaver',new NaverStrategy({
             clientID: 'h_2lLJKUaqh6as1FYrpL',
             clientSecret: '7_PtqJ3R4o',
-            callbackURL: 'http://foodiy.net/uesrs/NaverSignUpCallback'
+            callbackURL: 'http://foodiy.net/users/NaverSignUpCallback'
     	},
         function(accessToken, refreshToken, profile, done) {
           process.nextTick(function() {
@@ -150,7 +150,7 @@ module.exports = function(passport,nev) {
     passport.use('LoginNaver',new NaverStrategy({
         clientID: 'h_2lLJKUaqh6as1FYrpL',
         clientSecret: '7_PtqJ3R4o',
-        callbackURL: 'http://foodiy.net/uesrs/NaverSignInCallback'
+        callbackURL: 'http://foodiy.net/users/NaverSignInCallback'
       },
         function(token, refreshToken, profile, done) {
           process.nextTick(function() {
