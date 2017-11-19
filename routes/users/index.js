@@ -12,12 +12,13 @@ router.get('/LoginNaver', controller.loginNaver);
 router.get('/NaverSignInCallback', controller.naverSigninCallback);
 router.get('/LoginGoogle', controller.loginGoogle);
 router.get('/GoogleSignInCallback', controller.googleSigninCallback);
+router.get('/SignUpGoogle',controller.signupGoogle);
+router.get('/SignUpNaver',controller.signupNaver);
 
 /* POST home page. */
 router.post('/SignUp',controller.normalsignup);
 router.post('/login', controller.loginAttemp);
 router.post('/reconfirm',controller.reconfirm);
-router.post('/SignUpGoogle',controller.signupGoogle);
-router.post('/SignUpNaver',controller.signupNaver);
+
 
 module.exports = router;
