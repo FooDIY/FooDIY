@@ -105,7 +105,7 @@ module.exports = function(passport,nev) {
                 return done(err);   //IF temp exist ,temp serialize
               if(user){
                 if(user.naver.validation){
-                  return done(null, false,{error:'이미 존재하는 유저입니다!'});  //이미 추가정보 입력까지 마친회원
+                  return done(null, user);  //이미 추가정보 입력까지 마친회원
                 }
                 else{
                   return done(null, false,user.naver.id);   //아직 추가정보를 입력하지 않은 회원
@@ -184,7 +184,7 @@ module.exports = function(passport,nev) {
                     if (member) {
                     //return done(null, member);
                     //USER USER EXIST
-                    return done(null, false, {error:'이미 존재하는 유저입니다!'});
+                    return done(null, false, {error:'이미 존재하는 유저입니다!'})
                   } else {
                     var user = new Member();
                     user.google.id = profile.id;

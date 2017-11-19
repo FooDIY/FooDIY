@@ -1,0 +1,176 @@
+/*.signupform {*/
+    /*margin-top: 20px;*/
+/*}*/
+#alert-messageIn{
+  display:none;
+}
+#login{
+    margin-top:40px;
+}
+
+#foodiylogo{
+    width: 250px;
+    display: block;
+    margin: auto;
+}
+
+
+.login-sign-in{
+    background-color: #EEEEEE;
+    border-color: white;
+    color: black;
+    height: 35px;
+    font-size: 18px;
+    border-radius: 8px;
+}
+
+.login-set{
+    margin-top:10px;
+}
+.login-set a{
+    float: right;
+}
+.login-set input{
+    float: left;
+}
+.login-set button{
+    margin-top:10px;
+}
+
+.login-sign-up{
+    background-color: #EEEEEE;
+    border-color: white;
+    color: black;
+    height: 35px;
+    font-size: 18px;
+    border-radius: 8px;
+}
+
+.signupfoodiy{
+    background-color: pink;
+    border-color: pink;
+    color: black;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 8px;
+    margin-bottom:10px;
+    margin-top:30px;
+}
+
+.signupgoogle{
+    background-color: white;
+    border: 1px solid white;
+    color: black;
+    height: 45px;
+    font-size: 18px;
+    border-radius: 8px;
+    margin-bottom:10px;
+    margin-top:60px;
+}
+
+.signupgoogle img{
+    width: 30px;
+    height:30px;
+    float: left;
+    margin-left: 4px;
+}
+.signupgoogle p{
+    margin-top:3px;
+}
+.signupnaver{
+    background-color: #00C73C;
+    color: white;
+    height: 45px;
+    font-size: 18px;
+    border-radius: 8px;
+}
+
+.signupnaver img{
+    width: 33px;
+    height:33px;
+    float: left;
+    margin-left:4px;
+}
+
+.signupnaver p{
+    margin-top:4px;
+}
+
+/* Large desktops and laptops */
+@media (min-width: 1200px) {
+    .signup-content {
+        z-index: 5;
+        background-color: white;
+        margin: 3% auto auto auto;
+        width: 35%;
+        padding: 0;
+    }
+    .real_content{
+        margin:auto;
+        padding: 0 10%;
+    }
+}
+
+/* Landscape tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .signup-content {
+        z-index: 5;
+        background-color: white;
+        margin: 3% auto auto auto;
+        width: 41%;
+        padding: 0;
+    }
+
+    .real_content{
+        margin:auto;
+        padding: 0 10%;
+    }
+}
+
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+    .signup-content {
+        z-index: 5;
+        background-color: white;
+        margin: 3% auto auto auto;
+        width:55%;
+        padding: 0;
+    }
+
+    .real_content{
+        margin:auto;
+        padding: 0 10%;
+    }
+}
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+    .signup-content {
+        z-index: 5;
+        background-color: white;
+        margin: 3% auto auto auto;
+        width: 79%;
+        padding: 0;
+    }
+
+    .real_content{
+        margin:auto;
+        padding: 0 10%;
+    }
+}
+
+/* Portrait phones and smaller */
+@media (max-width: 480px) {
+    .signup-content {
+        z-index: 5;
+        background-color: white;
+        margin: 3% auto auto auto;
+        width: 90%;
+        padding: 0;
+    }
+
+    .real_content{
+        margin:auto;
+        padding: 0 10%;
+    }
+}
