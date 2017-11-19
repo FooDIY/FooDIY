@@ -34,7 +34,7 @@ var fs = require('fs');
 exports.seller_main= function(req, res, next) {
     Member.findOne({ email : req.session.passport.user.email }, function(err, member) {
         Menu.find({member_id:req.session.passport.user.email},function (err, menu) {
-            res.render('MenuManagement',{member:member,menu:menu},{passport:req.session.passport});
+            res.render('MenuManagement',{member:member,menu:menu,passport:req.session.passport});
         });
     });
 };
@@ -109,8 +109,7 @@ exports.juso_popup_post= function(req, res, next) {
     var entX  = req.body.entX;
     var entY  = req.body.entY;
     res.render('juso',{inputYn:inputYn,roadFullAddr:roadFullAddr,roadAddrPart1:roadAddrPart1,roadAddrPart2:roadAddrPart2,engAddr:engAddr,jibunAddr:jibunAddr,zipNo:zipNo,addrDetail:addrDetail,admCd:admCd,rnMgtSn:rnMgtSn,
-        bdMgtSn:bdMgtSn,detBdNmList:detBdNmList,bdNm:bdNm,bdKdcd:bdKdcd,siNm:siNm,sggNm:sggNm,emdNm:emdNm,liNm:liNm,rn:rn,udrtYn:udrtYn,buldMnnm:buldMnnm,buldSlno:buldSlno,mtYn:mtYn,lnbrMnnm:lnbrMnnm,lnbrSlno:lnbrSlno,emdNo:emdNo,entX:entX,entY:entY},
-        {passport:req.session.passport});
+        bdMgtSn:bdMgtSn,detBdNmList:detBdNmList,bdNm:bdNm,bdKdcd:bdKdcd,siNm:siNm,sggNm:sggNm,emdNm:emdNm,liNm:liNm,rn:rn,udrtYn:udrtYn,buldMnnm:buldMnnm,buldSlno:buldSlno,mtYn:mtYn,lnbrMnnm:lnbrMnnm,lnbrSlno:lnbrSlno,emdNo:emdNo,entX:entX,entY:entY,passport:req.session.passport});
 };
 exports.submit_menu= function(req, res, next) {
     res.render('MenuSubmit',{passport:req.session.passport});

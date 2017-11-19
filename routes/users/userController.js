@@ -40,7 +40,7 @@ exports.emailConfirm= function (req,res,next) {
                 cert.remove({email:member.email},function(err,output){
                     if(err){ return next(err);}
                 });
-                res.render('EmailConfirm',{safe:false},{passport:req.session.passport});
+                res.render('EmailConfirm',{safe:false,passport:req.session.passport});
             }
             else{
                 cert.remove({email:member.email},function(err,output){
@@ -51,7 +51,7 @@ exports.emailConfirm= function (req,res,next) {
                     user.save(function (err) {
                         if (err)
                             throw err;
-                        res.render('EmailConfirm',{safe:true},{passport:req.session.passport});
+                        res.render('EmailConfirm',{safe:true,passport:req.session.passport});
                     });
                 })
             }

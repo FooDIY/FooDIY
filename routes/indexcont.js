@@ -8,11 +8,13 @@ var randomstring = require("randomstring");
 
 var mailer=require('../config/mailing');
 require('../config/passport')(passport);
-
+var Menu = require('../models/menu');
 
 exports.home=function(req, res){
-    console.log(passport);
-    res.render('Home',{passport:req.session.passport});
+    Menu.find(function (err, menu) {
+        if(err) return res.status(500).send({error: 'database failure'});
+        res.render('Home',{menu:menu,passport:req.session.passport});
+    });
 };
 
 exports.login=function(req, res){
@@ -25,6 +27,15 @@ exports.menulist=function(req, res){
 
 exports.signup=function(req, res){
     res.render('SignUp',{passport:req.session.passport});
+};
+
+exports.logout=function (req,res,next) {
+    req.logout();
+    //req.session.passport='';
+    //req.session.email =null;
+    //req.session.seller =null;
+    req.session.destroy();
+    res.send('clear');
 };
 
 exports.logout=function (req,res,next) {
