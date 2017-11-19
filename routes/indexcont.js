@@ -20,9 +20,13 @@ exports.login=function(req, res){
     {
       var SignupError=req.session.AlreadyErr;
       req.session.AlreadyErr="";
+      req.session.save(function(){
       res.render('Login',{error:SignupError});
+      });
     }
+    else{
     res.render('Login');
+    }
 };
 
 exports.menulist=function(req, res){
@@ -33,7 +37,11 @@ exports.signup=function(req, res){
     if(req.session.AlreadyErr){     //req.session.error.login 접근시 이미 error 객체가 존재하기에 접근거부되는건지 정확히모르겠음. 깔끔히못했음.
       var LoginError=req.session.AlreadyErr;
       req.session.AlreadyErr="";
+      req.session.save(function(){
       res.render('Login',{error:LoginError});
+      });
     }
+    else{
     res.render('SignUp');
+    }
 };

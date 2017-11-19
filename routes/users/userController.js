@@ -104,10 +104,12 @@ exports.googleSignupCallback=function(req, res, next) {
               return res.redirect('/Login');
             });
         }
+        else{
         req.logIn(user, function(err) {
             if (err) { return next(err); }
             return res.redirect('/');
         });
+      }
     })(req, res, next);
     // console.log(req.session);
 };
@@ -164,11 +166,13 @@ exports.naverSigninCallback=function(req, res, next) {
           return res.redirect('/SignUp');
           });
         }
+        else{
         req.logIn(user, function(err) {
             //req.session.passport='';
             if (err) { return next(err); }
             return res.redirect('/');
         });
+      }
     })(req, res, next);
     // console.log(req.session);
 };
@@ -184,11 +188,13 @@ exports.googleSigninCallback=function(req, res, next) {
             return res.redirect('/SignUp');
           });
         }
+        else{
         req.logIn(user, function(err) {
             //req.session.passport='';
             if (err) { return next(err); }
             return res.redirect('/');
         });
+      }
     })(req, res, next);
     // console.log(req.session);
 };
