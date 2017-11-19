@@ -100,7 +100,9 @@ exports.googleSignupCallback=function(req, res, next) {
         if (err) { return next(err); }
         if (!user) {
             req.session.AlreadyErr=info.error;
-            return res.redirect('/Login');
+            req.session.save(function(err) {
+              return res.redirect('/Login');
+            });
         }
         req.logIn(user, function(err) {
             if (err) { return next(err); }
@@ -115,12 +117,15 @@ exports.naverSignupCallback=function(req, res, next) {
             if (!user) {
               if(info.error){
                 req.session.AlreadyErr=info.error;
+                req.session.save(function(err) {
                 return res.redirect('/Login');
+              });
             }
             else{
               req.session.additionTemp=info;
-              res.redirect('/users/NaverSignUpTemp');
-
+              req.session.save(function(err) {
+              return res.redirect('/users/NaverSignUpTemp');
+              });
             }
               //콜백URL에서 URL수정없이 바로 렌더링하기때문에 새로고침시에는 오류가뜰수밖에없음 ,
               //오류처리하는방법있는지
@@ -139,7 +144,9 @@ exports.naverSignupTemp=function(req,res,next){
 exports.additionCheck=function(req,res,next){
   if(!req.session.additionTemp){
     req.session.additionTemp="";
-    res.redirect('/SignUp');
+    req.session.save(function(err) {
+    return res.redirect('/SignUp');
+    });
   }
   else{
     return next();
@@ -153,7 +160,9 @@ exports.naverSigninCallback=function(req, res, next) {
         if (err) { return next(err); }
         if (!user) {
           req.session.AlreadyErr=info.error;
+          req.session.save(function(err) {
           return res.redirect('/SignUp');
+          });
         }
         req.logIn(user, function(err) {
             //req.session.passport='';
@@ -171,7 +180,9 @@ exports.googleSigninCallback=function(req, res, next) {
         if (err) { return next(err); }
         if (!user) {
           req.session.AlreadyErr=info.error;
-          return res.redirect('/SignUp');
+          req.session.save(function(err) {
+            return res.redirect('/SignUp');
+          });
         }
         req.logIn(user, function(err) {
             //req.session.passport='';
@@ -188,7 +199,9 @@ exports.postSignupTemp=function(req, res, next) {
             req.logIn(user, function(err) {
                 if (err) { return next(err); }
                 req.session.additionTemp=0;
+                req.session.save(function(err) {
                 return res.send("clear");
+                });
             });
         })(req, res, next);
 
