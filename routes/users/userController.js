@@ -119,7 +119,7 @@ exports.naverSignupCallback=function(req, res, next) {
             }
             else{
               req.session.additionTemp=info;
-              res.redirect('/users/SignUpNaverTemp');
+              res.redirect('/users/NaverSignUpTemp');
 
             }
               //콜백URL에서 URL수정없이 바로 렌더링하기때문에 새로고침시에는 오류가뜰수밖에없음 ,
