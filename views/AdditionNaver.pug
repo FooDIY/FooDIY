@@ -42,7 +42,8 @@ html(lang='en')
         script(type='text/javascript', src='../Js/AdditionNaver_KKY.js')
         if(naverId)
           script.
-            $('#id').val(naverId);
+            var user=!{JSON.stringify(naverId)};
+            $('#id').val(user);
 //$("#email-p").prop("readonly", true);
 
     script(src='../js/jquery.js')
