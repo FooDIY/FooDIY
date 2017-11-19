@@ -3,7 +3,7 @@ function signuptemp(val) {
     $.ajax({
         method: "POST",
         type: "POST",
-        url: "users/NaverSignUpTemp",
+        url: "/users/NaverSignUpTemp",
         data: item,
         success: function (data) {
                 location.href = "/";
