@@ -22,8 +22,11 @@ module.exports = function(passport,nev) {
     passport.serializeUser(function(user, done) {
         done(null, {email:user.email,seller:user.sellercheck});
     });
-    passport.deserializeUser(function(user, done) {
-            done(null, user);
+    passport.deserializeUser(function(id, done) {
+
+        Member.findById(id, function(err, user) {
+            done(err, user);
+        });
     });
     passport.use('signup', new LocalStrategy({
             usernameField : 'email',
@@ -93,7 +96,7 @@ module.exports = function(passport,nev) {
     passport.use('SignUpNaver',new NaverStrategy({
             clientID: 'h_2lLJKUaqh6as1FYrpL',
             clientSecret: '7_PtqJ3R4o',
-            callbackURL: 'http://foodiy.net/users/NaverSignUpCallback'
+            callbackURL: 'http://foodiy.net/NaverSignUpCallback'
     	},
         function(accessToken, refreshToken, profile, done) {
           process.nextTick(function() {
@@ -102,7 +105,7 @@ module.exports = function(passport,nev) {
                 return done(err);   //IF temp exist ,temp serialize
               if(user){
                 if(user.naver.validation){
-                  return done(null, false,{error:'이미 존재하는 유저입니다!'});  //이미 추가정보 입력까지 마친회원
+                  return done(null, user);  //이미 추가정보 입력까지 마친회원
                 }
                 else{
                   return done(null, false,user.naver.id);   //아직 추가정보를 입력하지 않은 회원
@@ -130,50 +133,25 @@ module.exports = function(passport,nev) {
         }
     ));
     passport.use('NaverSignUpTemp',new LocalStrategy(
-      {
-              usernameField : 'firstname',
-              passwordField : 'id',
-              passReqToCallback : true
-        },
-    function(req,email,password, done) {
-      Member.findOne({ 'naver.id' : req.body.id }, function(err, member) {
-          if (err) return done(err);
-              var user=new Member();
-              user=member;
-              member.firstname=req.body.firstName;
-              member.lastName=req.body.lastName;
-              member.naver.validation=true;
-              user.save(function(err){
-                if(err)
-                  throw err;
-                return done(null,member);    //처음접근인경우
-              });
-      });
+      function(username, password, done) {
+        Member.findOne({ 'naver.id' : req.body.id }, function(err, member) {
+            if (err) return done(err);
+                member.firstname=req.body.firstName;
+                member.lastName=req.body.lastName;
+                member.naver.validation=1;
+                user.save(function(err){
+                  if(err)
+                    throw err;
+                  return done(null,member);    //처음접근인경우
+                });
+        });
 
-    }
-));
-    // passport.use('NaverSignUpTemp',new LocalStrategy(
-    //   function(username, password, done) {
-    //     Member.findOne({ 'naver.id' : req.body.id }, function(err, member) {
-    //         if (err) return done(err);
-    //             var user=new Member();
-    //             user=member;
-    //             member.firstname=req.body.firstName;
-    //             member.lastName=req.body.lastName;
-    //             member.naver.validation=true;
-    //             user.save(function(err){
-    //               if(err)
-    //                 throw err;
-    //               return done(null,member);    //처음접근인경우
-    //             });
-    //     });
-    //
-    //   }
-    // ));
+      }
+    ));
     passport.use('LoginNaver',new NaverStrategy({
         clientID: 'h_2lLJKUaqh6as1FYrpL',
         clientSecret: '7_PtqJ3R4o',
-        callbackURL: 'http://foodiy.net/users/NaverSignInCallback'
+        callbackURL: 'http://foodiy.net/NaverSignInCallback'
       },
         function(token, refreshToken, profile, done) {
           process.nextTick(function() {
@@ -195,7 +173,7 @@ module.exports = function(passport,nev) {
     passport.use('SignUpGoogle',new GoogleStrategy({
         clientID: '284029061211-ebed54hk21ncv278oqod73b7hh9h2ueq.apps.googleusercontent.com',
         clientSecret: '_-uxloNCb8s8Or3RvUO8oC3o',
-        callbackURL: 'http://foodiy.net/users/GoogleSignUpCallback',
+        callbackURL: 'http://foodiy.net/GoogleSignUpCallback',
       },
         function(token, refreshToken, profile, done) {
           process.nextTick(function() {
@@ -206,7 +184,7 @@ module.exports = function(passport,nev) {
                     if (member) {
                     //return done(null, member);
                     //USER USER EXIST
-                    return done(null, false, {error:'이미 존재하는 유저입니다!'});
+                    return done(null, false, {error:'이미 존재하는 유저입니다!'})
                   } else {
                     var user = new Member();
                     user.google.id = profile.id;
@@ -229,7 +207,7 @@ module.exports = function(passport,nev) {
         passport.use('LoginGoogle',new GoogleStrategy({
             clientID: '284029061211-ebed54hk21ncv278oqod73b7hh9h2ueq.apps.googleusercontent.com',
             clientSecret: '_-uxloNCb8s8Or3RvUO8oC3o',
-            callbackURL: 'http://foodiy.net/users/GoogleSignInCallback',
+            callbackURL: 'http://foodiy.net/GoogleSignInCallback',
           },
             function(token, refreshToken, profile, done) {
               process.nextTick(function() {

@@ -4,11 +4,11 @@ function signuppass(val) {
     $.ajax({
         method: "POST",
         type: "POST",
-        url: "/signup",
+        url: "/users/signup",
         data: item,
         success: function (data) {
             if (data == "clear") {
-                location.replace('/Validation');
+                location.replace('/users/Validation');
                 // $("#reconfirmbutton").show();
                 // $("#reconfirmtext").html("입력하신 메일 주소로 인증 메일을 보냈습니다. 인증 확인 후 최종 회원가입 처리가 완료됩니다.");
                 // email=item.email;
@@ -33,7 +33,6 @@ function signuppass(val) {
         }
     });
 }
-
 //에러메세지 테스트케이스
 // $(document).ready(function(){
 //   $("#alert-messageIn").css("display", "block");

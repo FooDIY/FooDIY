@@ -1,0 +1,53 @@
+//   Created by 순우 on 2017-11-07.
+
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        title SignUp
+        link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+        link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Karma')
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css')
+
+    article
+        .col-xs-12.col-md-offset-4.col-md-4
+          #pop-up-passport.signupform.container-fluid
+              .signup-content
+                  form#passup_form.form-horizontal(name='passup', action='', role='form')
+                      .form-group
+                          .real_content
+                              .dialog
+                                  a.close-thik(href='#')
+                              p
+                              p
+                              .input-group-s
+                                  span.input-group-addon
+                                      i.fa.fa-user-circle-o(aria-hidden='true')
+                              .row
+                                  .col-md-5
+                                      if(naverId)
+                                        input#id(name='id', type='hidden')
+                                      input#firstName-p.form-control(type='text', placeholder='First Name' , name="firstName")
+                                      #pass-first-alert.alert.alert-warning(hidden, role='alert')
+                                          | 잘못된 입력입니다.
+                                  .col-md-7
+                                      input#lastName-p.form-control(type='text',placeholder='Last Name',name="lastName", )
+                                      #pass-last-alert.alert.alert-warning(hidden, role='alert')
+                                          | 잘못된 입력입니다.
+                              input#passup-zipbob.signupzipbob.form-control(type='button', value='Sign Up', onclick='signuptemp(this.form)')
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+        script(type='text/javascript', src='../Js/AdditionNaver_KKY.js')
+        if(naverId)
+          script.
+            var user=!{JSON.stringify(naverId)};
+            $('#id').val(user);
+//$("#email-p").prop("readonly", true);
+
+    script(src='../js/jquery.js')
+    script(src='../js/jquery-ui-1.12.1/jquery-ui.js')
+    script(type='text/javascript', src='../js/topmenu.js')
+    script(type='text/javascript', src='../js/top_alarm.js')
+    script(type='text/javascript', src='../js/top_formcheck.js')

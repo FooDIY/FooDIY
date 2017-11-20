@@ -12,7 +12,7 @@ html(lang='en')
         link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css')
         link(rel='stylesheet', href='../css/Signup_KSW.css')
         link(rel='stylesheet', href='../css/Login_KSW.css')
-        link(rel='stylesheet', href='../css/SignUp_KKY.css')  
+        link(rel='stylesheet', href='../css/SignUp_KKY.css')
     body
         .signupform.container-fluid
             .signup-content
@@ -20,11 +20,11 @@ html(lang='en')
                     .form-group
                         img#foodiylogo(src='../img/foodiy_logo.gif', alt='')
                         .real_content
-                            button#signup-google.signupgoogle.form-control(type='button' onclick="location.href='/SignUpGoogle'" formnovalidate)
+                            button#signup-google.signupgoogle.form-control(type='button' onclick="location.href='/users/SignUpGoogle'" formnovalidate)
                                 span
                                     img(src='../img/google_logo.png', alt='')
                                 p Signup with Google
-                            button#signup-naver.signupnaver.form-control(type='button' onclick="location.href='/SignUpNaver'" formnovalidate)
+                            button#signup-naver.signupnaver.form-control(type='button' onclick="location.href='/users/SignUpNaver'" formnovalidate)
                                 span
                                     img(src='../img/naver_logo.png', alt='')
                                 p Signup with Naver
@@ -49,13 +49,25 @@ html(lang='en')
                                     #sign-first-alert.alert.alert-warning(hidden, role='alert')
                                         | 잘못된 입력입니다.
                                 .col-md-offset-1.col-md-4
-                                    input#lastName.form-control(type='text',placeholder='Last Name', 
+                                    input#lastName.form-control(type='text',placeholder='Last Name',
                                     name="lastName")
                             input#signup.signupfoodiy.form-control(type='button', value='Sign Up', onclick='signuppass(this.form)')
                             //input#signup.signupfoodiy.form-control(type='button', value='Sign Up', onclick='signuppass(this.form)',disabled="disabled")
 
-                            
+
 
         script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
         script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
-        script(type='text/javascript', src='../Js/SignUp_KKY.js')
+        script(type='text/javascript', src='../Js/SignUp.js')
+        if(error)
+          script.
+            $("#alert-messageIn").css({ opacity: 1 });
+            $("#alert-messageIn").css("display", "block");
+            $("#alert-messageIn").html(error);
+            window.setTimeout(function(){
+              $(this).show();
+              $("#alert-messageIn").fadeTo(500,0).slideUp(500,function(){
+
+                $("#alert-messageIn").css("display", "none");
+              });
+            },3000) ;
