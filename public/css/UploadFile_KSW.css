@@ -91,7 +91,7 @@
 }
 .wrap-custom-file label.file-ok {
     background-size: cover;
-    /*background-position: center;*/
+    background-position: center;
 }
 .wrap-custom-file label.file-ok span {
     position: absolute;

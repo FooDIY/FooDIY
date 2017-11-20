@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/TopMenu_KSW.css">
+    <link rel="stylesheet" href="../css/MenuManagement_KSW.css">
+    <link rel="stylesheet" href="../css/ImgSlider_KSW.css">
+    <link rel="stylesheet" href="../css/Table2_KSW.css">
+</head>
+<body>
+
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left" id="mySidebar">
+    <a href="Home_KSW.html" class="w3-bar-item w3-button" id="goHome">홈</a>
+    <hr>
+    <a href="Login_KSW.html" class="w3-bar-item w3-button">로그인</a>
+    <a href="Signup_KSW.html" class="w3-bar-item w3-button">회원가입</a>
+    <a href="/" class="w3-bar-item w3-button">도움말</a>
+    <a href="/" class="w3-red w3-bar-item" id="submitBtn">판매자 신청하기</a>
+</nav>
+
+<!-- Top menu -->
+<div class="w3-top">
+    <div class="w3-white w3-xlarge w3-row-padding" id="topMenu">
+        <div class="w3-button w3-left col-xs-3 col-sm-1 col-md-1 col-lg-1 arrow_wrapper" id="topMenuDropdown">
+            <div class="w3-col s10">
+                <img src="../img/foodiy_icon.png" alt="" style="height: 40px; width: 40px;">
+            </div>
+            <div class="w3-col s2 arrow" style="margin-top: 15px;">
+            </div>
+        </div>
+        <div class="w3-button w3-right col-sm-offset-2 col-md-offset-2 col-xs-2 col-sm-1 col-md-1 col-lg-1" onclick="goToMenuList()" id="mapBtn" >MAP</div>
+        <div class="form-group has-success has-feedback w3-center w3-padding-16 col-sm-offset-2 col-md-offset-2 col-xs-7 col-sm-6 col-md-6">
+            <div class="col-sm-12">
+                <input type="text" class="form-control input-lg" id="inputSuccess" placeholder="Search">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-4 col-md-4">
+    <div class="widget">
+        <div class="cover">
+            <img class="img-responsive" src="http://c.boylett.uk/images/wallpapers/005.jpg" />
+        </div>
+        <img src="../img/steak.jpg" class="photo" />
+        <h1>Steak</h1>
+        <h2>Pizza</h2>
+        <h3>Pasta</h3>
+    </div>
+
+    <div class="col-xs-12" id="res_info">
+        <p><span class="mytitle w3-col s6 m6 l6">매장명</span> <span class="myinfo w3-rest">호호식당 &nbsp;<button class="btn-xs btn-primary">수정</button></span></p>
+        <p><span class="mytitle w3-col s6 m6 l6">평점</span>
+            <span class="myinfo w3-rest">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <span>&nbsp;4.1</span>
+            </span>
+        </p>
+        <p><span class="mytitle w3-col s6 m6 l6">후기</span> <span class="w3-rest myinfo"><a href="" class="">501개 <small>보러 가기</small></a></span></p>
+        <p><span class="mytitle w3-col s6 m6 l6">운영 시간</span> <span class="w3-rest myinfo">12:00 ~ 21:00 &nbsp;<button class="btn-xs btn-primary">수정</button></span></p>
+        <p><span class="mytitle w3-col s6 m6 l6">휴식 시간</span> <span class="w3-rest myinfo">15:00 ~ 17:00 &nbsp;<button class="btn-xs btn-primary">수정</button></span></p>
+        <p><span class="mytitle w3-col s6 m6 l6">최소 주문일</span> <span class="w3-rest myinfo">3 일 &nbsp;<button class="btn-xs btn-primary">수정</button></span></p>
+        <p><span class="mytitle w3-col s6 m6 l6">휴일</span> <span class="w3-rest myinfo"><i class="fa fa-calendar"></i> &nbsp;<button class="btn-xs btn-primary">수정</button></span></p>
+        <p class="mytitle w3-col s12 m12 l12">매장 설명 <button class="btn-xs btn-primary">수정</button></p>
+        <!--<textarea class="w3-col s12 m12 l12" name="" id="" rows="5"></textarea>-->
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        <div class="table-users">
+            <div class="table-header">
+                테이블 관리 <button class="btn-sm btn-primary" style="float: right; margin-left: 10px;">삭제</button>
+                <button class="btn-sm btn-primary" style="float: right;">등록</button> </div>
+
+            <table cellspacing="0">
+
+                <tr class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div>
+                        <td>
+                            <input type="checkbox">
+                            <button type="button" class="btn-xs btn-primary" style="float: right;">수정</button>
+                        </td>
+                        <td>하늘테이블(런치)</td>
+                        <td>Private/Fixed</td>
+                        <td>12:00~14:00</td>
+                        <td>10만원</td>
+                        <td>12인</td>
+                        <td>3시간</td>
+                    </div>
+                </tr>
+
+                <tr class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div>
+                        <td>
+                            <input type="checkbox">
+                            <button type="button" class="btn-xs btn-primary" style="float: right;">수정</button>
+                        </td>
+                        <td>하늘테이블(런치)</td>
+                        <td>Private/Fixed</td>
+                        <td>12:00~14:00</td>
+                        <td>10만원</td>
+                        <td>12인</td>
+                        <td>3시간</td>
+                    </div>
+                </tr>
+
+                <tr class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div>
+                        <td>
+                            <input type="checkbox">
+                            <button type="button" class="btn-xs btn-primary" style="float: right;">수정</button>
+                        </td>
+                        <td>하늘테이블(런치)</td>
+                        <td>Private/Fixed</td>
+                        <td>12:00~14:00</td>
+                        <td>10만원</td>
+                        <td>12인</td>
+                        <td>3시간</td>
+                    </div>
+                </tr>
+
+                <tr class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div>
+                        <td>
+                            <input type="checkbox">
+                            <button type="button" class="btn-xs btn-primary" style="float: right;">수정</button>
+                        </td>
+                        <td>하늘테이블(런치)</td>
+                        <td>Private/Fixed</td>
+                        <td>12:00~14:00</td>
+                        <td>10만원</td>
+                        <td>12인</td>
+                        <td>3시간</td>
+                    </div>
+                </tr>
+            </table>
+        </div>
+
+
+        <hr class="w3-col s12 m12 l12">
+
+        <h2>식사 장소<button type="button" class="btn-sm btn-primary" style="float: right; margin-left: 10px;">수정</button>&nbsp;<button class="btn-sm btn-primary" style="float: right">등록</button></h2>
+
+        <!-- Slider -->
+        <div id="scroll-feature" class="horiz-scroll">
+            <div class="scroller">
+                <div class="left-scroll invisible">
+                    <p class="fa fa-angle-left"></p>
+                </div>
+                <div class="right-scroll">
+                    <p class="fa fa-angle-right"></p>
+                </div>
+                <div class="scroll-images scrollable-x">
+                    <img src="http://placehold.it/600x400/CCB03A/fff&text=Image+1" alt="Image 1">
+                    <img src="http://placehold.it/600x400/FAEF5D/333&text=Image+2" alt="Image 2">
+                    <img src="http://placehold.it/600x400/97A976/fff&text=Image+3" alt="Image 3">
+                    <img src="http://placehold.it/600x400/675647/fff&text=Image+4" alt="Image 4">
+                    <img src="http://placehold.it/600x400/253E41/fff&text=Image+5" alt="Image 5">
+                    <img src="http://placehold.it/600x400/F1582D/fff&text=Image+6" alt="Image 6">
+                    <img src="http://placehold.it/600x400/C1DAD8/333&text=Image+7" alt="Image 7">
+                    <img src="http://placehold.it/600x400/6CB8C1/fff&text=Image+8" alt="Image 8">
+                    <img src="http://placehold.it/600x400/BF6A28/fff&text=Image+9" alt="Image 9">
+                    <img src="http://placehold.it/600x400/5E4D1E/fff&text=Image+10" alt="Image 10">
+                    <img src="http://placehold.it/600x400/E5DECA/333&text=Image+11" alt="Image 11">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 myhr">
+            <br>
+        </div>
+
+        <h2>위치 <button class="btn-sm btn-primary" style="float: right;">수정</button></h2>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="map" style="height: 300px; width: 100%;"></div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 myhr">
+            <br>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 menu-container purchase-btn">
+            <button class="btn btn-warning col-xs-6 col-sm-6 col-md-6 col-lg-6">뒤로가기</button>
+            <button class="btn btn-success col-xs-6 col-sm-6 col-md-6 col-lg-6">저장하기</button>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 myhr">
+            <br>
+        </div>
+    </div>
+
+</div>
+
+<div class="icon-bar col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="w3-col s4 m4 l4">
+        <a href="#"><i class="fa fa-comments-o"></i>
+            <p class="icon-description">메시지</p>
+        </a>
+    </div>
+
+    <div class="w3-col s4 m4 l4">
+        <a href=""><i class="fa fa-calendar-check-o"></i>
+            <p class="icon-description">주문</p>
+        </a>
+    </div>
+
+    <div class="w3-col s4 m4 l4">
+        <a href=""><i class="material-icons" id="restaurant-menu">restaurant_menu</i>
+            <p class="icon-description">메뉴</p>
+        </a>
+    </div>
+</div>
+
+
+<script src="../Js/Map.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9QRgBKIct09-0nMzhZyX5EMldShSzZy4&callback=myMap"></script>
+<script src="../Js/TopMenu.js"></script>
+<script src="../Js/ImgSlider.js"></script>
+</body>
+</html>

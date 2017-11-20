@@ -1,0 +1,156 @@
+//
+   Created by 순우 on 2017-11-20.
+
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        title Title
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+        link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Karma')
+        link(rel='stylesheet', href='../css/calendar.css')
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css')
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+        link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+        link(rel='stylesheet', href='../css/TopMenu_KSW.css')
+        link(rel='stylesheet', href='../css/Table_KSW.css')
+        link(rel='stylesheet', href='../css/MenuManagement_KSW.css')
+    body
+        // Sidebar
+        nav#mySidebar.w3-sidebar.w3-bar-block.w3-card.w3-top.w3-xlarge.w3-animate-left
+            a#goHome.w3-bar-item.w3-button(href='Home_KSW.html') 홈
+            hr
+            a.w3-bar-item.w3-button(href='Login_KSW.html') 로그인
+            a.w3-bar-item.w3-button(href='Signup_KSW.html') 회원가입
+            a.w3-bar-item.w3-button(href='/') 도움말
+            a#submitBtn.w3-red.w3-bar-item(href='/') 판매자 신청하기
+        // Top menu
+        .w3-top
+            #topMenu.w3-white.w3-xlarge.w3-row-padding
+                #topMenuDropdown.w3-button.w3-left.col-xs-3.col-sm-1.col-md-1.col-lg-1.arrow_wrapper
+                    .w3-col.s10
+                        img(src='../img/foodiy_icon.png', alt='', style='height: 40px; width: 40px;')
+                    .w3-col.s2.arrow(style='margin-top: 15px;')
+                #mapBtn.w3-button.w3-right.col-sm-offset-2.col-md-offset-2.col-xs-2.col-sm-1.col-md-1.col-lg-1(onclick='goToMenuList()') MAP
+                .form-group.has-success.has-feedback.w3-center.w3-padding-16.col-sm-offset-2.col-md-offset-2.col-xs-7.col-sm-6.col-md-6
+                    .col-sm-12
+                        input#inputSuccess.form-control.input-lg(type='text', placeholder='Search')
+        #calendar(style='margin-top: 94px;')
+        .table-users
+            .table-header
+                | 11월 20일 주문관리
+                button.btn.btn-basic(style='float: right; color: black;') 선택 예약취소
+            table(cellspacing='0')
+                tr.col-xs-12.col-sm-12.col-md-12.col-lg-12
+                    div
+                        th(style='width: 4%;')
+                            label.my-container
+                                input(type='checkbox', checked='checked')
+                                span.checkmark
+                        th(style='width: 10%;') 예약자
+                        th(style='width: 12%;') 예약시간
+                        th(style='width: 12%;') 예약유형
+                        th(style='width: 12%;') 테이블명
+                        th(style='width: 6%;') 메뉴
+                        th(style='width: 6%;') 수량
+                        th(style='width: 10%;') 준비상태
+                        th(style='width: 16%;') 판매상태
+                tr.col-xs-12.col-sm-12.col-md-12.col-lg-12
+                    div
+                        td
+                            label.my-container
+                                input(type='checkbox', checked='checked')
+                                span.checkmark
+                        td
+                            img(src='../img/steak.jpg', alt='')
+                        td 12:00~14:00
+                        td Private/Fixed
+                        td 하늘테이블(런치)
+                        td 엄마손집밥
+                        td 2
+                        td
+                            label.switch
+                                input(type='checkbox')
+                                span.slider.round
+                            p 준비중
+                        td
+                            button.btn.btn-danger(type='button') 판매완료(클릭)
+                tr.col-xs-12.col-sm-12.col-md-12.col-lg-12
+                    div
+                        td
+                            label.my-container
+                                input(type='checkbox', checked='checked')
+                                span.checkmark
+                        td
+                            img(src='../img/pasta.jpg', alt='')
+                        td 12:00~14:00
+                        td Private/Fixed
+                        td 하늘테이블(런치)
+                        td 엄마손집밥
+                        td 2
+                        td
+                            label.switch
+                                input(type='checkbox')
+                                span.slider.round
+                            p 준비중
+                        td
+                            button.btn.btn-danger(type='button') 판매완료(클릭)
+                tr.col-xs-12.col-sm-12.col-md-12.col-lg-12
+                    div
+                        td
+                            label.my-container
+                                input(type='checkbox', checked='checked')
+                                span.checkmark
+                        td
+                            img(src='../img/bibimbap.jpeg', alt='')
+                        td 12:00~14:00
+                        td Private/Fixed
+                        td 하늘테이블(런치)
+                        td 엄마손집밥
+                        td 2
+                        td
+                            label.switch
+                                input(type='checkbox')
+                                span.slider.round
+                            p 준비중
+                        td
+                            button.btn.btn-danger(type='button') 판매완료(클릭)
+                tr.col-xs-12.col-sm-12.col-md-12.col-lg-12
+                    div
+                        td
+                            label.my-container
+                                input(type='checkbox', checked='checked')
+                                span.checkmark
+                        td
+                            img(src='../img/sushi.jpg', alt='')
+                        td 12:00~14:00
+                        td Private/Fixed
+                        td 하늘테이블(런치)
+                        td 엄마손집밥
+                        td 2
+                        td
+                            label.switch
+                                input(type='checkbox')
+                                span.slider.round
+                            p 준비중
+                        td
+                            button.btn.btn-danger(type='button') 판매완료(클릭)
+        .icon-bar.col-xs-12.col-sm-12.col-md-12.col-lg-12
+            .w3-col.s4.m4.l4
+                a(href='#')
+                    i.fa.fa-comments-o
+                    p.icon-description 메시지
+            .w3-col.s4.m4.l4
+                a(href='')
+                    i.fa.fa-calendar-check-o
+                    p.icon-description 주문
+            .w3-col.s4.m4.l4
+                a(href='')
+                    i#restaurant-menu.material-icons restaurant_menu
+                    p.icon-description 메뉴
+        script(src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js')
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+        script(src='../Js/calendar.js')
+        script(src='../Js/TopMenu.js')
