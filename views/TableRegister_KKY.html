@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/TableRegister_KKY.css">
+</head>
+<body>
+<div class="container">
+  <div class="line">
+    <div class="col-xs-offset-1 titleDiv">
+      <h3 class="Title">테이블 등록하기</h3>
+    </div>
+  </div>
+
+  <div class="col-xs-12">
+    <div class="col-xs-12 tableNameDiv">
+      <h3 class="objectTitle">테이블명 <span class="subText">ex)테이블 번호, 별명</span></h3>
+      <input class="form-group nameInput" placeholder="내용을 입력해주세요."></input>
+    </div>
+    <div class="col-xs-12">
+      <h3 class="objectTitle">예약받을 유형</h3>
+    </div>
+    <div class="col-xs-12">
+      <div class="col-md-6 typeDiv">
+        <select class="form-control">
+            <option selected="true" disabled="disabled">=====예약 유형 선택=====</option>
+            <option value="fixed">고정예약</option>
+            <option value="free">자율예약</option>
+            <option value="whole">다이닝전체</option>
+        </select>
+      </div>
+
+    </div>
+    <div class="col-xs-12">
+        <h3 class="objectTitle">예약받을 시간</h3>
+        <p>*자율예약 : 등록한 시간동안 고객은 자유롭게 예약 가능합니다.  ex) "08:00~16:00"등록시 고객은 "08:00~08:30", "12:00~15:00"등으로 자유롭게 예약 가능. </p>
+        <p>단 최대 예약시간을 넘을 순 없음.</p>
+        <div class="col-xs-12 TimeContainerDiv col-md-offset-2 col-md-10">
+          <div class="col-xs-12 bookTimeDiv">
+            <input class="bookInput" type="time" step="600"/> ~ <input class="bookInput" type="time" step="600"/> <button class="bookSubmit">등록</button>
+          </div>
+          <div class="col-xs-12 bookTimeDiv">
+            <input class="bookInput" type="time" step="600"/> ~ <input class="bookInput" type="time" step="600"/> <button class="bookSubmit">등록</button>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-offset-1 col-md-5 addBookDiv">
+          <button class="addBookButton btn-block"><span class="plusIcon glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+        </div>
+
+    </div>
+    <div class="col-xs-12">
+      <h3 class="objectTitle">최소주문금액</h3>
+      <p>*예약받을 최소주문 금액을 입력해 주세요.</p>
+      <input class="commonInput"></input>원
+    </div>
+    <div class="col-xs-12">
+      <h3 class="objectTitle">수용인원</h3>
+      <p>*이 테이블의 최대 예약받을 수 있는 인원을 지정하세요.</p>
+      <input class="commonInput" type="number"></input>명
+    </div>
+    <div class="col-xs-12">
+      <h3 class="objectTitle">최대시간</h3>
+      <p>*손님이 예약시간으로부터 최대 식사할 수 있는 시간을 지정하세요.</p>
+      <input class="hourInput" type="number"></input>시간 <input class="minuteInput" type="number"></input>분
+    </div>
+  </div>
+
+  <div class="col-xs-12 submitDiv">
+    <div class="col-xs-offset-2 col-xs-3 submitBoxDiv">
+      <button class="btn-block submitBtn">등록</button>
+    </div>
+    <div class="col-xs-offset-2 col-xs-3 submitBoxDiv">
+      <button class="btn-block cancelBtn">취소</button>
+    </div>
+  </div>
+
+</div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9QRgBKIct09-0nMzhZyX5EMldShSzZy4&callback=myMap"></script>
+<script src="../Js/TopMenu.js"></script>
+</body>
+</html>

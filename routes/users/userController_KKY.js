@@ -11,7 +11,6 @@ var Member = require('../../models/member');
 var cert = require('../../models/certificate');
 
 require('../../config/passport')(passport);
-
 exports.normalsignup= function(req, res, next) {
     passport.authenticate('signup', function(err, user, info) {
         if (err) { return next(err); }
@@ -22,7 +21,7 @@ exports.normalsignup= function(req, res, next) {
     })(req, res, next);
 };
 exports.emailValidation= function(req,res,next){
-    res.render('EmailVerification',{passport:req.session.passport}); //자기파일에맞게수정하도록
+    res.render('EmailVerification'); //자기파일에맞게수정하도록
     //URL 접근제어 필요 임시세션의발급?
 };
 exports.emailConfirm= function (req,res,next) {
@@ -40,7 +39,7 @@ exports.emailConfirm= function (req,res,next) {
                 cert.remove({email:member.email},function(err,output){
                     if(err){ return next(err);}
                 });
-                res.render('EmailConfirm',{safe:false,passport:req.session.passport});
+                res.render('EmailConfirm',{safe:false});
             }
             else{
                 cert.remove({email:member.email},function(err,output){
@@ -51,7 +50,7 @@ exports.emailConfirm= function (req,res,next) {
                     user.save(function (err) {
                         if (err)
                             throw err;
-                        res.render('EmailConfirm',{safe:true,passport:req.session.passport});
+                        res.render('EmailConfirm',{safe:true});
                     });
                 })
             }
@@ -101,16 +100,12 @@ exports.googleSignupCallback=function(req, res, next) {
         if (err) { return next(err); }
         if (!user) {
             req.session.AlreadyErr=info.error;
-            req.session.save(function(err) {
-              return res.redirect('/Login');
-            });
+            return res.redirect('/Login');
         }
-        else{
         req.logIn(user, function(err) {
             if (err) { return next(err); }
             return res.redirect('/');
         });
-      }
     })(req, res, next);
     // console.log(req.session);
 };
@@ -120,15 +115,12 @@ exports.naverSignupCallback=function(req, res, next) {
             if (!user) {
               if(info.error){
                 req.session.AlreadyErr=info.error;
-                req.session.save(function(err) {
                 return res.redirect('/Login');
-              });
             }
             else{
               req.session.additionTemp=info;
-              req.session.save(function(err) {
-              return res.redirect('/users/NaverSignUpTemp');
-              });
+              res.redirect('/users/signupNaverTemp');
+
             }
               //콜백URL에서 URL수정없이 바로 렌더링하기때문에 새로고침시에는 오류가뜰수밖에없음 ,
               //오류처리하는방법있는지
@@ -147,9 +139,7 @@ exports.naverSignupTemp=function(req,res,next){
 exports.additionCheck=function(req,res,next){
   if(!req.session.additionTemp){
     req.session.additionTemp="";
-    req.session.save(function(err) {
-    return res.redirect('/SignUp');
-    });
+    res.redirect('/SignUp');
   }
   else{
     return next();
@@ -163,17 +153,13 @@ exports.naverSigninCallback=function(req, res, next) {
         if (err) { return next(err); }
         if (!user) {
           req.session.AlreadyErr=info.error;
-          req.session.save(function(err) {
           return res.redirect('/SignUp');
-          });
         }
-        else{
         req.logIn(user, function(err) {
             //req.session.passport='';
             if (err) { return next(err); }
             return res.redirect('/');
         });
-      }
     })(req, res, next);
     // console.log(req.session);
 };
@@ -185,31 +171,13 @@ exports.googleSigninCallback=function(req, res, next) {
         if (err) { return next(err); }
         if (!user) {
           req.session.AlreadyErr=info.error;
-          req.session.save(function(err) {
-            return res.redirect('/SignUp');
-          });
+          return res.redirect('/SignUp');
         }
-        else{
         req.logIn(user, function(err) {
             //req.session.passport='';
             if (err) { return next(err); }
             return res.redirect('/');
         });
-      }
     })(req, res, next);
     // console.log(req.session);
-};
-exports.postSignupTemp=function(req, res, next) {
-        passport.authenticate('NaverSignUpTemp', function(err, user, info)
-        {
-            if (err) { return next(err); }
-            req.logIn(user, function(err) {
-                if (err) { return next(err); }
-                req.session.additionTemp=0;
-                req.session.save(function(err) {
-                return res.send("clear");
-                });
-            });
-        })(req, res, next);
-
 };

@@ -51,8 +51,7 @@ html(lang='en')
           script.
             $("#alert-messageIn").css({ opacity: 1 });
             $("#alert-messageIn").css("display", "block");
-            var err=!{JSON.stringify(error)};
-            $("#alert-messageIn").html(err);
+            $("#alert-messageIn").html(error);
             window.setTimeout(function(){
               $(this).show();
               $("#alert-messageIn").fadeTo(500,0).slideUp(500,function(){

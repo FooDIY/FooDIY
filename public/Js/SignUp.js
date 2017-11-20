@@ -33,7 +33,6 @@ function signuppass(val) {
         }
     });
 }
-
 //에러메세지 테스트케이스
 // $(document).ready(function(){
 //   $("#alert-messageIn").css("display", "block");

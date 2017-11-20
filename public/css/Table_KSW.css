@@ -1,0 +1,141 @@
+/*body {*/
+    /*background-color: #91ced4;*/
+/*}*/
+/*body * {*/
+    /*box-sizing: border-box;*/
+/*}*/
+
+.table-header {
+    background-color: rgb(44, 62, 80);
+    color: white;
+    font-size: 1.5em;
+    padding: 1rem;
+    /*text-align: center;*/
+    text-transform: uppercase;
+    z-index:0;
+    width:100%;
+}
+
+td img {
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+}
+
+.table-users {
+    border: 1px solid #327a81;
+    border-radius: 10px;
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+    max-width: calc(100% - 2em);
+    margin: 1em auto;
+    overflow: hidden;
+    width: 830px;
+}
+
+table {
+    width: 100%;
+}
+table td, table th {
+    color: #2b686e;
+    padding: 10px;
+}
+table td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+table td:nth-child(8) label{
+    margin: 0 10px;
+}
+
+table td:nth-child(8) p{
+    margin: 0;
+}
+
+table td:last-child {
+    font-size: 0.95em;
+    line-height: 1.4;
+    text-align: left;
+}
+table th {
+    background-color: #daeff1;
+    font-weight: 300;
+}
+table tr:nth-child(2n) {
+    background-color: white;
+}
+table tr:nth-child(2n+1) {
+    background-color: #edf7f8;
+}
+
+@media screen and (max-width: 790px) {
+    table, tr, td {
+        display: block;
+    }
+
+    table td:nth-child(8) label{
+        margin: 0;
+    }
+    table td:nth-child(8) p{
+        margin-left: 5px;
+    }
+    td:nth-child(2) {
+        position: absolute;
+        top: 15%;
+        left:0;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        width: 100px;
+    }
+    td:not(:nth-child(2)) {
+        clear: both;
+        padding: 4px 20px 4px 90px;
+        position: relative;
+        text-align: left;
+    }
+    td:nth-child(3){
+        margin-top:80px;
+    }
+    td:first-child{
+        text-align: right;
+    }
+    td:not(:nth-child(2)):before {
+        color: #91ced4;
+        content: '';
+        display: block;
+        left: 0;
+        position: absolute;
+    }
+    td:nth-child(2):before {
+        content: '예약자';
+    }
+    td:nth-child(3):before {
+        content: '예약시간:';
+    }
+    td:nth-child(4):before {
+        content: '예약유형:';
+    }
+    td:nth-child(5):before {
+        content: '테이블명:';
+    }
+    td:nth-child(6):before {
+        content: '메뉴:';
+    }
+    td:nth-child(7):before {
+        content: '수량:';
+    }
+    td:nth-child(8):before {
+        content: '준비상태:';
+    }
+    td:nth-child(9):before {
+        content: '판매상태:';
+    }
+
+    tr {
+        padding: 10px 0;
+        position: relative;
+    }
+    tr:first-child {
+        display: none;
+    }
+}

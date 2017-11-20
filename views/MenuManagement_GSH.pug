@@ -65,47 +65,47 @@ html(lang='en')
                 div
                     br
                 - for (var i=0;i<menu.length;i++)
-                    form(name= 'menu'+(i))
+                form(name= 'menu'+(i))
+                    .col-xs-6.col-sm-6.col-md-6.col-lg-6.menu-container
                         .col-xs-6.col-sm-6.col-md-6.col-lg-6.menu-container
-                            .col-xs-6.col-sm-6.col-md-6.col-lg-6.menu-container
-                                label.my-container
-                                    input(type='button', onclick='delmenu(this.form)')
-                                    span.checkmark
-                            .col-xs-6.col-sm-6.col-md-6.col-lg-6.menu-container1
-                                label.switch
-                                    if(menu[i].is_selling)
-                                        input(type='checkbox', name='is_sell', checked="checked" onclick='is_selling(this.form)')
-                                    else
-                                        input(type='checkbox', name='is_sell', onclick='is_selling(this.form)')
-                                    span.slider.round
-                            .col-xs-12.col-sm-12.col-md-12.col-lg-12.menu-container1.img-container
-                                img.menu-img(src=menu[i].image[0].image_url, alt='')
+                            label.my-container
+                                input(type='button', onclick='delmenu(this.form)')
+                                span.checkmark
+                        .col-xs-6.col-sm-6.col-md-6.col-lg-6.menu-container1
+                            label.switch
                                 if(menu[i].is_selling)
-                                    .first-span
-                                        input(type="text", name="selling", readonly="readonly", value="판매중")
+                                    input(type='checkbox', name='is_sell', checked="checked" onclick='is_selling(this.form)')
                                 else
-                                    .first-span
-                                        input(type="text", name="selling", readonly="readonly", value="판매중지")
-                            .col-xs-12.col-sm-12.col-md-12.col-lg-12.menu-container1
-                                input(type='hidden', value=(menu[i]._id), name='menuid')
-                                h4= menu[i].menu_name
-                                h4= menu[i].price
-                                h4
-                                    span.myinfo.w3-rest
-                                        - for (var j=1;j<6;j++)
-                                        if(menu[i].star>j)
-                                            span.fa.fa-star.checked
-                                        else
-                                            span.fa.fa-star
-                                        span
-                                            | &nbsp
-                                            = menu[i].star
-                                    br
-                                a(href='')
-                                    | 후기&nbsp
-                                    = menu[i].comment
-                                    | 개
-                                    small 보러 가기
+                                    input(type='checkbox', name='is_sell', onclick='is_selling(this.form)')
+                                span.slider.round
+                        .col-xs-12.col-sm-12.col-md-12.col-lg-12.menu-container1.img-container
+                            img.menu-img(src=menu[i].image[0].image_url, alt='')
+                            if(menu[i].is_selling)
+                                .first-span
+                                    input(type="text", name="selling", readonly="readonly", value="판매중")
+                            else
+                                .first-span
+                                    input(type="text", name="selling", readonly="readonly", value="판매중지")
+                        .col-xs-12.col-sm-12.col-md-12.col-lg-12.menu-container1
+                            input(type='hidden', value=(menu[i]._id), name='menuid')
+                            h4= menu[i].menu_name
+                            h4= menu[i].price
+                            h4
+                                span.myinfo.w3-rest
+                                    - for (var j=1;j<6;j++)
+                                    if(menu[i].star>j)
+                                        span.fa.fa-star.checked
+                                    else
+                                        span.fa.fa-star
+                                    span
+                                        | &nbsp
+                                        = menu[i].star
+                                br
+                            a(href='')
+                                | 후기&nbsp
+                                = menu[i].comment
+                                | 개
+                                small 보러 가기
                 //.col-xs-6.col-sm-6.col-md-6.col-lg-6.menu-container
                     .col-xs-6.col-sm-6.col-md-6.col-lg-6.menu-container2
                         label.my-container

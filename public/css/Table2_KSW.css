@@ -1,0 +1,64 @@
+.table-header {
+    background-color: rgb(44, 62, 80);
+    color: white;
+    font-size: 1.5em;
+    padding: 1rem;
+    /*text-align: center;*/
+    text-transform: uppercase;
+    z-index:0;
+    width:100%;
+}
+
+table, tr, td {
+    display: block;
+}
+
+table td:nth-child(8) label{
+    margin: 0;
+}
+table td:nth-child(8) p{
+    margin-left: 5px;
+}
+
+td:not(:first-child) {
+    clear: both;
+    padding: 4px 20px 4px 90px;
+    position: relative;
+    text-align: left;
+}
+
+td:before {
+    color: #91ced4;
+    content: '';
+    display: block;
+    left: 0;
+    position: absolute;
+}
+
+td:nth-child(2){
+    font-weight: bold;
+}
+
+td:nth-child(3):before {
+    content: '예약유형:';
+}
+td:nth-child(4):before {
+    content: '예약시간:';
+}
+td:nth-child(5):before {
+    content: '최소주문금액:';
+}
+td:nth-child(6):before {
+    content: '수용인원:';
+}
+td:nth-child(7):before {
+    content: '최대시간:';
+}
+
+tr {
+    padding: 10px 0;
+    position: relative;
+}
+tr:first-child {
+    display: none;
+}

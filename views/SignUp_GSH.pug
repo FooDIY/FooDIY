@@ -20,11 +20,11 @@ html(lang='en')
                     .form-group
                         img#foodiylogo(src='../img/foodiy_logo.gif', alt='')
                         .real_content
-                            button#signup-google.signupgoogle.form-control(type='button' onclick="location.href='/users/SignUpGoogle'" formnovalidate)
+                            button#signup-google.signupgoogle.form-control(type='button' onclick="location.href='/SignUpGoogle'" formnovalidate)
                                 span
                                     img(src='../img/google_logo.png', alt='')
                                 p Signup with Google
-                            button#signup-naver.signupnaver.form-control(type='button' onclick="location.href='/users/SignUpNaver'" formnovalidate)
+                            button#signup-naver.signupnaver.form-control(type='button' onclick="location.href='/SignUpNaver'" formnovalidate)
                                 span
                                     img(src='../img/naver_logo.png', alt='')
                                 p Signup with Naver
@@ -59,16 +59,3 @@ html(lang='en')
         script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
         script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
         script(type='text/javascript', src='../Js/SignUp.js')
-        if(error)
-          script.
-            $("#alert-messageIn").css({ opacity: 1 });
-            $("#alert-messageIn").css("display", "block");
-            var err=!{JSON.stringify(error)};
-            $("#alert-messageIn").html(err);
-            window.setTimeout(function(){
-              $(this).show();
-              $("#alert-messageIn").fadeTo(500,0).slideUp(500,function(){
-
-                $("#alert-messageIn").css("display", "none");
-              });
-            },3000) ;

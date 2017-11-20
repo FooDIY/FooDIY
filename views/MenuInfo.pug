@@ -24,24 +24,31 @@ html(lang='en')
             #myCarousel.carousel.slide(data-ride='carousel')
                 // Indicators
                 ol.carousel-indicators
-                    li.active(data-target='#myCarousel', data-slide-to='0')
-                    li(data-target='#myCarousel', data-slide-to='1')
-                    li(data-target='#myCarousel', data-slide-to='2')
+                    - for(var i=0;i<menu.image.length;i++)
+                        if(i === 0)
+                            li.active(data-target='#myCarousel', data-slide-to='0')
+                        else
+                            li(data-target='#myCarousel', data-slide-to=i)
+                    //li.active(data-target='#myCarousel', data-slide-to='0')
+                    //li(data-target='#myCarousel', data-slide-to='1')
+                    //li(data-target='#myCarousel', data-slide-to='2')
                 // Wrapper for slides
                 .carousel-inner
-                    .item.active
-                        img(src='../img/bibimbap.jpeg', alt='Los Angeles')
-                    .item
-                        img(src='../img/bibimbap.jpeg', alt='Chicago')
-                    .item
-                        img(src='../img/bibimbap.jpeg', alt='New york')
+                    - for(var i=0;i<menu.image.length;i++)
+                        if(i===0)
+                            .item.active
+                                img(src='../'+menu.image[i].image_url, alt='Los Angeles')
+                        else
+                            .item
+                                img(src='../'+menu.image[i].image_url, alt='Chicago')
                 // Left and right controls
-                a.left.carousel-control(href='#myCarousel', data-slide='prev')
-                    span.glyphicon.glyphicon-chevron-left
-                    span.sr-only Previous
-                a.right.carousel-control(href='#myCarousel', data-slide='next')
-                    span.glyphicon.glyphicon-chevron-right
-                    span.sr-only Next
+                if(menu.image.length!==1)
+                    a.left.carousel-control(href='#myCarousel', data-slide='prev')
+                        span.glyphicon.glyphicon-chevron-left
+                        span.sr-only Previous
+                    a.right.carousel-control(href='#myCarousel', data-slide='next')
+                        span.glyphicon.glyphicon-chevron-right
+                        span.sr-only Next
             .col-xs-12.col-sm-12.col-md-12.col-lg-12
                 hr
             .user-profile.col-xs-12.col-sm-12.col-md-12.col-lg-12
@@ -51,18 +58,22 @@ html(lang='en')
                     .menu-container.restaurant-name.col-xs-12.col-sm-12.col-md-12.col-lg-12
                         | 호호식당
                     .menu-container.address.col-xs-12.col-sm-12.col-md-12.col-lg-12
-                        | 한국, 충청북도, 청주
+                        = member.address.add1
+                        //| 한국, 충청북도, 청주
                     .menu-container.username.col-xs-12.col-sm-12.col-md-12.col-lg-12
-                        | 규원
+                        = member.firstname+" "+member.lastname
+                        //| 규원
             .col-xs-12.col-sm-12.col-md-12.col-lg-12
                 hr
             .col-xs-12.res_info
                 p
                     span.mytitle.w3-col.s6.m6.l6 메뉴
-                    span.myinfo.w3-rest 전주 비빔밥
+                    span.myinfo.w3-rest
+                        = menu.menu_name
                 p
                     span.mytitle.w3-col.s6.m6.l6 가격
-                    span.myinfo.w3-rest 8,000원
+                    span.myinfo.w3-rest
+                        = menu.price + "원"
                 p
                     span.mytitle.w3-col.s6.m6.l6 예약 유형
                     span.w3-rest.myinfo 자율 예약
@@ -72,7 +83,8 @@ html(lang='en')
                 .mytitle.w3-col.s12.m12.l12 상세 설명
                 .myinfo.w3-col.s12.m12.l12
                     p
-                        | 고향 전주에서 25년동안 살다 온 전주 토박이가 진짜 전주 비빔밥을 만들어드립니다 .
+                        = menu.content
+                        //| 고향 전주에서 25년동안 살다 온 전주 토박이가 진짜 전주 비빔밥을 만들어드립니다 .
             #ingredient-description.mytitle 재료 설명
             // Slider
             .horiz-scroll.scroll-feature
