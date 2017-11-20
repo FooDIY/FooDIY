@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 var Menu_storage=multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null,'./public/'+file.fieldname);
+        cb(null,'./public/img/'+file.fieldname);
     },
     filename: function (req, file, cb) {
         cb(null,Date.now()+"!"+file.originalname);
@@ -31,8 +31,16 @@ var Menu_storage=multer.diskStorage({
 var uploadMenu=multer({storage:Menu_storage});
 var fs = require('fs');
 
+exports.seller_main= function(req, res, next) {
+    Member.findOne({ email : req.session.passport.user.email }, function(err, member) {
+        Menu.find({member_id:req.session.passport.user.email},function (err, menu) {
+            res.render('MenuManagement',{member:member,menu:menu,passport:req.session.passport});
+        });
+    });
+};
+
 exports.seller_submit= function(req, res, next) {
-    res.render('Seller_Submit');
+    res.render('Seller_Submit',{passport:req.session.passport});
 };
 exports.seller_submit_post= function(req, res, next) {
     var choice_mail=req.body.choice_mail;
@@ -101,16 +109,16 @@ exports.juso_popup_post= function(req, res, next) {
     var entX  = req.body.entX;
     var entY  = req.body.entY;
     res.render('juso',{inputYn:inputYn,roadFullAddr:roadFullAddr,roadAddrPart1:roadAddrPart1,roadAddrPart2:roadAddrPart2,engAddr:engAddr,jibunAddr:jibunAddr,zipNo:zipNo,addrDetail:addrDetail,admCd:admCd,rnMgtSn:rnMgtSn,
-        bdMgtSn:bdMgtSn,detBdNmList:detBdNmList,bdNm:bdNm,bdKdcd:bdKdcd,siNm:siNm,sggNm:sggNm,emdNm:emdNm,liNm:liNm,rn:rn,udrtYn:udrtYn,buldMnnm:buldMnnm,buldSlno:buldSlno,mtYn:mtYn,lnbrMnnm:lnbrMnnm,lnbrSlno:lnbrSlno,emdNo:emdNo,entX:entX,entY:entY});
+        bdMgtSn:bdMgtSn,detBdNmList:detBdNmList,bdNm:bdNm,bdKdcd:bdKdcd,siNm:siNm,sggNm:sggNm,emdNm:emdNm,liNm:liNm,rn:rn,udrtYn:udrtYn,buldMnnm:buldMnnm,buldSlno:buldSlno,mtYn:mtYn,lnbrMnnm:lnbrMnnm,lnbrSlno:lnbrSlno,emdNo:emdNo,entX:entX,entY:entY,passport:req.session.passport});
 };
 exports.submit_menu= function(req, res, next) {
-    res.render('MenuSubmit');
+    res.render('MenuSubmit',{passport:req.session.passport});
 };
 exports.uploadMenu= function(req, res, next) {
     next();
 };
 exports.submit_menu_post= function(req, res, next) {
-    uploadMenu.fields([{name:'menu_pic'},{name:'ingre_pic'}]);
+    //uploadMenu.fields([{name:'menu_pic'},{name:'ingre_pic'}]);
     var menu_name = req.body.menu_name;
     var content = req.body.content;
     var minTime=req.body.minTime;
@@ -124,7 +132,7 @@ exports.submit_menu_post= function(req, res, next) {
     var upFile = req.files;
     for (var i = 0; i < upFile['menu_pic'].length; i++) {
         if (upFile['menu_pic'][i].fieldname === "menu_pic") {
-            menu_pic.push("../img/menu_pic/" + upFile['menu_pic'][i].filename);
+            menu_pic.push("./img/menu_pic/" + upFile['menu_pic'][i].filename);
             menu_pic_name.push(upFile['menu_pic'][i].filename);
             menu_pic_size.push(upFile['menu_pic'][i].size);
         }
@@ -132,7 +140,7 @@ exports.submit_menu_post= function(req, res, next) {
     for (i = 0; i < upFile['ingre_pic'].length; i++) {
         if (upFile['ingre_pic'][i].fieldname === "ingre_pic") {
             if(upFile['ingre_pic'][i].filename) {
-                ingre_pic.push("../img/ingre_pic/" + upFile['ingre_pic'][i].filename);
+                ingre_pic.push("./img/ingre_pic/" + upFile['ingre_pic'][i].filename);
                 ingre_pic_name.push(upFile['ingre_pic'][i].filename);
                 ingre_pic_size.push(upFile['ingre_pic'][i].size);
             }
@@ -154,12 +162,12 @@ exports.submit_menu_post= function(req, res, next) {
         }
     }
     var price=req.body.price;
-    if(!req.session.email)
+    if(!req.session.passport.user.email)
     {
         res.redirect('/seller');
     }
     else{
-        Member.findOne({email:req.session.email},function (err,member) {
+        Member.findOne({email:req.session.passport.user.email},function (err,member) {
             var newMenu=new Menu();
             newMenu.member_id=member.email;
             newMenu.address.post=member.address.post;
@@ -179,8 +187,62 @@ exports.submit_menu_post= function(req, res, next) {
             newMenu.save(function (err) {
                 if (err)
                     throw err;
-                res.redirect("/seller/manage");
+                res.redirect("/seller");
             });
         });
     }
+};
+
+exports.del_menu= function (req,res,next) {
+    var menuid=req.body.menuid;
+    Menu.findById(menuid,function(err,menu){
+        for(var i=0;i<menu.image.length;i++)
+        {
+            var path="./public/img/menu_pic/"+menu.image[i].image_name;
+            if (fs.existsSync(path)) {
+                fs.unlink(path,
+                    function(err){
+                        if(err) throw err;
+                        console.log('파일을 정상적으로 삭제하였습니다.');
+                    }
+                );
+            }
+            /*fs.exists("./public/img/menu_pic/"+menu.image[i].image_name, function (exists) {
+                fs.unlink(exists,
+                    function(err){
+                        if(err) throw err;
+                        console.log('파일을 정상적으로 삭제하였습니다.');
+                    }
+                );
+            });*/
+        }
+        for(i=0;i<menu.ingre.length;i++)
+        {
+            path="./public/img/ingre_pic/"+menu.image[i].image_name;
+            if (fs.existsSync(path)) {
+                fs.unlink(path,
+                    function(err){
+                        if(err) throw err;
+                        console.log('파일을 정상적으로 삭제하였습니다.');
+                    }
+                );
+            }
+        }
+    });
+    Menu.findByIdAndRemove(menuid,function (err,result) {
+        if (err) return done(err);
+        res.send('clear');
+    })
+};
+exports.is_selling= function (req,res,next) {
+    var menuid=req.body.menuid;
+    Menu.findById(menuid,function(err,menu){
+        if(menu.is_selling) menu.is_selling=false;
+        else menu.is_selling=true;
+        menu.save(function (err) {
+            if (err)
+                throw err;
+            res.send("clear");
+        });
+    });
 };

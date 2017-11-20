@@ -14,10 +14,14 @@ html(lang='en')
         nav#mySidebar.w3-sidebar.w3-bar-block.w3-card.w3-top.w3-xlarge.w3-animate-left
             a#goHome.w3-bar-item.w3-button(href='/') 홈
             hr
-            a.w3-bar-item.w3-button(href='/Login') 로그인
-            a.w3-bar-item.w3-button(href='/SignUp') 회원가입
+            if(!passport)
+                a.w3-bar-item.w3-button(href='/Login') 로그인
+                a.w3-bar-item.w3-button(href='/signup') 회원가입
+            else
+                a.w3-bar-item.w3-button(onclick="LogOut()") 로그아웃
+                if(!passport.user.seller)
+                    a#submitBtn.w3-red.w3-bar-item(href='/seller/Seller_submit') 판매자 신청하기
             a.w3-bar-item.w3-button(href='/Help') 도움말
-            a#submitBtn.w3-red.w3-bar-item(href='/Seller_submit') 판매자 신청하기
         // Top menu
         .w3-top
             #topMenu.w3-white.w3-xlarge.w3-row-padding
@@ -33,3 +37,4 @@ html(lang='en')
         script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
         script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
         script(src='../../Js/TopMenu.js')
+        script(src='../../Js/TopMenu_GSH.js')
