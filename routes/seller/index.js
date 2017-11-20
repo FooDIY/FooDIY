@@ -24,6 +24,8 @@ router.get('/', controller.seller_main);
 router.get('/seller_submit', /*sellercheck,*/ controller.seller_submit);
 router.get('/jusoPopup', controller.juso_popup);
 router.get('/submit_menu', controller.submit_menu);
+router.get('/Modify_Profile', controller.modifiy_profile);
+router.get('/table_register', controller.table_register);
 /* POST home page. */
 router.post('/seller_submit', controller.seller_submit_post);
 router.post('/jusoPopup', controller.juso_popup_post);

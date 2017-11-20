@@ -13,7 +13,11 @@ var MemberSchema = new Schema({
     //nick:{type:String,required: true},
     firstname:{type:String},
     lastname:{type:String},
-    sumnail:String,
+    thumbnail_image:[{
+        image_name:{type:String},
+        image_url:{type:String},
+        image_size:{type:String}
+    }],
     sellercheck:{type:Boolean,default:false},
     cellphone:String,
     address:{
@@ -37,7 +41,23 @@ var MemberSchema = new Schema({
     last_login:Date,
     last_login_ip:String,
     is_certificate:{type:Boolean,default:false},
-    provider:String
+    provider:String,
+    seller:{
+        shopName:{type:String},
+        openTimeMin:{type:String},
+        openTimeMax:{type:String},
+        breakTimeMin:{type:String},
+        breakTimeMax:{type:String},
+        orderDateMin:{type:String},
+        hoilyday:{type:Date},
+        shopContent:{type:String},
+        image:[{
+            image_name:{type:String},
+            image_url:{type:String},
+            image_size:{type:String}
+        }]
+    }
+
 });
 
 

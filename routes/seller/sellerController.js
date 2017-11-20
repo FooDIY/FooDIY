@@ -16,7 +16,7 @@ require('../../config/passport')(passport);
 
 var Member = require('../../models/member');
 var Menu = require('../../models/menu');
-
+var Table = require('../../models/table');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -247,4 +247,17 @@ exports.is_selling= function (req,res,next) {
             res.send("clear");
         });
     });
+};
+
+exports.modifiy_profile=function (req,res,next) {
+    Member.findOne({email:req.session.passport.user.email},function (err,member) {
+        if (err) return res.status(500).json({error: err});
+        Table.find({member_id:member._id},function(err,table){
+            if (err) return res.status(500).json({error: err});
+            res.render('ModifyProfile',{passport:req.session.passport,member:member,table:table});
+        });
+    });
+};
+exports.table_register=function (req,res,next) {
+    res.render('TableRegister',{passport:req.session.passport});
 };

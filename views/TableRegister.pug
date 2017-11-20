@@ -1,0 +1,79 @@
+//
+   Created by Sehyeon on 2017-11-20.
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1")
+        link(rel="stylesheet", href="https://www.w3schools.com/w3css/4/w3.css")
+        link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Karma")
+        link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css")
+        link(rel="stylesheet", href="../css/TableRegister_KKY.css")
+    body
+        .container
+            form
+                .line
+                    .col-xs-offset-1.titleDiv
+                        h3.Title 테이블 등록하기
+                .col-xs-12
+                    .col-xs-12.tableNameDiv
+                        h3.objectTitle
+                            | 테이블명
+                            span.subText ex)테이블 번호, 별명
+                        input.form-group.nameInput(name="table_name" placeholder="내용을 입력해주세요.")
+                    .col-xs-12
+                        h3.objectTitle 예약받을 유형
+                    .col-xs-12
+                        .col-md-6.typeDiv
+                            select.form-control(name="reservationType")
+                                option(selected="true", disabled="disabled") =====예약 유형 선택=====
+                                option(value="fixed") 고정예약
+                                option(value="free") 자율예약
+                                option(value="whole") 다이닝전체
+                    .col-xs-12
+                        h3.objectTitle 예약받을 시간
+                        p
+                            | *자율예약 : 등록한 시간동안 고객은 자유롭게 예약 가능합니다.  ex) "08:00~16:00"등록시 고객은 "08:00~08:30", "12:00~15:00"등으로 자유롭게 예약 가능.
+                        p 단 최대 예약시간을 넘을 순 없음.
+                        .col-xs-12.TimeContainerDiv.col-md-offset-2.col-md-10
+                            .col-xs-12.bookTimeDiv
+                                input.bookInput(name="reservationTimeMin", type="time", step="600")
+                                |  ~
+                                input.bookInput(name="reservationTimeMax", type="time", step="600")
+                                button.bookSubmit 등록
+                            //.col-xs-12.bookTimeDiv
+                                input.bookInput(type="time", step="600")
+                                |  ~
+                                input.bookInput(type="time", step="600")
+                                button.bookSubmit 등록
+                        //.col-xs-12.col-md-offset-1.col-md-5.addBookDiv
+                            button.addBookButton.btn-block
+                                span.plusIcon.glyphicon.glyphicon-plus(aria-hidden="true")
+                    .col-xs-12
+                        h3.objectTitle 최소주문금액
+                        p *예약받을 최소주문 금액을 입력해 주세요.
+                        input.commonInput(name="orderValueMin")
+                        | 원
+                    .col-xs-12
+                        h3.objectTitle 수용인원
+                        p *이 테이블의 최대 예약받을 수 있는 인원을 지정하세요.
+                        input.commonInput(type="number", name="peopleCount")
+                        | 명
+                    .col-xs-12
+                        h3.objectTitle 최대시간
+                        p *손님이 예약시간으로부터 최대 식사할 수 있는 시간을 지정하세요.
+                        input.hourInput(type="number", name="maxTime")
+                        | 시간
+                        //input.minuteInput(type="number")
+                        //| 분
+                    input(type="hidden", name="member_id", value=(passport.user.mid))
+                .col-xs-12.submitDiv
+                    .col-xs-offset-2.col-xs-3.submitBoxDiv
+                        button.btn-block.submitBtn 등록
+                    .col-xs-offset-2.col-xs-3.submitBoxDiv
+                        button.btn-block.cancelBtn 취소
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+        script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
+        script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9QRgBKIct09-0nMzhZyX5EMldShSzZy4&callback=myMap")
+        script(src="../Js/TopMenu.js")
+

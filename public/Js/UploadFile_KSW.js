@@ -1,8 +1,4 @@
 /**
- * Created by 순우 on 2017-11-14.
- */
-
-/**
  * CUSTOM FILE INPUTS FOR IMAGES
  *
  * Version: 1.0.0

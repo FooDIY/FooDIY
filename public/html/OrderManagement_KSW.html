@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+    <link rel="stylesheet" href="../css/calendar.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../css/TopMenu_KSW.css">
+    <link rel="stylesheet" href="../css/Table_KSW.css">
+    <link rel="stylesheet" href="../css/MenuManagement_KSW.css">
+<body>
+
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left" id="mySidebar">
+    <a href="Home_KSW.html" class="w3-bar-item w3-button" id="goHome">홈</a>
+    <hr>
+    <a href="Login_KSW.html" class="w3-bar-item w3-button">로그인</a>
+    <a href="Signup_KSW.html" class="w3-bar-item w3-button">회원가입</a>
+    <a href="/" class="w3-bar-item w3-button">도움말</a>
+    <a href="/" class="w3-red w3-bar-item" id="submitBtn">판매자 신청하기</a>
+</nav>
+
+<!-- Top menu -->
+<div class="w3-top">
+    <div class="w3-white w3-xlarge w3-row-padding" id="topMenu">
+        <div class="w3-button w3-left col-xs-3 col-sm-1 col-md-1 col-lg-1 arrow_wrapper" id="topMenuDropdown">
+            <div class="w3-col s10">
+                <img src="../img/foodiy_icon.png" alt="" style="height: 40px; width: 40px;">
+            </div>
+            <div class="w3-col s2 arrow" style="margin-top: 15px;">
+            </div>
+        </div>
+        <div class="w3-button w3-right col-sm-offset-2 col-md-offset-2 col-xs-2 col-sm-1 col-md-1 col-lg-1" onclick="goToMenuList()" id="mapBtn" >MAP</div>
+        <div class="form-group has-success has-feedback w3-center w3-padding-16 col-sm-offset-2 col-md-offset-2 col-xs-7 col-sm-6 col-md-6">
+            <div class="col-sm-12">
+                <input type="text" class="form-control input-lg" id="inputSuccess" placeholder="Search">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="calendar" style="margin-top: 94px;"></div>
+
+<div class="table-users">
+    <div class="table-header">11월 20일 주문관리 <button class="btn btn-basic" style="float: right; color: black;">선택 예약취소</button> </div>
+
+    <table cellspacing="0">
+        <tr class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div>
+                <th style="width: 4%;">
+                    <label class="my-container">
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                </th>
+                <th style="width: 10%;">예약자</th>
+                <th style="width: 12%;">예약시간</th>
+                <th style="width: 12%;">예약유형</th>
+                <th style="width: 12%;">테이블명</th>
+                <th style="width: 6%;">메뉴</th>
+                <th style="width: 6%;">수량</th>
+                <th style="width: 10%;">준비상태</th>
+                <th style="width: 16%;">판매상태</th>
+            </div>
+        </tr>
+
+        <tr class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div>
+                <td>
+                    <label class="my-container">
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                </td>
+                <td><img src="../img/steak.jpg" alt="" /></td>
+                <td>12:00~14:00</td>
+                <td>Private/Fixed</td>
+                <td>하늘테이블(런치)</td>
+                <td>엄마손집밥</td>
+                <td>2</td>
+                <td>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                    <p>준비중</p>
+                </td>
+                <td><button type="button" class="btn btn-danger">판매완료(클릭)</button></td>
+            </div>
+        </tr>
+
+        <tr class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div>
+                <td>
+                    <label class="my-container">
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                </td>
+                <td><img src="../img/pasta.jpg" alt="" /></td>
+                <td>12:00~14:00</td>
+                <td>Private/Fixed</td>
+                <td>하늘테이블(런치)</td>
+                <td>엄마손집밥</td>
+                <td>2</td>
+                <td>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                    <p>준비중</p>
+                </td>
+                <td><button type="button" class="btn btn-danger">판매완료(클릭)</button></td>
+            </div>
+        </tr>
+
+        <tr class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div>
+                <td>
+                    <label class="my-container">
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                </td>
+                <td><img src="../img/bibimbap.jpeg" alt="" /></td>
+                <td>12:00~14:00</td>
+                <td>Private/Fixed</td>
+                <td>하늘테이블(런치)</td>
+                <td>엄마손집밥</td>
+                <td>2</td>
+                <td>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                    <p>준비중</p>
+                </td>
+                <td><button type="button" class="btn btn-danger">판매완료(클릭)</button></td>
+            </div>
+        </tr>
+
+        <tr class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div>
+                <td>
+                    <label class="my-container">
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                </td>
+                <td><img src="../img/sushi.jpg" alt="" /></td>
+                <td>12:00~14:00</td>
+                <td>Private/Fixed</td>
+                <td>하늘테이블(런치)</td>
+                <td>엄마손집밥</td>
+                <td>2</td>
+                <td>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                    <p>준비중</p>
+                </td>
+                <td><button type="button" class="btn btn-danger">판매완료(클릭)</button></td>
+            </div>
+        </tr>
+    </table>
+</div>
+
+<div class="icon-bar col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="w3-col s4 m4 l4">
+        <a href="#"><i class="fa fa-comments-o"></i>
+            <p class="icon-description">메시지</p>
+        </a>
+    </div>
+
+    <div class="w3-col s4 m4 l4">
+        <a href=""><i class="fa fa-calendar-check-o"></i>
+            <p class="icon-description">주문</p>
+        </a>
+    </div>
+
+    <div class="w3-col s4 m4 l4">
+        <a href=""><i class="material-icons" id="restaurant-menu">restaurant_menu</i>
+            <p class="icon-description">메뉴</p>
+        </a>
+    </div>
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="../Js/calendar.js"></script>
+<script src="../Js/TopMenu.js"></script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+//
+   Created by 순우 on 2017-11-20.
+
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        title Title
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+        link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Karma')
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+        link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css')
+        link(rel='stylesheet', href='../css/TopMenu_KSW.css')
+        link(rel='stylesheet', href='../css/MenuManagement_KSW.css')
+        link(rel='stylesheet', href='../css/ImgSlider_KSW.css')
+        link(rel='stylesheet', href='../css/Table2_KSW.css')
+    body
+        // Sidebar
+        include components/TopMenu_Component
+        .col-xs-12.col-sm-offset-2.col-sm-8.col-md-offset-4.col-md-4
+            .widget
+                .cover
+                    img.img-responsive(src='http://c.boylett.uk/images/wallpapers/005.jpg')
+                img.photo(src='../img/steak.jpg')
+                h1= member.firstname+" "+member.lastname
+                //h2 Pizza
+                //h3 Pasta
+            #res_info.col-xs-12
+                p
+                    span.mytitle.w3-col.s6.m6.l6 매장명
+                    span.myinfo.w3-rest
+                        =member.seller.shopName
+                        //| 호호식당  
+                        button.btn-xs.btn-primary 수정
+                p
+                    span.mytitle.w3-col.s6.m6.l6 평점
+                    span.myinfo.w3-rest
+                        span.fa.fa-star.checked
+                        span.fa.fa-star.checked
+                        span.fa.fa-star.checked
+                        span.fa.fa-star
+                        span.fa.fa-star
+                        span  4.1
+                p
+                    span.mytitle.w3-col.s6.m6.l6 후기
+                    span.w3-rest.myinfo
+                        a(href='')
+                            | 501개
+                            small 보러 가기
+                p
+                    span.mytitle.w3-col.s6.m6.l6 운영 시간
+                    span.w3-rest.myinfo
+                        =member.seller.openTimeMin+" ~ "+member.seller.openTimeMax
+                        //| 12:00 ~ 21:00  
+                        button.btn-xs.btn-primary 수정
+                p
+                    span.mytitle.w3-col.s6.m6.l6 휴식 시간
+                    span.w3-rest.myinfo
+                        =member.seller.breakTimeMin+" ~ "+member.seller.breakTimeMax
+                        //| 15:00 ~ 17:00  
+                        button.btn-xs.btn-primary 수정
+                p
+                    span.mytitle.w3-col.s6.m6.l6 최소 주문일
+                    span.w3-rest.myinfo
+                        =member.seller.orderDateMin
+                        //| 3 일  
+                        button.btn-xs.btn-primary 수정
+                p
+                    span.mytitle.w3-col.s6.m6.l6 휴일
+                    span.w3-rest.myinfo
+                        i.fa.fa-calendar
+                        button.btn-xs.btn-primary 수정
+                p.mytitle.w3-col.s12.m12.l12
+                    | 매장 설명
+                    button.btn-xs.btn-primary 수정
+                // <textarea class="w3-col s12 m12 l12" name="" id="" rows="5"></textarea>
+                p= member.seller.shopContent
+                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                //p
+                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    | tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    | quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    | consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    | cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    | proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    | tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    | quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    | consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    | cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    | proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                .table-users
+                    .table-header
+                        | 테이블 관리
+                        button.btn-sm.btn-primary(style='float: right; margin-left: 10px;') 삭제
+                        button.btn-sm.btn-primary(style='float: right;') 등록
+                    table(cellspacing='0')
+                        tr.col-xs-12.col-sm-12.col-md-12.col-lg-12
+                            div
+                                td
+                                    input(type='checkbox')
+                                    button.btn-xs.btn-primary(type='button', style='float: right;') 수정
+                                td 하늘테이블(런치)
+                                td Private/Fixed
+                                td 12:00~14:00
+                                td 10만원
+                                td 12인
+                                td 3시간
+                        tr.col-xs-12.col-sm-12.col-md-12.col-lg-12
+                            div
+                                td
+                                    input(type='checkbox')
+                                    button.btn-xs.btn-primary(type='button', style='float: right;') 수정
+                                td 하늘테이블(런치)
+                                td Private/Fixed
+                                td 12:00~14:00
+                                td 10만원
+                                td 12인
+                                td 3시간
+                        tr.col-xs-12.col-sm-12.col-md-12.col-lg-12
+                            div
+                                td
+                                    input(type='checkbox')
+                                    button.btn-xs.btn-primary(type='button', style='float: right;') 수정
+                                td 하늘테이블(런치)
+                                td Private/Fixed
+                                td 12:00~14:00
+                                td 10만원
+                                td 12인
+                                td 3시간
+                        tr.col-xs-12.col-sm-12.col-md-12.col-lg-12
+                            div
+                                td
+                                    input(type='checkbox')
+                                    button.btn-xs.btn-primary(type='button', style='float: right;') 수정
+                                td 하늘테이블(런치)
+                                td Private/Fixed
+                                td 12:00~14:00
+                                td 10만원
+                                td 12인
+                                td 3시간
+                hr.w3-col.s12.m12.l12
+                h2
+                    | 식사 장소
+                    button.btn-sm.btn-primary(type='button', style='float: right; margin-left: 10px;') 수정
+                    button.btn-sm.btn-primary(style='float: right') 등록
+                // Slider
+                #scroll-feature.horiz-scroll
+                    .scroller
+                        .left-scroll.invisible
+                            p.fa.fa-angle-left
+                        .right-scroll
+                            p.fa.fa-angle-right
+                        .scroll-images.scrollable-x
+                            img(src='http://placehold.it/600x400/CCB03A/fff&text=Image+1', alt='Image 1')
+                            img(src='http://placehold.it/600x400/FAEF5D/333&text=Image+2', alt='Image 2')
+                            img(src='http://placehold.it/600x400/97A976/fff&text=Image+3', alt='Image 3')
+                            img(src='http://placehold.it/600x400/675647/fff&text=Image+4', alt='Image 4')
+                            img(src='http://placehold.it/600x400/253E41/fff&text=Image+5', alt='Image 5')
+                            img(src='http://placehold.it/600x400/F1582D/fff&text=Image+6', alt='Image 6')
+                            img(src='http://placehold.it/600x400/C1DAD8/333&text=Image+7', alt='Image 7')
+                            img(src='http://placehold.it/600x400/6CB8C1/fff&text=Image+8', alt='Image 8')
+                            img(src='http://placehold.it/600x400/BF6A28/fff&text=Image+9', alt='Image 9')
+                            img(src='http://placehold.it/600x400/5E4D1E/fff&text=Image+10', alt='Image 10')
+                            img(src='http://placehold.it/600x400/E5DECA/333&text=Image+11', alt='Image 11')
+                .col-xs-12.col-sm-12.col-md-12.col-lg-12.myhr
+                    br
+                h2
+                    | 위치
+                    button.btn-sm.btn-primary(style='float: right;') 수정
+                #map.col-xs-12.col-sm-12.col-md-12.col-lg-12(style='height: 300px; width: 100%;')
+                .col-xs-12.col-sm-12.col-md-12.col-lg-12.myhr
+                    br
+                .col-xs-12.col-sm-12.col-md-12.col-lg-12.menu-container.purchase-btn
+                    button.btn.btn-warning.col-xs-6.col-sm-6.col-md-6.col-lg-6 뒤로가기
+                    button.btn.btn-success.col-xs-6.col-sm-6.col-md-6.col-lg-6 저장하기
+                .col-xs-12.col-sm-12.col-md-12.col-lg-12.myhr
+                    br
+        .icon-bar.col-xs-12.col-sm-12.col-md-12.col-lg-12
+            .w3-col.s4.m4.l4
+                a(href='#')
+                    i.fa.fa-comments-o
+                    p.icon-description 메시지
+            .w3-col.s4.m4.l4
+                a(href='')
+                    i.fa.fa-calendar-check-o
+                    p.icon-description 주문
+            .w3-col.s4.m4.l4
+                a(href='')
+                    i#restaurant-menu.material-icons restaurant_menu
+                    p.icon-description 메뉴
+        script(src='../Js/Map.js')
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+        script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyC9QRgBKIct09-0nMzhZyX5EMldShSzZy4&callback=myMap')
+        script(src='../Js/TopMenu.js')
+        script(src='../Js/ImgSlider.js')

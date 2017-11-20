@@ -1,6 +1,3 @@
-//
-   Created by 순우 on 2017-11-14.
-
 doctype html
 html(lang='en')
     head
@@ -56,23 +53,23 @@ html(lang='en')
                                     .page(style='margin-top: 10px;')
                                         // Our File Inputs
                                         .wrap-custom-file
-                                            input.image1(type='file', name='image1', accept='.gif, .jpg, .png')
-                                            label
+                                            input#image1(type='file', name='image1', accept='.gif, .jpg, .png, .jpeg')
+                                            label(for='image1')
                                                 span Select Image
                                                 i.fa.fa-plus-circle
                                         .wrap-custom-file
-                                            input.image2(type='file', name='image2', accept='.gif, .jpg, .png, .jpeg')
-                                            label
+                                            input#image2(type='file', name='image2', accept='.gif, .jpg, .png, .jpeg')
+                                            label(for='image2')
                                                 span Select Image
                                                 i.fa.fa-plus-circle
                                         .wrap-custom-file
-                                            input.image3(type='file', name='image3', accept='.gif, .jpg, .png, .jpeg')
-                                            label
+                                            input#image3(type='file', name='image3', accept='.gif, .jpg, .png, .jpeg')
+                                            label(for='image3')
                                                 span Select Image
                                                 i.fa.fa-plus-circle
                                         .wrap-custom-file
-                                            input.image4(type='file', name='image4', accept='.gif, .jpg, .png, .jpeg')
-                                            label
+                                            input#image4(type='file', name='image4', accept='.gif, .jpg, .png, .jpeg')
+                                            label(for='image4')
                                                 span Select Image
                                                 i.fa.fa-plus-circle
                                         // End Page Wrap
@@ -81,10 +78,10 @@ html(lang='en')
                                 .form-group.col-xs-12
                                     label.control-label.requiredField.label-title
                                         | 재료
-                                    .page
+                                    .page.col-xs-12.col-sm-12.col-md-12.col-lg-12
                                         .wrap-custom-file.col-xs-4.col-sm-3.col-md-3.col-lg-3(style='margin: 0; padding: 0;')
-                                            input(type='file', name='image1', accept='.gif, .jpg, .png, .jpeg')
-                                            label(style='width: 100px; height: 100px; margin-top: 25px; margin-left: 25px;')
+                                            input#ingredient-image(type='file', accept='.gif, .jpg, .png, .jpeg')
+                                            label(for='ingredient-image', style='width: 100px; height: 100px; margin-top: 25px; margin-left: 25px;')
                                                 span Select Image
                                                 i.fa.fa-plus-circle
                                         .col-xs-5.col-sm-9.col-md-9.col-lg-9(style='padding: 0;')
@@ -118,3 +115,4 @@ html(lang='en')
         script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
         script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
         script(src='../Js/UploadFile_KSW.js')
+        script(src='../Js/MenuSubmit_KSW.js')
