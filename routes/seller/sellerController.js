@@ -123,6 +123,8 @@ exports.submit_menu_post= function(req, res, next) {
     var content = req.body.content;
     var minTime=req.body.minTime;
     var maxTime=req.body.maxTime;
+    console.log(minTime);
+    console.log(maxTime);
     var menu_pic = [];
     var menu_pic_name = [];
     var menu_pic_size=[];
