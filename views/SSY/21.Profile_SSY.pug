@@ -1,0 +1,72 @@
+//
+   Created by 순우 on 2017-11-21.
+
+doctype html
+html
+    head
+        title
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width, niitial-scale=1')
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+        link(rel='stylesheet', type='text/css', href='../../css/suyeon.css')
+    style(type='text/css').
+    body.font
+        .container
+            h2.font_BM.pro_cs.marginforimg.margin5.left_align 프로필
+            .marginforimg.marginD(align='center', ;='')
+                img.img(src='../../img/sushi.JPG')
+                div
+                    p.rfloat 사진변경
+            br
+            form.form-horizontal
+                .form-group
+                    label.col-xs-4.col-md-4.control-label.font_notbold
+                        | 아이디
+                        br
+                        | (이메일)
+                    .col-xs-8.col-md-4
+                        input#focusedInput.form-control(type='text')
+                .form-group
+                    label.col-xs-4.col-md-4.control-label.font_notbold 이름
+                    .col-xs-8.col-md-4
+                        input#focusedInput.form-control(type='text')
+                .font.form-group
+                    label.col-xs-4.col-md-4.control-label.font_notbold 비밀번호
+                    input.btn.btn-sm.prof_pass_margin(type='button', value='변경')
+                .form-group
+                    label.col-xs-4.col-md-4.control-label.font_notbold 판매자 등급
+                    form
+                        .stars
+                            input#star-1.star-1(type='radio', name='star')
+                            label.star-1(for='star-1') 1
+                            input#star-2.star-2(type='radio', name='star')
+                            label.star-2(for='star-2') 2
+                            input#star-3.star-3(type='radio', name='star')
+                            label.star-3(for='star-3') 3
+                            input#star-4.star-4(type='radio', name='star')
+                            label.star-4(for='star-4') 4
+                            input#star-5.star-5(type='radio', name='star')
+                            label.star-5(for='star-5') 5
+                br
+                .form-group.email_ad
+                    p.col-xs-8.col-md-4.right_align 이메일 광고 수신하기
+                    input(type='checkbox')
+                    |  동의
+        .center_align.paddig_greenbox.back_color.non_line_w
+            a.font.non_line_w(href='#demo', data-toggle='collapse')
+                | 본인인증
+                article.col-xs-1.rfloat ∨
+        #demo.collapse.pnmargin
+            p.center_align
+                | 전화번호
+                input.btn.btn.btn-sm(type='button', value='본인인증하기')
+        br
+        .container.mb
+            br
+            br
+            .center_align
+                a.btn.btn-default.col-xs-6(href='#', role='button') 취소
+            .center_align
+                a.btn.btn-success.col-xs-6(href='#', role='button') 저장

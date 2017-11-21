@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../css/suyeon.css">
+</head>
+<style type="text/css">
+
+@media only screen and (max-width: 581px){
+  .gogo{
+    width:100%;
+  }
+}
+@media only screen and (min-width: 580px){
+.gogo{
+    width:50%;
+ }
+}
+
+</style>
+
+<body>
+
+<div class=" font_BM font_Lsize white_text margins marginT back_color paddd center_align">
+  구매하기 
+</div>
+
+<div class="gogo container font">
+  <div class="tm">
+    <input class="" type="checkbox">
+    </input>
+  </div>
+
+  <h2>엄마손 집밥</h2>
+
+  <div class="font_for_buy containerbox">
+    <div class="lfloat button_margin marginR">수량</div>
+    <input class="potato center_align" type="number" id="group" value="1" min="1" max="50" step="1">
+    <div class="button_margin sulyang">
+    8,000원
+    </div>
+  </div>
+
+  </br>
+  <form class="form-group containerbox">
+    <select class="form-control " id="sel2">
+      <option>메뉴추가하기</option>
+        <option>
+          <section>오징어튀김</section>
+          <section class="right_align">3000원</section>
+        </option>
+        <option>
+          <section>잔치국수</section>
+          <section class="right_align">3000원</section>
+        </option>
+    </select>
+  </form>
+
+  <div class="containerbox rfloat">
+    <a href="#" class="non_line_notbold">판매자의 다른메뉴보기</a>
+    <input class="btn btn btn-sm non_line_notbold" type="submit" value="선택삭제">
+  </div>
+</br>
+  <hr>
+      <form class="form-group containerbox">
+        예약유형
+        <select class="potato3  " id="sel2">
+          <option>예약유형</option>
+          <option><section>고정예약</section></option>
+          <option><section>자율예약</section></option>
+          <option><section>다이닝전체</section></option>
+          <option><section>Shared</section></option>
+        </select>
+      </form>
+      <div class="containerbox__">
+        <label class="Smargin font_notbold ">날짜(일) / 테이블(인)/시간</label>
+      </div>
+      <div class="containerbox">
+        <input class="potato2 center_align" type="date" id="group" value="1" min="1" max="50" step="1">
+      </div>
+      <form class="form-group containerbox">
+        <select class="form-control " id="sel2">
+          <option>하늘테이블(런치)(4)</option>
+          <option>
+            <section >하늘테이블(런치)(4)</section>
+            <section >12:00~14:00</section>
+          </option>
+          <option>
+            <section >하늘테이블(런치)(4)</section>
+            <section >16:00~18:00</section>
+          </option>
+        </select>
+      </form>
+      <div class="marginileft">
+      </br>
+      <label class="font_notbold Smargin containerbox" for="group">예약인원</label>
+      <input class="potato center_align" type="number" id="group" value="1" min="1" max="50" step="1">
+      </div>
+    </div>
+        <hr>
+
+        <div class="gogo containerbox__">
+          총합
+          <div class="">
+            8,000원 
+          </div>
+        </div>
+        <hr>
+
+
+        <div class="gogo containerbox">고객 요구사항
+          <div id="text_wrapper_">
+            <div id="text" contentEditable="true" hidefocus="true">
+            </div>
+          </div>
+        </div>
+        
+      </br>
+        <div class="col-md-offset-5 col-md-4 col-sm-offset-5 col-sm-4 col-xs-offset-2 col-xs-8">
+        <input class="btn" type="button" value="뒤로가기">
+        <input class="btn btn-success" type="button" value="결제하기">
+        </div>
+  </div>
+</body>
+</html>
