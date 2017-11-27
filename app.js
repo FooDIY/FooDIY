@@ -8,7 +8,7 @@ app.set('view engine', 'pug');
 app.set('views', './views');
 app.use(express.static('public'));
 app.get('/template', function (req, res) {
-    res.render('components/TopMenu_Component_KSW');
+    res.render('./SSY/21.Profile_SSY.pug');
 });
 app.listen(3000, function(){
     console.log('Conneted 3000 port!');
