@@ -8,12 +8,12 @@ var moment = require('moment');
 var Schema = mongoose.Schema;
 
 var MemberSchema = new Schema({
-    email:{type:String},
-    pw:{type:String},
-    //nick:{type:String,required: true},
-    firstname:{type:String},
-    lastname:{type:String},
-    thumbnail_image:[{
+        email:{type:String},
+        pw:{type:String},
+        //nick:{type:String,required: true},
+        firstname:{type:String},
+        lastname:{type:String},
+        thumbnail_image:[{
         image_name:{type:String},
         image_url:{type:String},
         image_size:{type:String}
@@ -57,7 +57,6 @@ var MemberSchema = new Schema({
             image_size:{type:String}
         }]
     }
-
 });
 
 

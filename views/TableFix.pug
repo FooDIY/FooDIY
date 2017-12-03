@@ -8,7 +8,7 @@ html(lang="en")
         link(rel="stylesheet", href="https://www.w3schools.com/w3css/4/w3.css")
         link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Karma")
         link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css")
-        link(rel="stylesheet", href="../css/TableRegister_KKY.css")
+        link(rel="stylesheet", href="../../css/TableRegister_KKY.css")
     body
         .container
             form(method="post")
@@ -20,16 +20,28 @@ html(lang="en")
                         h3.objectTitle
                             | 테이블명
                             span.subText ex)테이블 번호, 별명
-                        input.form-group.nameInput(name="table_name" placeholder="내용을 입력해주세요.")
+                        input.form-group.nameInput(name="table_name" placeholder="내용을 입력해주세요.", value=(table.table_name))
                     .col-xs-12
                         h3.objectTitle 예약받을 유형
                     .col-xs-12
                         .col-md-6.typeDiv
                             select.form-control(name="reservationType")
-                                option(selected="true", disabled="disabled") =====예약 유형 선택=====
-                                option(value="1") 고정예약
-                                option(value="2") 자율예약
-                                option(value="3") 다이닝전체
+                                case table.reservationType
+                                    when 1
+                                        option(disabled="disabled") =====예약 유형 선택=====
+                                        option(value="1", selected="true") 고정예약
+                                        option(value="2") 자율예약
+                                        option(value="3") 다이닝전체
+                                    when 2
+                                        option(disabled="disabled") =====예약 유형 선택=====
+                                        option(value="1") 고정예약
+                                        option(value="2", selected="true") 자율예약
+                                        option(value="3") 다이닝전체
+                                    default
+                                        option(disabled="disabled") =====예약 유형 선택=====
+                                        option(value="1") 고정예약
+                                        option(value="2") 자율예약
+                                        option(value="3", selected="true") 다이닝전체
                     .col-xs-12
                         h3.objectTitle 예약받을 시간
                         p
@@ -37,9 +49,9 @@ html(lang="en")
                         p 단 최대 예약시간을 넘을 순 없음.
                         .col-xs-12.TimeContainerDiv.col-md-offset-2.col-md-10
                             .col-xs-12.bookTimeDiv
-                                input.bookInput(name="reservationTimeMin", type="time", step="600")
+                                input.bookInput(name="reservationTimeMin", type="time", step="600", value=(table.reservationTimeMin))
                                 |  ~
-                                input.bookInput(name="reservationTimeMax", type="time", step="600")
+                                input.bookInput(name="reservationTimeMax", type="time", step="600", value=(table.reservationTimeMax))
                                 //button.bookSubmit 등록
                             //.col-xs-12.bookTimeDiv
                                 input.bookInput(type="time", step="600")
@@ -52,29 +64,30 @@ html(lang="en")
                     .col-xs-12
                         h3.objectTitle 최소주문금액
                         p *예약받을 최소주문 금액을 입력해 주세요.
-                        input.commonInput(name="orderValueMin")
+                        input.commonInput(name="orderValueMin", value=(table.orderValueMin))
                         | 원
                     .col-xs-12
                         h3.objectTitle 수용인원
                         p *이 테이블의 최대 예약받을 수 있는 인원을 지정하세요.
-                        input.commonInput(type="number", name="peopleCount")
+                        input.commonInput(type="number", name="peopleCount", value=(table.peopleCount))
                         | 명
                     .col-xs-12
                         h3.objectTitle 최대시간
                         p *손님이 예약시간으로부터 최대 식사할 수 있는 시간을 지정하세요.
-                        input.hourInput(type="number", name="maxTime")
+                        input.hourInput(type="number", name="maxTime", value=(table.maxTime))
                         | 시간
                         //input.minuteInput(type="number")
                         //| 분
                     input(type="hidden", name="member_id", value=(passport.user.mid))
+                    input(type="hidden", name="table_id", value=(table._id))
                 .col-xs-12.submitDiv
                     .col-xs-offset-2.col-xs-3.submitBoxDiv
-                        button.btn-block.submitBtn(type="button" onclick="tableRegister(this.form)") 등록
+                        button.btn-block.submitBtn(type="button" onclick="tableFix(this.form)") 등록
                     .col-xs-offset-2.col-xs-3.submitBoxDiv
                         button.btn-block.cancelBtn(type="button" onclick="cancle()") 취소
         script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
         script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
         script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9QRgBKIct09-0nMzhZyX5EMldShSzZy4&callback=myMap")
-        script(src="../Js/TopMenu.js")
-        script(src="../Js/TableRegister.js")
-
+        script(src="../../Js/TopMenu.js")
+        script(src="../../Js/TableRegister.js")
+        script(src="../../Js/TableFix.js")

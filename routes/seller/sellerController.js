@@ -261,3 +261,66 @@ exports.modifiy_profile=function (req,res,next) {
 exports.table_register=function (req,res,next) {
     res.render('TableRegister',{passport:req.session.passport});
 };
+exports.table_register_post=function (req,res,next) {
+    var table_name=req.body.table_name;
+    var reservationType=req.body.reservationType;
+    var reservationTimeMin=req.body.reservationTimeMin;
+    var reservationTimeMax=req.body.reservationTimeMax;
+    var orderValueMin=req.body.orderValueMin;
+    var peopleCount=req.body.peopleCount;
+    var maxTime=req.body.maxTime;
+    var member_id=req.body.member_id;
+    var newTable=new Table();
+    newTable.member_id=member_id;
+    newTable.table_name=table_name;
+    newTable.reservationType=reservationType;
+    newTable.reservationTimeMin=reservationTimeMin;
+    newTable.reservationTimeMax=reservationTimeMax;
+    newTable.orderValueMin=orderValueMin;
+    newTable.peopleCount=peopleCount;
+    newTable.maxTime=maxTime;
+    newTable.save(function (err) {
+        if (err)
+            throw err;
+        res.send("clear");
+    });
+};
+exports.table_fix=function (req,res,next) {
+    Table.findOne({_id:req.params.id},function (err,table) {
+        res.render('TableFix',{passport:req.session.passport,table:table});
+    });
+};
+exports.table_fix_post=function (req,res,next) {
+    var table_name=req.body.table_name;
+    var reservationType=req.body.reservationType;
+    var reservationTimeMin=req.body.reservationTimeMin;
+    var reservationTimeMax=req.body.reservationTimeMax;
+    var orderValueMin=req.body.orderValueMin;
+    var peopleCount=req.body.peopleCount;
+    var maxTime=req.body.maxTime;
+    var member_id=req.body.member_id;
+    Table.update({_id:req.body.table_id},{$set:{member_id:member_id,table_name:table_name,reservationType:reservationType,
+            reservationTimeMin:reservationTimeMin,reservationTimeMax:reservationTimeMax,orderValueMin:orderValueMin,peopleCount:peopleCount,maxTime:maxTime}},
+        function (err,result) {
+        if (err) return done(err);
+        res.send('clear');
+    });
+};
+exports.table_delete_post=function (req,res,next) {
+    console.log(req.body);
+    //var data= eval(req.body);
+    var tableid=[];
+    tableid=req.body.table_id;
+    console.log(tableid);
+    /*for(var i=0;i<tableid.length;i++)
+        tableid.push(tableid[i]);
+    console.log(tableid);
+    console.log(req.body.sunggyu);*/
+    Table.findByIdAndRemove(tableid,function (err,result) {
+        if (err) return done(err);
+        res.send('clear');
+    });
+};
+exports.manage=function (req,res,next) {
+    res.render('OrderManagement_KSW',{passport:req.session.passport});
+};

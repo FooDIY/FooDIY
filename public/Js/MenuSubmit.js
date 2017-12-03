@@ -6,7 +6,7 @@ function submitmenu(val){
         ingre_pic:val.ingre_pic.value, ingre_name:val.ingre_name.value,
         madeby:val.madeby.value};
     alert(val.time1.value);
-jQuery.ajaxSettings.traditional=true;
+    jQuery.ajaxSettings.traditional=true;
     $.ajax({
         method: "POST",
         type: "POST",
