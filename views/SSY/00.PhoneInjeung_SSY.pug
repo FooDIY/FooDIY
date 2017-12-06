@@ -1,0 +1,28 @@
+//
+   Created by 순우 on 2017-11-21.
+
+doctype html
+html
+    head
+        title
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+        link(rel='stylesheet', type='text/css', href='../../css/suyeon.css')
+    body.font
+        .con
+            form.form-horizontal
+                .form-group
+                    label.col-xs-4.col-md-4.control-label 전화번호
+                    input.btn.btn-link.marginl(type='submit', value='인증')
+                    .col-xs-6.col-md-6
+                        input#focusedInput.form-control(type='text')
+                .form-group
+                    label.col-xs-4.col-md-4.control-label 인증번호
+                    .col-xs-6.col-md-6
+                        input#focusedInput.form-control(type='text')
+                hr
+                .col-xs-12.col-md-12
+                    input.btn.btn-success(type='button', value='확인')

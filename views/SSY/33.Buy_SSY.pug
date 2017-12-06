@@ -1,0 +1,90 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+        link(rel='stylesheet', type='text/css', href='../../css/suyeon.css')
+    style(type='text/css').
+        @media only screen and (max-width: 581px){
+            .gogo{
+                width:100%;
+            }
+        }
+        @media only screen and (min-width: 580px){
+            .gogo{
+                width:50%;
+            }
+        }
+    body
+        .font_BM.font_Lsize.white_text.margins.marginT.back_color.paddd.center_align
+            | 구매하기
+        .gogo.container.font
+            .tm
+                input(type='checkbox')
+            h2 엄마손 집밥
+            .font_for_buy.containerbox
+                .lfloat.button_margin.marginR 수량
+                input#group.potato.center_align(type='number', value='1', min='1', max='50', step='1')
+                .button_margin.sulyang
+                    | 8,000원
+            br
+            form.form-group.containerbox
+                select#sel2.form-control
+                    option 메뉴추가하기
+                    option
+                        section 오징어튀김
+                        section.right_align 3000원
+                    option
+                        section 잔치국수
+                        section.right_align 3000원
+            .containerbox.rfloat
+                a.non_line_notbold(href='#') 판매자의 다른메뉴보기
+                input.btn.btn.btn-sm.non_line_notbold(type='submit', value='선택삭제')
+            br
+            hr
+            form.form-group.containerbox
+                | 예약유형
+                select#sel2.potato3
+                    option 예약유형
+                    option
+                        section 고정예약
+                    option
+                        section 자율예약
+                    option
+                        section 다이닝전체
+                    option
+                        section Shared
+            .containerbox__
+                label.Smargin.font_notbold 날짜(일) / 테이블(인)/시간
+            .containerbox
+                input#group.potato2.center_align(type='date', value='1', min='1', max='50', step='1')
+            form.form-group.containerbox
+                select#sel2.form-control
+                    option 하늘테이블(런치)(4)
+                    option
+                        section 하늘테이블(런치)(4)
+                        section 12:00~14:00
+                    option
+                        section 하늘테이블(런치)(4)
+                        section 16:00~18:00
+            .marginileft
+                br
+                label.font_notbold.Smargin.containerbox(for='group') 예약인원
+                input#group.potato.center_align(type='number', value='1', min='1', max='50', step='1')
+        hr
+        .gogo.containerbox__
+            | 총합
+            div
+                | 8,000원
+        hr
+        .gogo.containerbox
+            | 고객 요구사항
+            #text_wrapper_
+                #text(contenteditable='true', hidefocus='true')
+        br
+        .col-md-offset-5.col-md-4.col-sm-offset-5.col-sm-4.col-xs-offset-2.col-xs-8
+            input.btn(type='button', value='뒤로가기')
+            input.btn.btn-success(type='button', value='결제하기')

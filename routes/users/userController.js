@@ -213,3 +213,8 @@ exports.postSignupTemp=function(req, res, next) {
         })(req, res, next);
 
 };
+exports.profile=function(req,res,next){
+    Member.findOne({email:req.session.passport.user.email},function(err,user){
+        res.render('Profile',{passport:req.session.passport,member:user});
+    });
+};

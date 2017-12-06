@@ -37,11 +37,11 @@ html(lang='en')
                 p
                     span.mytitle.w3-col.s6.m6.l6 평점
                     span.myinfo.w3-rest
-                        span.fa.fa-star.checked
-                        span.fa.fa-star.checked
-                        span.fa.fa-star.checked
                         span.fa.fa-star
                         span.fa.fa-star
+                        span.fa.fa-star
+                        span.fa.fa-star
+                        span.fa.fa-star-o
                         span  4.1
                 p
                     span.mytitle.w3-col.s6.m6.l6 후기
@@ -94,7 +94,7 @@ html(lang='en')
                     .table-header
                         | 테이블 관리
                         button.btn-sm.btn-primary(type='button' onclick='table_del()' style='float: right; margin-left: 10px;') 삭제
-                        button.btn-sm.btn-primary(style='float: right;') 등록
+                        button.btn-sm.btn-primary(type='button' onclick='location.href="/seller/table_register"' style='float: right;') 등록
                     table(cellspacing='0')
                         tr.col-xs-12.col-sm-12.col-md-12.col-lg-12
                         //이거 없으면 1번 출력이 안댐

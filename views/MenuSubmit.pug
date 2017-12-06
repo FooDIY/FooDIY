@@ -12,9 +12,9 @@ html(lang='en')
         link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
         link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css')
         link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
-        //link(rel='stylesheet', href='../css/UploadFile_KSW.css')
-        //link(rel='stylesheet', href='../css/MenuSumit_KSW.css')
-        //link(rel='stylesheet', href='../css/MenuManagement_KSW.css')
+        link(rel='stylesheet', href='../css/UploadFile_KSW.css')
+        link(rel='stylesheet', href='../css/MenuSumit_KSW.css')
+        link(rel='stylesheet', href='../css/MenuManagement_KSW.css')
     body
         .container
             div
@@ -56,48 +56,67 @@ html(lang='en')
                                     .page(style='margin-top: 10px;')
                                         // Our File Inputs
                                         .wrap-custom-file
-                                            input.image1(type='file', name='menu_pic', accept='image/*')
-                                            label
+                                            input#image1(type='file', name='menu_pic', accept='.gif, .jpg, .png, .jpeg')
+                                            label(for='image1')
                                                 span Select Image
                                                 i.fa.fa-plus-circle
                                         .wrap-custom-file
-                                            input.image2(type='file', name='menu_pic', accept='.gif, .jpg, .png, .jpeg')
-                                            label
+                                            input#image2(type='file', name='menu_pic', accept='.gif, .jpg, .png, .jpeg')
+                                            label(for='image2')
                                                 span Select Image
                                                 i.fa.fa-plus-circle
                                         .wrap-custom-file
-                                            input.image3(type='file', name='menu_pic', accept='.gif, .jpg, .png, .jpeg')
-                                            label
+                                            input#image3(type='file', name='menu_pic', accept='.gif, .jpg, .png, .jpeg')
+                                            label(for='image3')
                                                 span Select Image
                                                 i.fa.fa-plus-circle
                                         .wrap-custom-file
-                                            input.image4(type='file', name='menu_pic', accept='.gif, .jpg, .png, .jpeg')
-                                            label
+                                            input#image4(type='file', name='menu_pic', accept='.gif, .jpg, .png, .jpeg')
+                                            label(for='image4')
                                                 span Select Image
                                                 i.fa.fa-plus-circle
                                         // End Page Wrap
                                 .col-xs-12.col-sm-12.col-md-12.col-lg-12.myhr
                                     hr
+
                                 .form-group.col-xs-12
                                     label.control-label.requiredField.label-title
                                         | 재료
-                                    .page
-                                        .wrap-custom-file.col-xs-4.col-sm-3.col-md-3.col-lg-3(style='margin: 0; padding: 0;')
-                                            input(type='file', name='ingre_pic', accept='.gif, .jpg, .png, .jpeg')
-                                            label(style='width: 100px; height: 100px; margin-top: 25px; margin-left: 25px;')
-                                                span Select Image
-                                                i.fa.fa-plus-circle
-                                        .col-xs-5.col-sm-9.col-md-9.col-lg-9(style='padding: 0;')
-                                            .form-group.col-xs-12
-                                                label.control-label
-                                                    | 재료명
-                                                button(style='background-color: white; border: none; float: right;')
-                                                    i.fa.fa-minus-circle(style='font-size: 18px;')
-                                                input#ingredent-name.form-control.input-md(name='ingre_name[]', type='text')
-                                            .form-group.col-xs-12
-                                                label.control-label(for='price')
-                                                    | 원산지
-                                                input#from.form-control.input-md(name='madeby[]', type='text')
+                                    button.btn-xs.btn-primary(onclick="add_item()" type="button") 수정
+                                    #pre_set.page.col-xs-12.col-sm-12.col-md-12.col-lg-12(style='display:none')
+                                        .page.col-xs-12.col-sm-12.col-md-12.col-lg-12
+                                            .wrap-custom-file.col-xs-4.col-sm-3.col-md-3.col-lg-3(style='margin: 0; padding: 0;')
+                                                input(type='file', name='ingre_pic', accept='.gif, .jpg, .png, .jpeg')
+                                                label(for='ingredient-image', style='width: 100px; height: 100px; margin-top: 25px; margin-left: 25px;')
+                                                    span Select Image
+                                                    i.fa.fa-plus-circle
+                                            .col-xs-5.col-sm-9.col-md-9.col-lg-9(style='padding: 0;')
+                                                .form-group.col-xs-12
+                                                    label.control-label 재료명
+                                                    button(style='background-color: white; border: none; float: right;' type='button' onclick='remove_item(this)')
+                                                        i.fa.fa-minus-circle(style='font-size: 18px;')
+                                                    input.form-control.input-md(name='ingre_name[]', type='text')
+                                                .form-group.col-xs-12
+                                                    label.control-label(for='price') 원산지
+                                                    input.form-control.input-md(name='madeby[]', type='text')
+                                    #field
+                                        .page.col-xs-12.col-sm-12.col-md-12.col-lg-12
+                                            .wrap-custom-file.col-xs-4.col-sm-3.col-md-3.col-lg-3(style='margin: 0; padding: 0;')
+                                                input#ingredient-image(type='file',name='ingre_pic', accept='.gif, .jpg, .png, .jpeg')
+                                                label(for='ingredient-image', style='width: 100px; height: 100px; margin-top: 25px; margin-left: 25px;')
+                                                    span Select Image
+                                                    i.fa.fa-plus-circle
+                                            .col-xs-5.col-sm-9.col-md-9.col-lg-9(style='padding: 0;')
+                                                .form-group.col-xs-12
+                                                    label.control-label
+                                                        | 재료명
+                                                    button(style='background-color: white; border: none; float: right;' type='button' onclick='remove_item(this)')
+                                                        i.fa.fa-minus-circle(style='font-size: 18px;')
+                                                    input#ingredent-name.form-control.input-md(name='ingre_name[]', type='text')
+                                                .form-group.col-xs-12
+                                                    label.control-label(for='price')
+                                                        | 원산지
+                                                    input#from.form-control.input-md(name='madeby[]', type='text')
                                 button.btn.btn-primary.col-xs-offset-1.col-xs-10.col-sm-offset-1.col-sm-10.col-md-offset-1.col-md-10.col-lg-offset-1.col-lg-10(type='submit' onclick='submitmenu(this.form)') 등록 완료
                                 .col-xs-12
                                     p(style='text-align: center;')
