@@ -14,7 +14,7 @@ router.get('/LoginGoogle', controller.loginGoogle);
 router.get('/GoogleSignInCallback', controller.googleSigninCallback);
 router.get('/SignUpGoogle',controller.signupGoogle);
 router.get('/SignUpNaver',controller.signupNaver);
-
+router.get('/profile',controller.profile);
 /* POST home page. */
 router.post('/SignUp',controller.normalsignup);
 router.post('/login', controller.loginAttemp);

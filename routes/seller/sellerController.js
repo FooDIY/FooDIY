@@ -126,8 +126,10 @@ exports.submit_menu_post= function(req, res, next) {
     var content = req.body.content;
     var minTime=req.body.minTime;
     var maxTime=req.body.maxTime;
-    console.log(minTime);
-    console.log(maxTime);
+    var hash=req.body.tag;
+    console.log(req.body);
+    console.log(hash);
+    var hashsplit=hash.toString().split('#');
     var menu_pic = [];
     var menu_pic_name = [];
     var menu_pic_size=[];
@@ -188,6 +190,9 @@ exports.submit_menu_post= function(req, res, next) {
             }
             for(i=0;i<ingre_name.length;i++) {
                 newMenu.ingre.push({ingre_name: ingre_name[i], madeby: madeby[i], ingre_url: ingre_pic[i], ingre_size: ingre_pic_size[i], ingre_image_name:ingre_pic_name[i]});
+            }
+            for(i=0;i<hashsplit.length;i++){
+                newMenu.hash.push({tagname:hashsplit[i]})
             }
             newMenu.price=price;
             newMenu.save(function (err) {

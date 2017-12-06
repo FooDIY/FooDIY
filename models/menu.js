@@ -32,6 +32,9 @@ var MenuSchema = new Schema({
         ingre_url:String,
         ingre_size:String
     }],
+    hash:[{
+        tagname:String
+    }],
     price:{type:Number,required: true},
     amount:{type:Number},
     submit_date:{ type: Date, default: moment().format()  },

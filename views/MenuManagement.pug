@@ -93,10 +93,12 @@ html(lang='en')
                                 h4
                                     span.myinfo.w3-rest
                                         - for (var j=1;j<6;j++)
-                                        if(menu[i].star>j)
-                                            span.fa.fa-star.checked
-                                        else
-                                            span.fa.fa-star
+                                            if(menu[i].star>j)
+                                                if(menu[i].star>j+0.5)
+                                                    span.fa.fa-star-half-full
+                                                span.fa.fa-star
+                                            else
+                                                span.fa.fa-star-o
                                         span
                                             | &nbsp
                                             = menu[i].star
