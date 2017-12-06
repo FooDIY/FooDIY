@@ -20,15 +20,16 @@ var Table = require('../../models/table');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-var Menu_storage=multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null,'./public/img/'+file.fieldname);
-    },
-    filename: function (req, file, cb) {
-        cb(null,Date.now()+"!"+file.originalname);
-    }
-});
-var uploadMenu=multer({storage:Menu_storage});
+// var Menu_storage=multer.diskStorage({
+//     destination: function (req, file, cb) {
+//       console.log(file,'efef');
+//         cb(null,'./public/img/'+file.fieldname);
+//     },
+//     filename: function (req, file, cb) {
+//         cb(null,Date.now()+"!"+file.originalname);
+//     }
+// });
+// var uploadMenu=multer({storage:Menu_storage});
 var fs = require('fs');
 
 exports.seller_main= function(req, res, next) {
@@ -119,6 +120,7 @@ exports.uploadMenu= function(req, res, next) {
 };
 exports.submit_menu_post= function(req, res, next) {
     //uploadMenu.fields([{name:'menu_pic'},{name:'ingre_pic'}]);
+
     var menu_name = req.body.menu_name;
     var content = req.body.content;
     var minTime=req.body.minTime;

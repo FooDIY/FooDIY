@@ -63,9 +63,6 @@ html(lang='en')
                     .menu-container.username.col-xs-12.col-sm-12.col-md-12.col-lg-12
                         = member.firstname+" "+member.lastname
                         //| 규원
-                    .menu-container.username.col-xs-12.col-sm-12.col-md-12.col-lg-12
-                        #cancleButton.btn-group(role="group")
-                            button.btn(type="button" onclick="return sendMessage("+passport.user.email+")") 메세지 보내기
             .col-xs-12.col-sm-12.col-md-12.col-lg-12
                 hr
             .col-xs-12.res_info
@@ -195,4 +192,3 @@ html(lang='en')
         script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyC9QRgBKIct09-0nMzhZyX5EMldShSzZy4&callback=myMap')
         script(src='../Js/TopMenu.js')
         script(src='../Js/ImgSlider.js')
-        script(src='../Js/MenuInfo.js')

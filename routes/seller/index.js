@@ -10,7 +10,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 var Menu_storage=multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null,'./public/img/'+file.fieldname);
+      console.log(file);
+        cb(null,'../public/img/'+file.fieldname);
     },
     filename: function (req, file, cb) {
         cb(null,Date.now()+"!"+file.originalname);
