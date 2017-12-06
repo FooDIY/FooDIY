@@ -28,14 +28,14 @@ html
                         br
                         | (이메일)
                     .col-xs-8.col-md-4
-                        input#focusedInput.form-control(type='text' value=(member.email) readonly)
+                        input#focusedInput.form-control(type='text' value=(member.email) disabled)
                 .form-group
                     label.col-xs-4.col-md-4.control-label.font_notbold 이름
                     .col-xs-8.col-md-4
-                        input#focusedInput.form-control(type='text' value=(member.firstname+" "+member.lastname) readonly)
+                        input#focusedInput.form-control(type='text' value=(member.firstname+" "+member.lastname) disabled)
                 .font.form-group
                     label.col-xs-4.col-md-4.control-label.font_notbold 비밀번호
-                    input.btn.btn-sm.prof_pass_margin(type='button', value='변경')
+                    input.btn.btn-sm.prof_pass_margin(type='button', value='변경' onclick='location.href="/users/passwordChange"')
                 //.form-group
                     label.col-xs-4.col-md-4.control-label.font_notbold 판매자 등급
                     form
@@ -53,7 +53,10 @@ html
                 br
                 .form-group.email_ad
                     p.col-xs-8.col-md-4.right_align 이메일 광고 수신하기
-                    input(type='checkbox')
+                    if(member.mailing)
+                        input(type='checkbox' name='mailing' value='true' checked)
+                    else
+                        input(type='checkbox' name='mailing' value='false')
                     |  동의
         .center_align.paddig_greenbox.back_color.non_line_w
             a.font.non_line_w(href='#demo', data-toggle='collapse')
@@ -70,4 +73,5 @@ html
             .center_align
                 a.btn.btn-default.col-xs-6(href='#', role='button') 취소
             .center_align
-                a.btn.btn-success.col-xs-6(href='#', role='button') 저장
+                button.btn.btn-success.col-xs-6(onclick='submit()', type='button' role='button') 저장
+    script(src='../Js/Profile.js')

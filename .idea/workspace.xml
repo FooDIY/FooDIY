@@ -2,20 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8bc66988-3b67-48dc-954a-6b40ab60eca6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/Profile.pug" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/Profile_GSH.pug" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Js/Profile.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/Js/passwordChange.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/PasswordChange.pug" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/PasswordChange_GSH.pug" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/menu.js" afterPath="$PROJECT_DIR$/models/menu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Js/MenuSubmit.js" afterPath="$PROJECT_DIR$/public/Js/MenuSubmit.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Js/MenuSubmit_GSH.js" afterPath="$PROJECT_DIR$/public/Js/MenuSubmit_GSH.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/seller/sellerController.js" afterPath="$PROJECT_DIR$/routes/seller/sellerController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/users/index.js" afterPath="$PROJECT_DIR$/routes/users/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/users/index_GSH.js" afterPath="$PROJECT_DIR$/routes/users/index_GSH.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/users/userController.js" afterPath="$PROJECT_DIR$/routes/users/userController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/MenuManagement.pug" afterPath="$PROJECT_DIR$/views/MenuManagement.pug" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/MenuSubmit.pug" afterPath="$PROJECT_DIR$/views/MenuSubmit.pug" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/ModifyProfile.pug" afterPath="$PROJECT_DIR$/views/ModifyProfile.pug" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/components/HomeContent_Component.pug" afterPath="$PROJECT_DIR$/views/components/HomeContent_Component.pug" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/Profile.pug" afterPath="$PROJECT_DIR$/views/Profile.pug" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -30,11 +24,45 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Profile.pug" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Profile.pug" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/Profile.pug">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="37" column="80" lean-forward="true" selection-start-line="37" selection-start-column="80" selection-end-line="37" selection-end-column="80" />
+            <state relative-caret-position="333">
+              <caret line="57" column="24" lean-forward="true" selection-start-line="57" selection-start-column="24" selection-end-line="57" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Profile.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/Js/Profile.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="19">
+              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="18" selection-end-column="1" />
+              <folding>
+                <element signature="n#!!doc;n#submit#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="passwordChange.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/Js/passwordChange.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="18" column="1" lean-forward="false" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+              <folding>
+                <element signature="n#!!doc;n#submit#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PasswordChange.pug" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/PasswordChange.pug">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="371">
+              <caret line="23" column="156" lean-forward="true" selection-start-line="23" selection-start-column="156" selection-end-line="23" selection-end-column="156" />
               <folding />
             </state>
           </provider>
@@ -43,8 +71,8 @@
       <file leaf-file-name="MenuInfo.pug" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/MenuInfo.pug">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="63" column="62" lean-forward="true" selection-start-line="63" selection-start-column="26" selection-end-line="63" selection-end-column="62" />
+            <state relative-caret-position="409">
+              <caret line="188" column="34" lean-forward="true" selection-start-line="188" selection-start-column="7" selection-end-line="188" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -53,18 +81,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/users/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="16" column="34" lean-forward="true" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sellerController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/seller/sellerController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="173" column="50" lean-forward="false" selection-start-line="173" selection-start-column="42" selection-end-line="173" selection-end-column="50" />
+            <state relative-caret-position="437">
+              <caret line="23" column="46" lean-forward="false" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -73,28 +91,28 @@
       <file leaf-file-name="userController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/users/userController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="215" column="39" lean-forward="true" selection-start-line="215" selection-start-column="39" selection-end-line="215" selection-end-column="39" />
+            <state relative-caret-position="608">
+              <caret line="228" column="26" lean-forward="true" selection-start-line="228" selection-start-column="26" selection-end-line="228" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Home.pug" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/Home.pug">
+      <file leaf-file-name="sellerController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/seller/sellerController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="36" />
+            <state relative-caret-position="385">
+              <caret line="310" column="26" lean-forward="true" selection-start-line="309" selection-start-column="8" selection-end-line="310" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index_GSH.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/users/index_GSH.js">
+      <file leaf-file-name="modifyprofile.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/Js/modifyprofile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="14" column="52" lean-forward="true" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
+            <state relative-caret-position="228">
+              <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -125,9 +143,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/Js/SignUp_GSH.js" />
-        <option value="$PROJECT_DIR$/views/SignUp.pug" />
-        <option value="$PROJECT_DIR$/routes/index_.js" />
         <option value="$PROJECT_DIR$/views/EmailVerification_KKY.pug" />
         <option value="$PROJECT_DIR$/views/EmailConfirm.pug" />
         <option value="$PROJECT_DIR$/views/EmailConfirm_GSH.pug" />
@@ -161,7 +176,6 @@
         <option value="$PROJECT_DIR$/public/Js/DelTable.js" />
         <option value="$PROJECT_DIR$/views/TableRegister.pug" />
         <option value="$PROJECT_DIR$/public/Js/TableFix.js" />
-        <option value="$PROJECT_DIR$/public/Js/modifyprofile.js" />
         <option value="$PROJECT_DIR$/views/TableFix.pug" />
         <option value="$PROJECT_DIR$/views/MenuSubmit.pug" />
         <option value="$PROJECT_DIR$/models/menu.js" />
@@ -173,9 +187,13 @@
         <option value="$PROJECT_DIR$/views/ModifyProfile.pug" />
         <option value="$PROJECT_DIR$/routes/seller/index.js" />
         <option value="$PROJECT_DIR$/routes/users/index_GSH.js" />
+        <option value="$PROJECT_DIR$/public/Js/modifyprofile.js" />
         <option value="$PROJECT_DIR$/routes/users/index.js" />
         <option value="$PROJECT_DIR$/routes/users/userController.js" />
         <option value="$PROJECT_DIR$/views/Profile.pug" />
+        <option value="$PROJECT_DIR$/public/Js/Profile.js" />
+        <option value="$PROJECT_DIR$/public/Js/passwordChange.js" />
+        <option value="$PROJECT_DIR$/views/PasswordChange.pug" />
       </list>
     </option>
   </component>
@@ -481,12 +499,12 @@
       <workItem from="1511776699957" duration="1636000" />
       <workItem from="1512115912442" duration="19681000" />
       <workItem from="1512310634861" duration="4324000" />
-      <workItem from="1512470698374" duration="4667000" />
+      <workItem from="1512470698374" duration="8800000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113247000" />
+    <option name="totallyTimeSpent" value="117380000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-7" width="1874" height="1096" extended-state="6" />
@@ -525,41 +543,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/models/member.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1368">
-          <caret line="72" column="0" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/passport.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="30" column="27" lean-forward="false" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/components/TopMenu_Component.pug">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="20" column="64" lean-forward="false" selection-start-line="20" selection-start-column="60" selection-end-line="20" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/juso.pug">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="34" lean-forward="false" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/EmailConfirm_KSW.pug">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/EmailVerification.pug">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="344">
@@ -605,20 +588,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/Js/modifyprofile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="42" column="35" lean-forward="true" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Js/TableRegister.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="36" lean-forward="false" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/TableFix.pug">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
@@ -658,14 +627,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
           <caret line="26" column="6" lean-forward="true" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Js/UploadFile_KSW.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" column="31" lean-forward="false" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
           <folding />
         </state>
       </provider>
@@ -738,14 +699,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/SSY/23.PasswordChange_SSY.pug">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="24" column="113" lean-forward="true" selection-start-line="24" selection-start-column="113" selection-end-line="24" selection-end-column="113" />
           <folding />
         </state>
       </provider>
@@ -848,14 +801,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/users/index_GSH.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="52" lean-forward="true" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/users/userController_GSH.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -864,10 +809,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/users/index.js">
+    <entry file="file://$PROJECT_DIR$/views/SSY/23.PasswordChange_SSY.pug">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="34" lean-forward="true" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+        <state relative-caret-position="418">
+          <caret line="24" column="113" lean-forward="true" selection-start-line="24" selection-start-column="113" selection-end-line="24" selection-end-column="113" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/PasswordChange_GSH.pug">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="48" lean-forward="true" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
           <folding />
         </state>
       </provider>
@@ -880,34 +833,110 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/routes/users/index_GSH.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="52" lean-forward="true" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Js/SellerSubmit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Js/TableRegister.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="36" lean-forward="false" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Js/UploadFile_KSW.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="31" lean-forward="false" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/users/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="23" column="46" lean-forward="false" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/seller/sellerController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="173" column="50" lean-forward="false" selection-start-line="173" selection-start-column="42" selection-end-line="173" selection-end-column="50" />
+        <state relative-caret-position="385">
+          <caret line="310" column="26" lean-forward="true" selection-start-line="309" selection-start-column="8" selection-end-line="310" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/users/userController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="215" column="39" lean-forward="true" selection-start-line="215" selection-start-column="39" selection-end-line="215" selection-end-column="39" />
+        <state relative-caret-position="608">
+          <caret line="228" column="26" lean-forward="true" selection-start-line="228" selection-start-column="26" selection-end-line="228" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/MenuInfo.pug">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="63" column="62" lean-forward="true" selection-start-line="63" selection-start-column="26" selection-end-line="63" selection-end-column="62" />
+        <state relative-caret-position="409">
+          <caret line="188" column="34" lean-forward="true" selection-start-line="188" selection-start-column="7" selection-end-line="188" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/Profile.pug">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="37" column="80" lean-forward="true" selection-start-line="37" selection-start-column="80" selection-end-line="37" selection-end-column="80" />
+        <state relative-caret-position="333">
+          <caret line="57" column="24" lean-forward="true" selection-start-line="57" selection-start-column="24" selection-end-line="57" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Js/modifyprofile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Js/Profile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="18" selection-end-column="1" />
+          <folding>
+            <element signature="n#!!doc;n#submit#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Js/passwordChange.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="18" column="1" lean-forward="false" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+          <folding>
+            <element signature="n#!!doc;n#submit#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/PasswordChange.pug">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="23" column="156" lean-forward="true" selection-start-line="23" selection-start-column="156" selection-end-line="23" selection-end-column="156" />
           <folding />
         </state>
       </provider>
