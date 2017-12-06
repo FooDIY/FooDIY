@@ -119,6 +119,7 @@ exports.uploadMenu= function(req, res, next) {
     next();
 };
 exports.submit_menu_post= function(req, res, next) {
+  console.log('작동');
     //uploadMenu.fields([{name:'menu_pic'},{name:'ingre_pic'}]);
 
     var menu_name = req.body.menu_name;
@@ -136,6 +137,7 @@ exports.submit_menu_post= function(req, res, next) {
     var upFile = req.files;
     for (var i = 0; i < upFile['menu_pic'].length; i++) {
         if (upFile['menu_pic'][i].fieldname === "menu_pic") {
+            console.log("./img/menu_pic/" + upFile['menu_pic'][i].filename);
             menu_pic.push("./img/menu_pic/" + upFile['menu_pic'][i].filename);
             menu_pic_name.push(upFile['menu_pic'][i].filename);
             menu_pic_size.push(upFile['menu_pic'][i].size);

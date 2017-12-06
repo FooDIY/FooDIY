@@ -13,7 +13,7 @@ var index = require('./routes/index');
 var users = require('./routes/users/index');
 var seller = require('./routes/seller/index');
 var menu = require('./routes/menu/index');
-
+var message=require('./routes/message/index');
 var app = express();
 
 mongoose.connect('mongodb://localhost/FooDIY');
@@ -42,7 +42,7 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/seller', seller);
 app.use('/menu', menu);
-
+app.use('/message', message);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
