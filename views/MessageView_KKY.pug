@@ -1,0 +1,48 @@
+doctype html
+html(lang='en')
+  head
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(charset='utf-8')
+    link(rel='stylesheet', type='text/css', href='../css/MessageView_KKY.css')
+    // 합쳐지고 최소화된 최신 CSS
+    link(rel='stylesheet', href='../css/bootstrap.min.css')
+    // 부가적인 테마
+    link(rel='stylesheet', href='../css/bootstrap-theme.min.css')
+    // 합쳐지고 최소화된 최신 자바스크립트
+    script(src='js/bootstrap.min.js')
+    title 메세지
+  body
+    #messageList.container
+      .col-xs-12
+        .col-xs-5.col-md-3.setBtnPadding
+          p
+            | 결제완료
+        .col-xs-5.col-xs-offset-2.col-md-3.col-md-offset-6.setBtnPadding
+          button.btn-block.paymentButton(type='button', aria-label='Left Align')
+            | 결제세부정보
+      .col-xs-12.messageDiv
+        .media
+          .media-left.media-bottom
+            a(href='#')
+              img.right(src='../img/defaultProfile.png', alt='Avatar')
+          .media-body.leftMessage
+            .arrow_box
+              p Lg elt, consectetur adipiscing elitore et dolore magna aliqua.
+              p.date 6개월전
+        .media
+          .media-body.rightMessage
+            .arrow_box
+              p
+                | ctetur adipiscing elit, sed do rem ipsum dolor sit amet, consectetur ao eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              p.date 5개월전
+          .media-right.media-bottom
+            a(href='#')
+              img.right(src='../img/defaultProfile.png', alt='Avatar')
+        .col-xs-12
+          form
+            .input-group
+              // 포커스될때만 테두리 그어주면 좋겠다고 생각됨
+              input#content.form-control.message(type='text', placeholder='메시지를 작성하세요...')
+              .input-group-btn
+                button#message-button.btn.btn-default.send(type='submit')
+                  | 전송
