@@ -81,7 +81,7 @@ module.exports = function(passport,nev) {
                     return done(null, false, {error:'이메일 에러'});
                 if (!(user.provider==='local'))
                     return done(null, false, {error:'타사연동으로 가입된 회원입니다. 위 버튼을 이용해서 로그인해주세요'});
-                if (!user.validPassword(password))
+                if(!(user.validPassword(password)))
                     return done(null, false, {error:'패스워드 에러'});
                 if (!user.is_certificate)
                     return done(null, false, {error:user.email});

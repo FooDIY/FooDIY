@@ -1,19 +1,30 @@
 /**
  * Created by Sehyeon on 2017-12-07.
  */
-function submit() {
-    var mailing = document.getElementsByName("mailing");
-    var item = {mailing:mailing[0].checked};
+
+function passchange(val) {
+    alert('start');
+    //var now=document.getElementsByName("now").value;
+    //var next=document.getElementsByName("next").value;
+    now=val.now.value;
+    next=val.next.value;
+    var item = {now:now, next:next};
+    alert(now);
+    alert(next);
+    alert('send');
+    console.log(item);
     $.ajax({
         method: "POST",
         type: "POST",
-        url: "/users/profile",
+        url: "/users/passwordchange",
         data: item,
         success: function (data) {
             if (data === "clear") {
-                location.href='/';
+                location.href='/users/profile';
+            }
+            else{
+                alert("wow");
             }
         }
     });
-
 }

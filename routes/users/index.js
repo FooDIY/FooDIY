@@ -22,5 +22,5 @@ router.post('/login', controller.loginAttemp);
 router.post('/reconfirm',controller.reconfirm);
 router.post('/NaverSignUpTemp',controller.postSignupTemp);
 router.post('/profile',controller.profile_post);
-
+router.post('/passwordChange',controller.passwordChange_post);
 module.exports = router;

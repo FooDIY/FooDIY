@@ -218,14 +218,31 @@ exports.profile=function(req,res,next){
         res.render('Profile',{passport:req.session.passport,member:user});
     });
 };
+
+exports.profile_post=function(req,res,next){
+    Member.update({email:req.session.passport.user.email},{$set:{mailing:req.body.mailing}},function(err){
+        if (err) return done(err);
+        res.send('clear');
+    });
+};
+
 exports.passwordChange=function(req,res,next){
     Member.findOne({email:req.session.passport.user.email},function(err,user){
         res.render('passwordChange',{passport:req.session.passport,member:user});
     });
 };
-exports.profile_post=function(req,res,next){
-    Member.update({email:req.session.passport.user.email},{$set:{mailing:req.body.mailing}},function(err){
-        if (err) return done(err);
-        res.send('clear');
+
+exports.passwordChange_post=function(req,res,next){
+    Member.findOne({email:req.session.passport.user.email},function(err,user){
+        if(!user.validPassword(req.body.now))
+        {
+            res.send('notMatch');
+            return;
+        }
+        var next=user.generateHash(req.body.next);
+        Member.update({email:user.email},{$set:{pw:next}},function (err) {
+            if (err) return done(err);
+            res.send('clear');
+        });
     });
 };
