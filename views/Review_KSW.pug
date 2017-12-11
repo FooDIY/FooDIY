@@ -1,0 +1,72 @@
+//
+   Created by 순우 on 2017-12-11.
+
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        title Title
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+        link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Karma')
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+        link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+        link(rel='stylesheet', href='../css/TopMenu_KSW.css')
+        link(rel='stylesheet', href='../css/MenuManagement_KSW.css')
+        link(rel='stylesheet', href='../css/MenuInfo_KSW.css')
+    body
+        // Sidebar
+        nav#mySidebar.w3-sidebar.w3-bar-block.w3-card.w3-top.w3-xlarge.w3-animate-left
+            a#goHome.w3-bar-item.w3-button(href='/') 홈
+            hr
+            a.w3-bar-item.w3-button(href='/') 로그인
+            a.w3-bar-item.w3-button(href='/') 회원가입
+            a.w3-bar-item.w3-button(href='/') 도움말
+            a#submitBtn.w3-red.w3-bar-item(href='/') 판매자 신청하기
+        // Top menu
+        .w3-top
+            #topMenu.w3-white.w3-xlarge.w3-row-padding
+                #topMenuDropdown.w3-button.w3-left.col-xs-3.col-sm-1.col-md-1.col-lg-1.arrow_wrapper
+                    .w3-col.s10
+                        img#foodiyicon(src='../img/foodiy_icon.png', alt='')
+                    #arrow.w3-col.s2.arrow
+                #mapBtn.w3-button.w3-right.col-sm-offset-2.col-md-offset-2.col-xs-2.col-sm-1.col-md-1.col-lg-1 MAP
+                .form-group.has-success.has-feedback.w3-center.w3-padding-16.col-sm-offset-2.col-md-offset-2.col-xs-7.col-sm-6.col-md-6
+                    .col-sm-12
+                        input#inputSuccess.form-control.input-lg(type='text', placeholder='Search')
+        .col-xs-12.col-sm-offset-2.col-sm-8.col-md-offset-4.col-md-4
+            h2(style='margin-top: 93px;') 판매자와 메뉴에 대한 후기를 남겨주세요.
+            br
+            h3 판매자
+            .user-profile.col-xs-12.col-sm-12.col-md-12.col-lg-12
+                .col-sm-offset-2.col-md-offset-2.col-lg-offset-2.col-xs-3.col-sm-3.col-md-3.col-lg-3
+                    img.avatar(src='../img/sushi.jpg', alt='Ash')
+                #profile_info.col-xs-offset-2.col-sm-offset-1.col-md-offset-1.col-lg-offset-1.col-xs-7.col-sm-6.col-md-6.col-lg-6
+                    .menu-container.restaurant-name.col-xs-12.col-sm-12.col-md-12.col-lg-12
+                        | 호호식당
+                    .menu-container.address.col-xs-12.col-sm-12.col-md-12.col-lg-12
+                        | 한국, 충청북도, 청주
+                    .menu-container.username.col-xs-12.col-sm-12.col-md-12.col-lg-12
+                        | 규원
+            .col-xs-12.col-sm-12.col-md-12.col-lg-12
+                hr
+            .col-xs-12.res_info
+                p
+                    span.mytitle.w3-col.s6.m6.l6 메뉴
+                    span.myinfo.w3-rest 전주 비빔밥
+                span.fa.fa-star-o.checked(style='font-size: 25px;')
+                span.fa.fa-star-o.checked(style='font-size: 25px;')
+                span.fa.fa-star-o.checked(style='font-size: 25px;')
+                span.fa.fa-star-o(style='font-size: 25px;')
+                span.fa.fa-star-o(style='font-size: 25px;')
+                textarea(name='', id='', placeholder='내용을 입력해주세요.', style='width: 100%;', rows='4')
+                button.btn.btn-success(style='float: right;') 후기 남기기
+            // 채워진 별 fa fa-star
+            // 반쪽 별 fa fa-star-half
+            // 반만 채워진 별 fa fa-star-half-full
+            // 빈 별 fa fa-star-o
+        // KSW
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+        script(src='../Js/TopMenu.js')

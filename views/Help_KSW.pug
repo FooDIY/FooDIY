@@ -1,0 +1,122 @@
+//
+   Created by 순우 on 2017-12-11.
+
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        title Title
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+        link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Karma')
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+        link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+        link(rel='stylesheet', href='../css/TopMenu_KSW.css')
+        link(rel='stylesheet', type='text/css', href='../css/Comment_KKY.css')
+        link(rel='stylesheet', href='../css/suyeon.css')
+        link(rel='stylesheet', href='../Lib/bootstrap-theme.min.css')
+    body
+        // Sidebar
+        nav#mySidebar.w3-sidebar.w3-bar-block.w3-card.w3-top.w3-xlarge.w3-animate-left
+            a#goHome.w3-bar-item.w3-button(href='/') 홈
+            hr
+            a.w3-bar-item.w3-button(href='/') 로그인
+            a.w3-bar-item.w3-button(href='/') 회원가입
+            a.w3-bar-item.w3-button(href='/') 도움말
+            a#submitBtn.w3-red.w3-bar-item(href='/') 판매자 신청하기
+        // Top menu
+        .w3-top
+            #topMenu.w3-white.w3-xlarge.w3-row-padding
+                #topMenuDropdown.w3-button.w3-left.col-xs-3.col-sm-1.col-md-1.col-lg-1.arrow_wrapper
+                    .w3-col.s10
+                        img#foodiyicon(src='../img/foodiy_icon.png', alt='')
+                    #arrow.w3-col.s2.arrow
+                #mapBtn.w3-button.w3-right.col-sm-offset-2.col-md-offset-2.col-xs-2.col-sm-1.col-md-1.col-lg-1 MAP
+                .form-group.has-success.has-feedback.w3-center.w3-padding-16.col-sm-offset-2.col-md-offset-2.col-xs-7.col-sm-6.col-md-6
+                    .col-sm-12
+                        input#inputSuccess.form-control.input-lg(type='text', placeholder='Search')
+        .container.col-xs-12.col-sm-12.col-md-offset-3.col-md-6(style='margin-top: 93px;')
+            .text
+                h2(style='font-weight: bold;') 도움말
+            input.input-sm(type='text', placeholder='내용을 입력해주세요.')
+            button.btn.btn-info.btn-sm 검색
+            button.btn-sm(style='font-size: 15px; float: right; border-color: white; border: none; background: none; color: green; font-weight: bold;') 1:1 문의
+            div
+                br
+                .under_
+                    h4
+                        a.non_line(href='#demo1', data-toggle='collapse') 1. 푸디가 무엇인가요?
+                    #demo1.collapse
+                        h5 누구나 쉽게 집에서 만든 음식을 팔 수 있게 도와주는 웹사이트 입니다.
+                br
+                .under_
+                    h4
+                        a.non_line(href='#demo2', data-toggle='collapse') 2. 어떻게 이용하나요?
+                    #demo2.collapse
+                        h5 dod!!
+                br
+                .under_
+                    h4
+                        a.non_line(href='#demo3', data-toggle='collapse') 3. 판매자 신청은 어떻게 하나요?
+                    #demo3.collapse
+                        h5 qoq!!
+                br
+                .under_
+                    h4
+                        a.non_line(href='#demo4', data-toggle='collapse') 4. 규정
+                    #demo4.collapse
+                        h5 qoq!!
+                br
+                button.btn-sm(style='float: right; border-color: white; border: none; background: none; color: green; font-weight: bold;')
+                    | 더 보기
+                    i.fa.fa-angle-double-down
+            .commentKKY(style='margin-top: 60px;')
+                .col-xs-12.regComment
+                    .media
+                        .media-left.media-top
+                            a(href='#')
+                                img(src='../img/steak.jpg', alt='Avatar')
+                        .media-body
+                            .form-group
+                                label.submitName(for='comment') 김덕배
+                                textarea#comment.form-control(rows='3', placeholder='내용을 입력해주세요...')
+                                button.pull-right.commentSubmit 댓글문의
+                .col-xs-12.commentTitle
+                    .col-xs-12.commentHead
+                        a.commentThumb(href='#')
+                            img(src='../img/steak.jpg', alt='Avatar')
+                        span.commentName 이준희
+                    .col-xs-12
+                        p.commentContents
+                            | 가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가
+                    .col-xs-12.pull-right
+                        p.commentDetail
+                            | 2017.10.18 
+                            button.submitReply 답글달기
+                            button
+                                span.glyphicon.glyphicon-thumbs-up(aria-hidden='true')
+                                | 10
+                            button 신고
+                .col-xs-11.col-xs-offset-1
+                    .col-xs-12.commentHead
+                        a.commentThumb(href='#')
+                            span.arrowKKY
+                            img(src='../img/steak.jpg', alt='Avatar')
+                        span.commentName 이준희
+                    .col-xs-12
+                        p.commentContents
+                            | 가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가
+                    .col-xs-12
+                        p.commentDetail
+                            | 2017.10.18 
+                            button.submitReply 답글달기
+                            button
+                                span.glyphicon.glyphicon-thumbs-up(aria-hidden='true')
+                                | 10
+                            button 신고
+        script(src='../Js/Map.js')
+        script(src='../Lib/jquery.min.js')
+        script(src='../Lib/bootstrap.min.js')
+        script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyC9QRgBKIct09-0nMzhZyX5EMldShSzZy4&callback=myMap')
+        script(src='../Js/TopMenu.js')

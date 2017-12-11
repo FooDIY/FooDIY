@@ -1,0 +1,86 @@
+/*
+* Scut, a collection of Sass utilities
+* to ease and improve our implementations of common style-code patterns.
+* v1.3.0
+* Docs at https://davidtheclark.github.io/scut
+*/
+.Review {
+    font-size: 100%;
+    line-height: 1.5em;
+    font-family: "Karla", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #1D1311;
+}
+@media print {
+    .Review html {
+        font-size: 12pt;
+    }
+}
+
+.Review h3 {
+    font-size: 24px;
+    font-size: 1.5rem;
+}
+
+.Review h1 + p, h2 + p, h3 + p {
+    margin-top: 0;
+}
+
+.Review a {
+    text-decoration: none;
+    color: #FF7867;
+}
+.Review a:hover, a:focus {
+    text-decoration: underline;
+}
+
+.Review img {
+    max-width: 100%;
+}
+
+.Review {
+    padding: 24px;
+    padding: 1.5rem;
+}
+@media screen and (min-width: 650px) {
+    .Review {
+        padding: 48px;
+        padding: 3rem;
+    }
+}
+.Review-details {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.Review-details p {
+    margin: 0;
+}
+.Review-details img {
+    width: 54px;
+    height: 54px;
+    margin-right: 24px;
+    margin-right: 1.5rem;
+    border-radius: 50%;
+}
+.Review-author {
+    font-weight: bold;
+}
+.Review-date {
+    color: #b6c2cc;
+}
+.Review-star {
+    color: #B6C2CC;
+}
+.Review-star--active {
+    color: #FF7867;
+}
+.Review-body .Review-title + p {
+    margin-top: 0;
+}
+.Review-body img {
+    margin: 12px 0px;
+    margin: 0.75rem 0rem;
+}

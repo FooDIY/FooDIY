@@ -1,0 +1,163 @@
+//
+   Created by 순우 on 2017-12-11.
+
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        title Title
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+        link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Karma')
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+        link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+        link(rel='stylesheet', href='../css/TopMenu_KSW.css')
+        link(rel='stylesheet', href='../css/MenuManagement_KSW.css')
+        link(rel='stylesheet', href='../css/MenuInfo_KSW.css')
+    body
+        // Sidebar
+        nav#mySidebar.w3-sidebar.w3-bar-block.w3-card.w3-top.w3-xlarge.w3-animate-left
+            a#goHome.w3-bar-item.w3-button(href='/') 홈
+            hr
+            a.w3-bar-item.w3-button(href='/') 로그인
+            a.w3-bar-item.w3-button(href='/') 회원가입
+            a.w3-bar-item.w3-button(href='/') 도움말
+            a#submitBtn.w3-red.w3-bar-item(href='/') 판매자 신청하기
+        // Top menu
+        .w3-top
+            #topMenu.w3-white.w3-xlarge.w3-row-padding
+                #topMenuDropdown.w3-button.w3-left.col-xs-3.col-sm-1.col-md-1.col-lg-1.arrow_wrapper
+                    .w3-col.s10
+                        img#foodiyicon(src='../img/foodiy_icon.png', alt='')
+                    #arrow.w3-col.s2.arrow
+                #mapBtn.w3-button.w3-right.col-sm-offset-2.col-md-offset-2.col-xs-2.col-sm-1.col-md-1.col-lg-1 MAP
+                .form-group.has-success.has-feedback.w3-center.w3-padding-16.col-sm-offset-2.col-md-offset-2.col-xs-7.col-sm-6.col-md-6
+                    .col-sm-12
+                        input#inputSuccess.form-control.input-lg(type='text', placeholder='Search')
+        .col-xs-12.col-sm-offset-2.col-sm-8.col-md-offset-4.col-md-4
+            h2(style='margin-top: 93px;')
+                | 결제 세부 정보
+                button.btn.btn-success(style='float: right;') 구매내역
+            br
+            h3 판매자
+            .user-profile.col-xs-12.col-sm-12.col-md-12.col-lg-12
+                .col-sm-offset-2.col-md-offset-2.col-lg-offset-2.col-xs-3.col-sm-3.col-md-3.col-lg-3
+                    img.avatar(src='../img/sushi.jpg', alt='Ash')
+                #profile_info.col-xs-offset-2.col-sm-offset-1.col-md-offset-1.col-lg-offset-1.col-xs-7.col-sm-6.col-md-6.col-lg-6
+                    .menu-container.restaurant-name.col-xs-12.col-sm-12.col-md-12.col-lg-12
+                        | 호호식당
+                    .menu-container.address.col-xs-12.col-sm-12.col-md-12.col-lg-12
+                        | 한국, 충청북도, 청주
+                    .menu-container.username.col-xs-12.col-sm-12.col-md-12.col-lg-12
+                        | 규원
+            .col-xs-12.col-sm-12.col-md-12.col-lg-12
+                hr
+            .col-xs-12.res_info
+                p
+                    span.mytitle.w3-col.s6.m6.l6 메뉴
+                    span.myinfo.w3-rest 전주 비빔밥
+                p
+                    span.mytitle.w3-col.s6.m6.l6 수량
+                    span.myinfo.w3-rest 3
+                p
+                    span.mytitle.w3-col.s6.m6.l6 가격(개)
+                    span.myinfo.w3-rest 8,000원
+                div(style='background-color: darkorange; text-align: center; color: #fefefe; height: 40px;')
+                    h3(style='padding-top: 8px;') 합계 : 24,000원
+                p(style='margin-top: 20px;')
+                    span.mytitle.w3-col.s6.m6.l6 예약일
+                    span.w3-rest.myinfo 2017년 10월 12일
+                p
+                    span.mytitle.w3-col.s6.m6.l6 예약 시간
+                    span.w3-rest.myinfo 12:00 ~ 14:00
+                p
+                    span.mytitle.w3-col.s6.m6.l6 예약 유형
+                    span.w3-rest.myinfo 자율 예약
+                p
+                    span.mytitle.w3-col.s6.m6.l6 테이블명
+                    span.w3-rest.myinfo 하늘테이블(런치)
+                p
+                    span.mytitle.w3-col.s6.m6.l6 인원
+                    span.w3-rest.myinfo 2명
+                p
+                    span.mytitle.w3-col.s12.m12.l12 상세 설명
+                    .myinfo.w3-col.s12.m12.l12
+                        p
+                            | 고향 전주에서 25년동안 살다 온 전주 토박이가 진짜 전주 비빔밥을 만들어드립니다 .
+                        hr
+                p
+                    span.mytitle.w3-col.s6.m6.l6 판매자 연락처
+                    span.w3-rest.myinfo 010-8746-4565
+                p
+                    span.mytitle.w3-col.s6.m6.l6 고객 요구사항
+                    span.w3-rest.myinfo
+                        button.btn.btn-success.btn-sm 수정
+                .myinfo.w3-col.s12.m12.l12
+                    textarea(name='', id='', placeholder='달걀 프라이는 반숙으로 해주세요', style='width: 100%;')
+                    hr
+            .col-xs-12.res_info
+                .col-xs-6.col-sm-6.col-md-6.col-lg-6.menu-container
+                    .col-xs-12.col-sm-12.col-md-12.col-lg-12.menu-container1.img-container
+                        img.menu-img(src='../img/pasta.jpg', alt='')
+                        .second-span
+                            span 판매중
+                    .col-xs-12.col-sm-12.col-md-12.col-lg-12.menu-container1
+                        h4 이태리 파스타
+                        h4 5000원
+                        h4
+                            span.myinfo.w3-rest
+                                span.fa.fa-star.checked
+                                span.fa.fa-star.checked
+                                span.fa.fa-star.checked
+                                span.fa.fa-star
+                                span.fa.fa-star
+                                span 4.1
+                            br
+                        a(href='')
+                            | 후기 50개
+                            small 보러 가기
+                .col-xs-6.col-sm-6.col-md-6.col-lg-6.menu-container
+                    .col-xs-12.col-sm-12.col-md-12.col-lg-12.menu-container2.img-container
+                        img.menu-img(src='../img/bibimbap.jpeg', alt='')
+                        .second-span
+                            span 판매중
+                    .col-xs-12.col-sm-12.col-md-12.col-lg-12.menu-container2
+                        h4 전주 비빔밥
+                        h4 25000원
+                        h4
+                            span.myinfo.w3-rest
+                                span.fa.fa-star.checked
+                                span.fa.fa-star.checked
+                                span.fa.fa-star.checked
+                                span.fa.fa-star
+                                span.fa.fa-star
+                                span 4.1
+                            br
+                        a(href='')
+                            | 후기 501개
+                            small 보러 가기
+        .col-xs-12.col-sm-12.col-md-12.col-lg-12(style='margin-top: 20px;')
+            .w3-col.s4.m4.l4
+                button.btn.btn-info.btn-lg(data-toggle='modal', data-target='#myModal', style='width: 86%; margin-left: 7%;') 결제 취소
+            .w3-col.s4.m4.l4
+                button.btn.btn-info.btn-lg(style='width: 86%; margin-left: 7%;') 신고
+            .w3-col.s4.m4.l4
+                button.btn.btn-info.btn-lg(style='width: 86%; margin-left: 7%;') 후기
+        #myModal.modal.fade(role='dialog')
+            .modal-dialog
+                // Modal content
+                .modal-content(style='margin-top: 50%;')
+                    .modal-body
+                        p 결제 취소를 하시겠습니까 ?
+                        p 규정 취소일 (예약일 - 최소주문일) 이전의 취소 수수료는 무료입니다. 규정 취소일 이후의 취소 수수료는 수수료 규정을 따릅니다.
+                        br
+                        p(style='float: right;') 발생 예정 수수료 0원
+                        br
+                    .modal-footer
+                        button.btn.btn-default(type='button', data-dismiss='modal') 뒤로 가기
+                        button.btn.btn-default(type='button') 결제 취소
+        // KSW
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+        script(src='../Js/TopMenu.js')
