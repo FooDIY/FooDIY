@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="8bc66988-3b67-48dc-954a-6b40ab60eca6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/MenuInfo_KSW.html" afterPath="$PROJECT_DIR$/public/html/MenuInfo_KSW.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/ModifyProfile_KSW.html" afterPath="$PROJECT_DIR$/public/html/ModifyProfile_KSW.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,21 +23,25 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="FileUpload_KSW.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/html/FileUpload_KSW.html">
+      <file leaf-file-name="MenuInfo_KSW.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/html/MenuInfo_KSW.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="62" column="39" lean-forward="false" selection-start-line="62" selection-start-column="39" selection-end-line="62" selection-end-column="39" />
-              <folding />
+            <state relative-caret-position="345">
+              <caret line="236" column="61" lean-forward="true" selection-start-line="236" selection-start-column="61" selection-end-line="236" selection-end-column="61" />
+              <folding>
+                <element signature="e#7554#7560#0" expanded="true" />
+                <element signature="n#style#0;n#div#4;n#div#8;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#2;n#div#10;n#div#8;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MenuInfo_KSW.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/html/MenuInfo_KSW.html">
+      <file leaf-file-name="UploadFile_KSW.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/Js/UploadFile_KSW.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="177" column="22" lean-forward="true" selection-start-line="177" selection-start-column="22" selection-end-line="177" selection-end-column="22" />
+            <state relative-caret-position="23">
+              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -43,80 +50,86 @@
       <file leaf-file-name="Review_KSW.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/html/Review_KSW.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="397">
-              <caret line="84" column="67" lean-forward="true" selection-start-line="84" selection-start-column="67" selection-end-line="84" selection-end-column="67" />
+            <state relative-caret-position="299">
+              <caret line="13" column="64" lean-forward="false" selection-start-line="13" selection-start-column="64" selection-end-line="13" selection-end-column="64" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Comment_KKY.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/html/Comment_KKY.html">
+      <file leaf-file-name="PaymentDetail_KSW.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/html/PaymentDetail_KSW.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="11" column="57" lean-forward="true" selection-start-line="11" selection-start-column="57" selection-end-line="11" selection-end-column="57" />
+            <state relative-caret-position="391">
+              <caret line="17" column="6" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="214" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jquery.ui.widget.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/Js/FileUpload_JS/jquery.ui.widget.js">
+      <file leaf-file-name="PaymentDetail_KSW.pug" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/PaymentDetail_KSW.pug">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/Js/FileUpload_JS/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jquery.xdr-transport.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/Js/FileUpload_JS/jquery.xdr-transport.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="3519">
+              <caret line="153" column="26" lean-forward="false" selection-start-line="153" selection-start-column="26" selection-end-line="153" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/jQuery-File-Upload/js/app.js">
+        <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JqueryFileUpload.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/css/JqueryFileUpload.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="621">
-              <caret line="27" column="1" lean-forward="false" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+            <state relative-caret-position="299">
+              <caret line="13" column="39" lean-forward="false" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JqueryFileUploadUI.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/css/JqueryFileUploadUI.css">
+      <file leaf-file-name="ModifyProfile_KSW.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/html/ModifyProfile_KSW.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1058">
-              <caret line="46" column="30" lean-forward="false" selection-start-line="46" selection-start-column="30" selection-end-line="46" selection-end-column="30" />
+            <state relative-caret-position="354">
+              <caret line="86" column="83" lean-forward="true" selection-start-line="86" selection-start-column="83" selection-end-line="86" selection-end-column="83" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h1#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#h1#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Help_KSW.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/html/Help_KSW.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1518">
+              <caret line="66" column="18" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="149" selection-end-column="7" />
+              <folding>
+                <element signature="n#style#0;n#button#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Help_KSW.pug" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/Help_KSW.pug">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2553">
+              <caret line="111" column="41" lean-forward="false" selection-start-line="111" selection-start-column="41" selection-end-line="111" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReviewView_KSW.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/html/ReviewView_KSW.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="18" column="56" lean-forward="false" selection-start-line="18" selection-start-column="56" selection-end-line="18" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -128,25 +141,15 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript File" />
-        <option value="Pug File" />
-        <option value="JavaScript File" />
         <option value="HTML File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
+        <option value="Pug File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>page</find>
-      <find>ingre</find>
-      <find>moment</find>
-      <find>click</find>
-      <find>event</find>
-      <find>calendar</find>
-      <find>color</find>
-      <find>white</find>
-      <find>rgba</find>
-      <find>arrow</find>
       <find>2n</find>
       <find>slider</find>
       <find>check</find>
@@ -166,7 +169,17 @@
       <find>icon</find>
       <find>background-color</find>
       <find>background</find>
+      <find>arrow</find>
+      <find>김덕배</find>
+      <find>button</find>
+      <find>후기</find>
+      <find>style</find>
       <find>호호식당</find>
+      <find>myinfo</find>
+      <find>main</find>
+      <find>subbtn</find>
+      <find>수정</find>
+      <find>input</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -175,15 +188,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/html_SSY/33.buy(suyeon).html" />
-        <option value="$PROJECT_DIR$/views/SSY/Phoneinjeung_SSY.pug" />
-        <option value="$PROJECT_DIR$/views/SSY/PhoneInjeung_SSY.pug" />
-        <option value="$PROJECT_DIR$/views/SSY/Requirement.pug" />
-        <option value="$PROJECT_DIR$/views/SSY/RequiermentRevisionReject_SSY.pug" />
-        <option value="$PROJECT_DIR$/views/SSY/16.CancelComplete_SSY.pug" />
-        <option value="$PROJECT_DIR$/views/SSY/17.ReportByBuyerSuc_SSY.pug" />
-        <option value="$PROJECT_DIR$/views/SSY/18.ReportComplete_SSY.pug" />
-        <option value="$PROJECT_DIR$/views/SSY/20.ReviwRegistComplete_SSY.pug" />
         <option value="$PROJECT_DIR$/views/SSY/22.30.ProfileFixed_SSY.pug" />
         <option value="$PROJECT_DIR$/views/SSY/PasswordChange_SSY.pug" />
         <option value="$PROJECT_DIR$/views/SSY/23.PasswordChange_SSY.pug" />
@@ -202,9 +206,7 @@
         <option value="$PROJECT_DIR$/views/SSY/SellComplete_SSY.pug" />
         <option value="$PROJECT_DIR$/views/SSY/61.CancelPayment_SSY.pug" />
         <option value="$PROJECT_DIR$/views/SSY/21.Profile_SSY.pug" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/public/Js/Location_KSW.js" />
-        <option value="$PROJECT_DIR$/public/html/MenuInfo_KSW.html" />
         <option value="$PROJECT_DIR$/public/html/Home_KSW.html" />
         <option value="$PROJECT_DIR$/public/css/SellerSubmit_KKY.css" />
         <option value="$PROJECT_DIR$/public/html/Seller_Submit_KKY.html" />
@@ -215,9 +217,7 @@
         <option value="$PROJECT_DIR$/public/html/Message_KKY.html" />
         <option value="$PROJECT_DIR$/public/html/MessageView_KKY.html" />
         <option value="$PROJECT_DIR$/public/html/PaymentDetail_KSW.html" />
-        <option value="$PROJECT_DIR$/public/html/Comment_KKY.html" />
         <option value="$PROJECT_DIR$/public/html_SSY/33.Help(SSY).html" />
-        <option value="$PROJECT_DIR$/public/html/Help_KSW.html" />
         <option value="$PROJECT_DIR$/public/html/Review_KSW.html" />
         <option value="$PROJECT_DIR$/jQuery-File-Upload/index.html" />
         <option value="$PROJECT_DIR$/public/css/Jquery_File.css" />
@@ -225,7 +225,20 @@
         <option value="$PROJECT_DIR$/public/css/JqueryFileUploadUI.css" />
         <option value="$PROJECT_DIR$/public/css/FileUploadNoScript.css" />
         <option value="$PROJECT_DIR$/public/css/FileUploadNoScriptUI.css" />
+        <option value="$PROJECT_DIR$/public/css/ReviewView_KSW.css" />
+        <option value="$PROJECT_DIR$/public/html/ReviewView.html" />
+        <option value="$PROJECT_DIR$/public/css/Comment_KKY.css" />
+        <option value="$PROJECT_DIR$/public/html/Comment_KKY.html" />
+        <option value="$PROJECT_DIR$/public/html/Help_KSW.html" />
+        <option value="$PROJECT_DIR$/public/html/ModifyProfile_KSW.html" />
+        <option value="$PROJECT_DIR$/public/Js/ModifyProfile_KSW.js" />
         <option value="$PROJECT_DIR$/public/html/FileUpload_KSW.html" />
+        <option value="$PROJECT_DIR$/views/FileUpload_KSW.pug" />
+        <option value="$PROJECT_DIR$/views/Review_KSW.pug" />
+        <option value="$PROJECT_DIR$/views/PaymentDatail_KSW.pug" />
+        <option value="$PROJECT_DIR$/views/Help_KSW.pug" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/public/html/MenuInfo_KSW.html" />
       </list>
     </option>
   </component>
@@ -239,10 +252,10 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="2418" />
-    <option name="height" value="1318" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -262,8 +275,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -273,6 +286,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="FooDIY" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FooDIY" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FooDIY" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -530,11 +557,15 @@
       <workItem from="1512531275979" duration="14538000" />
       <workItem from="1512627847908" duration="2850000" />
       <workItem from="1512701498612" duration="280000" />
+      <workItem from="1512888543405" duration="12241000" />
+      <workItem from="1512904889067" duration="12985000" />
+      <workItem from="1512993226278" duration="1356000" />
+      <workItem from="1513057400818" duration="417000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="251643000" />
+    <option name="totallyTimeSpent" value="281771000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -546,16 +577,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="2418" height="1318" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28553352" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17469561" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2876557" sideWeight="0.50608146" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286119" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38768432" sideWeight="0.49391857" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.04264871" sideWeight="0.49391857" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22810061" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -601,159 +632,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/css/TopMenu_KSW.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="47" column="14" lean-forward="false" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/html/components/TopMenu_Component_KSW.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="15" column="8" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="48" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/html/MenuManagement_KSW.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2323">
-          <caret line="19" column="91" lean-forward="true" selection-start-line="19" selection-start-column="91" selection-end-line="19" selection-end-column="91" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/html/OtherMenu_KSW.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="644">
-          <caret line="28" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="254" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/html_SSY/23.Password_Change(SSY).html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/html_SSY/33.buy(suyeon).html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="19" column="14" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="129" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/html_SSY/28.Profile_Change(SSY).html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="15" column="7" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/html_SSY/37.Payment_Cancel(SSY).html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="16" column="7" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/html_SSY/20.Review_Regist_Complete_page(SSY).html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="15" column="7" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/html/EmailConfirm_KSW.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" column="4" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/html_SSY/33.Help(SSY).html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="23" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/html/Help_KSW.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="20" column="36" lean-forward="true" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/html/OrderManagement_KSW.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="29" column="64" lean-forward="true" selection-start-line="29" selection-start-column="64" selection-end-line="29" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/html/PaymentDetail_KSW.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3519">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jQuery-File-Upload/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jQuery-File-Upload/.jshintrc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jQuery-File-Upload/.npmignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jQuery-File-Upload/cors/postmessage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="29" column="35" lean-forward="true" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jQuery-File-Upload/cors/result.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jQuery-File-Upload/css/jquery-ui-demo-ie8.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jQuery-File-Upload/css/jquery-ui-demo.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jQuery-File-Upload/img/progressbar.gif">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/jQuery-File-Upload/img/loading.gif">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -836,13 +714,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/html/MenuSubmit_KSW.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/jQuery-File-Upload/css/jquery.fileupload.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="713">
@@ -868,39 +739,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
           <caret line="13" column="30" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/FileUploadNoScript.css">
+    <entry file="file://$PROJECT_DIR$/public/css/FileUploadNoScript_KSW.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="15" column="17" lean-forward="false" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/FileUploadNoScriptUI.css">
+    <entry file="file://$PROJECT_DIR$/public/css/FileUploadNoScriptUI_KSW.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/JqueryFileUpload.css">
+    <entry file="file://$PROJECT_DIR$/public/css/JqueryFileUpload_KSW.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="621">
           <caret line="27" column="1" lean-forward="false" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/JqueryFileUploadUI.css">
+    <entry file="file://$PROJECT_DIR$/public/css/JqueryFileUploadUI_KSW.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1058">
           <caret line="46" column="30" lean-forward="false" selection-start-line="46" selection-start-column="30" selection-end-line="46" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -908,9 +774,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -918,7 +781,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -926,7 +788,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -934,39 +795,221 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/ReviewView_KSW.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/Comment_KKY.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1840">
+          <caret line="80" column="9" lean-forward="false" selection-start-line="80" selection-start-column="9" selection-end-line="80" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/EmailConfirm_KSW.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="4" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/Comment_KKY.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1610">
+          <caret line="70" column="31" lean-forward="true" selection-start-line="70" selection-start-column="31" selection-end-line="70" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/OrderManagement_KSW.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="24" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/MessageView_KKY.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/Message_KKY.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="72" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Js/calendar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="23" column="25" lean-forward="false" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/MenuSubmit_KSW.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/MenuManagement_KSW.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/MenuList_KSW.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Js/ModifyProfile_KSW.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="13" column="35" lean-forward="true" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#39#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/html/FileUpload_KSW.html">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="613">
+          <caret line="213" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/FileUpload_KSW.pug">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="178" column="88" lean-forward="true" selection-start-line="178" selection-start-column="88" selection-end-line="178" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/Review_KSW.pug">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" column="18" lean-forward="true" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/Table_KSW.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" column="27" lean-forward="true" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/Seller_Submit_KKY.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/Review_KSW.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="13" column="64" lean-forward="false" selection-start-line="13" selection-start-column="64" selection-end-line="13" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/PaymentDetail_KSW.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="17" column="6" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="214" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/PaymentDetail_KSW.pug">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3519">
+          <caret line="153" column="26" lean-forward="false" selection-start-line="153" selection-start-column="26" selection-end-line="153" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/Help_KSW.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1518">
+          <caret line="66" column="18" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="149" selection-end-column="7" />
+          <folding>
+            <element signature="n#style#0;n#button#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/Help_KSW.pug">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2553">
+          <caret line="111" column="41" lean-forward="false" selection-start-line="111" selection-start-column="41" selection-end-line="111" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="13" column="39" lean-forward="false" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/ReviewView_KSW.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="18" column="56" lean-forward="false" selection-start-line="18" selection-start-column="56" selection-end-line="18" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Js/UploadFile_KSW.js">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
-          <caret line="62" column="39" lean-forward="false" selection-start-line="62" selection-start-column="39" selection-end-line="62" selection-end-column="39" />
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/html/MenuInfo_KSW.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="177" column="22" lean-forward="true" selection-start-line="177" selection-start-column="22" selection-end-line="177" selection-end-column="22" />
-          <folding />
+        <state relative-caret-position="345">
+          <caret line="236" column="61" lean-forward="true" selection-start-line="236" selection-start-column="61" selection-end-line="236" selection-end-column="61" />
+          <folding>
+            <element signature="e#7554#7560#0" expanded="true" />
+            <element signature="n#style#0;n#div#4;n#div#8;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#2;n#div#10;n#div#8;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/html/Review_KSW.html">
+    <entry file="file://$PROJECT_DIR$/public/html/ModifyProfile_KSW.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="84" column="67" lean-forward="true" selection-start-line="84" selection-start-column="67" selection-end-line="84" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/html/Comment_KKY.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" column="57" lean-forward="true" selection-start-line="11" selection-start-column="57" selection-end-line="11" selection-end-column="57" />
-          <folding />
+        <state relative-caret-position="354">
+          <caret line="86" column="83" lean-forward="true" selection-start-line="86" selection-start-column="83" selection-end-line="86" selection-end-column="83" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h1#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#h1#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

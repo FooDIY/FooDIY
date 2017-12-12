@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="../css/MenuManagement_KSW.css">
     <link rel="stylesheet" href="../css/ImgSlider_KSW.css">
     <link rel="stylesheet" href="../css/MenuInfo_KSW.css">
+    <link rel="stylesheet" href="../css/ReviewView_KSW.css">
+    <link rel="stylesheet" href="../css/Comment_KKY.css">
 
 </head>
 <body>
@@ -204,6 +206,7 @@
 
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 myhr">
             <br>
+            <br>
         </div>
 
         <h2>매장 설명</h2>
@@ -219,15 +222,118 @@
             cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
             proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
 
-        <h2>위치</h2>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="map" style="height: 300px; width: 100%;"></div>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 myhr">
             <br>
         </div>
+        <h2>위치</h2>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="map" style="height: 300px; width: 100%;"></div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 myhr">
+            <br>
+            <br>
+        </div>
+
+        <h2>동영상</h2>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <video width="100%" controls>
+                <source src="" type="video/mp4">
+                <source src="" type="video/ogg">
+                Your browser does not support HTML5 video.
+            </video>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 myhr">
+            <br>
+            <br>
+        </div>
+
+        <h2>후기</h2>
+        <div class="Review col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="Review-details">
+                <img src="../img/steak.jpg">
+                <div class="Review-meta">
+                    <p class="Review-author">스테이크</p>
+                    <p class="Review-date">2017년 10월 5일</p>
+                    <div class="Review-rating">
+                        <span class="Review-star Review-star--active">&#9733;</span>
+                        <span class="Review-star Review-star--active">&#9733;</span>
+                        <span class="Review-star Review-star--active">&#9733;</span>
+                        <span class="Review-star">&#9733;</span>
+                        <span class="Review-star">&#9733;</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="Review-body">
+                <!--     <h3 class="Review-title">The heat had forced its shells apart, and the meat, salmon-colored, was thoroughly cooked.</h3> -->
+                <p>퇴근하고 저녁 먹으면서 간단한 술 한잔 하기 좋은 분위기였습니다. 다음에 또 오고 싶네요.</p>
+
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 myhr">
+            <hr>
+        </div>
+
+        <h2>댓글 <small>501</small></h2>
+        <div class="commentKKY">
+
+            <div class="col-xs-12 regComment">
+                <div class="media">
+                    <div class="media-body">
+
+                        <div class="form-group">
+                            <br>
+                            <label for="comment" class="submitName">김덕배</label>
+                            <textarea class="form-control" rows="3" id="comment" placeholder="내용을 입력해주세요..."></textarea>
+                            <button class="pull-right commentSubmit">댓글 등록</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 commentTitle">
+                <div class="col-xs-12 commentHead">
+
+                    <a href="#" class="commentThumb">
+                        <img src="../img/steak.jpg" alt="Avatar">
+                    </a>
+                    <span class="commentName">이준희</span>
+                </div>
+                <div class="col-xs-12">
+                    <p class="commentContents">야 여기 괜찮대 밥 한 번 쏴</p>
+                </div>
+                <div class="col-xs-12 pull-right">
+                    <p class="commentDetail">2017.10.18&nbsp;<button class="submitReply">답글달기</button>&nbsp;<button><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>10</button>&nbsp;<button>신고 </button></p>
+                </div>
+            </div>
+
+            <div class="col-xs-11 col-xs-offset-1">
+                <div class="col-xs-12 commentHead">
+
+                    <a href="#" class="commentThumb">
+                        <span class="arrowKKY"></span>
+                        <img src="../img/steak.jpg" alt="Avatar">
+                    </a>
+                    <span class="commentName">이준희</span>
+                </div>
+                <div class="col-xs-12">
+                    <p class="commentContents">저번에 여친이랑 다녀왔어. 담에 같이 가자 ! 괜찮더라.</p>
+                </div>
+                <div class="col-xs-12">
+                    <p class="commentDetail">2017.10.18&nbsp;<button class="submitReply">답글달기</button>&nbsp;<button><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>10</button>&nbsp;<button>신고 </button></p>
+                </div>
+                <button class="btn btn-success btn-sm" style="float: right; border: none; background: none; color: green; font-weight: bold;">접기<i class="fa fa-angle-double-up"></i></button>
+            </div>
+        </div>
+
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 menu-container purchase-btn">
+            <br>
             <button class="btn btn-warning col-xs-6 col-sm-6 col-md-6 col-lg-6">판매자 즐겨찾기</button>
             <button class="btn btn-success col-xs-6 col-sm-6 col-md-6 col-lg-6">구매</button>
         </div>
+
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 myhr">
             <br>
         </div>
