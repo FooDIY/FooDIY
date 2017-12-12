@@ -3,9 +3,9 @@ var router = express.Router();
 var controller=require('./indexcont');
 /* GET home page. */
 router.get('/', controller.home);
-router.get('/Login', controller.login);
+router.get('/Login',controller.noLoginCheck, controller.login);
 router.get('/MenuList', controller.menulist);
-router.get('/SignUp', controller.signup);
+router.get('/SignUp',controller.noLoginCheck, controller.signup);
 router.post('/logout', controller.logout);
 
 module.exports = router;

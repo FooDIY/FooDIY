@@ -7,7 +7,8 @@
 var app = require('../app');
 var debug = require('debug')('foodiy-11-03:server');
 var http = require('http');
-
+var Message=require('../models/message')
+var moment = require('moment');
 /**
  * Get port from environment and store in Express.
  */
@@ -30,24 +31,18 @@ server.on('error', onError);
 server.on('listening', onListening);
 
 //소켓통신 부분.
-var io = require('socket.io')(http);
-
+var io = require('socket.io')(server);
 io.sockets.on('connection', function(socket) {
 
     socket.emit('connection', { type : 'connected' });
-
     socket.on('connection', function(data) {
-        console.log('save');
-
         if(data.type === 'join')
         {
             socket.join(data.room);
             socket.room=data.room;
         }
     });
-
     socket.on('chat', function(data) {
-
         var content=data.content;
         var myname=data.myname;
         var connum=data.connum;

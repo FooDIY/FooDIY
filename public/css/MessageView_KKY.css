@@ -111,3 +111,14 @@
   color:rgb(26, 188, 156);
   background: #FAFAFA;
 }
+#chatList {
+  height:800px;
+  overflow:scroll;
+  overflow-x:hidden;
+}
+#sendMessage{
+  padding-top:30px;
+}
+#chatList{
+  padding-top:70px;
+}

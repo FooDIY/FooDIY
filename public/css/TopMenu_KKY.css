@@ -1,0 +1,27 @@
+.padd{display: inline-block; vertical-align: middle;
+  position: relative
+}
+.padd #newMessage {
+  padding-top:3px;
+  padding-left:1px;
+  text-align:center;
+  background:red;
+  color:white;
+  font-size:7px;
+  font-weight:700;
+    position: absolute;   top: 90%;   left: 70%;
+    width: 20px; height: 20px; margin: 0px;
+    border-radius: 50px;
+}
+.padd #tabnewMessage{
+  padding-top:3px;
+  padding-left:1px;
+  text-align:center;
+  background:red;
+  color:white;
+  font-size:7px;
+  font-weight:700;
+    position: absolute;   top: 35%;   left: 63%;
+    width: 20px; height: 20px; margin: 0px;
+    border-radius: 50px;
+}

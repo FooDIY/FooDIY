@@ -33,3 +33,6 @@ function LoginCheck(val) {
         }
     });
 }
+function goToSignup(){
+  location.href="/SignUp";
+}

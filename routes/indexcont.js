@@ -57,11 +57,19 @@ exports.signup=function(req, res){
       res.send('clear');
   };
 
-  exports.logout=function (req,res,next) {
-      req.logout();
-      //req.session.passport='';
-      //req.session.email =null;
-      //req.session.seller =null;
-      req.session.destroy();
-      res.send('clear');
-  };
+  // exports.logout=function (req,res,next) {
+  //     req.logout();
+  //     //req.session.passport='';
+  //     //req.session.email =null;
+  //     //req.session.seller =null;
+  //     req.session.destroy();
+  //     res.send('clear');
+  // };
+exports.noLoginCheck=function(req,res,next){
+  if(!req.session.passport){
+    next();
+  }
+  else{
+    res.redirect('/');
+  }
+};

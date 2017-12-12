@@ -1,5 +1,6 @@
 #commentTitle{
-  padding:15px;
+
+  padding:30px;
 }
 #commentTitle .label{
   padding-bottom:1px;
@@ -45,7 +46,7 @@
   box-shadow: 0 4px 3px -2px grey;
 
 }
-.btn.btnStyle:hover{
+.btn.btnStyle:hover, .btn.btnStyle.hovered{
   background-color: #e7e7e7;
   border:none;
   box-shadow: 0 2px 1px -2px gray;
@@ -176,4 +177,14 @@
     padding:3px 6px;
     font-size:7px;
     font-weight:700;
+}
+#mainBox{
+  padding-Top:50px;
+}
+.msgPadding{
+  border-radius:15px;
+  cursor: pointer
+}
+.msgPadding:hover ,.msgPadding:hover span a{
+	background: #D8D8D8;
 }

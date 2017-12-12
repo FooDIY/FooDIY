@@ -64,8 +64,8 @@ html(lang='en')
                         = member.firstname+" "+member.lastname
                         //| 규원
                     .menu-container.username.col-xs-12.col-sm-12.col-md-12.col-lg-12
-                        #cancleButton.btn-group(role="group")
-                            button.btn(type="button" onclick="return sendMessage("+passport.user.email+")") 메세지 보내기
+                        .btn-group(role="group")
+                            button.btn(type="button" , onclick="return sendMessage("+ "\"" +member.email + "\"" +")") 메세지 보내기
             .col-xs-12.col-sm-12.col-md-12.col-lg-12
                 hr
             .col-xs-12.res_info

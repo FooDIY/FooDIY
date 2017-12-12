@@ -1,0 +1,70 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        title Title
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+        link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Karma')
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+        link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css')
+        link(rel='stylesheet', href='../css/TopMenu_KSW.css')
+        link(rel='stylesheet', href='../css/MenuManagement_KSW.css')
+        link(rel='stylesheet', href='../css/ImgSlider_KSW.css')
+        link(rel='stylesheet', href='../css/Message_KKY.css')
+    body
+        include components/TopMenu_Component
+        #mainBox.container
+            #commentTitle.col-xs-12
+                h2
+                    | 댓글   
+                    span.label.label-success New
+                    span.badge 2
+            ul.commentList
+                li.comment
+                    span.commentUser 반페르시
+                    span.commentContents 맛있다.맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다
+                li.comment
+                    span.commentUser 반페르시
+                    span.commentContents 맛있다.맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다
+                li.comment
+                    span.commentUser 반페르시
+                    span.commentContents 맛있다.맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다
+            .col-xs-12
+                hr.articleLine
+            #buttonHeader.btn-group.btn-group-justified.submit(role='group')
+                if(passport.user.seller)
+                    .btn-group(role='group')
+                        button#buyerButton.btn.btnStyle(type='button') 구매자
+                    .btn-group(role='group')
+                        button#sellerButton.btn.btnStyle(type='button') 판매자
+            .col-xs-12.messageHead
+                h1 메시지
+            .col-xs-12.messageList
+                each item in conver
+                    //mesageState 0일시에는 구매자용메세지, 1일때는 판매자용메세지
+                    .col-xs-12.msgPadding(name='messageState'+item.flag, onclick="location.href='/message/"+item.id+"'")
+                        .col-xs-2.col-md-1.msgPadding
+                            a(href='#')
+                                img.right(src='../img/defaultProfile.png', alt='Avatar')
+                                if(item.unchecked)
+                                    span.notify-badge=item.unchecked
+                        .col-xs-10.col-md-11
+                            .col-xs-12
+                                span.name.userName
+                                    a(href='#')=item.name
+                                span.pull-right.msgDate=item.fromNow
+                            .col-xs-12=item.top_message
+                            .col-xs-12
+                                span.completePayment 결제완료
+                                span.name.placeName
+                                    a(href='#') Guywon's Guest
+
+    script(src='../Js/Map.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyC9QRgBKIct09-0nMzhZyX5EMldShSzZy4&callback=myMap')
+    script(src='../Js/TopMenu.js')
+    script(src='../Js/ImgSlider.js')
+    script(src='../Js/Message.js')

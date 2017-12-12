@@ -1,5 +1,5 @@
 //   Created by 순우 on 2017-11-07.
-
+//마지막수정 김기영.
 doctype html
 html(lang='en')
     head
@@ -9,6 +9,8 @@ html(lang='en')
         link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Karma')
         link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css')
         link(rel='stylesheet', href='../../css/TopMenu_KSW.css')
+        link(rel='stylesheet', href='../../css/TopMenu_KKY.css')
+
     body
         // Sidebar
         nav#mySidebar.w3-sidebar.w3-bar-block.w3-card.w3-top.w3-xlarge.w3-animate-left
@@ -18,6 +20,8 @@ html(lang='en')
                 a.w3-bar-item.w3-button(href='/Login') 로그인
                 a.w3-bar-item.w3-button(href='/signup') 회원가입
             else
+                a.padd.w3-bar-item.w3-button(href='/message') 메시지
+                    p#tabNewMessage(style="display:none")
                 a.w3-bar-item.w3-button(onclick="LogOut()") 로그아웃
                 if(!passport.user.seller)
                     a#submitBtn.w3-red.w3-bar-item(href='/seller/Seller_submit') 판매자 신청하기
@@ -28,7 +32,8 @@ html(lang='en')
         .w3-top
             #topMenu.w3-white.w3-xlarge.w3-row-padding
                 #topMenuDropdown.w3-button.w3-left.col-xs-3.col-sm-1.col-md-1.col-lg-1.arrow_wrapper
-                    .w3-col.s10
+                    .padd.w3-col.s10
+                        p#newMessage(style="display:none")
                         img#foodiyicon(src='../../img/foodiy_icon.png', alt='')
                     .w3-col.s2.arrow#arrow
                 a#mapBtn.w3-button.w3-right.col-sm-offset-2.col-md-offset-2.col-xs-2.col-sm-1.col-md-1.col-lg-1(href='/Menulist') MAP
@@ -40,3 +45,4 @@ html(lang='en')
         script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
         script(src='../../Js/TopMenu.js')
         script(src='../../Js/TopMenu_GSH.js')
+        script(src='../../Js/TopMenu_KKY.js')
