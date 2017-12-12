@@ -1,6 +1,3 @@
-//
-   Created by 순우 on 2017-11-20.
-
 doctype html
 html(lang='en')
     head
@@ -16,6 +13,10 @@ html(lang='en')
         link(rel='stylesheet', href='../css/MenuManagement_KSW.css')
         link(rel='stylesheet', href='../css/ImgSlider_KSW.css')
         link(rel='stylesheet', href='../css/Table2_KSW.css')
+        style.
+            .subbtn{
+                display: none;
+            }
     body
         // Sidebar
         nav#mySidebar.w3-sidebar.w3-bar-block.w3-card.w3-top.w3-xlarge.w3-animate-left
@@ -45,11 +46,16 @@ html(lang='en')
                 h2 Pizza
                 h3 Pasta
             #res_info.col-xs-12
+                h1(style='margin: 0;')
+                    | 매장 정보 수정
+                    button#mainbtn.btn.btn-info.btn-sm(value='none', style='float: right; color: #fefefe; font-weight: bold;') 수정하기
+                br
+                br
                 p
                     span.mytitle.w3-col.s6.m6.l6 매장명
-                    span.myinfo.w3-rest
-                        | 호호식당  
-                        button.btn-xs.btn-primary 수정
+                    span.changeinput.myinfo 호호식당
+                    span
+                        button.subbtn.btn-xs.btn.btn-info(value='modify') 수정
                 p
                     span.mytitle.w3-col.s6.m6.l6 평점
                     span.myinfo.w3-rest
@@ -67,29 +73,30 @@ html(lang='en')
                             small 보러 가기
                 p
                     span.mytitle.w3-col.s6.m6.l6 운영 시간
-                    span.w3-rest.myinfo
-                        | 12:00 ~ 21:00  
-                        button.btn-xs.btn-primary 수정
+                    span.changeinput.myinfo 12:00 ~ 21:00
+                    span
+                        button.subbtn.btn-xs.btn.btn-info 수정
                 p
                     span.mytitle.w3-col.s6.m6.l6 휴식 시간
-                    span.w3-rest.myinfo
-                        | 15:00 ~ 17:00  
-                        button.btn-xs.btn-primary 수정
+                    span.changeinput.myinfo 15:00 ~ 17:00
+                    span
+                        button.subbtn.btn-xs.btn.btn-info 수정
                 p
                     span.mytitle.w3-col.s6.m6.l6 최소 주문일
-                    span.w3-rest.myinfo
-                        | 3 일  
-                        button.btn-xs.btn-primary 수정
+                    span.changeinput.myinfo 3 일
+                    span
+                        button.subbtn.btn-xs.btn.btn-info 수정
                 p
                     span.mytitle.w3-col.s6.m6.l6 휴일
-                    span.w3-rest.myinfo
+                    span.changeinput.myinfo
                         i.fa.fa-calendar
-                        button.btn-xs.btn-primary 수정
+                    span
+                        button.subbtn.btn-xs.btn.btn-info 수정
                 p.mytitle.w3-col.s12.m12.l12
                     | 매장 설명
-                    button.btn-xs.btn-primary 수정
+                    button.subbtn.btn-xs.btn.btn-info 수정
                 // <textarea class="w3-col s12 m12 l12" name="" id="" rows="5"></textarea>
-                p
+                p.changeinput
                     | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                     | tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                     | quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -101,17 +108,17 @@ html(lang='en')
                     | consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
                     | cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
                     | proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                .table-users
+                .table-users(style='margin-top: 50px;')
                     .table-header
                         | 테이블 관리
-                        button.btn-sm.btn-primary(style='float: right; margin-left: 10px;') 삭제
-                        button.btn-sm.btn-primary(style='float: right;') 등록
+                        button.btn-sm.btn.btn-info(style='float: right; margin-left: 10px;') 삭제
+                        button.btn-sm.btn.btn-info(style='float: right;') 등록
                     table(cellspacing='0')
                         tr.col-xs-12.col-sm-12.col-md-12.col-lg-12
                             div
                                 td
                                     input(type='checkbox')
-                                    button.btn-xs.btn-primary(type='button', style='float: right;') 수정
+                                    button.btn-xs.btn.btn-info(type='button', style='float: right;') 수정
                                 td 하늘테이블(런치)
                                 td Private/Fixed
                                 td 12:00~14:00
@@ -122,7 +129,7 @@ html(lang='en')
                             div
                                 td
                                     input(type='checkbox')
-                                    button.btn-xs.btn-primary(type='button', style='float: right;') 수정
+                                    button.btn-xs.btn.btn-info(type='button', style='float: right;') 수정
                                 td 하늘테이블(런치)
                                 td Private/Fixed
                                 td 12:00~14:00
@@ -133,7 +140,7 @@ html(lang='en')
                             div
                                 td
                                     input(type='checkbox')
-                                    button.btn-xs.btn-primary(type='button', style='float: right;') 수정
+                                    button.btn-xs.btn.btn-info(type='button', style='float: right;') 수정
                                 td 하늘테이블(런치)
                                 td Private/Fixed
                                 td 12:00~14:00
@@ -144,7 +151,7 @@ html(lang='en')
                             div
                                 td
                                     input(type='checkbox')
-                                    button.btn-xs.btn-primary(type='button', style='float: right;') 수정
+                                    button.btn-xs.btn.btn-info(type='button', style='float: right;') 수정
                                 td 하늘테이블(런치)
                                 td Private/Fixed
                                 td 12:00~14:00
@@ -154,8 +161,7 @@ html(lang='en')
                 hr.w3-col.s12.m12.l12
                 h2
                     | 식사 장소
-                    button.btn-sm.btn-primary(type='button', style='float: right; margin-left: 10px;') 수정
-                    button.btn-sm.btn-primary(style='float: right') 등록
+                    button.btn-sm.btn.btn-info(type='button', style='float: right; margin-left: 10px;') 수정
                 // Slider
                 #scroll-feature.horiz-scroll
                     .scroller
@@ -179,7 +185,7 @@ html(lang='en')
                     br
                 h2
                     | 위치
-                    button.btn-sm.btn-primary(style='float: right;') 수정
+                    button.btn-sm.btn.btn-info(style='float: right;') 수정
                 #map.col-xs-12.col-sm-12.col-md-12.col-lg-12(style='height: 300px; width: 100%;')
                 .col-xs-12.col-sm-12.col-md-12.col-lg-12.myhr
                     br
@@ -202,8 +208,11 @@ html(lang='en')
                     i#restaurant-menu.material-icons restaurant_menu
                     p.icon-description 메뉴
         script(src='../Js/Map.js')
-        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
-        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+        script(src='../Lib/jquery.min.js')
+        script(src='../Lib/bootstrap.min.js')
+        // <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        // <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyC9QRgBKIct09-0nMzhZyX5EMldShSzZy4&callback=myMap')
         script(src='../Js/TopMenu.js')
         script(src='../Js/ImgSlider.js')
+        script(src='../Js/ModifyProfile_KSW.js')

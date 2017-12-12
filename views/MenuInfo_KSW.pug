@@ -1,6 +1,3 @@
-//
-   Created by 순우 on 2017-11-14.
-
 doctype html
 html(lang='en')
     head
@@ -10,17 +7,18 @@ html(lang='en')
         link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
         link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Karma')
         link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
-        | gi
         link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
         link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css')
         link(rel='stylesheet', href='../css/TopMenu_KSW.css')
         link(rel='stylesheet', href='../css/MenuManagement_KSW.css')
         link(rel='stylesheet', href='../css/ImgSlider_KSW.css')
         link(rel='stylesheet', href='../css/MenuInfo_KSW.css')
+        link(rel='stylesheet', href='../css/ReviewView_KSW.css')
+        link(rel='stylesheet', href='../css/Comment_KKY.css')
     body
         // Sidebar
         nav#mySidebar.w3-sidebar.w3-bar-block.w3-card.w3-top.w3-xlarge.w3-animate-left
-            a#goHome.w3-bar-item.w3-button(href='/') 홈
+            a#goHome.w3-bar-item.w3-button(href='/', onclick='goToHome()') 홈
             hr
             a.w3-bar-item.w3-button(href='/') 로그인
             a.w3-bar-item.w3-button(href='/') 회원가입
@@ -168,6 +166,7 @@ html(lang='en')
                             img(src='http://placehold.it/600x400/E5DECA/333&text=Image+11', alt='Image 11')
                 .col-xs-12.col-sm-12.col-md-12.col-lg-12.myhr
                     br
+                    br
                 h2 매장 설명
                 p
                     | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -181,19 +180,96 @@ html(lang='en')
                     | consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
                     | cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
                     | proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                .col-xs-12.col-sm-12.col-md-12.col-lg-12.myhr
+                    br
                 h2 위치
                 #map.col-xs-12.col-sm-12.col-md-12.col-lg-12(style='height: 300px; width: 100%;')
                 .col-xs-12.col-sm-12.col-md-12.col-lg-12.myhr
                     br
+                    br
+                h2 동영상
+                .col-xs-12.col-sm-12.col-md-12.col-lg-12
+                    video(width='100%', controls='')
+                        source(src='', type='video/mp4')
+                        source(src='', type='video/ogg')
+                        |                 Your browser does not support HTML5 video.
+                .col-xs-12.col-sm-12.col-md-12.col-lg-12.myhr
+                    br
+                    br
+                h2 후기
+                .Review.col-xs-12.col-sm-12.col-md-12.col-lg-12
+                    .Review-details
+                        img(src='../img/steak.jpg')
+                        .Review-meta
+                            p.Review-author 스테이크
+                            p.Review-date 2017년 10월 5일
+                            .Review-rating
+                                span.Review-star.Review-star--active ★
+                                span.Review-star.Review-star--active ★
+                                span.Review-star.Review-star--active ★
+                                span.Review-star ★
+                                span.Review-star ★
+                    .Review-body
+                        // <h3 class="Review-title">The heat had forced its shells apart, and the meat, salmon-colored, was thoroughly cooked.</h3>
+                        p 퇴근하고 저녁 먹으면서 간단한 술 한잔 하기 좋은 분위기였습니다. 다음에 또 오고 싶네요.
+                .col-xs-12.col-sm-12.col-md-12.col-lg-12.myhr
+                    hr
+                h2
+                    | 댓글
+                    small 501
+                .commentKKY
+                    .col-xs-12.regComment
+                        .media
+                            .media-body
+                                .form-group
+                                    br
+                                    label.submitName(for='comment') 김덕배
+                                    textarea#comment.form-control(rows='3', placeholder='내용을 입력해주세요...')
+                                    button.pull-right.commentSubmit 댓글 등록
+                    .col-xs-12.commentTitle
+                        .col-xs-12.commentHead
+                            a.commentThumb(href='#')
+                                img(src='../img/steak.jpg', alt='Avatar')
+                            span.commentName 이준희
+                        .col-xs-12
+                            p.commentContents 야 여기 괜찮대 밥 한 번 쏴
+                        .col-xs-12.pull-right
+                            p.commentDetail
+                                | 2017.10.18 
+                                button.submitReply 답글달기
+                                button
+                                    span.glyphicon.glyphicon-thumbs-up(aria-hidden='true')
+                                    | 10
+                                button 신고
+                    .col-xs-11.col-xs-offset-1
+                        .col-xs-12.commentHead
+                            a.commentThumb(href='#')
+                                span.arrowKKY
+                                img(src='../img/steak.jpg', alt='Avatar')
+                            span.commentName 이준희
+                        .col-xs-12
+                            p.commentContents 저번에 여친이랑 다녀왔어. 담에 같이 가자 ! 괜찮더라.
+                        .col-xs-12
+                            p.commentDetail
+                                | 2017.10.18 
+                                button.submitReply 답글달기
+                                button
+                                    span.glyphicon.glyphicon-thumbs-up(aria-hidden='true')
+                                    | 10
+                                button 신고
+                        button.btn.btn-success.btn-sm(style='float: right; border: none; background: none; color: green; font-weight: bold;')
+                            | 접기
+                            i.fa.fa-angle-double-up
                 .col-xs-12.col-sm-12.col-md-12.col-lg-12.menu-container.purchase-btn
+                    br
                     button.btn.btn-warning.col-xs-6.col-sm-6.col-md-6.col-lg-6 판매자 즐겨찾기
                     button.btn.btn-success.col-xs-6.col-sm-6.col-md-6.col-lg-6 구매
                 .col-xs-12.col-sm-12.col-md-12.col-lg-12.myhr
                     br
-
         script(src='../Js/Map.js')
         script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
         script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
         script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyC9QRgBKIct09-0nMzhZyX5EMldShSzZy4&callback=myMap')
         script(src='../Js/TopMenu.js')
         script(src='../Js/ImgSlider.js')
+        script(src='../Js/Location_KSW.js')
